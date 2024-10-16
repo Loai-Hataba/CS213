@@ -159,7 +159,7 @@ int main() {
     vector<Polynomial> polynomials = {
     // Example 1: Quadratic Polynomial (Degree 2)
     Polynomial ({1, 3, 4}),  // Represents 4x^2 + 3x + 1
-    Polynomial ({1, 3, 4}), // its negative
+    Polynomial ({-1, -3, -4}), // its negative
     // Example 2: Cubic Polynomial (Degree 3)
     Polynomial ({-7, 3, -5, 2}),  // Represents 2x^3 - 5x^2 + 3x - 7
     // Example 3: Quartic Polynomial (Degree 4)
