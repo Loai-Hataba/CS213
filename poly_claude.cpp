@@ -177,13 +177,13 @@ int main() {
     Polynomial p1, p2, result;
 
     while (true) {
-        cout << "\n--- Polynomial Menu ---\n";
+        cout << "\nPolynomial Operations Menu:\n";
         cout << "1. Add two polynomials\n";
         cout << "2. Subtract two polynomials\n";
         cout << "3. Multiply two polynomials\n";
         cout << "4. Evaluate polynomial\n";
-        cout << "5. Get polynomial derivative\n";
-        cout << "6. Get polynomial integral\n";
+        cout << "5. Find derivative of a polynomial\n";
+        cout << "5. Find integral of a polynomial\n";
         cout << "7. Compute definite integral\n";
         cout << "8. Get polynomial degree\n";
         cout << "9. Set polynomial coefficients\n";
@@ -191,11 +191,12 @@ int main() {
         cout << "11. Compare two polynomials for equality\n";
         cout << "12. Display polynomial\n";
         cout << "13. Compose two polynomials\n";
-        cout << "14. Exit\n";
+        cout << "14. Find a root of polynomial\n";
+        cout << "15. Exit\n";
         cout << "Enter your choice: ";
         cin >> choice;
 
-        if (choice == 14) break;
+        if (choice == 15) break;
 
         switch(choice) {
             case 1: case 2: case 3: case 13: { // Addition, Subtraction, Multiplication, Composition
@@ -280,6 +281,22 @@ int main() {
                 cout << "Enter polynomial:\n";
                 p1 = inputPolynomial();
                 cout << "Polynomial: " << p1 << endl;
+                break;
+            }
+
+            case 14: { // Find root of polynomial
+                cout << "Enter polynomial:\n";
+                p1 = inputPolynomial();
+                double guess, tolerance;
+                int maxIter;
+                cout << "Enter initial guess: ";
+                cin >> guess;
+                cout << "Enter tolerance: ";
+                cin >> tolerance;
+                cout << "Enter maximum iterations: ";
+                cin >> maxIter;
+                double root = p1.getRoot(guess, tolerance, maxIter);
+                cout << "Approximate root: " << root << endl;
                 break;
             }
 
