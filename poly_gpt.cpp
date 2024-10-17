@@ -1,5 +1,6 @@
 #include "Polynomial.h"
 #include <iostream> 
+#include <chrono>
 
 using namespace std;
 
@@ -146,187 +147,328 @@ Polynomial Polynomial::compose(const Polynomial& q) const {
 }
 
 
-// Function to display the available polynomials
-void displayPolynomials(const vector<Polynomial>& polynomials) {
-    for (size_t i = 0; i < polynomials.size(); ++i) {
-        cout << "Polynomial " << i + 1 << ": " << polynomials[i] << endl;
-    }
+
+
+void displayPolynomialMenu() {
+    cout << "\n--- Polynomial Menu ---\n";
+    cout << "1. Add two polynomials\n";
+    cout << "2. Subtract two polynomials\n";
+    cout << "3. Multiply two polynomials\n";
+    cout << "4. Evaluate polynomial\n";
+    cout << "5. Get polynomial derivative\n";
+    cout << "6. Get polynomial integral\n";
+    cout << "7. Compute definite integral\n";
+    cout << "8. Get polynomial degree\n";
+    cout << "9. Set polynomial coefficients\n";
+    cout << "10. Get polynomial coefficients\n";
+    cout << "11. Compare two polynomials for equality\n";
+    cout << "12. Display polynomial\n";
+    cout << "13. Compose two polynomials\n";
+    cout << "14. Get root using Newton's method\n"; // Added menu option
+    cout << "15. Exit\n"; // Updated exit option
 }
 
+vector<double> inputCoefficients() {
+    int degree;
+    cout << "Enter the degree of the polynomial: ";
+    cin >> degree;
 
+    vector<double> coefficients(degree + 1);
+    cout << "Enter coefficients (constant term first): ";
+    for (int i = 0; i <= degree; ++i) {
+        cin >> coefficients[i];
+    }
+    return coefficients;
+}
 
 int main() {
-    vector<Polynomial> polynomials = {
-    // Example 1: Quadratic Polynomial (Degree 2)
-    Polynomial ({1, 3, 4}),  // Represents 4x^2 + 3x + 1
-    Polynomial ({-1, -3, -4}), // its negative
-    // Example 2: Cubic Polynomial (Degree 3)
-    Polynomial ({-7, 3, -5, 2}),  // Represents 2x^3 - 5x^2 + 3x - 7
-    // Example 3: Quartic Polynomial (Degree 4)
-    Polynomial ({4, -1, 0, 2, 1}),  // Represents x^4 + 2x^3 - x + 4
-    // Example 4: Polynomial with Zero Coefficients
-    Polynomial ({7, 0, -3, 0, 1, 0}),  // Represents x^5 - 3x^2 + 7
-    // Example 5: Negative Coefficients
-    Polynomial ({-8, 5, -1, -2}),  // Represents -2x^3 - x^2 + 5x - 8
-    // Example 6: High Degree Polynomial (Degree 7)
-    Polynomial ({9, -1, 7, 0, 0, -4, 2, 3}),  // Represents 3x^7 + 2x^6 - 4x^5 + 7x^2 - x + 9
-    // Example 7: Zero Polynomial (All Coefficients Zero)
-    Polynomial ({0}),  // Represents 0
-    Polynomial ({0, 0, 0}),
-    // Example 8: Polynomial with Fractions (Rational Coefficients)
-    Polynomial ({5.0/6, -3.0/4, 1.0/2}),  // Represents (1/2)x^2 - (3/4)x + 5/6
-    // Example 9: Quadratic Polynomial with Complex Roots (Imaginary Solutions)
-    Polynomial ({1, 0, 1}),  // Represents x^2 + 1 (Roots: i, -i)
-    // Example 10: Quadratic Polynomial with Complex Roots
-    Polynomial ({1, -2, 5})  // Represents x^2 - 2x + 5 (Roots: 1 + 2i, 1 - 2i)
-    };
-
-
     int choice;
     do {
-        cout << "\n--- Polynomial Menu ---\n";
-        cout << "1. Add two polynomials\n";
-        cout << "2. Subtract two polynomials\n";
-        cout << "3. Multiply two polynomials\n";
-        cout << "4. Evaluate polynomial\n";
-        cout << "5. Get polynomial derivative\n";
-        cout << "6. Get polynomial integral\n";
-        cout << "7. Compute definite integral\n";
-        cout << "8. Get polynomial degree\n";
-        cout << "9. Set polynomial coefficients\n";
-        cout << "10. Get polynomial coefficients\n";
-        cout << "11. Compare two polynomials for equality\n";
-        cout << "12. Display polynomial\n";
-        cout << "13. Compose two polynomials\n";
-        cout << "14. Exit\n";
+        displayPolynomialMenu();
         cout << "Enter your choice: ";
         cin >> choice;
-
-        int pIndex1, pIndex2;
-        displayPolynomials(polynomials);
 
         switch (choice) {
             case 1: {
                 // Addition
-                cout << "Choose two polynomials to add (enter indices 1-10): ";
-                cin >> pIndex1 >> pIndex2;
-                Polynomial result = polynomials[pIndex1 - 1] + polynomials[pIndex2 - 1];
+                cout << "Input coefficients for the first polynomial:\n";
+                Polynomial p1(inputCoefficients());
+
+                cout << "Input coefficients for the second polynomial:\n";
+                Polynomial p2(inputCoefficients());
+
+                // Start timing
+                auto start = chrono::high_resolution_clock::now();
+
+                // Perform the addition
+                Polynomial result = p1 + p2;
+
+                // End timing
+                auto end = chrono::high_resolution_clock::now();
+                auto duration = chrono::duration_cast<chrono::microseconds>(end - start);
                 cout << "Result of addition: " << result << endl;
+                cout << "Time taken for addition: " << duration.count() << " microseconds" << endl;
                 break;
             }
             case 2: {
                 // Subtraction
-                cout << "Choose two polynomials to subtract (enter indices 1-10): ";
-                cin >> pIndex1 >> pIndex2;
-                Polynomial result = polynomials[pIndex1 - 1] - polynomials[pIndex2 - 1];
+                cout << "Input coefficients for the first polynomial:\n";
+                Polynomial p1(inputCoefficients());
+
+                cout << "Input coefficients for the second polynomial:\n";
+                Polynomial p2(inputCoefficients());
+
+                // Start timing
+                auto start = chrono::high_resolution_clock::now();
+
+                // Perform the subtraction
+                Polynomial result = p1 - p2;
+
+                // End timing
+                auto end = chrono::high_resolution_clock::now();
+                auto duration = chrono::duration_cast<chrono::microseconds>(end - start);
                 cout << "Result of subtraction: " << result << endl;
+                cout << "Time taken for subtraction: " << duration.count() << " microseconds" << endl;
                 break;
             }
             case 3: {
                 // Multiplication
-                cout << "Choose two polynomials to multiply (enter indices 1-10): ";
-                cin >> pIndex1 >> pIndex2;
-                Polynomial result = polynomials[pIndex1 - 1] * polynomials[pIndex2 - 1];
+                cout << "Input coefficients for the first polynomial:\n";
+                Polynomial p1(inputCoefficients());
+
+                cout << "Input coefficients for the second polynomial:\n";
+                Polynomial p2(inputCoefficients());
+
+                // Start timing
+                auto start = chrono::high_resolution_clock::now();
+
+                // Perform the multiplication
+                Polynomial result = p1 * p2;
+
+                // End timing
+                auto end = chrono::high_resolution_clock::now();
+                auto duration = chrono::duration_cast<chrono::microseconds>(end - start);
                 cout << "Result of multiplication: " << result << endl;
+                cout << "Time taken for multiplication: " << duration.count() << " microseconds" << endl;
                 break;
             }
             case 4: {
                 // Evaluation
+                cout << "Input coefficients for the polynomial:\n";
+                Polynomial p(inputCoefficients());
+                
                 double x;
-                cout << "Choose a polynomial to evaluate (enter index 1-10): ";
-                cin >> pIndex1;
                 cout << "Enter value of x: ";
                 cin >> x;
-                cout << "Polynomial evaluated at " << x << ": " << polynomials[pIndex1 - 1].evaluate(x) << endl;
+
+                // Start timing
+                auto start = chrono::high_resolution_clock::now();
+
+                // Perform the evaluation
+                double result = p.evaluate(x);
+
+                // End timing
+                auto end = chrono::high_resolution_clock::now();
+                auto duration = chrono::duration_cast<chrono::microseconds>(end - start);
+                cout << "Polynomial evaluated at " << x << ": " << result << endl;
+                cout << "Time taken for evaluation: " << duration.count() << " microseconds" << endl;
                 break;
             }
             case 5: {
                 // Derivative
-                cout << "Choose a polynomial to differentiate (enter index 1-10): ";
-                cin >> pIndex1;
-                Polynomial deriv = polynomials[pIndex1 - 1].derivative();
+                cout << "Input coefficients for the polynomial:\n";
+                Polynomial p(inputCoefficients());
+
+                // Start timing
+                auto start = chrono::high_resolution_clock::now();
+
+                // Compute the derivative
+                Polynomial deriv = p.derivative();
+
+                // End timing
+                auto end = chrono::high_resolution_clock::now();
+                auto duration = chrono::duration_cast<chrono::microseconds>(end - start);
                 cout << "Derivative: " << deriv << endl;
+                cout << "Time taken for derivative: " << duration.count() << " microseconds" << endl;
                 break;
             }
             case 6: {
                 // Indefinite integral
-                cout << "Choose a polynomial to integrate (enter index 1-10): ";
-                cin >> pIndex1;
-                Polynomial integ = polynomials[pIndex1 - 1].integral();
+                cout << "Input coefficients for the polynomial:\n";
+                Polynomial p(inputCoefficients());
+
+                // Start timing
+                auto start = chrono::high_resolution_clock::now();
+
+                // Compute the integral
+                Polynomial integ = p.integral();
+
+                // End timing
+                auto end = chrono::high_resolution_clock::now();
+                auto duration = chrono::duration_cast<chrono::microseconds>(end - start);
                 cout << "Integral: " << integ << endl;
+                cout << "Time taken for integral: " << duration.count() << " microseconds" << endl;
                 break;
             }
             case 7: {
                 // Definite integral
+                cout << "Input coefficients for the polynomial:\n";
+                Polynomial p(inputCoefficients());
+                
                 double x1, x2;
-                cout << "Choose a polynomial to integrate (enter index 1-10): ";
-                cin >> pIndex1;
                 cout << "Enter lower limit of integration: ";
                 cin >> x1;
                 cout << "Enter upper limit of integration: ";
                 cin >> x2;
-                cout << "Definite integral from " << x1 << " to " << x2 << ": " << polynomials[pIndex1 - 1].integral(x1, x2) << endl;
+
+                // Start timing
+                auto start = chrono::high_resolution_clock::now();
+
+                // Compute the definite integral
+                double result = p.integral(x1, x2);
+
+                // End timing
+                auto end = chrono::high_resolution_clock::now();
+                auto duration = chrono::duration_cast<chrono::microseconds>(end - start);
+                cout << "Definite integral from " << x1 << " to " << x2 << ": " << result << endl;
+                cout << "Time taken for definite integral: " << duration.count() << " microseconds" << endl;
                 break;
             }
             case 8: {
                 // Degree
-                cout << "Choose a polynomial to get its degree (enter index 1-10): ";
-                cin >> pIndex1;
-                cout << "Degree of polynomial: " << polynomials[pIndex1 - 1].degree() << endl;
+                cout << "Input coefficients for the polynomial:\n";
+                Polynomial p(inputCoefficients());
+
+                // Start timing
+                auto start = chrono::high_resolution_clock::now();
+
+                // Get the degree
+                int degree = p.degree();
+
+                // End timing
+                auto end = chrono::high_resolution_clock::now();
+                auto duration = chrono::duration_cast<chrono::microseconds>(end - start);
+                cout << "Degree of polynomial: " << degree << endl;
+                cout << "Time taken to get degree: " << duration.count() << " microseconds" << endl;
                 break;
             }
             case 9: {
                 // Set coefficients
-                vector<double> newCoeffs;
-                int degree;
-                cout << "Choose a polynomial to modify (enter index 1-10): ";
-                cin >> pIndex1;
-                cout << "Enter degree of polynomial: ";
-                cin >> degree;
-                newCoeffs.resize(degree + 1);
-                cout << "Enter coefficients (constant term first): ";
-                for (int i = 0; i <= degree; ++i) {
-                    cin >> newCoeffs[i];
-                }
-                polynomials[pIndex1 - 1].setCoefficients(newCoeffs);
+                cout << "Input coefficients for the polynomial:\n";
+                Polynomial p(inputCoefficients());
+                cout << "Setting new coefficients for this polynomial.\n";
+                p.setCoefficients(inputCoefficients());
+                cout << "Coefficients set successfully.\n";
                 break;
             }
             case 10: {
-                // Get coefficients
+                // Get coefficient
+                cout << "Input coefficients for the polynomial:\n";
+                Polynomial p(inputCoefficients());
                 int degree;
-                cout << "Choose a polynomial to get its coefficient (enter index 1-10): ";
-                cin >> pIndex1;
                 cout << "Enter degree to get coefficient: ";
                 cin >> degree;
-                cout << "Coefficient of degree " << degree << ": " << polynomials[pIndex1 - 1].getCoefficient(degree) << endl;
+
+                // Start timing
+                auto start = chrono::high_resolution_clock::now();
+
+                // Get coefficient
+                double coeff = p.getCoefficient(degree);
+
+                // End timing
+                auto end = chrono::high_resolution_clock::now();
+                auto duration = chrono::duration_cast<chrono::microseconds>(end - start);
+                cout << "Coefficient of degree " << degree << ": " << coeff << endl;
+                cout << "Time taken to get coefficient: " << duration.count() << " microseconds" << endl;
                 break;
             }
             case 11: {
-                // Equality check
-                cout << "Choose two polynomials to compare for equality (enter indices 1-10): ";
-                cin >> pIndex1 >> pIndex2;
-                if (polynomials[pIndex1 - 1] == polynomials[pIndex2 - 1])
-                    cout << "Polynomials are equal.\n";
-                else
-                    cout << "Polynomials are not equal.\n";
+                // Compare equality
+                cout << "Input coefficients for the first polynomial:\n";
+                Polynomial p1(inputCoefficients());
+
+                cout << "Input coefficients for the second polynomial:\n";
+                Polynomial p2(inputCoefficients());
+
+                // Start timing
+                auto start = chrono::high_resolution_clock::now();
+
+                // Compare equality
+                bool equal = (p1 == p2);
+
+                // End timing
+                auto end = chrono::high_resolution_clock::now();
+                auto duration = chrono::duration_cast<chrono::microseconds>(end - start);
+                cout << "Polynomials are " << (equal ? "equal" : "not equal") << endl;
+                cout << "Time taken for comparison: " << duration.count() << " microseconds" << endl;
                 break;
             }
             case 12: {
                 // Display polynomial
-                cout << "Choose a polynomial to display (enter index 1-10): ";
-                cin >> pIndex1;
-                cout << "Polynomial: " << polynomials[pIndex1 - 1] << endl;
+                cout << "Input coefficients for the polynomial:\n";
+                Polynomial p(inputCoefficients());
+
+                // Start timing
+                auto start = chrono::high_resolution_clock::now();
+
+                // Display the polynomial
+                cout << p << endl;
+
+                // End timing
+                auto end = chrono::high_resolution_clock::now();
+                auto duration = chrono::duration_cast<chrono::microseconds>(end - start);
+                cout << "Time taken to display polynomial: " << duration.count() << " microseconds" << endl;
                 break;
             }
             case 13: {
-                // Compose
-                cout << "Choose two polynomials to compose (enter indices 1-10): ";
-                cin >> pIndex1 >> pIndex2;
-                Polynomial composed = polynomials[pIndex1 - 1].compose(polynomials[pIndex2 - 1]);
-                cout << "Composed polynomial: " << composed << endl;
+                // Compose two polynomials
+                cout << "Input coefficients for the first polynomial:\n";
+                Polynomial p1(inputCoefficients());
+
+                cout << "Input coefficients for the second polynomial:\n";
+                Polynomial p2(inputCoefficients());
+
+                // Start timing
+                auto start = chrono::high_resolution_clock::now();
+
+                // Compose the polynomials
+                Polynomial result = p1.compose(p2);
+
+                // End timing
+                auto end = chrono::high_resolution_clock::now();
+                auto duration = chrono::duration_cast<chrono::microseconds>(end - start);
+                cout << "Composition result: " << result << endl;
+                cout << "Time taken for composition: " << duration.count() << " microseconds" << endl;
                 break;
             }
-            case 14: {
+            case 14: { // Case for getting the root using Newton's method
+                cout << "Input coefficients for the polynomial:\n";
+                Polynomial p(inputCoefficients());
+
+                double guess, tolerance;
+                int maxIter;
+
+                cout << "Enter initial guess for the root: ";
+                cin >> guess;
+                cout << "Enter tolerance: ";
+                cin >> tolerance;
+                cout << "Enter maximum iterations: ";
+                cin >> maxIter;
+
+                // Start timing
+                auto start = chrono::high_resolution_clock::now();
+
+                // Find the root using Newton's method
+                double root = p.getRoot(guess, tolerance, maxIter);
+
+                // End timing
+                auto end = chrono::high_resolution_clock::now();
+                auto duration = chrono::duration_cast<chrono::microseconds>(end - start);
+                cout << "Root found: " << root << endl;
+                cout << "Time taken to find root: " << duration.count() << " microseconds" << endl;
+                break;
+            }
+            case 15: { // Update exit case number
                 // Exit
                 cout << "Exiting...\n";
                 break;
@@ -334,9 +476,10 @@ int main() {
             default:
                 cout << "Invalid choice, please try again.\n";
         }
-    } while (choice != 14);
+    } while (choice != 15); // Update loop condition to match exit case number
 
     return 0;
+}
 
     // Polynomial sum = p1 + p2;
     // Polynomial difference = p1- p2;
@@ -349,4 +492,123 @@ int main() {
     // double x = 2.5;
     // cout << "p1 evaluated at x = " << x << ": " << p1.evaluate(x) << endl;
     // cout << "p2 evaluated at x = " << x << ": " << p2.evaluate(x) << endl;
-}
+
+
+
+
+// int main() {
+//     vector<Polynomial> polynomials = {
+//         Polynomial({1, 3, 4}),  // Example polynomials
+//         Polynomial({-1, -3, -4}),
+//         Polynomial({-7, 3, -5, 2}),
+//         Polynomial({4, -1, 0, 2, 1}),
+//         Polynomial({7, 0, -3, 0, 1, 0}),
+//         Polynomial({-8, 5, -1, -2}),
+//         Polynomial({9, -1, 7, 0, 0, -4, 2, 3}),
+//         Polynomial({0}),
+//         Polynomial({0, 0, 0}),
+//         Polynomial({5.0/6, -3.0/4, 1.0/2}),
+//         Polynomial({1, 0, 1}),
+//         Polynomial({1, -2, 5})
+//     };
+
+//     int choice;
+//     do {
+//         cout << "\n--- Polynomial Menu ---\n";
+//         cout << "1. Add two polynomials\n";
+//         cout << "2. Subtract two polynomials\n";
+//         cout << "3. Multiply two polynomials\n";
+//         cout << "4. Evaluate polynomial\n";
+//         cout << "5. Get polynomial derivative\n";
+//         cout << "6. Get polynomial integral\n";
+//         cout << "7. Compute definite integral\n";
+//         cout << "8. Get polynomial degree\n";
+//         cout << "9. Set polynomial coefficients\n";
+//         cout << "10. Get polynomial coefficients\n";
+//         cout << "11. Compare two polynomials for equality\n";
+//         cout << "12. Display polynomial\n";
+//         cout << "13. Compose two polynomials\n";
+//         cout << "14. Exit\n";
+//         cout << "Enter your choice: ";
+//         cin >> choice;
+
+//         int pIndex1, pIndex2;
+//         displayPolynomials(polynomials);  // Display current polynomials
+
+
+//         switch (choice) {
+//             case 1: {
+//                 // Addition
+//                 cout << "Choose two polynomials to add (enter indices 1-12): ";
+//                 cin >> pIndex1 >> pIndex2;
+//                 Polynomial result = polynomials[pIndex1 - 1] + polynomials[pIndex2 - 1];
+//                 cout << "Result of addition: " << result << endl;
+//                 break;
+//             }
+//             case 2: {
+//                 // Subtraction
+//                 cout << "Choose two polynomials to subtract (enter indices 1-12): ";
+//                 cin >> pIndex1 >> pIndex2;
+//                 Polynomial result = polynomials[pIndex1 - 1] - polynomials[pIndex2 - 1];
+//                 cout << "Result of subtraction: " << result << endl;
+//                 break;
+//             }
+//             case 3: {
+//                 // Multiplication
+//                 cout << "Choose two polynomials to multiply (enter indices 1-12): ";
+//                 cin >> pIndex1 >> pIndex2;
+//                 Polynomial result = polynomials[pIndex1 - 1] * polynomials[pIndex2 - 1];
+//                 cout << "Result of multiplication: " << result << endl;
+//                 break;
+//             }
+//             case 4: {
+//                 // Evaluation
+//                 double x;
+//                 cout << "Choose a polynomial to evaluate (enter index 1-12): ";
+//                 cin >> pIndex1;
+//                 cout << "Enter value of x: ";
+//                 cin >> x;
+//                 double result = polynomials[pIndex1 - 1].evaluate(x);
+//                 cout << "Polynomial evaluated at " << x << ": " << result << endl;
+//                 break;
+//             }
+//             case 5: {
+//                 // Derivative
+//                 cout << "Choose a polynomial to differentiate (enter index 1-12): ";
+//                 cin >> pIndex1;
+//                 Polynomial deriv = polynomials[pIndex1 - 1].derivative();
+//                 cout << "Derivative: " << deriv << endl;
+//                 break;
+//             }
+//             case 6: {
+//                 // Indefinite Integral
+//                 cout << "Choose a polynomial to integrate (enter index 1-12): ";
+//                 cin >> pIndex1;
+//                 Polynomial integ = polynomials[pIndex1 - 1].integral();
+//                 cout << "Integral: " << integ << endl;
+//                 break;
+//             }
+//             case 7: {
+//                 // Definite Integral
+//                 double x1, x2;
+//                 cout << "Choose a polynomial to integrate (enter index 1-12): ";
+//                 cin >> pIndex1;
+//                 cout << "Enter lower limit of integration: ";
+//                 cin >> x1;
+//                 cout << "Enter upper limit of integration: ";
+//                 cin >> x2;
+//                 double result = polynomials[pIndex1 - 1].integral(x1, x2);
+//                 cout << "Definite integral from " << x1 << " to " << x2 << ": " << result << endl;
+//                 break;
+//             }
+//             // Other cases would follow a similar structure
+//             case 14:
+//                 cout << "Exiting...\n";
+//                 break;
+//             default:
+//                 cout << "Invalid choice, please try again.\n";
+//         }
+//     } while (choice != 14);
+
+//     return 0;
+// }
