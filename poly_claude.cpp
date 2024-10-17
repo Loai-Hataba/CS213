@@ -130,20 +130,59 @@ double Polynomial::integral(double x1, double x2) const {
     return antiderivative.evaluate(x2) - antiderivative.evaluate(x1);
 }
 
-double Polynomial::getRoot(double guess, double tolerance, int maxIter) {
-    double x = guess;
-    for (int i = 0; i < maxIter; ++i) {
-        double fx = evaluate(x);
-        if (abs(fx) < tolerance) {
-            return x;
+vector<double> Polynomial::getRoot(double tolerance, int maxIter) const {
+    vector<double> roots;
+    Polynomial derivative = this->derivative();
+
+    // Helper function to check if a root is unique (not already in the roots vector)
+    auto isUniqueRoot = [&](double root) {
+        for (double r : roots) {
+            if (abs(r - root) < tolerance) {
+                return false;
+            }
         }
-        double dfx = derivative().evaluate(x);
-        if (dfx == 0) {
-            throw runtime_error("Derivative is zero. Cannot continue.");
+        return true;
+    };
+
+    // Helper function for Newton's method
+    auto newtonMethod = [&](double guess) {
+        double x = guess;
+        for (int i = 0; i < maxIter; ++i) {
+            double fx = this->evaluate(x);
+            if (abs(fx) < tolerance) {
+                return make_pair(true, x);
+            }
+            double dfx = derivative.evaluate(x);
+            if (dfx == 0) {
+                return make_pair(false, x);
+            }
+            x = x - fx / dfx;
         }
-        x = x - fx / dfx;
+        return make_pair(false, x);
+    };
+
+    // Try to find roots starting from different initial guesses
+    vector<double> initialGuesses = {-10, -1, 0, 1, 10};
+    for (double guess : initialGuesses) {
+        auto [found, root] = newtonMethod(guess);
+        if (found && isUniqueRoot(root)) {
+            roots.push_back(root);
+        }
     }
-    throw runtime_error("Root finding did not converge.");
+
+    // If no roots found, try random guesses
+    if (roots.empty()) {
+        srand(time(nullptr));
+        for (int i = 0; i < 10; ++i) {
+            double randomGuess = (rand() / double(RAND_MAX)) * 20 - 10;  // Random number between -10 and 10
+            auto [found, root] = newtonMethod(randomGuess);
+            if (found && isUniqueRoot(root)) {
+                roots.push_back(root);
+            }
+        }
+    }
+
+    return roots;
 }
 
 void Polynomial::setCoefficients(const vector<double>& coefficients) {
@@ -284,19 +323,18 @@ int main() {
                 break;
             }
 
-            case 14: { // Find root of polynomial
+            case 14: { // Find roots of polynomial
                 cout << "Enter polynomial:\n";
                 p1 = inputPolynomial();
-                double guess, tolerance;
-                int maxIter;
-                cout << "Enter initial guess: ";
-                cin >> guess;
-                cout << "Enter tolerance: ";
-                cin >> tolerance;
-                cout << "Enter maximum iterations: ";
-                cin >> maxIter;
-                double root = p1.getRoot(guess, tolerance, maxIter);
-                cout << "Approximate root: " << root << endl;
+                vector<double> roots = p1.getRoot();
+                if (roots.empty()) {
+                    cout << "No roots found.\n";
+                } else {
+                    cout << "Roots found:\n";
+                    for (double root : roots) {
+                        cout << root << "\n";
+                    }
+                }
                 break;
             }
 
