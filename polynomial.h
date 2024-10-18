@@ -32,10 +32,10 @@ Polynomial compose(const Polynomial& q) const; // Composition
 Polynomial derivative() const; // Derivative of the polynomial
 Polynomial integral() const; // Return a polynomial of integration
 double integral(double x1, double x2) const; // Intergate from x1 to x2
-double getRoot(double guess=1, double tolerance=1e-6, int maxIter=100);
-void setCoefficients(const vector<double>& coefficients);
-// Set coefficients
-double getCoefficient(int degree) const;
+// get roots of the polynomial
+double getRoot(double guess = 1.0, double tolerance = 1e-6, int maxIter = 100);
 // Get coefficient of a specific degree
+double getCoefficient(int degree) const;
+ void setCoefficients(const std::vector<double>& coefficients);
 };
  #endif // POLYNOMIAL_H
