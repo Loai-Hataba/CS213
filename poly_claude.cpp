@@ -130,7 +130,7 @@ double Polynomial::integral(double x1, double x2) const {
     return antiderivative.evaluate(x2) - antiderivative.evaluate(x1);
 }
 
-vector<double> Polynomial::getRoot(double tolerance, int maxIter) const {
+double Polynomial::getRoot(double guess, double tolerance, int maxIter) {
     vector<double> roots;
     Polynomial derivative = this->derivative();
 
@@ -145,8 +145,7 @@ vector<double> Polynomial::getRoot(double tolerance, int maxIter) const {
     };
 
     // Helper function for Newton's method
-    auto newtonMethod = [&](double guess) {
-        double x = guess;
+    auto newtonMethod = [&](double x) {
         for (int i = 0; i < maxIter; ++i) {
             double fx = this->evaluate(x);
             if (abs(fx) < tolerance) {
@@ -162,9 +161,9 @@ vector<double> Polynomial::getRoot(double tolerance, int maxIter) const {
     };
 
     // Try to find roots starting from different initial guesses
-    vector<double> initialGuesses = {-10, -1, 0, 1, 10};
-    for (double guess : initialGuesses) {
-        auto [found, root] = newtonMethod(guess);
+    vector<double> initialGuesses = {guess, -10, -1, 0, 1, 10};
+    for (double initialGuess : initialGuesses) {
+        auto [found, root] = newtonMethod(initialGuess);
         if (found && isUniqueRoot(root)) {
             roots.push_back(root);
         }
@@ -182,7 +181,18 @@ vector<double> Polynomial::getRoot(double tolerance, int maxIter) const {
         }
     }
 
-    return roots;
+    // Output all found roots
+    if (roots.empty()) {
+        cout << "No roots found." << endl;
+    } else {
+        cout << "Roots found:" << endl;
+        for (double root : roots) {
+            cout << root << endl;
+        }
+    }
+
+    // Return the first root found (or NaN if no roots were found)
+    return roots.empty() ? numeric_limits<double>::quiet_NaN() : roots[0];
 }
 
 void Polynomial::setCoefficients(const vector<double>& coefficients) {
@@ -326,14 +336,12 @@ int main() {
             case 14: { // Find roots of polynomial
                 cout << "Enter polynomial:\n";
                 p1 = inputPolynomial();
-                vector<double> roots = p1.getRoot();
-                if (roots.empty()) {
+                double firstRoot = p1.getRoot();
+                // Note: The getRoot function now prints all roots internally
+                if (isnan(firstRoot)) {
                     cout << "No roots found.\n";
                 } else {
-                    cout << "Roots found:\n";
-                    for (double root : roots) {
-                        cout << root << "\n";
-                    }
+                    cout << "First root: " << firstRoot << endl;
                 }
                 break;
             }
