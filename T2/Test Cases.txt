@@ -1,0 +1,914 @@
+### Test Cases for Polynomial Class
+
+#### Test Case 1
+- Description: Composing polynomials.
+- Polynomials:
+  - p1(x) = x^2 - 1
+  - p2(x) = x^3 - 1
+- Operation: p2(p1)
+- Expected Result: x^6 - 3x^4 + 3x^2 - 2
+
+#### Test Case 2
+- Description: Adding polynomials.
+- Polynomials:
+  - p1(x) = x
+  - p2(x) = x^3 - 1
+- Operation: p1 + p2
+- Expected Result: x^3 + x - 1
+
+#### Test Case 3
+- Description: Subtracting polynomials.
+- Polynomials:
+  - p1(x) = x^2 + x
+  - p2(x) = x^3 - 2
+- Operation: p1 - p2
+- Expected Result: -x^3 + x^2 + x + 2
+
+#### Test Case 4
+- Description: Multiplying polynomials.
+- Polynomials:
+  - p1(x) = x^3 + 1
+  - p2(x) = x^5 - 1
+- Operation: p1 * p2
+- Expected Result: x^8 - x^3 - 1
+
+#### Test Case 5
+- Description: Evaluating a polynomial at a given point.
+- Polynomial: p(x) = x^2 + 2x - 1
+- Point: x = 3
+- Expected Result: 14
+
+#### Test Case 6
+- Description: Finding the indefinite integral of a polynomial.
+- Polynomial: p(x) = x^2 + 2x - 1
+- Expected Result: (1/3)x^3 + x^2 - x + C
+
+#### Test Case 7
+- Description: Finding the definite integral of a polynomial.
+- Polynomial: p(x) = x^2 + 2x - 1
+- Integral Bounds: [0, 9]
+- Expected Result: 315
+
+#### Test Case 8
+- Description: Finding the derivative of a polynomial.
+- Polynomial: p(x) = x
+- Expected Result: 0
+
+#### Test Case 9
+- Description: Finding the indefinite integral of a polynomial.
+- Polynomial: p(x) = x
+- Expected Result: (1/2)x^2 + C
+
+#### Test Case 10
+- Description: Evaluating a polynomial at a given point.
+- Polynomial: p(x) = x^5 + x^3 - x
+- Point: x = 2
+- Expected Result: 38
+
+#### Test Case 11
+- Description: Finding the derivative of a polynomial.
+- Polynomial: p(x) = x^5 + x^3 - x
+- Expected Result: 5x^4 + 3x^2 - 1
+
+#### Test Case 12
+- Description: Finding the indefinite integral of a polynomial.
+- Polynomial: p(x) = x^5 + x^3 - x
+- Expected Result: (1/6)x^6 + (1/4)x^4 - (1/2)x^2 + C
+
+#### Test Case 13
+- Description: Evaluating a polynomial at a given point.
+- Polynomial: p(x) = x^8 - x^6 + x^4 - x^2
+- Point: x = 3
+- Expected Result: 5904
+
+#### Test Case 14
+- Description: Finding the derivative of a polynomial.
+- Polynomial: p(x) = x^8 - x^6 + x^4 - x^2
+- Expected Result: 8x^7 - 6x^5 + 4x^3 - 2
+
+#### Test Case 15
+- Description: Finding the second derivative of a polynomial.
+- Polynomial: p(x) = x^8 - x^6 + x^4 - x^2
+- Expected Result: 56x^6 - 30x^4 + 12x^2 - 2
+
+#### Test Case 16
+- Description: Evaluating a polynomial at a given point.
+- Polynomial: p(x) = x^8 - x^6 + x^4 - x^2
+- Point: x = 10
+- Expected Result: 99009900
+
+#### Test Case 17
+- Description: Evaluating a polynomial at a given point.
+- Polynomial: p(x) = 5x^3 - 3x^2 + x - 1
+- Point: x = 0
+- Expected Result: -1
+
+#### Test Case 18
+- Description: Finding the derivative of a polynomial.
+- Polynomial: p(x) = 5x^4 - 3x^2 + x - 1
+- Expected Result: 20x^3 - 6x + 1
+
+#### Test Case 19
+- Description: Finding the indefinite integral of a polynomial.
+- Polynomial: p(x) = 5x^4 - 3x^2 + x - 1
+- Expected Result: x^5 - x^3 + (1/2)x^2 - x + C
+
+#### Test Case 20
+- Description: Definite integral of a polynomial from 0 to 2.
+- Polynomial: p(x) = 5x^4 - 3x^2 + x - 1
+- Integral Bounds: [0, 2]
+- Expected Result: 24
+
+#### Test Case 21
+1. Description: Evaluate a polynomial at x = -1.
+   - Polynomial: P(x) = 3x^2 + 4x + 5
+   - Expected Result: 4
+
+2. Description: Find the derivative of P(x).
+   - Polynomial: P(x) = 3x^2 + 4x + 5
+   - Expected Result: 6x + 4
+
+3. Description: Compute the definite integral from 0 to 2.
+   - Polynomial: P(x) = 3x^2 + 4x + 5
+   - Expected Result: 26
+
+#### Test Case 22
+1. Description: Evaluate a polynomial at x = 30.
+   - Polynomial: P(x) = x^6 + 3x^4 - 2x^2 + 1
+   - Expected Result: 731428201
+
+2. Description: Find the derivative of P(x).
+   - Polynomial: P(x) = x^6 + 3x^4 - 2x^2 + 1
+   - Expected Result: 6x^5 + 12x^3 - 4x
+
+#### Test Case 23
+1. Description: Evaluate a polynomial with square roots at x = √2.
+   - Polynomial: P(x) = (√10/3)x^4 + (√6/3)x^3 + (√3/2)
+   - Expected Result: (√10 + 10√3)/3
+
+2. Description: Find the second derivative of P(x).
+   - Expected Result: 6√3x + 2√6x^2
+
+#### Test Case 24
+- Description: Compute the indefinite and definite integral of a polynomial.
+- Polynomial: P(x) = (√10/3)x^4 + (√6/3)x^3 + (√3/2)
+- Definite Integral Bounds: [√3, √10]
+- Expected Result: Indefinite integral is (1/5)x^5 + (1/4)x^4 + C, definite integral ≈ 72.15514444
+
+#### Test Case 25
+- Description: Indefinite and definite integral of a fractional polynomial.
+- Polynomial: P(x) = (2/3)x^4 + (5/4)x^3 + (1/2)x^2 + 1
+- Definite Integral Bounds: [0.5, 2.5]
+- Expected Result: 10337/640
+
+#### Test Case 26
+- Description: Product and integral of polynomials with square roots.
+- Polynomial 1: p1(x) = (√3/3)x^8 + (√10/5)x^6 + 3x
+- Polynomial 2: p2(x) = (√6/4)x^4 - (√3/2)x
+- Expected Result: Definite integral ≈ 117614.7595
+
+#### Test Case 27
+- Description: Find root of a polynomial using Newton's method.
+- Polynomial: P(x) = x^2 - 1
+- Root approximation near x = 2
+- Expected Result: Root near 1, P(root) ≈ 0
+
+#### Test Case 28
+- Description: Find the root of a polynomial with complex roots (x^2 + 1).
+- Polynomial: P(x) = x^2 + 1
+- Expected Result: No real root, return NaN
+
+#### Test Case 29
+- Description: Find the root of a polynomial with no real roots.
+- Polynomial: P(x) = x^2 - 2x + 5
+- Expected Result: No real root, return NaN
+
+#### Test Case 30
+- Description: Basic operations on constant polynomials and evaluation.
+- Polynomials:
+  - p1(x) = -9
+  - p2(x) = 12
+- Operations:
+  1. **Indefinite Integral of p1(x)**:
+     - Expected Result: P(x) = -9x + C (Integral of constant is the constant multiplied by x)
+  
+  2. **Subtraction of p1 and p2**:
+     - Operation: p1 - p2
+     - Expected Result: -9 - 12 = -21
+  
+  3. **Multiplication of p1 and p2**:
+     - Operation: p1 * p2
+     - Expected Result: -9 * 12 = -108
+  
+  4. **Derivative of p1(x)**:
+     - Expected Result: Derivative of a constant is 0
+  
+  5. **Evaluate p1 at x = 2**:
+     - Operation: p1(2) = -9
+     - Expected Result: -9 (since p1(x) is constant)
+  
+  6. **Definite integral of p1 from 0 to 1**:
+     - Operation: Integral of p1(x) from 0 to 1
+     - Expected Result: Integral(-9) from 0 to 1 = -9 * (1 - 0) = -9
+#### Test Case 31
+- Description: Basic operations on constant polynomials.
+- Polynomials:
+  - p1(x) = 5
+  - p2(x) = 1
+- Operations:
+  1. **Sum of p1 and p2**:
+     - Expected Result: 6
+  2. **Subtraction of p2 from p1**:
+     - Expected Result: 4
+  3. **Product of p1 and p2**:
+     - Expected Result: 5
+  4. **Degree of p1**:
+     - Expected Result: 0
+  5. **Evaluation of p1 at x = 2**:
+     - Expected Result: 5
+  6. **Derivative of p1**:
+     - Expected Result: 0
+  7. **Indefinite integral of p1**:
+     - Expected Result: 5x
+  8. **Definite integral of p1 from 0 to 1**:
+     - Expected Result: 5
+  9. **Root of p1 using Newton's method**:
+     - Expected Result: NaN (no real root)
+
+#### Test Case 32
+- Description: Derivative and evaluation of a large polynomial.
+- Polynomial: p1(x) = -1x^10 - 10x^9 + 10x^8 - x^7 + 2x^6 - 3x^5 + 13x^4 + 5x^3 - 4x^2 + 13x + 13
+- Operations:
+  1. **Derivative of p1**:
+     - Expected Result: -10x^9 + 20x^8 - 7x^7 + 12x^6 - 15x^5 + 52x^4 + 35x^3 - 32x^2 + 117x + 130
+  2. **Evaluation of p1 at x = 2**:
+     - Expected Result: 20363
+
+#### Test Case 33
+- Description: Integral of a large polynomial and definite integral from 0 to 1.
+- Polynomial: p1(x) = -1x^10 - 10x^9 + 10x^8 - x^7 + 2x^6 - 3x^5 + 13x^4 + 5x^3 - 4x^2 + 13x + 13
+- Operations:
+  1. **Indefinite integral of p1**:
+     - Expected Result: 0 - x^11/11 - x^10 - (5/3)x^9 + (10/4)x^8 - (1/5)x^7 + (2/6)x^6 - (3/7)x^5 + (13/8)x^4 + (5/9)x^3 - (4/10)x^2 + (13/11)x + C
+  2. **Definite integral of p1 from 0 to 1**:
+     - Expected Result: 41659/27720
+
+#### Test Case 34
+- Description: Subtraction of polynomials and definite integral from 0 to 1.
+- Polynomial 1: p1(x) = 12x^8 - 10x^7 + x^6 + x^5 + 10x^4 - 12x^3 - 6x^2 - 9x - 6
+- Polynomial 2: p2(x) = -2x^8 + 3x^7 + 2x^6 - x^5 - 6x^4 + 8x^3 + 12x^2 - x - 6
+- Operations:
+  1. **Subtraction of p2 from p1**:
+     - Expected Result: 14x^8 - 13x^7 - x^6 + 2x^5 + 16x^4 - 20x^3 - 18x^2 - 8x + 0
+  2. **Definite integral of p1 from 0 to 1**:
+     - Expected Result: -367/28
+
+#### Test Case 35
+- Description: Finding roots of a high-degree polynomial.
+- Polynomial: p1(x) = -4x^10 - 4x^9 + 9x^8 - 6x^7 + 7x^6 - 9x^5 + 6x^4 - 11x^3 + 8x^2 - x - 11
+- Operations:
+  1. **Find root near x = -2.41489 using Newton's method**:
+     - Expected Result: Root ≈ -2.41489316821433
+  2. **Find root near x = -0.66301 using Newton's method**:
+     - Expected Result: Root ≈ -0.663011179796566
+
+#### Test Case 36
+- Description: Product of polynomials and evaluation at x = 2.
+- Polynomial 1: p1(x) = -x^7 + 6x^6 - 8x^5 + 10x^4 - 2x^3 + 6x^2 + 9x - 4
+- Polynomial 2: p2(x) = -14x^7 + 7x^6 + 4x^5 + 7x^4 - 10x^3 + 8x^2 + 15x
+- Operations:
+  1. **Product of p1 and p2**:
+     - Expected Result: 14x^14 + 63x^13 - 60x^12 + 47x^11 + 90x^10 - 84x^9 - 310x^8 - 29x^7 - 73x^6 + 52x^5 - 37x^4 - 72x^3 + 222x^2 + 90x + 135
+  2. **Evaluation of p1 at x = 2**:
+     - Expected Result: 1775
+
+#### Test Case 37
+- Description: Subtraction of polynomials and definite integral.
+- Polynomial 1: p1(x) = -x^7 + 6x^6 - 8x^5 + 10x^4 - 2x^3 + 6x^2 + 9x - 4
+- Polynomial 2: p2(x) = -14x^7 + 7x^6 + 4x^5 + 7x^4 - 10x^3 + 8x^2 + 15x
+- Operations:
+  1. **Subtraction of p2 from p1**:
+     - Expected Result: 13x^7 - x^6 - 12x^5 + 15x^4 - 8x^3 - 9x - 6
+  2. **Definite integral of p1 from 0 to 1**:
+     - Expected Result: 209/840
+
+#### Test Case 38
+- Description: Derivative of a polynomial and checking the degree.
+- Polynomial: p1(x) = -x^7 + 6x^6 - 8x^5 + 10x^4 - 2x^3 + 6x^2 + 9x - 4
+- Operations:
+  1. **Derivative of p1**:
+     - Expected Result: -7x^6 + 36x^5 - 40x^4 + 40x^3 - 6x^2 + 12x + 9
+  2. **Degree of p1**:
+     - Expected Result: 7
+
+#### Test Case 39
+- Description: Sum of two polynomials and checking the degree.
+- Polynomial 1: p1(x) = -13x^10 + 12x^9 + 15x^8 + 5x^7 + 12x^6 - 2x^5 + 13x^4 - 10x^3 + 2x^2 + 12x + 15
+- Polynomial 2: p2(x) = -12x^10 - 14x^9 - 10x^8 - 2x^7 + x^6 - 3x^5 + 14x^4 + x^3 - 8x^2 - 10x - 11
+- Operations:
+  1. **Sum of p1 and p2**:
+     - Expected Result: -25x^10 - 2x^9 + 5x^8 + 3x^7 + 13x^6 - 5x^5 + 27x^4 - 9x^3 - 6x^2 + 2x + 4
+  2. **Degree of p1**:
+     - Expected Result: 10
+
+#### Test Case 40
+- Description: Product of two polynomials, definite integral, and evaluation at x = 2.
+- Polynomial 1: p1(x) = -13x^10 + 12x^9 + 15x^8 + 5x^7 + 12x^6 - 2x^5 + 13x^4 - 10x^3 + 2x^2 + 12x + 15
+- Polynomial 2: p2(x) = -12x^10 - 14x^9 - 10x^8 - 2x^7 + x^6 - 3x^5 + 14x^4 + x^3 - 8x^2 - 10x - 11
+- Operations:
+  1. **Product of p1 and p2**:
+     - Expected Result: 156x^20 + 38x^19 - 218x^18 - 364x^17 - 401x^16 - 173x^15 - 461x^14 + 49x^13 + 313x^12 - 17x^11 - 253x^10 - 721x^9 - 273x^8 - 310x^7 - 219x^6 + 97x^5 + 163x^4 + 9x^3 - 262x^2 - 282x - 165
+  2. **Definite integral of p1 from 0 to 1**:
+     - Expected Result: 16319/3465
+  3. **Evaluation of p1 at x = 2**:
+     - Expected Result: 21807
+#### Test Case 41
+- Description: Derivative and integral of a large polynomial.
+- Polynomial: p1(x) = 15x^10 + 12x^9 + 2x^8 - 10x^7 + 13x^6 - 2x^5 + 12x^4 + 5x^3 - 11x^2 + 12x - 13
+- Operations:
+  1. **Indefinite integral of p1**:
+     - Expected Result: (1/11)x^11 + (6)x^10 + (5/4)x^9 + (12/5)x^8 - (1/3)x^7 + (13/7)x^6 - (5/4)x^5 + (2/9)x^4 + (6/5)x^3 + 15/11*x^2 + C
+  2. **Derivative of p1**:
+     - Expected Result: 150x^9 + 108x^8 + 16x^7 - 70x^6 + 78x^5 - 10x^4 + 48x^3 + 30x^2 + 12x + 12
+
+#### Test Case 42
+- Description: Polynomial addition, subtraction, multiplication, evaluation, derivative, and definite integral.
+- Polynomials:
+  - poly1(x) = -8x^5 + 4x^4 + 10x^3 + 4x + 10
+  - poly2(x) = -14x^5 + 11x^4 + x^3 + 8x^2 + 15x + 12
+- Operations:
+  1. **Addition**:
+     - Expected Result: -22x^5 + 15x^4 + 11x^3 + 8x^2 + 19x + 22
+  2. **Subtraction**:
+     - Expected Result: 6x^5 - 7x^4 + 9x^3 - 8x^2 - 11x - 2
+  3. **Multiplication**:
+     - Expected Result: 112x^10 - 144x^9 - 104x^8 + 50x^7 - 134x^6 - 52x^5 + 312x^4 + 162x^3 + 140x^2 + 198x + 120
+  4. **Evaluation at x = 2**:
+     - Expected Result: -94
+  5. **Derivative**:
+     - Expected Result: -40x^4 + 16x^3 + 30x^2 + 16
+  6. **Indefinite integral**:
+     - Expected Result: 5x^6 + (4/5)x^5 + (5/2)x^4 + 2x^3 + 10x + C
+  7. **Definite integral from 0 to 1**:
+     - Expected Result: 419/30
+
+#### Test Case 43
+- Description: Polynomial addition, subtraction, multiplication, and evaluation at x=2.
+- Polynomials:
+  - poly1(x) = 14x^7 - x^6 + 14x^5 - 9x^4 - 12x^3 - 11x^2 + 15x - 11
+  - poly2(x) = -11x^7 + 13x^6 + 2x^5 + 13x^4 + 6x^3 - 11x^2 + 9x - 13
+- Operations:
+  1. **Addition**:
+     - Expected Result: 3x^7 + 12x^6 + 16x^5 + 4x^4 - 6x^3 - 22x^2 + 24x - 24
+  2. **Subtraction**:
+     - Expected Result: 25x^7 - 14x^6 + 12x^5 - 22x^4 - 18x^3 + 0x^2 + 6x + 2
+  3. **Multiplication**:
+     - Expected Result: 143x^14 - 294x^13 + 399x^12 - 174x^11 + 77x^10 + ...
+  4. **Evaluation at x = 2**:
+     - Expected Result: 1911
+
+#### Test Case 44
+- Description: Polynomial addition, subtraction, multiplication, and evaluation at x=2.
+- Same polynomials as **Test Case 43**.
+- Operations:
+  1. **Addition**:
+     - Expected Result: -24x^7 + 12x^6 + 9x^5 + 4x^4 - 13x^3 - 13x^2 + 14x - 4
+  2. **Subtraction**:
+     - Expected Result: 8x^7 - 17x^6 - 16x^5 + x^4 + 12x^3 + 9x^2 - 3x - 16
+  3. **Multiplication**:
+     - Expected Result: Same as **Test Case 43**
+  4. **Evaluation at x = 2**:
+     - Expected Result: 1911
+
+#### Test Case 45
+- Description: Evaluate polynomial and test product of two polynomials.
+- Polynomials:
+  - p1(x) = -6x^8 + 4x^7 + 8x^6 - 3x^5 + 14x^4 - 11x^3 + 15x^2 - x + 10
+  - p2(x) = -10x^8 + 4x^7 + 5x^6 - 14x^5 + 9x^4 - 8x^3 - 7x^2 + 12
+- Operations:
+  1. **Evaluation of p1 at x = 2**:
+     - Expected Result: -404
+  2. **Product of p1 and p2**:
+     - Expected Result: Polynomial with coefficients: [-100, -70, -92, ...]
+
+#### Test Case 46
+- Description: Integral of polynomials and finding real roots.
+- Polynomials:
+  - p1(x) = -6x^8 + 4x^7 + 8x^6 - 3x^5 + 14x^4 - 11x^3 + 15x^2 - x + 10
+- Operations:
+  1. **Indefinite integral**:
+     - Expected Result: (1/9)x^9 + (4/8)x^8 + (1/7)x^7 + (8/6)x^6 + (14/5)x^5 + (14/5)x^4 + ...
+  2. **Real roots of p1**:
+     - Expected Result: [-1.583, 1.719]
+
+#### Test Case 47
+- Description: Polynomial subtraction and definite integral.
+- Polynomial: p1(x) = 10x^7 + 7x^6 - 12x^5 + 3x^4 - 6x^3 + 9x^2 - 14x + 13
+- Operations:
+  1. **Subtraction**:
+     - Expected Result: Coefficients: [-11, 22, -20, ...]
+  2. **Definite integral from 0 to 1**:
+     - Expected Result: -4433/420
+
+#### Test Case 48
+- Description: Derivative and evaluation at x = 2.
+- Polynomial: p1(x) = 10x^7 + 7x^6 - 12x^5 + 3x^4 - 6x^3 + 9x^2 - 14x + 13
+- Operations:
+  1. **Derivative**:
+     - Expected Result: Coefficients: [60, 42, -60, ...]
+  2. **Evaluation at x = 2**:
+     - Expected Result: 676
+
+#### Test Case 49
+- Description: Polynomial addition and integral.
+- Polynomials:
+  - p1(x) = 13x^9 + 2x^8 - 13x^7 + 8x^6 - 7x^5 + 3x^4 + 10
+  - p2(x) = -10x^9 + 12x^8 - 7x^7 + 2x^6 + 13x^5
+- Operations:
+  1. **Addition**:
+     - Expected Result: Coefficients: [11, 1, 2, -21, ...]
+  2. **Definite integral of p1 from 0 to 1**:
+     - Expected Result: 34241/2520
+
+#### Test Case 50
+- Description: Integral and real roots.
+- Polynomial: p1(x) = 13x^9 + 2x^8 - 13x^7 + 8x^6 - 7x^5 + 3x^4 + 10
+- Operations:
+  1. **Indefinite integral**:
+     - Expected Result: Coefficients: [0, 13, (1/4)x^9, ...]
+  2. **Definite integral of p1 from 0 to 1**:
+     - Expected Result: 34241/2520
+  3. **Real roots of p1**:
+     - Expected Result: [-1.379]
+#### Test Case 51
+- Description: Polynomial product and evaluation.
+- Polynomials:
+  - p1(x) = 11x^5 - 10x^4 - 7x^3 - 11x^2 + 0x - 13
+  - p2(x) = -14x^5 - 2x^4 - 2x^3 - 6x^2 + 4x
+- Operations:
+  1. **Product of p1 and p2**:
+     - Expected Result: -52x^10 + 78x^9 + 34x^8 + 64x^7 + 94x^6 + 350x^5 + 30x^4 + 122x^3 + 96x^2 + 118x - 154
+  2. **Evaluation of p1 at x = 2**:
+     - Expected Result: 79
+
+#### Test Case 52
+- Description: Polynomial integral and finding real roots.
+- Polynomial:
+  - p1(x) = 11x^5 - 10x^4 - 7x^3 - 11x^2 + 0x - 13
+- Operations:
+  1. **Indefinite integral**:
+     - Expected Result: (11/6)x^6 - 2x^5 - (7/4)x^4 - (11/3)x^3 - 13x + C
+  2. **Definite integral from 0 to 1**:
+     - Expected Result: -223/12
+  3. **Real root of p1**:
+     - Expected Result: 1.73684576071411
+
+#### Test Case 53
+- Description: Polynomial derivative and evaluation.
+- Polynomial:
+  - p1(x) = -10x^11 + 9x^10 - 7x^9 + 7x^8 - 6x^7 + 15x^6 - 8x^5 - 6x^4 - 1x - 5
+- Operations:
+  1. **Derivative of p1**:
+     - Expected Result: -110x^10 + 90x^9 - 63x^8 + 56x^7 - 42x^6 + 90x^5 - 40x^4 - 24x^3 - 1
+  2. **Evaluation of p1 at x = 2**:
+     - Expected Result: -31383
+
+#### Test Case 54
+- Description: Polynomial integral and finding real roots.
+- Polynomial:
+  - p1(x) = -10x^11 + 9x^10 - 7x^9 + 7x^8 - 6x^7 + 15x^6 - 8x^5 - 6x^4 - 1x - 5
+- Operations:
+  1. **Indefinite integral**:
+     - Expected Result: -x^12/12 + (9/11)x^11 - (7/10)x^10 + (7/9)x^9 - (6/8)x^8 + (15/7)x^7 - (8/6)x^6 - (6/5)x^5 - x^2/2 - 5x + C
+  2. **Evaluation of p1 at x = 2**:
+     - Expected Result: -31383
+  3. **Definite integral from 0 to 1**:
+     - Expected Result: -235469/27720
+  4. **Real root of p1**:
+     - Expected Result: -2.13178791593010
+
+#### Test Case 55
+- Description: Polynomial operations (integral, subtraction, product, derivative, evaluation).
+- Polynomials:
+  - p1(x) = 11x^2 + 8x - 4
+  - p2(x) = 15x^2 + 4x - 4
+- Operations:
+  1. **Indefinite integral of p1**:
+     - Expected Result: (11/3)x^3 + 4x^2 - 4x + C
+  2. **Subtraction of p2 from p1**:
+     - Expected Result: -4x^2 + 4x
+  3. **Product of p1 and p2**:
+     - Expected Result: 165x^4 + 164x^3 - 72x^2 - 48x + 16
+  4. **Derivative of p1**:
+     - Expected Result: 22x + 8
+  5. **Evaluation of p1 at x = 2**:
+     - Expected Result: 56
+  6. **Definite integral of p1 from 0 to 1**:
+     - Expected Result: 11/3
+  7. **Real roots of p1**:
+     - Expected Result: -1.06781515385589, 0.340542426583167
+
+#### Test Case 56
+- Description: Finding roots of a high-degree polynomial using Newton's method.
+- Polynomial:
+  - p1(x) = 13x^9 + 5x^8 - 4x^7 + 13x^6 + 10x^5 - 3x^4 + 2x^3 - x^2 - 10x - 1
+- Operations:
+  1. **Root near x = -0.1**:
+     - Expected Result: -0.0915290543036897
+  2. **Root near x = 0.7**:
+     - Expected Result: 0.727055676529518
+
+#### Test Case 57
+- Description: Finding roots of a 6th-degree polynomial.
+- Polynomial:
+  - p1(x) = 6x^6 + 10x^5 - 2x^4 - 8x^3 + 6x^2 - 4x - 1
+- Operations:
+  1. **Root near x = -1.0**:
+     - Expected Result: -1.03819717707786
+  2. **Root near x = -0.2**:
+     - Expected Result: -0.186199186330593
+  3. **Root near x = 0.7**:
+     - Expected Result: 0.749600188448983
+
+#### Test Case 58
+- Description: Finding roots of a 6th-degree polynomial.
+- Same polynomial and operations as **Test Case 57**.
+
+#### Test Case 59
+- Description: Finding roots of an 8th-degree polynomial.
+- Polynomial:
+  - p1(x) = 10x^8 + 4x^7 + 8x^6 - 3x^5 + 14x^4 - 11x^3 + 15x^2 - x - 6
+- Operations:
+  1. **Root near x = -1.5**:
+     - Expected Result: -1.58327556220727
+  2. **Root near x = 1.7**:
+     - Expected Result: 1.71953761729611
+
+#### Test Case 60
+- Description: Finding roots of a quadratic polynomial.
+- Polynomial:
+  - p1(x) = 11x^2 + 8x - 4
+- Operations:
+  1. **Root near x = -1.0**:
+     - Expected Result: -1.06781515385589
+  2. **Root near x = 0.5**:
+     - Expected Result: 0.340542426583167
+#### Test Case 61
+- Description: Test for polynomial with no real roots.
+- Polynomial: p1(x) = x^4 + 2x^3 + 5x^2 + 6x + 10
+- Operations:
+  1. **Get root using Newton's method**:
+     - Expected Result: No real roots, so root = NaN
+
+#### Test Case 62
+- Description: Test for a 6th-degree polynomial with no real roots.
+- Polynomial: p1(x) = 2x^6 + 3x^5 + 4x^4 + 5x^3 + 6x^2 + 7x + 8
+- Operations:
+  1. **Get root using Newton's method**:
+     - Expected Result: No real roots, so root = NaN
+
+#### Test Case 63
+- Description: Test for a 4th-degree polynomial with no real roots.
+- Polynomial: p1(x) = x^4 + 4x^3 + 6x^2 + 4x + 5
+- Operations:
+  1. **Get root using Newton's method**:
+     - Expected Result: No real roots, so root = NaN
+
+#### Test Case 64
+- Description: Test for a polynomial with some real roots.
+- Polynomial: p1(x) = 3x^5 + 2x^3 + x^2 + 8
+- Operations:
+  1. **Get root using Newton's method**:
+     - Expected Result: Root ≈ -0.86382264
+
+#### Test Case 65
+- Description: Test for a cubic polynomial with a real root.
+- Polynomial: p1(x) = x^3 + 2x^2 + 5x + 10
+- Operations:
+  1. **Get root using Newton's method**:
+     - Expected Result: Root ≈ -0.5
+
+#### Test Case 66
+- Description: Test for a polynomial with irrational coefficients.
+- Polynomial: p1(x) = x^4 + √2x^3 + √3x^2 + √5x + √6
+- Operations:
+  1. **Get root using Newton's method**:
+     - Expected Result: No real roots, so root = NaN
+  2. **Check degree**:
+     - Expected Result: Degree = 4
+  3. **Evaluate at x = 1**:
+     - Expected Result: p1(1) = √6 + √5 + √3 + √2 + 1
+  4. **Check derivative**:
+     - Expected Result: Degree of derivative = 3
+
+#### Test Case 67
+- Description: Test for a 12th-degree polynomial with irrational coefficients.
+- Polynomial: p1(x) = x^12 + √2x^11 + √3x^10 + √4x^9 + √5x^8 + √6x^7 + √7x^6 + √8x^5 + √9x^4 + √10x^3 + √11x^2 + √12x + 1
+- Operations:
+  1. **Get root using Newton's method**:
+     - Expected Result: Root ≈ -2.50562387 or -0.94087713
+  2. **Check degree**:
+     - Expected Result: Degree = 12
+  3. **Evaluate at x = 1**:
+     - Expected Result: p1(1) = 1 + √12 + √11 + √10 + √9 + √8 + √7 + √6 + √5 + √4 + √3 + √2 + 1
+  4. **Check derivative**:
+     - Expected Result: Degree of derivative = 11
+
+#### Test Case 68
+- Description: Test for a 20th-degree polynomial with real roots.
+- Polynomial: p1(x) = -71x^20 + 67x^19 + 61x^18 + 59x^17 - 53x^16 + 47x^15 - 43x^14 + 41x^13 - 37x^12 + 31x^11 - 29x^10 + 23x^9 - 19x^8 + 17x^7 - 13x^6 + 11x^5 - 7x^4 + 5x^3 - 3x^2 + 2x + 1
+- Operations:
+  1. **Get roots using Newton's method**:
+     - Expected Result: Root1 ≈ 1.65737085, Root2 ≈ -0.28384746
+
+#### Test Case 69
+- Description: Test for a 25th-degree polynomial.
+- Polynomial: p1(x) = x^25 - 2x^24 + 3x^23 - 4x^22 + 5x^21 - 6x^20 + 7x^19 - 8x^18 + 9x^17 - 10x^16 + 11x^15 - 12x^14 + 13x^13 - 14x^12 + 15x^11 - 16x^10 + 17x^9 - 18x^8 + 19x^7 - 20x^6 + 21x^5 - 22x^4 + 23x^3 - 24x^2 + 25x - 26
+- Operations:
+  1. **Get root using Newton's method**:
+     - Expected Result: Root ≈ 0.86072381
+#### Test Case 70
+- Description: Test for a 30th-degree polynomial.
+- Polynomial: p1(x) = -31x^30 + 30x^29 - 29x^28 + 28x^27 - 27x^26 + 26x^25 - 25x^24 + 24x^23 - 23x^22 + 22x^21 - 21x^20 + 20x^19 - 19x^18 + 18x^17 - 17x^16 + 16x^15 - 15x^14 + 14x^13 - 13x^12 + 12x^11 - 11x^10 + 10x^9 - 9x^8 + 8x^7 - 7x^6 + 6x^5 - 5x^4 + 4x^3 - 3x^2 + 2x - 1
+- Operations:
+  1. **Get root using Newton's method**:
+     - Expected Result: Root ≈ 0.0
+
+#### Test Case 71
+- Description: Test for a high-degree polynomial with 51 terms.
+- Polynomial: p1(x) = 0 - x + 2x^2 - 3x^3 + 4x^4 - 5x^5 + ... - 51x^50
+- Operations:
+  1. **Get root using Newton's method**:
+     - Expected Result: Root ≈ 0.0
+
+#### Test Case 72
+- Description: Test for a polynomial with irrational coefficients.
+- Polynomial: p1(x) = 3.14 - 1.59x + 2.65x^2 - 3.58x^3 + 9.79x^4 - 2.65x^5 + 3.58x^6 - 9.79x^7 + ... - 5.03x^99
+- Operations:
+  1. **Get root using Newton's method**:
+     - Expected Result: No real roots (Expected NaN)
+
+#### Test Case 73
+- Description: Test for a polynomial with square roots and rational coefficients.
+- Polynomial: p1(x) = x^4 + sqrt(2)x^3 + sqrt(3)/2x^2 + sqrt(5)/4x + 4
+- Operations:
+  1. **Get root using Newton's method**:
+     - Expected Result: No real roots (Expected NaN)
+
+#### Test Case 74
+- Description: Test for a polynomial with square roots and simple coefficients.
+- Polynomial: p1(x) = x^4 + 3x^3 + sqrt(3)/2x^2 + sqrt(5)/4x + 4
+- Operations:
+  1. **Get root using Newton's method**:
+     - Expected Result: Roots ≈ -2.47909554 and -1.51010908
+
+#### Test Case 75
+- Description: Test for a high-degree polynomial with equal coefficients.
+- Polynomial: p1(x) = 1 + x + x^2 + ... + x^1000
+- Operations:
+  1. **Integrate the polynomial**:
+     - Expected Result: Integral = x + x^2/2 + x^3/3 + ... + x^1001/1001
+#### Test Case 76
+- Description: Test for a polynomial with rational and irrational coefficients.
+- Polynomial: p1(x) = 4x^3 + x^2 + 0x + √2
+- Operations:
+  1. **Get root using Newton's method**:
+     - Initial Guess: 1.0
+     - Expected Result: Root ≈ -0.39196193
+  2. **Get second root using Newton's method**:
+     - Initial Guess: -4.0
+     - Expected Result: Root ≈ -3.60803807
+
+#### Test Case 77
+- Description: Test for a quadratic polynomial with irrational coefficients.
+- Polynomial: p1(x) = √2x + 1
+- Operations:
+  1. **Get root using Newton's method**:
+     - Initial Guess: 1.0
+     - Expected Result: Root ≈ -1.41421356
+
+#### Test Case 78
+- Description: Test for a quartic polynomial with an irrational coefficient.
+- Polynomial: p1(x) = √2 + x^3 + 0x^2 + 0x
+- Operations:
+  1. **Get root using Newton's method**:
+     - Initial Guess: 1.0
+     - Expected Result: Root ≈ -1.41421356
+
+#### Test Case 79
+- Description: Test for a polynomial with identical irrational coefficients.
+- Polynomial: p1(x) = √2 + √2x + √2x^2 + √2x^3
+- Operations:
+  1. **Get root using Newton's method**:
+     - Initial Guess: 1.0
+     - Expected Result: Root ≈ -1.00000000
+
+#### Test Case 80
+- Description: Test for a polynomial where the result should be NaN.
+- Polynomial: p1(x) = √4 + 3x + √2x^2 + x + 1
+- Operations:
+  1. **Get root using Newton's method**:
+     - Initial Guess: 1.0
+     - Expected Result: Root = NaN
+
+#### Test Case 81
+- Description: Test for a polynomial of degree 10 with various coefficients.
+- Polynomial: p1(x) = 5x^10 - 7x^9 + 13x^8 + 10x^7 + 2x^6 + 15x^5 - 8x^4 - 3x^3 - 14x^2 - 4x + 10
+- Operations:
+  1. **Get first root using Newton's method**:
+     - Initial Guess: 1.0
+     - Expected Result: Root ≈ -0.79058165
+  2. **Get second root using a different guess**:
+     - Initial Guess: -2.0
+     - Expected Result: Root ≈ -1.04797069
+
+#### Test Case 82
+- Description: Test for a cubic polynomial with mixed coefficients.
+- Polynomial: p1(x) = -7x^3 + 13x^2 - 8x + 8
+- Operations:
+  1. **Get root using Newton's method**:
+     - Initial Guess: 1.0
+     - Expected Result: Root ≈ 1.59038197
+
+#### Test Case 83
+- Description: Test for a complex polynomial with varied coefficients.
+- Polynomial: p1(x) = -13x^9 - 8x^8 + 15x^7 + 6x^6 + 7x^5 - 11x^4 - 4x^3 - 6x^2 - 14x + 1
+- Operations:
+  1. **Get first root using Newton's method**:
+     - Initial Guess: 1.0
+     - Expected Result: Root ≈ -0.85992705
+  2. **Get second root using a different guess**:
+     - Initial Guess: 0.5
+     - Expected Result: Root ≈ 0.06926055
+
+#### Test Case 84
+- Description: Test for a quintic polynomial with varied coefficients.
+- Polynomial: p1(x) = x^5 + 6x^4 - 6x^3 - 9x^2 - 7x - 6
+- Operations:
+  1. **Get first root using Newton's method**:
+     - Initial Guess: -7.0
+     - Expected Result: Root ≈ -6.71416292
+  2. **Get second root using a different guess**:
+     - Initial Guess: 2.0
+     - Expected Result: Root ≈ 1.80907437
+  3. **Get third root using another guess**:
+     - Initial Guess: 0.0
+     - Expected Result: Root ≈ -0.86048584
+
+#### Test Case 85
+- Description: Test for a polynomial with integer coefficients.
+- Polynomial: p1(x) = -5x^8 - 4x^7 - 11x^6 - 5x^5 + 13x^4 + 6x^3 - 8x + 8
+- Operations:
+  1. **Get first root using Newton's method**:
+     - Initial Guess: 1.0
+     - Expected Result: Root ≈ -1.25405831
+  2. **Get second root using a different guess**:
+     - Initial Guess: 0.5
+     - Expected Result: Root ≈ 0.91737553
+
+#### Test Case 86
+- Description: Test for a polynomial of degree 11 with mixed coefficients.
+- Polynomial: p1(x) = 6x^11 - 12x^10 + 9x^9 + 8x^8 - 7x^7 + 11x^6 + 15x^5 - 13x^4 + 7x^3 - 14x^2 + 11x + 2
+- Operations:
+  1. **Get root using Newton's method**:
+     - Initial Guess: 1.0
+     - Expected Result: Root ≈ -0.15023882
+
+#### Test Case 87
+- Description: Test for a polynomial of degree 11 with mixed coefficients.
+- Polynomial: p1(x) = 6x^11 - 12x^10 + 9x^9 + 8x^8 - 7x^7 + 11x^6 + 15x^5 - 13x^4 + 7x^3 - 14x^2 + 11x + 2
+- Operations:
+  1. **Get first root using Newton's method**:
+     - Initial Guess: 1.0
+     - Expected Result: Root ≈ 0.27271081
+  2. **Get second root using a different guess**:
+     - Initial Guess: -1.0
+     - Expected Result: Root ≈ -0.77265566
+
+#### Test Case 88
+- Description: Test for a polynomial with higher degree and varied coefficients.
+- Polynomial: p1(x) = 5x^10 + 8x^9 + 2x^8 + 10x^6 + 10x^5 + 12x^4 + 10x^3 + 11x^2 + 12x - 11
+- Operations:
+  1. **Get first root using Newton's method**:
+     - Initial Guess: 1.0
+     - Expected Result: Root ≈ -1.18719435
+  2. **Get second root using a different guess**:
+     - Initial Guess: 0.5
+     - Expected Result: Root ≈ 0.49405972
+
+#### Test Case 89
+- Description: Test for a polynomial with mixed coefficients.
+- Polynomial: p1(x) = -12x^9 + 4x^8 + 5x^7 + 8x^6 - 14x^5 + 13x^4 - 12x^3 + 12x^2 + 10x + 8
+- Operations:
+  1. **Get root using Newton's method**:
+     - Initial Guess: 1.0
+     - Expected Result: Root ≈ 1.22634169
+
+#### Test Case 90
+- Description: Test for a complex polynomial of degree 9.
+- Polynomial: p1(x) = x^9 + 15x^8 + 6x^7 + 15x^6 - 13x^5 + 5x^4 - 2x^3 + 12x^2 - 2x + 4
+- Operations:
+  1. **Get first root using Newton's method**:
+     - Initial Guess: -15.0
+     - Expected Result: Root ≈ -15.02190185
+  2. **Get second root using a different guess**:
+     - Initial Guess: -1.0
+     - Expected Result: Root ≈ -1.26757023
+
+#### Test Case 91
+- Description: Test for a polynomial with zero coefficients.
+- Polynomial: p1(x) = -1x^9 - 8x^8 - 3x^7 - 9x^6 + 8x^5 - 6x^4 + 15
+- Operations:
+  1. **Get first root using Newton's method**:
+     - Initial Guess: 1.0
+     - Expected Result: Root ≈ -7.76317497
+  2. **Get second root using a different guess**:
+     - Initial Guess: -1.0
+     - Expected Result: Root ≈ -1.0
+  3. **Get third root using another guess**:
+     - Initial Guess: 1.0
+     - Expected Result: Root ≈ 0.96550363
+
+#### Test Case 92
+- Description: Test for a polynomial with various positive and negative coefficients.
+- Polynomial: p1(x) = 8x^10 + 2x^9 - 6x^8 + x^7 - 10x^6 + 9x^5 + 3x^4 + 13x^3 - 5x^2 - 2x + 6
+- Operations:
+  1. **Get first root using Newton's method**:
+     - Initial Guess: 1.0
+     - Expected Result: Root ≈ -1.49960077
+  2. **Get second root using a different guess**:
+     - Initial Guess: 0.0
+     - Expected Result: Root ≈ -0.65517255
+
+#### Test Case 93
+- Description: Test for a polynomial with mixed positive and negative coefficients.
+- Polynomial: p1(x) = -6x^11 + 11x^10 - 2x^9 + 7x^8 + 12x^7 + 2x^6 + 3x^5 - 12x^4 - 11x^3 + 9x^2 + 4x + 6
+- Operations:
+  1. **Get root using Newton's method**:
+     - Initial Guess: 1.0
+     - Expected Result: Root ≈ 2.1388204
+
+#### Test Case 94
+- Description: Test for a polynomial with predominantly negative coefficients.
+- Polynomial: p1(x) = -3x^11 - 4x^10 - 5x^9 - 11x^8 - 4x^7 - 7x^6 - 3x^5 + 5x^4 - 8x^3 - 6x^2 + 6x - 2
+- Operations:
+  1. **Get root using Newton's method**:
+     - Initial Guess: -1.0
+     - Expected Result: Root ≈ -1.56738018
+
+#### Test Case 95
+- Description: Test for a polynomial with a small degree.
+- Polynomial: p1(x) = 11x^3 + 8x^2 - 5x - 10
+- Operations:
+  1. **Get root using Newton's method**:
+     - Initial Guess: 1.0
+     - Expected Result: Root ≈ 0.90002768
+
+#### Test Case 96
+- Description: Test for a complex polynomial of degree 11.
+- Polynomial: p1(x) = 9x^11 - 6x^10 + 13x^9 - 2x^8 + x^7 + 9x^6 - 8x^5 + 13x^4 + 14x^3 + 4x^2 + 7x + 1
+- Operations:
+  1. **Get root using Newton's method**:
+     - Initial Guess: 1.0
+     - Expected Result: Root ≈ -0.15000588
+
+#### Test Case 97
+- Description: Test for a polynomial with a variety of coefficients.
+- Polynomial: p1(x) = -7x^9 + 15x^8 - 7x^7 - 3x^6 - 5x^5 + 13x^4 + 10x^3 - 14x^2 - 14x - 5
+- Operations:
+  1. **Get root using Newton's method**:
+     - Initial Guess: 1.0
+     - Expected Result: Root ≈ -0.70764823
+
+#### Test Case 98
+- Description: Test for a polynomial with multiple significant roots.
+- Polynomial: p1(x) = 5x^9 - 14x^8 - 14x^7 - 6x^6 - 6x^5 - 14x^4 + 12x^3 - 4x^2 - 8x + 12
+- Operations:
+  1. **Get first root using Newton's method**:
+     - Initial Guess: 1.0
+     - Expected Result: Root ≈ 3.68442743
+  2. **Get second root using a different guess**:
+     - Initial Guess: -1.0
+     - Expected Result: Root ≈ -0.86557888
+  3. **Get third root using another guess**:
+     - Initial Guess: 0.5
+     - Expected Result: Root ≈ 0.73331757
+
+#### Test Case 99
+- Description: Test for a cubic polynomial with distinct roots.
+- Polynomial: p1(x) = 3x^2 + x - 8
+- Operations:
+  1. **Get first root using Newton's method**:
+     - Initial Guess: -1.0
+     - Expected Result: Root ≈ -1.80814297
+  2. **Get second root using a different guess**:
+     - Initial Guess: 2.0
+     - Expected Result: Root ≈ 1.47480963
+
+#### Test Case 100
+- Description: Test for a polynomial with negative coefficients.
+- Polynomial: p1(x) = -3x^7 + 2x^6 - 11x^5 + 5x^4 - 13x^3 - 14x^2 - 11x + 5
+- Operations:
+  1. **Get root using Newton's method**:
+     - Initial Guess: 0.5
+     - Expected Result: Root ≈ 0.30451905

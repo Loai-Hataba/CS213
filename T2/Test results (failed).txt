@@ -1,0 +1,728 @@
+[  FAILED  ] 36 tests, listed below:
+[  FAILED  ] PolynomialTest.TestCase29
+[  FAILED  ] PolynomialTest.Test35
+[  FAILED  ] PolynomialTest.Test61
+[  FAILED  ] PolynomialTest.Test62
+[  FAILED  ] PolynomialTest.Test63
+[  FAILED  ] PolynomialTest.Test66
+[  FAILED  ] PolynomialTest.Test67
+[  FAILED  ] PolynomialTest.Test68
+[  FAILED  ] PolynomialTest.Test69
+[  FAILED  ] PolynomialTest.Test70
+[  FAILED  ] PolynomialTest.Test73
+[  FAILED  ] PolynomialTest.Test74
+[  FAILED  ] PolynomialTest.Test76
+[  FAILED  ] PolynomialTest.Test77
+[  FAILED  ] PolynomialTest.Test78
+[  FAILED  ] PolynomialTest.Test80
+[  FAILED  ] PolynomialTest.Test81
+[  FAILED  ] PolynomialTest.Test82
+[  FAILED  ] PolynomialTest.Test83
+[  FAILED  ] PolynomialTest.Test84
+[  FAILED  ] PolynomialTest.Test85
+[  FAILED  ] PolynomialTest.Test86
+[  FAILED  ] PolynomialTest.Test87
+[  FAILED  ] PolynomialTest.Test88
+[  FAILED  ] PolynomialTest.Test89
+[  FAILED  ] PolynomialTest.Test90
+[  FAILED  ] PolynomialTest.Test91
+[  FAILED  ] PolynomialTest.Test92
+[  FAILED  ] PolynomialTest.Test93
+[  FAILED  ] PolynomialTest.Test94
+[  FAILED  ] PolynomialTest.Test95
+[  FAILED  ] PolynomialTest.Test96
+[  FAILED  ] PolynomialTest.Test97
+[  FAILED  ] PolynomialTest.Test98
+[  FAILED  ] PolynomialTest.Test99
+[  FAILED  ] PolynomialTest.Test100
+
+  Actual: false
+Expected: true 29, 
+
+[ RUN      ] PolynomialTest.Test35
+G:\FCAI\A1-T2-TestCases\test.cpp(390): error: The difference between root1 and -2.41489316821433 is 1.7518819883336627, which exceeds tolerance, where
+root1 evaluates to -0.66301117988066749,
+-2.41489316821433 evaluates to -2.4148931682143302, and
+tolerance evaluates to 1.0000000000000001e-05.
+[ RUN      ] PolynomialTest.Test61
+G:\FCAI\A1-T2-TestCases\test.cpp(752): error: Value of: std::isnan(root)
+  Actual: false
+Expected: true
+[  FAILED  ] PolynomialTest.Test61 (1 ms)
+[ RUN      ] PolynomialTest.Test63
+G:\FCAI\A1-T2-TestCases\test.cpp(774): error: Value of: std::isnan(root)
+  Actual: false
+Expected: true
+[ RUN      ] PolynomialTest.Test66
+G:\FCAI\A1-T2-TestCases\test.cpp(811): error: Value of: isnan(root)
+  Actual: false
+Expected: true
+
+[ RUN      ] PolynomialTest.Test67
+G:\FCAI\A1-T2-TestCases\test.cpp(837): error: The difference between root and -2.50562387 is 2.1065216694538975, which exceeds tolerance, where
+root evaluates to -0.39910220054610235,
+-2.50562387 evaluates to -2.50562387, and
+tolerance evaluates to 9.9999999999999995e-07.
+G:\FCAI\A1-T2-TestCases\test.cpp(838): error: The difference between root and -0.94087713 is 0.5417749294538976, which exceeds tolerance, where
+root evaluates to -0.39910220054610235,
+-0.94087713 evaluates to -0.94087712999999995, and
+tolerance evaluates to 9.9999999999999995e-07.
+[  FAILED  ] PolynomialTest.Test67 (3 ms)
+
+[ RUN      ] PolynomialTest.Test68
+G:\FCAI\A1-T2-TestCases\test.cpp(867): error: The difference between root1 and 1.65737085 is 1.0540055869584655, which exceeds tolerance, where
+root1 evaluates to 0.60336526304153448,
+1.65737085 evaluates to 1.65737085, and
+tolerance evaluates to 9.9999999999999995e-08.
+G:\FCAI\A1-T2-TestCases\test.cpp(868): error: The difference between root2 and -0.28384746 is 0.88721272298115728, which exceeds tolerance, where
+root2 evaluates to 0.60336526298115734,
+-0.28384746 evaluates to -0.28384746, and
+tolerance evaluates to 9.9999999999999995e-08.
+[  FAILED  ] PolynomialTest.Test68 (3 ms)
+[ RUN      ] PolynomialTest.Test69
+G:\FCAI\A1-T2-TestCases\test.cpp(883): error: The difference between root1 and 0.86072381 is 0.30108905386498896, which exceeds tolerance, where
+root1 evaluates to 1.1618128638649889,
+0.86072381 evaluates to 0.86072380999999998, and
+tolerance evaluates to 9.9999999999999995e-08.
+[  FAILED  ] PolynomialTest.Test69 (2 ms)
+[ RUN      ] PolynomialTest.Test70
+G:\FCAI\A1-T2-TestCases\test.cpp(898): error: The difference between root1 and 0.0 is 3.3347631320993796, which exceeds tolerance, where
+root1 evaluates to -3.3347631320993796,
+0.0 evaluates to 0, and
+tolerance evaluates to 9.9999999999999995e-08.
+
+[ RUN      ] PolynomialTest.Test73
+G:\FCAI\A1-T2-TestCases\test.cpp(1046): error: Value of: isnan(root)
+  Actual: false
+Expected: true
+[  FAILED  ] PolynomialTest.Test73 (1 ms)
+[ RUN      ] PolynomialTest.Test74
+G:\FCAI\A1-T2-TestCases\test.cpp(1056): error: The difference between root and -2.47909554 is 2.4790956620218916, which exceeds tolerance, where
+root evaluates to 1.2202189173755114e-07,
+-2.47909554 evaluates to -2.4790955399999999, and
+tolerance evaluates to 9.9999999999999995e-07.
+G:\FCAI\A1-T2-TestCases\test.cpp(1057): error: The difference between root and -1.51010908 is 1.5101092020218918, which exceeds tolerance, where
+root evaluates to 1.2202189173755114e-07,
+-1.51010908 evaluates to -1.5101090800000001, and
+tolerance evaluates to 9.9999999999999995e-07.
+[  FAILED  ] PolynomialTest.Test74 (3 ms)
+[ RUN      ] PolynomialTest.Test76
+G:\FCAI\A1-T2-TestCases\test.cpp(1073): error: The difference between root1 and -0.39196193 is 0.39196193006055913, which exceeds tolerance, where
+root1 evaluates to 6.0559102527387256e-11,
+-0.39196193 evaluates to -0.39196193000000001, and
+tolerance evaluates to 9.9999999999999995e-07.
+G:\FCAI\A1-T2-TestCases\test.cpp(1078): error: The difference between root2 and -3.60803807 is 1.0567698832515036, which exceeds tolerance, where
+root2 evaluates to -2.5512681867484965,
+-3.60803807 evaluates to -3.6080380700000001, and
+tolerance evaluates to 9.9999999999999995e-07.
+[  FAILED  ] PolynomialTest.Test76 (3 ms)
+[ RUN      ] PolynomialTest.Test77
+G:\FCAI\A1-T2-TestCases\test.cpp(1089): error: The difference between root and -1.41421356 is 1.4142135861302172, which exceeds tolerance, where
+root evaluates to 2.6130217099936629e-08,
+-1.41421356 evaluates to -1.4142135600000001, and
+tolerance evaluates to 9.9999999999999995e-07.
+[  FAILED  ] PolynomialTest.Test77 (1 ms)
+[ RUN      ] PolynomialTest.Test78
+G:\FCAI\A1-T2-TestCases\test.cpp(1100): error: The difference between root and -1.41421356 is 1.4218840324096451, which exceeds tolerance, where
+root evaluates to 0.0076704724096450568,
+-1.41421356 evaluates to -1.4142135600000001, and
+tolerance evaluates to 9.9999999999999995e-07.
+[  FAILED  ] PolynomialTest.Test78 (1 ms)
+[ RUN      ] PolynomialTest.Test80
+G:\FCAI\A1-T2-TestCases\test.cpp(1122): error: Value of: isnan(root)
+  Actual: false
+Expected: true
+[  FAILED  ] PolynomialTest.Test80 (1 ms)
+
+[ RUN      ] PolynomialTest.Test81
+G:\FCAI\A1-T2-TestCases\test.cpp(1134): error: The difference between root1 and -0.79058165 is 0.47430983704805052, which exceeds tolerance, where
+root1 evaluates to -1.2648914870480505,
+-0.79058165 evaluates to -0.79058165000000002, and
+tolerance evaluates to 9.9999999999999995e-07.
+G:\FCAI\A1-T2-TestCases\test.cpp(1139): error: The difference between root2 and -1.04797069 is 0.21692079654085683, which exceeds tolerance, where
+root2 evaluates to -1.2648914865408569,
+-1.04797069 evaluates to -1.0479706900000001, and
+tolerance evaluates to 9.9999999999999995e-07.
+[  FAILED  ] PolynomialTest.Test81 (3 ms)
+[ RUN      ] PolynomialTest.Test82
+G:\FCAI\A1-T2-TestCases\test.cpp(1150): error: The difference between root and 1.59038197 is 0.96160220735785729, which exceeds tolerance, where
+root evaluates to 0.62877976264214264,
+1.59038197 evaluates to 1.5903819699999999, and
+tolerance evaluates to 9.9999999999999995e-07.
+[  FAILED  ] PolynomialTest.Test82 (1 ms)
+[ RUN      ] PolynomialTest.Test83
+G:\FCAI\A1-T2-TestCases\test.cpp(1163): error: The difference between root1 and -0.85992705 is 0.30296229245128981, which exceeds tolerance, where
+root1 evaluates to -1.1628893424512898,
+-0.85992705 evaluates to -0.85992705000000003, and
+tolerance evaluates to 9.9999999999999995e-07.
+G:\FCAI\A1-T2-TestCases\test.cpp(1168): error: The difference between root2 and 0.06926055 is 0.75158835383172196, which exceeds tolerance, where
+root2 evaluates to -0.68232780383172198,
+0.06926055 evaluates to 0.069260550000000004, and
+tolerance evaluates to 9.9999999999999995e-07.
+[  FAILED  ] PolynomialTest.Test83 (2 ms)
+[ RUN      ] PolynomialTest.Test84
+G:\FCAI\A1-T2-TestCases\test.cpp(1180): error: The difference between root1 and -6.71416292 is 5.5520287511255741, which exceeds tolerance, where
+root1 evaluates to -1.1621341688744258,
+-6.71416292 evaluates to -6.7141629199999997, and
+tolerance evaluates to 9.9999999999999995e-07.
+G:\FCAI\A1-T2-TestCases\test.cpp(1185): error: The difference between root2 and 1.80907437 is 1.2563054969642768, which exceeds tolerance, where
+root2 evaluates to 0.5527688730357232,
+1.80907437 evaluates to 1.80907437, and
+tolerance evaluates to 9.9999999999999995e-07.
+G:\FCAI\A1-T2-TestCases\test.cpp(1190): error: The difference between root3 and -0.86048584 is 0.71154694177051803, which exceeds tolerance, where
+root3 evaluates to -0.14893889822948189,
+-0.86048584 evaluates to -0.86048583999999995, and
+tolerance evaluates to 9.9999999999999995e-07.
+[  FAILED  ] PolynomialTest.Test84 (3 ms)
+[ RUN      ] PolynomialTest.Test85
+G:\FCAI\A1-T2-TestCases\test.cpp(1202): error: The difference between root1 and -1.25405831 is 2.3441244427612782, which exceeds tolerance, where
+root1 evaluates to 1.0900661327612782,
+-1.25405831 evaluates to -1.25405831, and
+tolerance evaluates to 9.9999999999999995e-07.
+G:\FCAI\A1-T2-TestCases\test.cpp(1207): error: The difference between root2 and 0.91737553 is 1.714786618746023, which exceeds tolerance, where
+root2 evaluates to -0.79741108874602296,
+0.91737553 evaluates to 0.91737553000000005, and
+tolerance evaluates to 9.9999999999999995e-07.
+[  FAILED  ] PolynomialTest.Test85 (3 ms)
+[ RUN      ] PolynomialTest.Test86
+G:\FCAI\A1-T2-TestCases\test.cpp(1218): error: The difference between root and -0.15023882 is 6.505830675967359, which exceeds tolerance, where
+root evaluates to -6.6560694959673592,
+-0.15023882 evaluates to -0.15023882, and
+tolerance evaluates to 9.9999999999999995e-07.
+[  FAILED  ] PolynomialTest.Test86 (1 ms)
+[ RUN      ] PolynomialTest.Test87
+G:\FCAI\A1-T2-TestCases\test.cpp(1231): error: The difference between root1 and expectedRoot1 is 6.9287803059673596, which exceeds tolerance, where
+root1 evaluates to -6.6560694959673592,
+expectedRoot1 evaluates to 0.27271081000000003, and
+tolerance evaluates to 9.9999999999999995e-07.
+G:\FCAI\A1-T2-TestCases\test.cpp(1237): error: The difference between root2 and expectedRoot2 is 5.8834138359673593, which exceeds tolerance, where
+root2 evaluates to -6.6560694959673592,
+expectedRoot2 evaluates to -0.77265565999999997, and
+tolerance evaluates to 9.9999999999999995e-07.
+[  FAILED  ] PolynomialTest.Test87 (3 ms)
+[ RUN      ] PolynomialTest.Test88
+G:\FCAI\A1-T2-TestCases\test.cpp(1250): error: The difference between root1 and expectedRoot1 is 0.34487228489763433, which exceeds tolerance, where
+root1 evaluates to -0.84232206510236562,
+expectedRoot1 evaluates to -1.18719435, and
+tolerance evaluates to 9.9999999999999995e-07.
+G:\FCAI\A1-T2-TestCases\test.cpp(1256): error: The difference between root2 and expectedRoot2 is 1.3363817851803055, which exceeds tolerance, where
+root2 evaluates to -0.8423220651803055,
+expectedRoot2 evaluates to 0.49405971999999998, and
+tolerance evaluates to 9.9999999999999995e-07.
+[  FAILED  ] PolynomialTest.Test88 (2 ms)
+[ RUN      ] PolynomialTest.Test89
+G:\FCAI\A1-T2-TestCases\test.cpp(1267): error: The difference between root and 1.22634169 is 0.41090827008780562, which exceeds tolerance, where
+root evaluates to 0.81543341991219431,
+1.22634169 evaluates to 1.2263416899999999, and
+tolerance evaluates to 9.9999999999999995e-07.
+[  FAILED  ] PolynomialTest.Test89 (1 ms)
+[ RUN      ] PolynomialTest.Test90
+G:\FCAI\A1-T2-TestCases\test.cpp(1279): error: The difference between root1 and expectedRoot1 is 14.23299092608471, which exceeds tolerance, where
+root1 evaluates to -0.78891092391529039,
+expectedRoot1 evaluates to -15.021901850000001, and
+tolerance evaluates to 9.9999999999999995e-07.
+G:\FCAI\A1-T2-TestCases\test.cpp(1285): error: The difference between root2 and expectedRoot2 is 0.47865930257911304, which exceeds tolerance, where
+root2 evaluates to -0.78891092742088698,
+expectedRoot2 evaluates to -1.26757023, and
+tolerance evaluates to 9.9999999999999995e-07.
+[  FAILED  ] PolynomialTest.Test90 (2 ms)
+[ RUN      ] PolynomialTest.Test91
+G:\FCAI\A1-T2-TestCases\test.cpp(1298): error: The difference between root1 and expectedRoot1 is 8.798903855126424, which exceeds tolerance, where
+root1 evaluates to 1.0357288851264246,
+expectedRoot1 evaluates to -7.7631749699999997, and
+tolerance evaluates to 9.9999999999999995e-07.
+G:\FCAI\A1-T2-TestCases\test.cpp(1310): error: The difference between root3 and expectedRoot3 is 0.070225255126424635, which exceeds tolerance, where
+root3 evaluates to 1.0357288851264246,
+expectedRoot3 evaluates to 0.96550362999999995, and
+tolerance evaluates to 9.9999999999999995e-07.
+[  FAILED  ] PolynomialTest.Test91 (2 ms)
+[ RUN      ] PolynomialTest.Test92
+G:\FCAI\A1-T2-TestCases\test.cpp(1323): error: The difference between root1 and expectedRoot1 is 0.026714704394017907, which exceeds tolerance, where
+root1 evaluates to -1.5263154743940179,
+expectedRoot1 evaluates to -1.49960077, and
+tolerance evaluates to 9.9999999999999995e-07.
+G:\FCAI\A1-T2-TestCases\test.cpp(1329): error: The difference between root2 and expectedRoot2 is 0.87114292494304457, which exceeds tolerance, where
+root2 evaluates to -1.5263154749430445,
+expectedRoot2 evaluates to -0.65517254999999996, and
+tolerance evaluates to 9.9999999999999995e-07.
+[  FAILED  ] PolynomialTest.Test92 (2 ms)
+[ RUN      ] PolynomialTest.Test93
+G:\FCAI\A1-T2-TestCases\test.cpp(1340): error: The difference between root and 2.1388204 is 1.6712729087597311, which exceeds tolerance, where
+root evaluates to 0.46754749124026912,
+2.1388204 evaluates to 2.1388204000000002, and
+tolerance evaluates to 9.9999999999999995e-07.
+[  FAILED  ] PolynomialTest.Test93 (2 ms)
+[ RUN      ] PolynomialTest.Test94
+G:\FCAI\A1-T2-TestCases\test.cpp(1350): error: The difference between root and -1.56738018 is 0.92937282659589715, which exceeds tolerance, where
+root evaluates to -0.63800735340410286,
+-1.56738018 evaluates to -1.56738018, and
+tolerance evaluates to 9.9999999999999995e-07.
+[  FAILED  ] PolynomialTest.Test94 (1 ms)
+[ RUN      ] PolynomialTest.Test95
+G:\FCAI\A1-T2-TestCases\test.cpp(1360): error: The difference between root and 0.90002768 is 0.21104926298809734, which exceeds tolerance, where
+root evaluates to 1.1110769429880973,
+0.90002768 evaluates to 0.90002768, and
+tolerance evaluates to 9.9999999999999995e-07.
+[  FAILED  ] PolynomialTest.Test95 (1 ms)
+[ RUN      ] PolynomialTest.Test96
+G:\FCAI\A1-T2-TestCases\test.cpp(1370): error: The difference between root and -0.15000588 is 6.5163993549596997, which exceeds tolerance, where
+root evaluates to -6.6664052349596998,
+-0.15000588 evaluates to -0.15000588000000001, and
+tolerance evaluates to 9.9999999999999995e-07.
+[  FAILED  ] PolynomialTest.Test96 (1 ms)
+[ RUN      ] PolynomialTest.Test97
+G:\FCAI\A1-T2-TestCases\test.cpp(1380): error: The difference between root and -0.70764823 is 0.70548326372333903, which exceeds tolerance, where
+root evaluates to -1.413131493723339,
+-0.70764823 evaluates to -0.70764822999999999, and
+tolerance evaluates to 9.9999999999999995e-07.
+[  FAILED  ] PolynomialTest.Test97 (1 ms)
+[ RUN      ] PolynomialTest.Test98
+G:\FCAI\A1-T2-TestCases\test.cpp(1392): error: The difference between root1 and expectedRoot1 is 3.4130148373956977, which exceeds tolerance, where
+root1 evaluates to 0.27141259260430223,
+expectedRoot1 evaluates to 3.6844274299999999, and
+tolerance evaluates to 9.9999999999999995e-07.
+G:\FCAI\A1-T2-TestCases\test.cpp(1398): error: The difference between root2 and expectedRoot2 is 0.28971733551314405, which exceeds tolerance, where
+root2 evaluates to -1.1552962155131441,
+expectedRoot2 evaluates to -0.86557888000000005, and
+tolerance evaluates to 9.9999999999999995e-07.
+G:\FCAI\A1-T2-TestCases\test.cpp(1404): error: The difference between root3 and expectedRoot3 is 0.46190497737364489, which exceeds tolerance, where
+root3 evaluates to 0.27141259262635509,
+expectedRoot3 evaluates to 0.73331756999999997, and
+tolerance evaluates to 9.9999999999999995e-07.
+[  FAILED  ] PolynomialTest.Test98 (4 ms)
+[ RUN      ] PolynomialTest.Test99
+G:\FCAI\A1-T2-TestCases\test.cpp(1417): error: The difference between root1 and expectedRoot1 is 1.2550893565979937, which exceeds tolerance, where
+root1 evaluates to -0.55305361340200621,
+expectedRoot1 evaluates to -1.80814297, and
+tolerance evaluates to 9.9999999999999995e-07.
+G:\FCAI\A1-T2-TestCases\test.cpp(1423): error: The difference between root2 and expectedRoot2 is 0.79675601651029637, which exceeds tolerance, where
+root2 evaluates to 0.67805361348970361,
+expectedRoot2 evaluates to 1.47480963, and
+tolerance evaluates to 9.9999999999999995e-07.
+[  FAILED  ] PolynomialTest.Test99 (2 ms)
+[ RUN      ] PolynomialTest.Test100
+G:\FCAI\A1-T2-TestCases\test.cpp(1434): error: The difference between root and 0.30451905 is 2.979347733994409, which exceeds tolerance, where
+root evaluates to 3.2838667839944091,
+0.30451905 evaluates to 0.30451905000000001, and
+tolerance evaluates to 9.9999999999999995e-07.
+[  FAILED  ] PolynomialTest.Test100 (1 ms)
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Hossam  ---
+
+[  FAILED  ] 30 tests, listed below:
+[  FAILED  ] PolynomialTest.Test35
+[  FAILED  ] PolynomialTest.Test67
+[  FAILED  ] PolynomialTest.Test68
+[  FAILED  ] PolynomialTest.Test69
+[  FAILED  ] PolynomialTest.Test70
+[  FAILED  ] PolynomialTest.Test73
+[  FAILED  ] PolynomialTest.Test74
+[  FAILED  ] PolynomialTest.Test76
+[  FAILED  ] PolynomialTest.Test77
+[  FAILED  ] PolynomialTest.Test78
+[  FAILED  ] PolynomialTest.Test81
+[  FAILED  ] PolynomialTest.Test82
+[  FAILED  ] PolynomialTest.Test83
+[  FAILED  ] PolynomialTest.Test84
+[  FAILED  ] PolynomialTest.Test85
+[  FAILED  ] PolynomialTest.Test86
+[  FAILED  ] PolynomialTest.Test87
+[  FAILED  ] PolynomialTest.Test88
+[  FAILED  ] PolynomialTest.Test89
+[  FAILED  ] PolynomialTest.Test90
+[  FAILED  ] PolynomialTest.Test91
+[  FAILED  ] PolynomialTest.Test92
+[  FAILED  ] PolynomialTest.Test93
+[  FAILED  ] PolynomialTest.Test94
+[  FAILED  ] PolynomialTest.Test95
+[  FAILED  ] PolynomialTest.Test96
+[  FAILED  ] PolynomialTest.Test97
+[  FAILED  ] PolynomialTest.Test98
+[  FAILED  ] PolynomialTest.Test99
+[  FAILED  ] PolynomialTest.Test100
+
+
+[ RUN      ] PolynomialTest.Test35
+Roots found:
+-0.663011
+-2.41489
+G:\FCAI\A1-T2-TestCases\test.cpp(390): error: The difference between root1 and -2.41489316821433 is 1.7518819883336627, which exceeds tolerance, where
+root1 evaluates to -0.66301117988066749,
+-2.41489316821433 evaluates to -2.4148931682143302, and
+tolerance evaluates to 1.0000000000000001e-05.
+Roots found:
+-0.663011
+-2.41489
+[  FAILED  ] PolynomialTest.Test35 (9 ms)
+[ RUN      ] PolynomialTest.Test67
+Roots found:
+-0.399102
+-1.06284
+G:\FCAI\A1-T2-TestCases\test.cpp(837): error: The difference between root and -2.50562387 is 2.1065216694538975, which exceeds tolerance, where
+root evaluates to -0.39910220054610235,
+-2.50562387 evaluates to -2.50562387, and
+tolerance evaluates to 9.9999999999999995e-07.
+G:\FCAI\A1-T2-TestCases\test.cpp(838): error: The difference between root and -0.94087713 is 0.5417749294538976, which exceeds tolerance, where
+root evaluates to -0.39910220054610235,
+-0.94087713 evaluates to -0.94087712999999995, and
+tolerance evaluates to 9.9999999999999995e-07.
+[  FAILED  ] PolynomialTest.Test67 (6 ms)
+[ RUN      ] PolynomialTest.Test68
+Roots found:
+0.603365
+Roots found:
+0.603365
+G:\FCAI\A1-T2-TestCases\test.cpp(867): error: The difference between root1 and 1.65737085 is 1.0540055869584655, which exceeds tolerance, where
+root1 evaluates to 0.60336526304153448,
+1.65737085 evaluates to 1.65737085, and
+tolerance evaluates to 9.9999999999999995e-08.
+G:\FCAI\A1-T2-TestCases\test.cpp(868): error: The difference between root2 and -0.28384746 is 0.88721272298115728, which exceeds tolerance, where
+root2 evaluates to 0.60336526298115734,
+-0.28384746 evaluates to -0.28384746, and
+tolerance evaluates to 9.9999999999999995e-08.
+[  FAILED  ] PolynomialTest.Test68 (7 ms)
+[ RUN      ] PolynomialTest.Test69
+Roots found:
+1.16181
+G:\FCAI\A1-T2-TestCases\test.cpp(883): error: The difference between root1 and 0.86072381 is 0.30108905386498896, which exceeds tolerance, where
+root1 evaluates to 1.1618128638649889,
+0.86072381 evaluates to 0.86072380999999998, and
+tolerance evaluates to 9.9999999999999995e-08.
+[  FAILED  ] PolynomialTest.Test69 (3 ms)
+[ RUN      ] PolynomialTest.Test70
+No roots found.
+G:\FCAI\A1-T2-TestCases\test.cpp(898): error: The difference between root1 and 0.0 is nan, which exceeds tolerance, where
+root1 evaluates to nan,
+0.0 evaluates to 0, and
+tolerance evaluates to 9.9999999999999995e-08.
+[  FAILED  ] PolynomialTest.Test70 (7 ms)
+[ RUN      ] PolynomialTest.Test73
+Roots found:
+1.19747e-09
+G:\FCAI\A1-T2-TestCases\test.cpp(1046): error: Value of: isnan(root)
+  Actual: false
+Expected: true
+[  FAILED  ] PolynomialTest.Test73 (3 ms)
+[ RUN      ] PolynomialTest.Test74
+Roots found:
+1.22022e-07
+-0.662204
+G:\FCAI\A1-T2-TestCases\test.cpp(1056): error: The difference between root and -2.47909554 is 2.4790956620218916, which exceeds tolerance, where
+root evaluates to 1.2202189173755114e-07,
+-2.47909554 evaluates to -2.4790955399999999, and
+tolerance evaluates to 9.9999999999999995e-07.
+G:\FCAI\A1-T2-TestCases\test.cpp(1057): error: The difference between root and -1.51010908 is 1.5101092020218918, which exceeds tolerance, where
+root evaluates to 1.2202189173755114e-07,
+-1.51010908 evaluates to -1.5101090800000001, and
+tolerance evaluates to 9.9999999999999995e-07.
+[  FAILED  ] PolynomialTest.Test74 (4 ms)
+[ RUN      ] PolynomialTest.Test76
+Roots found:
+6.05591e-11
+-2.55127
+-0.277159
+G:\FCAI\A1-T2-TestCases\test.cpp(1073): error: The difference between root1 and -0.39196193 is 0.39196193006055913, which exceeds tolerance, where
+root1 evaluates to 6.0559102527387256e-11,
+-0.39196193 evaluates to -0.39196193000000001, and
+tolerance evaluates to 9.9999999999999995e-07.
+Roots found:
+-2.55127
+-0.277159
+0
+G:\FCAI\A1-T2-TestCases\test.cpp(1078): error: The difference between root2 and -3.60803807 is 1.0567698832515036, which exceeds tolerance, where
+root2 evaluates to -2.5512681867484965,
+-3.60803807 evaluates to -3.6080380700000001, and
+tolerance evaluates to 9.9999999999999995e-07.
+[  FAILED  ] PolynomialTest.Test76 (4 ms)
+[ RUN      ] PolynomialTest.Test77
+Roots found:
+2.61302e-08
+-0.707107
+G:\FCAI\A1-T2-TestCases\test.cpp(1089): error: The difference between root and -1.41421356 is 1.4142135861302172, which exceeds tolerance, where
+root evaluates to 2.6130217099936629e-08,
+-1.41421356 evaluates to -1.4142135600000001, and
+tolerance evaluates to 9.9999999999999995e-07.
+[  FAILED  ] PolynomialTest.Test77 (2 ms)
+[ RUN      ] PolynomialTest.Test78
+Roots found:
+0.00767047
+-0.707107
+0
+0.00971551
+G:\FCAI\A1-T2-TestCases\test.cpp(1100): error: The difference between root and -1.41421356 is 1.4218840324096451, which exceeds tolerance, where
+root evaluates to 0.0076704724096450568,
+-1.41421356 evaluates to -1.4142135600000001, and
+tolerance evaluates to 9.9999999999999995e-07.
+[  FAILED  ] PolynomialTest.Test78 (2 ms)
+[ RUN      ] PolynomialTest.Test81
+Roots found:
+-1.26489
+-0.954225
+G:\FCAI\A1-T2-TestCases\test.cpp(1134): error: The difference between root1 and -0.79058165 is 0.47430983704805052, which exceeds tolerance, where
+root1 evaluates to -1.2648914870480505,
+-0.79058165 evaluates to -0.79058165000000002, and
+tolerance evaluates to 9.9999999999999995e-07.
+Roots found:
+-1.26489
+-0.954225
+G:\FCAI\A1-T2-TestCases\test.cpp(1139): error: The difference between root2 and -1.04797069 is 0.21692079654085683, which exceeds tolerance, where
+root2 evaluates to -1.2648914865408569,
+-1.04797069 evaluates to -1.0479706900000001, and
+tolerance evaluates to 9.9999999999999995e-07.
+[  FAILED  ] PolynomialTest.Test81 (5 ms)
+[ RUN      ] PolynomialTest.Test82
+Roots found:
+0.62878
+G:\FCAI\A1-T2-TestCases\test.cpp(1150): error: The difference between root and 1.59038197 is 0.96160220735785729, which exceeds tolerance, where
+root evaluates to 0.62877976264214264,
+1.59038197 evaluates to 1.5903819699999999, and
+tolerance evaluates to 9.9999999999999995e-07.
+[  FAILED  ] PolynomialTest.Test82 (2 ms)
+[ RUN      ] PolynomialTest.Test83
+Roots found:
+-1.16289
+G:\FCAI\A1-T2-TestCases\test.cpp(1163): error: The difference between root1 and -0.85992705 is 0.30296229245128981, which exceeds tolerance, where
+root1 evaluates to -1.1628893424512898,
+-0.85992705 evaluates to -0.85992705000000003, and
+tolerance evaluates to 9.9999999999999995e-07.
+Roots found:
+-0.682328
+-1.16289
+G:\FCAI\A1-T2-TestCases\test.cpp(1168): error: The difference between root2 and 0.06926055 is 0.75158835383172196, which exceeds tolerance, where
+root2 evaluates to -0.68232780383172198,
+0.06926055 evaluates to 0.069260550000000004, and
+tolerance evaluates to 9.9999999999999995e-07.
+[  FAILED  ] PolynomialTest.Test83 (5 ms)
+[ RUN      ] PolynomialTest.Test84
+Roots found:
+-1.16213
+-0.148939
+0.552769
+G:\FCAI\A1-T2-TestCases\test.cpp(1180): error: The difference between root1 and -6.71416292 is 5.5520287511255741, which exceeds tolerance, where
+root1 evaluates to -1.1621341688744258,
+-6.71416292 evaluates to -6.7141629199999997, and
+tolerance evaluates to 9.9999999999999995e-07.
+Roots found:
+0.552769
+-1.16213
+-0.148939
+G:\FCAI\A1-T2-TestCases\test.cpp(1185): error: The difference between root2 and 1.80907437 is 1.2563054969642768, which exceeds tolerance, where
+root2 evaluates to 0.5527688730357232,
+1.80907437 evaluates to 1.80907437, and
+tolerance evaluates to 9.9999999999999995e-07.
+Roots found:
+-0.148939
+-1.16213
+0.552769
+G:\FCAI\A1-T2-TestCases\test.cpp(1190): error: The difference between root3 and -0.86048584 is 0.71154694177051803, which exceeds tolerance, where
+root3 evaluates to -0.14893889822948189,
+-0.86048584 evaluates to -0.86048583999999995, and
+tolerance evaluates to 9.9999999999999995e-07.
+[  FAILED  ] PolynomialTest.Test84 (8 ms)
+[ RUN      ] PolynomialTest.Test85
+Roots found:
+1.09007
+-0.797411
+G:\FCAI\A1-T2-TestCases\test.cpp(1202): error: The difference between root1 and -1.25405831 is 2.3441244427612782, which exceeds tolerance, where
+root1 evaluates to 1.0900661327612782,
+-1.25405831 evaluates to -1.25405831, and
+tolerance evaluates to 9.9999999999999995e-07.
+Roots found:
+-0.797411
+1.09007
+G:\FCAI\A1-T2-TestCases\test.cpp(1207): error: The difference between root2 and 0.91737553 is 1.714786618746023, which exceeds tolerance, where
+root2 evaluates to -0.79741108874602296,
+0.91737553 evaluates to 0.91737553000000005, and
+tolerance evaluates to 9.9999999999999995e-07.
+[  FAILED  ] PolynomialTest.Test85 (4 ms)
+[ RUN      ] PolynomialTest.Test86
+Roots found:
+-6.65607
+G:\FCAI\A1-T2-TestCases\test.cpp(1218): error: The difference between root and -0.15023882 is 6.505830675967359, which exceeds tolerance, where
+root evaluates to -6.6560694959673592,
+-0.15023882 evaluates to -0.15023882, and
+tolerance evaluates to 9.9999999999999995e-07.
+[  FAILED  ] PolynomialTest.Test86 (2 ms)
+[ RUN      ] PolynomialTest.Test87
+Roots found:
+-6.65607
+G:\FCAI\A1-T2-TestCases\test.cpp(1231): error: The difference between root1 and expectedRoot1 is 6.9287803059673596, which exceeds tolerance, where
+root1 evaluates to -6.6560694959673592,
+expectedRoot1 evaluates to 0.27271081000000003, and
+tolerance evaluates to 9.9999999999999995e-07.
+Roots found:
+-6.65607
+G:\FCAI\A1-T2-TestCases\test.cpp(1237): error: The difference between root2 and expectedRoot2 is 5.8834138359673593, which exceeds tolerance, where
+root2 evaluates to -6.6560694959673592,
+expectedRoot2 evaluates to -0.77265565999999997, and
+tolerance evaluates to 9.9999999999999995e-07.
+[  FAILED  ] PolynomialTest.Test87 (4 ms)
+[ RUN      ] PolynomialTest.Test88
+Roots found:
+-0.842322
+2.02405
+G:\FCAI\A1-T2-TestCases\test.cpp(1250): error: The difference between root1 and expectedRoot1 is 0.34487228489763433, which exceeds tolerance, where
+root1 evaluates to -0.84232206510236562,
+expectedRoot1 evaluates to -1.18719435, and
+tolerance evaluates to 9.9999999999999995e-07.
+Roots found:
+-0.842322
+2.02405
+G:\FCAI\A1-T2-TestCases\test.cpp(1256): error: The difference between root2 and expectedRoot2 is 1.3363817851803055, which exceeds tolerance, where
+root2 evaluates to -0.8423220651803055,
+expectedRoot2 evaluates to 0.49405971999999998, and
+tolerance evaluates to 9.9999999999999995e-07.
+[  FAILED  ] PolynomialTest.Test88 (6 ms)
+[ RUN      ] PolynomialTest.Test89
+Roots found:
+0.815433
+G:\FCAI\A1-T2-TestCases\test.cpp(1267): error: The difference between root and 1.22634169 is 0.41090827008780562, which exceeds tolerance, where
+root evaluates to 0.81543341991219431,
+1.22634169 evaluates to 1.2263416899999999, and
+tolerance evaluates to 9.9999999999999995e-07.
+[  FAILED  ] PolynomialTest.Test89 (2 ms)
+[ RUN      ] PolynomialTest.Test90
+Roots found:
+-0.788911
+-0.0665695
+G:\FCAI\A1-T2-TestCases\test.cpp(1279): error: The difference between root1 and expectedRoot1 is 14.23299092608471, which exceeds tolerance, where
+root1 evaluates to -0.78891092391529039,
+expectedRoot1 evaluates to -15.021901850000001, and
+tolerance evaluates to 9.9999999999999995e-07.
+Roots found:
+-0.788911
+-0.0665695
+G:\FCAI\A1-T2-TestCases\test.cpp(1285): error: The difference between root2 and expectedRoot2 is 0.47865930257911304, which exceeds tolerance, where
+root2 evaluates to -0.78891092742088698,
+expectedRoot2 evaluates to -1.26757023, and
+tolerance evaluates to 9.9999999999999995e-07.
+[  FAILED  ] PolynomialTest.Test90 (8 ms)
+[ RUN      ] PolynomialTest.Test91
+Roots found:
+1.03573
+-1
+-0.128813
+G:\FCAI\A1-T2-TestCases\test.cpp(1298): error: The difference between root1 and expectedRoot1 is 8.798903855126424, which exceeds tolerance, where
+root1 evaluates to 1.0357288851264246,
+expectedRoot1 evaluates to -7.7631749699999997, and
+tolerance evaluates to 9.9999999999999995e-07.
+Roots found:
+-1
+-0.128813
+1.03573
+Roots found:
+1.03573
+-1
+-0.128813
+G:\FCAI\A1-T2-TestCases\test.cpp(1310): error: The difference between root3 and expectedRoot3 is 0.070225255126424635, which exceeds tolerance, where
+root3 evaluates to 1.0357288851264246,
+expectedRoot3 evaluates to 0.96550362999999995, and
+tolerance evaluates to 9.9999999999999995e-07.
+[  FAILED  ] PolynomialTest.Test91 (9 ms)
+[ RUN      ] PolynomialTest.Test92
+Roots found:
+-1.52632
+-0.666844
+G:\FCAI\A1-T2-TestCases\test.cpp(1323): error: The difference between root1 and expectedRoot1 is 0.026714704394017907, which exceeds tolerance, where
+root1 evaluates to -1.5263154743940179,
+expectedRoot1 evaluates to -1.49960077, and
+tolerance evaluates to 9.9999999999999995e-07.
+Roots found:
+-1.52632
+-0.666844
+G:\FCAI\A1-T2-TestCases\test.cpp(1329): error: The difference between root2 and expectedRoot2 is 0.87114292494304457, which exceeds tolerance, where
+root2 evaluates to -1.5263154749430445,
+expectedRoot2 evaluates to -0.65517254999999996, and
+tolerance evaluates to 9.9999999999999995e-07.
+[  FAILED  ] PolynomialTest.Test92 (5 ms)
+[ RUN      ] PolynomialTest.Test93
+Roots found:
+0.467547
+G:\FCAI\A1-T2-TestCases\test.cpp(1340): error: The difference between root and 2.1388204 is 1.6712729087597311, which exceeds tolerance, where
+root evaluates to 0.46754749124026912,
+2.1388204 evaluates to 2.1388204000000002, and
+tolerance evaluates to 9.9999999999999995e-07.
+[  FAILED  ] PolynomialTest.Test93 (2 ms)
+[ RUN      ] PolynomialTest.Test94
+Roots found:
+-0.638007
+G:\FCAI\A1-T2-TestCases\test.cpp(1350): error: The difference between root and -1.56738018 is 0.92937282659589715, which exceeds tolerance, where
+root evaluates to -0.63800735340410286,
+-1.56738018 evaluates to -1.56738018, and
+tolerance evaluates to 9.9999999999999995e-07.
+[  FAILED  ] PolynomialTest.Test94 (2 ms)
+[ RUN      ] PolynomialTest.Test95
+Roots found:
+1.11108
+G:\FCAI\A1-T2-TestCases\test.cpp(1360): error: The difference between root and 0.90002768 is 0.21104926298809734, which exceeds tolerance, where
+root evaluates to 1.1110769429880973,
+0.90002768 evaluates to 0.90002768, and
+tolerance evaluates to 9.9999999999999995e-07.
+[  FAILED  ] PolynomialTest.Test95 (2 ms)
+[ RUN      ] PolynomialTest.Test96
+Roots found:
+-6.66641
+G:\FCAI\A1-T2-TestCases\test.cpp(1370): error: The difference between root and -0.15000588 is 6.5163993549596997, which exceeds tolerance, where
+root evaluates to -6.6664052349596998,
+-0.15000588 evaluates to -0.15000588000000001, and
+tolerance evaluates to 9.9999999999999995e-07.
+[  FAILED  ] PolynomialTest.Test96 (3 ms)
+[ RUN      ] PolynomialTest.Test97
+Roots found:
+-1.41313
+G:\FCAI\A1-T2-TestCases\test.cpp(1380): error: The difference between root and -0.70764823 is 0.70548326372333903, which exceeds tolerance, where
+root evaluates to -1.413131493723339,
+-0.70764823 evaluates to -0.70764822999999999, and
+tolerance evaluates to 9.9999999999999995e-07.
+[  FAILED  ] PolynomialTest.Test97 (3 ms)
+[ RUN      ] PolynomialTest.Test98
+Roots found:
+0.271413
+-1.1553
+1.36367
+G:\FCAI\A1-T2-TestCases\test.cpp(1392): error: The difference between root1 and expectedRoot1 is 3.4130148373956977, which exceeds tolerance, where
+root1 evaluates to 0.27141259260430223,
+expectedRoot1 evaluates to 3.6844274299999999, and
+tolerance evaluates to 9.9999999999999995e-07.
+Roots found:
+-1.1553
+0.271413
+1.36367
+G:\FCAI\A1-T2-TestCases\test.cpp(1398): error: The difference between root2 and expectedRoot2 is 0.28971733551314405, which exceeds tolerance, where
+root2 evaluates to -1.1552962155131441,
+expectedRoot2 evaluates to -0.86557888000000005, and
+tolerance evaluates to 9.9999999999999995e-07.
+Roots found:
+0.271413
+-1.1553
+1.36367
+G:\FCAI\A1-T2-TestCases\test.cpp(1404): error: The difference between root3 and expectedRoot3 is 0.46190497737364489, which exceeds tolerance, where
+root3 evaluates to 0.27141259262635509,
+expectedRoot3 evaluates to 0.73331756999999997, and
+tolerance evaluates to 9.9999999999999995e-07.
+[  FAILED  ] PolynomialTest.Test98 (10 ms)
+[ RUN      ] PolynomialTest.Test99
+Roots found:
+-0.553054
+0.678054
+G:\FCAI\A1-T2-TestCases\test.cpp(1417): error: The difference between root1 and expectedRoot1 is 1.2550893565979937, which exceeds tolerance, where
+root1 evaluates to -0.55305361340200621,
+expectedRoot1 evaluates to -1.80814297, and
+tolerance evaluates to 9.9999999999999995e-07.
+Roots found:
+0.678054
+-0.553054
+G:\FCAI\A1-T2-TestCases\test.cpp(1423): error: The difference between root2 and expectedRoot2 is 0.79675601651029637, which exceeds tolerance, where
+root2 evaluates to 0.67805361348970361,
+expectedRoot2 evaluates to 1.47480963, and
+tolerance evaluates to 9.9999999999999995e-07.
+[  FAILED  ] PolynomialTest.Test99 (6 ms)
+[ RUN      ] PolynomialTest.Test100
+Roots found:
+3.28387
+G:\FCAI\A1-T2-TestCases\test.cpp(1434): error: The difference between root and 0.30451905 is 2.979347733994409, which exceeds tolerance, where
+root evaluates to 3.2838667839944091,
+0.30451905 evaluates to 0.30451905000000001, and
+tolerance evaluates to 9.9999999999999995e-07.
+[  FAILED  ] PolynomialTest.Test100 (1 ms)
