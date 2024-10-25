@@ -6,6 +6,6 @@
 #include <string>
 #include <fstream>
 #include <sstream>
-
+#include "Methods.h"
 
 #endif // !_HEADER_H
