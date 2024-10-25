@@ -12,6 +12,7 @@ public:
 	void setCell(int address, int value);
 	int getCell(int address);
 	void setSize(int S);
+	int GetSize() ;
 	friend bool IsPowerOf2(int num);
 
 };

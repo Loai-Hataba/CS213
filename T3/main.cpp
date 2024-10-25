@@ -1,5 +1,5 @@
-#include "Memory.h" 
-#include "Register.h" 
+#include "Memory.h"
+#include "Regist.h"
 int main ()
 {
     cout << "Yarab N7las Mn el Ramly " << endl; 

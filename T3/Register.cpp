@@ -28,12 +28,15 @@ void Register::setCell(int address, int value)
 
 int Register::getCell(int address)
 {
-	if (address <= size && address >= 0)
+	if (address < size && address >= 0)
 	{
 		return reg[address];
 	}
 	else
+	{
 		cout << "Error : Invalid Address must be ( 0 - " << size << " )" << endl;
+		return 0 ;
+	}
 }
 
 void Register::setSize(int S)
@@ -45,6 +48,11 @@ void Register::setSize(int S)
 	}
 	else
 		cout << "Error : Invalid Memory Size It Must be Power Of 2 --> (2,4,8,16 ....) " << endl;
+}
+
+int Register::GetSize()
+{
+    return size;
 }
 
 bool IsPowerOf2(int num)
