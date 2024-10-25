@@ -1,6 +1,6 @@
 #include "Memory.h" 
-#include "Register.h" 
+#include "Regist.h" 
 int main ()
 {
-    cout << "Yarab N7las Mn el Ramly " << endl; 
+    cout << "Yarab N7las Mn el Ramly " << endl; //hatetshaf fel history keda
 }
