@@ -68,5 +68,12 @@ Instructions:
 
 
 Program execution:
-    -Program Counter (PC) "address of (memory cell) next instruction"
+    -Program Counter (PC) "address of (memory cell) next instruction" at initialization = A0 (first memory cell), if theres a skip steps it modifies PC too
     -Instruction Register (IR) "Current instruction"
+
+    -Machine Cycle
+        -Fetch (add instructions to IR)
+        -Decode
+        -Execute
+
+    
