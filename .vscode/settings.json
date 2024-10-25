@@ -3,5 +3,6 @@
     "algorithm": "cpp",
     "format": "cpp",
     "iostream": "cpp"
-  }
+  },
+  "python.analysis.autoImportCompletions": false
 }
