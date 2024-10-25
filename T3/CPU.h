@@ -11,7 +11,6 @@ using namespace std;
 class CPU
 {
     private:
-    
         int programCounter = 0;
         string instructionRegister="";
         Register reg;
@@ -21,20 +20,21 @@ class CPU
         {
             
         }
-
-        vector<int> decode()
-        {
-
-        }
-
+        // vector<int> decode()
+        // {
+            
+        // }
         void execute(vector<int> instruction, Memory &memory, Register reg)
         {
 
         }
     public:
-        CPU();
         void runNextStep(Memory &memory)
         {
+
+        }
+        void print(){
+            cout << "its working\n";
 
         }
 };
