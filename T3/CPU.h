@@ -15,7 +15,7 @@ class CPU
         string instructionRegister="";
         Register reg;
         // ALU alu;         TO DO
-        // CU cu;           TO DO
+        CU cu;
         void fetch(Memory &memory)
         {
             
