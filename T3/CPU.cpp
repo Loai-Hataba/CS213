@@ -10,6 +10,7 @@ void CPU::fetch(Memory & memory){
 
 int combine(int a, int b){
     // combine two operands
+    //TODO: preseve 0 (1011-> 1 "0"11)
     string A = to_string(a);
     string B = to_string(b);
     string combined = A + B;
@@ -17,15 +18,12 @@ int combine(int a, int b){
 }
 vector<int> CPU::decode(){
     string opCodeHex = instructionRegister.substr(0, 1);
-    std::cout << "opcode: " << opCodeHex << std::endl;
     string operandHex = instructionRegister.substr(1, 1);
-    std::cout << "operand: " << operandHex << std::endl;
     string operandTempHex = instructionRegister.substr(2,2);
-    std::cout << "operandTempHex: " << operandTempHex << std::endl;
     int opCode = stoi(opCodeHex, nullptr, 16);
     int operand = stoi(operandHex, nullptr, 10);
+    std::cout << operand << std::endl;
     int operandTemp = stoi(operandTempHex, nullptr, 16);
-    std::cout << "Temp: " << operandTemp << std::endl;
     operand = combine(operand, operandTemp);
     std:: cout << "instruction: " << opCode << " " << operand << std::endl;
     return {opCode, operand};
@@ -53,8 +51,8 @@ int main()
     CPU cpu;
     Memory memory;
     memory.setSize(4);
-    memory.setCell(0, "1234");
-    memory.setCell(1, "5678");
+    memory.setCell(0, "1204");
+    memory.setCell(1, "5018");
     memory.setCell(2, "12A3");
     cpu.control(memory);
     cpu.control(memory);
