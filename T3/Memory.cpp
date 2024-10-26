@@ -18,7 +18,7 @@ Memory::Memory(int S)
 
 void Memory::setCell(int address, string value)
 {
-    if(address <= size  &&  address >= 0) 
+    if(address < size  &&  address >= 0) 
     {
         memory[address] = value ;
     } 

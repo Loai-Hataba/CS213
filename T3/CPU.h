@@ -16,26 +16,11 @@ class CPU
         Register reg;
         // ALU alu;         TO DO
         CU cu;
-        void fetch(Memory &memory)
-        {
-            
-        }
-        // vector<int> decode()
-        // {
-            
-        // }
-        void execute(vector<int> instruction, Memory &memory, Register reg)
-        {
-
-        }
+        void fetch(Memory &memory);
+        vector<int> decode();
+        void execute(vector<int> instruction, Memory &memory, Register reg);
     public:
-        void runNextStep(Memory &memory)
-        {
-
-        }
-        void print(){
-            cout << "its working\n";
-
-        }
+        void control(Memory &memory);
+        void print();
 };
 #endif // CPU_H
