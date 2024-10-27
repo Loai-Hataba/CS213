@@ -23,8 +23,7 @@ class CPU
         void execute(vector<string> instruction, Memory &memory, Register& reg);
     public:
         void control(Memory &memory, Register &reg);
-        string decToHex(int dec);
-        int hexToDec(string hex);
         void print();
+        void DisplayMemory(Memory m ) ;
 };
 #endif // CPU_H

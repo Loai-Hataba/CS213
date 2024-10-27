@@ -1,28 +1,6 @@
 #include "CPU.h"
 
 
-string CPU::decToHex(int dec) {
-    if (dec == 0) {
-        return "0";
-    }
-
-    string hexDigits = "0123456789ABCDEF";
-    string hexadecimal = "";
-
-    while (dec > 0) {
-        int remainder = dec % 16;
-        hexadecimal = hexDigits[remainder] + hexadecimal;
-        dec /= 16;
-    }
-    cout << "HEX: " << hexadecimal << endl;
-    return hexadecimal;
-}
-
-int CPU::hexToDec(string hex){
-    int dec = stoi(hex, nullptr, 16);
-    cout << "DEC: " << dec << endl;
-    return dec;
-}
 void CPU::fetch(Memory & memory){
     skip = false;
     //read the instruction from memory
@@ -128,6 +106,21 @@ void CPU::print(){
     cout << "CPU is working." << endl;
 }
 
+void CPU::DisplayMemory(Memory m)
+{
+    for (size_t i = 0; i < 256; i++)
+    {
+        cout << "i = " << i << endl;
+        string i_Hex;
+        if (i < 10)
+        {
+            i_Hex = to_string(0);
+        }
+        i_Hex += decToHex(i);
+        cout << m.getCell(i_Hex) << endl;
+    }
+}
+
 int main()
 {
     CPU cpu;
@@ -142,12 +135,6 @@ int main()
     // cpu.control(memory, reg);
     // cpu.control(memory, reg);
     cpu.print();
-    for (size_t i = 0; i < 256; i++)
-    {
-        cout << "i = " << i << endl;
-        string i_Hex = cpu.decToHex(i);
-        cout << memory.getCell(i_Hex) <<endl; 
-    }
-    
+    cpu.DisplayMemory(memory) ;
     return 0;
 }

@@ -89,3 +89,28 @@ void GenerateRegister(map<string, string> &r)
         r[key] = "00"; // Initialize the map with empty values
     }
 }
+int hexToDec(string hex)
+{
+    int dec = stoi(hex, nullptr, 16);
+    cout << "DEC: " << dec << endl;
+    return dec;
+}
+string decToHex(int dec)
+{
+    if (dec == 0)
+    {
+        return "0";
+    }
+
+    string hexDigits = "0123456789ABCDEF";
+    string hexadecimal = "";
+
+    while (dec > 0)
+    {
+        int remainder = dec % 16;
+        hexadecimal = hexDigits[remainder] + hexadecimal;
+        dec /= 16;
+    }
+    cout << "HEX: " << hexadecimal << endl;
+    return hexadecimal;
+}
