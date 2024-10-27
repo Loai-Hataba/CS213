@@ -9,6 +9,7 @@ bool IsPowerOf2(int num)
     }
     return (num == 1);
 }}
+}
 int stringToInt(const string &str)
 {
     int Temp = 0;
