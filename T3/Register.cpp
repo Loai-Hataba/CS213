@@ -2,55 +2,25 @@
 
 Register::Register()
 {
-	reg = {} ;
+	GenerateRegister (getReg() ) ;
 }
 
-Register::Register(int S)
+
+void Register::setCell(string RegAddress, string  value)
 {
-	if (IsPowerOf2(S))
-	{
-		size = S ;
-		reg = vector<int>(size, 0);
-	}
-	else
-		cout << "Error : Invalid Memory Size It Must be Power Of 2 --> (2,4,8,16 ....) " << endl;
+	
+	   reg[RegAddress] = value;
+	
 }
 
-void Register::setCell(int address, int value)
+string Register::getCell(string RegAddress)
 {
-	if (address <= size && address >= 0)
-	{
-		reg[address] = value;
-	}
-	else
-		cout << "Error : Invalid Address must be ( 0 - " << size << " )" << endl;
+	
+	return reg[RegAddress];
 }
 
-int Register::getCell(int address)
+map<string, string> Register::getReg()
 {
-	if (address < size && address >= 0)
-	{
-		return reg[address];
-	}
-	else
-	{
-		cout << "Error : Invalid Address must be ( 0 - " << size << " )" << endl;
-		return 0 ;
-	}
+    return reg;
 }
 
-void Register::setSize(int S)
-{
-	if (IsPowerOf2(S))
-	{
-		size = S ;
-		reg = vector<int>(size , 0);
-	}
-	else
-		cout << "Error : Invalid Memory Size It Must be Power Of 2 --> (2,4,8,16 ....) " << endl;
-}
-
-int Register::GetSize()
-{
-    return size;
-}

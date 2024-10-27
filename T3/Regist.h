@@ -4,15 +4,12 @@ using namespace std ;
 class Register
 {
 private:
-	vector <int>reg ;
-	int size;
+	map <string , string >reg ;
+	
 public:
 	Register();
-	Register(int S);
-	void setCell(int address, int value);
-	int getCell(int address);
-	void setSize(int S);
-	int GetSize() ;
-
+	void setCell(string RegAddress, string  value);
+	string  getCell(string RegAddress);
+	map<string , string > getReg () ;
 };
 
