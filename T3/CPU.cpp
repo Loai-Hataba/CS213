@@ -19,8 +19,6 @@ void CPU::fetch(Memory & memory){
     }
     //TODO: turn memory, instructions into HEXA
     // programCounter++; FIXME:
-    std::cout << "PC: " << programCounter << endl <<" skip: " << skip << std::endl;
-}
     int temp_PC = hexToDec(programCounter);
     temp_PC += 2;
     programCounter = decToHex(temp_PC);
@@ -166,5 +164,6 @@ int main()
         cout << memory.getCell(i_Hex) <<endl; 
     }
     
+    cpu.DisplayMemory(memory);
     return 0;
 }
