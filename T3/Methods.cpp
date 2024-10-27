@@ -65,10 +65,8 @@ void GenerateMemory(std::map<std::string, std::string> &m)
                 secondDigit = 'A' + (j - 10); // 'A' to 'F'
             }
 
-            std::string key;
-            key += firstDigit;
-            key += secondDigit;
-            m[key] = "00"; // Initialize the map with empty values
+            std::string key = std::string(1, firstDigit) + secondDigit;
+            m[key] = "00"; // Initialize the map with "00"
         }
     }
 }

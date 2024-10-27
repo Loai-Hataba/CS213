@@ -25,18 +25,10 @@
 //        return hexStr.empty() ? "0" : hexStr;
 //}
 
-bool ALU::isValid(string hexStr) {
-    for (char ch : hexStr) {
-        if (!((ch >= '0' && ch <= '9') || (ch >= 'a' && ch <= 'f') || (ch >= 'A' && ch <= 'F'))) {
-            return false;
-        }
-    }
-    return true;
-}
 
-void ALU::add(int idx1, int idx2, int idx3, Register& reg) {
-    int val1 = reg.getCell(idx1);
-    int val2 = reg.getCell(idx2);
-    int res = val1 + val2;
-    reg.setCell(idx3, res);
-}
+// void ALU::add(string idx1, string idx2, string idx3, Register& reg) {
+//     string val1 = reg.getCell(idx1);
+//     string val2 = reg.getCell(idx2);
+//     int res = val1 + val2;
+//     reg.setCell(idx3, res);
+// }

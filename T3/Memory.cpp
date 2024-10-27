@@ -2,7 +2,7 @@
 
 Memory::Memory()
 {
-   GenerateMemory (getMemory()) ;
+   GenerateMemory (memory) ;
 }
 
 map<string, string> Memory::getMemory()

@@ -2,13 +2,12 @@
 
 Register::Register()
 {
-	GenerateRegister (getReg() ) ;
+	GenerateRegister (reg) ;
 }
 
 
 void Register::setCell(string RegAddress, string  value)
 {
-	
 	   reg[RegAddress] = value;
 	
 }

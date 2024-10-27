@@ -5,23 +5,26 @@ using namespace std;
 #include "Memory.h"
 #include "Regist.h"
 #include "CU.h"
+#include <string>
 // #include "Alu.h"         TODO:
 // #include "Machine.h"     TODO:
 
 class CPU
 {
     private:
-        int programCounter = 0;
+        string programCounter = "00";
         bool skip = false;
         string instructionRegister="";
         Register reg;
         // ALU alu;         TODO:
         CU cu;
         void fetch(Memory &memory);
-        vector<int> decode();
-        void execute(vector<int> instruction, Memory &memory, Register& reg);
+        vector<string> decode();
+        void execute(vector<string> instruction, Memory &memory, Register& reg);
     public:
         void control(Memory &memory, Register &reg);
+        string decToHex(int dec);
+        int hexToDec(string hex);
         void print();
 };
 #endif // CPU_H

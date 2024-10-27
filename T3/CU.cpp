@@ -3,19 +3,7 @@
 
 void CU::Load(string idxReg, string MemAddress, Register &R, Memory &M)
 {
-   
-    try
-    {
-        R.setCell(idxReg, M.getCell(MemAddress));
-    }
-    catch (const  invalid_argument &)
-    {
-        cout << "Error: Invalid string conversion to int." <<  endl;
-    }
-    catch (const  out_of_range &)
-    {
-        cout << "Error: Integer value out of range." <<  endl;
-    }
+    R.setCell(idxReg, M.getCell(MemAddress));
 }
 
 void CU::Load(string idxReg, string value, Register &R)
