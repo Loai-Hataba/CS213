@@ -1,6 +1,6 @@
 #include "Methods.h"
 
-string decToHex(int dec) {
+/*string decToHex(int dec) {
     if (dec == 0) {
         return "00";
     }
@@ -24,7 +24,7 @@ int hexToDec(string hex){
     int dec = stoi(hex, nullptr, 16);
     cout << "DEC: " << dec << endl;
     return dec;
-}
+}*/
 bool IsPowerOf2(int num)
 {
     if (num <= 0)
@@ -115,13 +115,13 @@ void GenerateRegister(map<string, string> &r)
         r[key] = "00"; // Initialize the map with empty values
     }
 }
-int hexToDec(string hex)
+int hexToDec(std :: string hex)
 {
     int dec = stoi(hex, nullptr, 16);
     cout << "DEC: " << dec << endl;
     return dec;
 }
-string decToHex(int dec)
+string decToHex( int dec)
 {
     if (dec == 0)
     {
