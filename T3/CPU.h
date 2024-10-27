@@ -5,16 +5,17 @@ using namespace std;
 #include "Memory.h"
 #include "Regist.h"
 #include "CU.h"
-// #include "Alu.h"         TO DO
-// #include "Machine.h"     TO DO
+// #include "Alu.h"         TODO:
+// #include "Machine.h"     TODO:
 
 class CPU
 {
     private:
         int programCounter = 0;
+        bool skip = false;
         string instructionRegister="";
         Register reg;
-        // ALU alu;         TO DO
+        // ALU alu;         TODO:
         CU cu;
         void fetch(Memory &memory);
         vector<int> decode();

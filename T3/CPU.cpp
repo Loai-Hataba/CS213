@@ -1,14 +1,16 @@
 #include "CPU.h"
 
 void CPU::fetch(Memory & memory){
+    skip = false;
     //read the instruction from memory
     instructionRegister = memory.getCell(programCounter);
-    if (instructionRegister.length() <= 3 || instructionRegister.length() > 4){
+    if (instructionRegister.length() != 4){
+        skip = true;
     //TODO: add instruction check (skip instruction lines)
 
     }
     programCounter++;
-    std::cout << "PC: " << programCounter << std::endl;
+    std::cout << "PC: " << programCounter << " skip: " << skip << std::endl;
 }
 
 
@@ -18,8 +20,19 @@ vector<int> CPU::decode(){
     string XY_Hex = instructionRegister.substr(2, 2);
     string X_Hex = instructionRegister.substr(2, 1);
     string Y_Hex = instructionRegister.substr(3, 1);
-    int opCode = stoi(opCodeHex, nullptr, 16);
+    int opCode = 0;
     int R = stoi(R_Hex, nullptr, 16);
+    
+    try {
+        opCode = stoi(opCodeHex, nullptr, 16);
+        if ((opCode < 0 || opCode > 6) && opCode != 11 && opCode != 12){
+            skip = true;
+        }
+        
+    } catch (const std::invalid_argument& ia) {
+        skip = true;
+    }
+    cout << "skip_2: " << skip << std::endl;
     int XY = stoi(XY_Hex, nullptr, 16);
     int X = stoi(X_Hex, nullptr, 16);
     int Y = stoi(Y_Hex, nullptr, 16);
@@ -34,9 +47,9 @@ void CPU::execute(vector<int> instruction, Memory & memory, Register reg){
     int idxReg = instruction[1];
     int idxXY = instruction[2];    
     int idxX = instruction[3];    
-    int idxY = instruction[4];    
-
-
+    int idxY = instruction[4];  
+    //FIXME: fix PC incrementation to out of bounds memory (256)
+    if (skip) {return;}
     switch (OpCode)
     {
     case 1:
@@ -95,10 +108,12 @@ int main()
     CPU cpu;
     Memory memory;
     Register reg(16);
-    memory.setSize(4);
-    memory.setCell(0, "1204");
-    memory.setCell(1, "5018");
-    memory.setCell(2, "12A3");
+    memory.setSize(8);
+    memory.setCell(0, "1214");
+    memory.setCell(1, "A018");
+    memory.setCell(2, "X123");
+    memory.setCell(3, "12A3");
+    cpu.control(memory, reg);
     cpu.control(memory, reg);
     cpu.control(memory, reg);
     cpu.control(memory, reg);
