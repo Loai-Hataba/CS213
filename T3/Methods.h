@@ -8,6 +8,4 @@ void GenerateMemory(map<string , string > &m ) ;
 void GenerateRegister(map<string , string > &r ) ;
 string decToHex(int dec) ;
 int hexToDec(string hex) ;
-string decToHex(int dec);
-int hexToDec(string hex);
 #endif
