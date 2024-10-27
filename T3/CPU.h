@@ -19,10 +19,9 @@ class CPU
         CU cu;
         void fetch(Memory &memory);
         vector<int> decode();
-        void execute(vector<int> instruction, Memory &memory, Register reg);
         void execute(vector<int> instruction, Memory &memory, Register& reg);
     public:
-        void control(Memory &memory, Register reg);
+        void control(Memory &memory, Register &reg);
         void print();
 };
 #endif // CPU_H
