@@ -116,14 +116,12 @@ int main()
     memory.setCell(2, "X123");
     memory.setCell(3, "12A3");
     cpu.control(memory, reg);
-=======
     memory.setSize(256);
     memory.setCell(0, "1224");
     memory.setCell(1, "4018");
     memory.setCell(2, "12A3");
     memory.setCell(3, "X2A3");
     memory.setCell(4, "32A3");
->>>>>>> Stashed changes
     cpu.control(memory, reg);
     cpu.control(memory, reg);
     cpu.control(memory, reg);
