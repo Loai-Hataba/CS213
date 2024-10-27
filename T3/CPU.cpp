@@ -17,7 +17,7 @@ vector<int> CPU::decode(){
     string operandHex = instructionRegister.substr(1, 1);
     string operandTempHex = instructionRegister.substr(2, 2);
     int opCode = stoi(opCodeHex, nullptr, 16);
-    int R = stoi(operandHex, nullptr, 10);
+    int R = stoi(operandHex, nullptr, 16);
     int XY = stoi(operandTempHex, nullptr, 16);
     std::cout << "Instruction: " << opCode << " " << R << " " << XY << std::endl;
     return {opCode, R, XY};
@@ -33,8 +33,9 @@ void CPU::execute(vector<int> instruction, Memory & memory, Register reg){
     int idxXY = instruction.back();
 
     // Move the variable initialization outside the switch statement
-    int regSource = (idxXY / 16) % 16; // Extract source register (R)
-    int regDest = idxXY % 16;          // Extract destination register (S)
+    int regSource = (idxXY / 100) % 10; // Extract source register (R)
+    int regDest = idxXY % 10; 
+    std:: cout << "X: " << regSource << "Y: " << regDest << endl;         // Extract destination register (S)
 
     switch (OpCode)
     {
