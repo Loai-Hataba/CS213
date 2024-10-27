@@ -3,32 +3,23 @@
 void CPU::fetch(Memory & memory){
     //read the instruction from memory
     instructionRegister = memory.getCell(programCounter);
+    if (instructionRegister.length() <= 3 || instructionRegister.length() > 4){
     //TODO: add instruction check (skip instruction lines)
+
+    }
     programCounter++;
     std::cout << "PC: " << programCounter << std::endl;
 }
 
-int combine(int a, int b){
-    // combine two operands
-    //TODO: preseve 0 (1011-> 1 "0"11)
-    string A = to_string(a);
-    string B = to_string(b);
-    string combined = A + B;
-    return stoi(combined);
-}
+
 vector<int> CPU::decode(){
     string opCodeHex = instructionRegister.substr(0, 1);
-    std::cout << "opcode: " << opCodeHex << std::endl;
     string operandHex = instructionRegister.substr(1, 1);
-    std::cout << "operand: " << operandHex << std::endl;
     string operandTempHex = instructionRegister.substr(2, 2);
-    std::cout << "operandTempHex: " << operandTempHex << std::endl;
     int opCode = stoi(opCodeHex, nullptr, 16);
     int R = stoi(operandHex, nullptr, 10);
     int XY = stoi(operandTempHex, nullptr, 16);
-    std::cout << "Temp: " << XY << std::endl;
-    // operand = combine(operand, operandTemp);
-    std::cout << "instruction: " << opCode << " " << R << " " << XY << std::endl;
+    std::cout << "Instruction: " << opCode << " " << R << " " << XY << std::endl;
     return {opCode, R, XY};
     // decode the instruction
 }
