@@ -14,28 +14,28 @@ void CPU::fetch(Memory & memory){
 
 vector<int> CPU::decode(){
     string opCodeHex = instructionRegister.substr(0, 1);
-    string operandHex = instructionRegister.substr(1, 1);
-    string operandTempHex = instructionRegister.substr(2, 2);
+    string R_Hex= instructionRegister.substr(1, 1);
+    string XY_Hex = instructionRegister.substr(2, 2);
+    string X_Hex = instructionRegister.substr(2, 1);
+    string Y_Hex = instructionRegister.substr(3, 1);
     int opCode = stoi(opCodeHex, nullptr, 16);
-    int R = stoi(operandHex, nullptr, 16);
-    int XY = stoi(operandTempHex, nullptr, 16);
+    int R = stoi(R_Hex, nullptr, 16);
+    int XY = stoi(XY_Hex, nullptr, 16);
+    int X = stoi(X_Hex, nullptr, 16);
+    int Y = stoi(Y_Hex, nullptr, 16);
     std::cout << "Instruction: " << opCode << " " << R << " " << XY << std::endl;
-    return {opCode, R, XY};
+    return {opCode, R, XY , X ,Y };
     // decode the instruction
 }
-
-
 
 void CPU::execute(vector<int> instruction, Memory & memory, Register reg){
     // Execute the instruction
     int OpCode = instruction.front();
     int idxReg = instruction[1];
-    int idxXY = instruction.back();
+    int idxXY = instruction[2];    
+    int idxX = instruction[3];    
+    int idxY = instruction[4];    
 
-    // Move the variable initialization outside the switch statement
-    int regSource = (idxXY / 100) % 10; // Extract source register (R)
-    int regDest = idxXY % 10; 
-    std:: cout << "X: " << regSource << "Y: " << regDest << endl;         // Extract destination register (S)
 
     switch (OpCode)
     {
@@ -55,8 +55,8 @@ void CPU::execute(vector<int> instruction, Memory & memory, Register reg){
     {
         if (idxReg == 0)
         { // Check for valid format 0RS
-            cu.Move(regSource, regDest, reg);
-            std::cout << "MOVE: Moved value from register " << regSource << " to register " << regDest << std::endl;
+            cu.Move(idxX,idxY , reg);
+            //std::cout << "MOVE: Moved value from register " << idxX << " to register " << idxY << std::endl;
         }
         else
         {
