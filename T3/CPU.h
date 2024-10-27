@@ -20,7 +20,7 @@ class CPU
         vector<int> decode();
         void execute(vector<int> instruction, Memory &memory, Register reg);
     public:
-        void control(Memory &memory);
+        void control(Memory &memory, Register reg);
         void print();
 };
 #endif // CPU_H

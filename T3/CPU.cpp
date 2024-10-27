@@ -79,10 +79,11 @@ void CPU::execute(vector<int> instruction, Memory & memory, Register reg){
     }
 }
 
-void CPU::control(Memory & memory){
+void CPU::control(Memory & memory, Register reg){
     //orchestrate all of the processes
     fetch(memory);
-    decode();
+    vector<int> decoded = decode();
+    execute(decoded, memory, reg);
 }
 
 void CPU::print(){
@@ -93,14 +94,14 @@ int main()
 {
     CPU cpu;
     Memory memory;
+    Register reg(16);
     memory.setSize(4);
     memory.setCell(0, "1204");
     memory.setCell(1, "5018");
     memory.setCell(2, "12A3");
-    cpu.control(memory);
-    cpu.control(memory);
-    cpu.control(memory);
-    Register registers(16);
+    cpu.control(memory, reg);
+    cpu.control(memory, reg);
+    cpu.control(memory, reg);
     cpu.print();
     return 0;
 }
