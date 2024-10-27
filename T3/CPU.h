@@ -20,6 +20,7 @@ class CPU
         void fetch(Memory &memory);
         vector<int> decode();
         void execute(vector<int> instruction, Memory &memory, Register reg);
+        void execute(vector<int> instruction, Memory &memory, Register& reg);
     public:
         void control(Memory &memory, Register reg);
         void print();

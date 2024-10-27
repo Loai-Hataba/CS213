@@ -3,4 +3,5 @@
 #include "Headers.h"
 using namespace std ;
 bool IsPowerOf2(int num);
+int stringToInt(const string &str) ;
 #endif

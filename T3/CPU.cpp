@@ -42,6 +42,7 @@ vector<int> CPU::decode(){
 }
 
 void CPU::execute(vector<int> instruction, Memory & memory, Register reg){
+void CPU::execute(vector<int> instruction, Memory & memory, Register & reg){
     // Execute the instruction
     int OpCode = instruction.front();
     int idxReg = instruction[1];
@@ -108,12 +109,19 @@ int main()
     CPU cpu;
     Memory memory;
     Register reg(16);
+<<<<<<< Updated upstream
     memory.setSize(8);
     memory.setCell(0, "1214");
     memory.setCell(1, "A018");
     memory.setCell(2, "X123");
     memory.setCell(3, "12A3");
     cpu.control(memory, reg);
+=======
+    memory.setSize(256);
+    memory.setCell(0, "1224");
+    memory.setCell(1, "4018");
+    memory.setCell(2, "12A3");
+>>>>>>> Stashed changes
     cpu.control(memory, reg);
     cpu.control(memory, reg);
     cpu.control(memory, reg);

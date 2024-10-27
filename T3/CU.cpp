@@ -8,11 +8,15 @@ void CU::Load(int idxReg, int idxMemory, Register &R, Memory &M)
         cout << "Error: Invalid index for Load operation." <<  endl;
         return ; 
     }
+        cout << "Error: Invalid index for Load  1 operation." << endl;
+        return;
+     }
 
     try
     {
         // Convert the string from memory to an integer
         int Temp =  stoi(M.getCell(idxMemory));
+        int Temp = stringToInt(M.getCell(idxMemory));
         R.setCell(idxReg, Temp);
     }
     catch (const  invalid_argument &)
@@ -56,6 +60,8 @@ void CU::Move(int idxReg1, int idxReg2, Register &R)
         return ;
     }
     R.setCell(idxReg2, R.getCell(idxReg1));
+    cout << "R2 "<< R.getCell(idxReg2)  <<endl; 
+    cout << "R1 "<< R.getCell(idxReg1)  <<endl; 
 }
 
 void CU::Jump(int idxReg, int idxMemory, Register &R, int &PC)
