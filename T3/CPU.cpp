@@ -5,25 +5,43 @@ void CPU::fetch(Memory & memory){
     skip = false;
     //read the instruction from memory
     
+    cout << "PC: " << programCounter << endl;
     instructionRegister = memory.getCell(programCounter);
     if (instructionRegister.length() != 4){
+    cout << instructionRegister << endl;
+    cout <<"------------------------------------\n";
+    regex patternREGEX(R"(^[0-6BC][0-9A-F]{3}$)");
+    if (!regex_match(instructionRegister, patternREGEX)) {
         skip = true;
     //TODO: add instruction check (skip instruction lines)
     //TODO: turn memory, instructions into HEXA
 
     }
+    //TODO: turn memory, instructions into HEXA
     // programCounter++; FIXME:
     std::cout << "PC: " << programCounter << endl <<" skip: " << skip << std::endl;
 }
+    int temp_PC = hexToDec(programCounter);
+    temp_PC += 2;
+    programCounter = decToHex(temp_PC);
+    cout << "PC: " << programCounter << endl <<" skip: " << skip << std::endl;
 
+}
 
 vector<string> CPU::decode(){
     // 1 2 34, 3 4
     cout << "yarab\n";
+    cout << "1\n";
+    cout << instructionRegister << endl;
     string opCodeHex = instructionRegister.substr(0, 1);
+    cout << "2\n";
+    cout << instructionRegister.substr(1, 1) << endl;
     string R_Hex= instructionRegister.substr(1, 1);
+    cout << "3\n";
     string XY_Hex = instructionRegister.substr(2, 2);
+    cout << "4\n";
     string X_Hex = instructionRegister.substr(2, 1);
+    cout << "5\n";
     string Y_Hex = instructionRegister.substr(3, 1);
     // int opCode = 0;
     // int R = stoi(R_Hex, nullptr, 16);
@@ -53,6 +71,7 @@ void CPU::execute(vector<string> instruction, Memory & memory, Register &reg){
     string idxX = instruction[3];    
     string idxY = instruction[4];
     if (skip) {return;}
+    if (skip) {cout << "skipped" << endl; return;}
     switch (OpCode)
     {
     case '1':
@@ -128,13 +147,24 @@ int main()
     Register reg;
     memory.setCell("00", "1224");
     // memory.setCell("1", "4018");
+    memory.setCell("02", "4018");
     // memory.setCell("2", "12A3");
     // memory.setCell("3", "X2A3");
+    memory.setCell("04", "X2A3");
     // memory.setCell("4", "32A3");
     cpu.control(memory, reg);
     // cpu.control(memory, reg);
     // cpu.control(memory, reg);
+    cpu.control(memory, reg);
+    cpu.control(memory, reg);
     cpu.print();
     cpu.DisplayMemory(memory) ;
+    for (size_t i = 0; i < 256; i++)
+    {
+        cout << "i = " << i << endl;
+        string i_Hex = decToHex(i);
+        cout << memory.getCell(i_Hex) <<endl; 
+    }
+    
     return 0;
 }

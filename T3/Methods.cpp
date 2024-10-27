@@ -1,4 +1,30 @@
 #include "Methods.h"
+
+string decToHex(int dec) {
+    if (dec == 0) {
+        return "00";
+    }
+
+    string hexDigits = "0123456789ABCDEF";
+    string hexadecimal = "";
+
+    while (dec > 0) {
+        int remainder = dec % 16;
+        hexadecimal = hexDigits[remainder] + hexadecimal;
+        dec /= 16;
+    }
+    if (hexadecimal.length() < 2) {
+        hexadecimal = "0" + hexadecimal;
+    }
+    cout << "HEX: " << hexadecimal << endl;
+    return hexadecimal;
+}
+
+int hexToDec(string hex){
+    int dec = stoi(hex, nullptr, 16);
+    cout << "DEC: " << dec << endl;
+    return dec;
+}
 bool IsPowerOf2(int num)
 {
     if (num <= 0)

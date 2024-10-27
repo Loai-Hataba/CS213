@@ -5,7 +5,9 @@ using namespace std;
 #include "Memory.h"
 #include "Regist.h"
 #include "CU.h"
+#include "Methods.h"
 #include <string>
+#include <regex>
 // #include "Alu.h"         TODO:
 // #include "Machine.h"     TODO:
 
