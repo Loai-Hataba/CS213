@@ -100,10 +100,6 @@ void CPU::DisplayMemory(Memory m)
     {
         cout << "i = " << i << endl;
         string i_Hex;
-        if (i < 10)
-        {
-            i_Hex = to_string(0);
-        }
         i_Hex += decToHex(i);
         cout << m.getCell(i_Hex) << endl;
     }
@@ -120,8 +116,9 @@ int main()
     memory.setCell("04", "X2A3");
     // memory.setCell("4", "32A3");
     cpu.control(memory, reg);
-    cout << ""
+    cout << "------------------------------\n";
     cpu.control(memory, reg);
+    cout << "------------------------------\n";
     cpu.control(memory, reg);
     cpu.print();
     cpu.DisplayMemory(memory);
