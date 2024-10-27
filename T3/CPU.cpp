@@ -8,6 +8,7 @@ void CPU::fetch(Memory & memory){
     if (instructionRegister.length() != 4){
         skip = true;
     //TODO: add instruction check (skip instruction lines)
+    //TODO: turn memory, instructions into HEXA
 
     }
     programCounter++;
