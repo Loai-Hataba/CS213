@@ -12,9 +12,11 @@ class Machine{
     private:
         CPU cpu;
         Memory memory;
+        string path;
     public:
+        Machine(string path) : path(path){} 
         void loadProgram(string fileName);
-
+        
         void stateOut();
 };
 
