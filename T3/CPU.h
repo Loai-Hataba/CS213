@@ -15,6 +15,10 @@ using namespace std;
 class CPU
 {
     private:
+        CU cu;
+        ALU alu;
+        Register& reg;
+        Memory& memory;
         string programCounter = "00";
         bool skip = false;
         string instructionRegister="";
@@ -22,6 +26,7 @@ class CPU
         vector<string> decode();
         void execute(vector<string> instruction, Memory &memory, Register& reg);
     public:
+        CPU(CU cu, ALU alu, Register& reg, Memory& memory) : cu(cu), alu(alu), reg(reg), memory(memory){}
         void control(Memory &memory, Register &reg);
         void print();
         void DisplayMemory(Memory m ) ;
