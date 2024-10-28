@@ -48,11 +48,24 @@ void DisplayMemory(Memory Mem)
         }
     }
 
+
+void DisplayRegister(Register Reg)
+{
+    for (size_t i = 0; i < 16; i++)
+    {
+        char ch;
+        if (i >= 10 && i <= 15) ch = static_cast<char>('A' + (i - 10)); // Converts 10-15 to 'A'-'F'
+        else  ch = static_cast<char>('0' + i); // Converts 0-9 to '0'-'9'
+        cout << "R" << ch << "    " << Reg.getCell(decToHex(i))  << " i "<< endl;
+    }
+}
 void Machine::stateOut()
 {
     cout << "state out...\n";
     DisplayMemory(memoryMachine) ;
     cout << endl <<endl;  
+    DisplayRegister(cpu.GetRegister()) ;
+
    
 }
 

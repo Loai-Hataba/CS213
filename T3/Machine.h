@@ -25,7 +25,7 @@ class Machine{
         
         void stateOut();
         friend void DisplayMemory(Memory Mem);
-        friend void DisplayMemory(Register Reg);
+        friend void DisplayRegister(Register Reg);
 };
 
 #endif // MACHINE_H

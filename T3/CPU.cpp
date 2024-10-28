@@ -88,13 +88,7 @@ void CPU::print(){
     cout << "CPU is working." << endl;
 }
 
-void CPU::DisplayMemory(Memory m)
+Register CPU::GetRegister()
 {
-    for (size_t i = 0; i < 256; i++)
-    {
-        cout << "i = " << i << endl;
-        string i_Hex;
-        i_Hex += decToHex(i);
-        cout << m.getCell(i_Hex) << endl;
-    }
+    return reg;
 }

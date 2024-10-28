@@ -25,7 +25,6 @@ class CPU
     public:
         void control(Memory &memory);
         void print();
-        void DisplayMemory(Memory m ) ;
-
+        Register GetRegister() ;
 };
 #endif // CPU_H
