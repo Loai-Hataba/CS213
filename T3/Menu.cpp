@@ -75,7 +75,7 @@ vector<string> ExtractInst(string Content)
 int main()
 {
     string Content  = GetFile () ;
-    vector <string> Instructions  = ExtractInst (Content) ;
+    vector <string> Instructions  = ExtractInst (Content);
     Machine machine(Instructions);
 
     return 0 ;

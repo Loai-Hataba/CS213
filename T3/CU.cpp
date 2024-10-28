@@ -32,6 +32,6 @@ void CU::Jump(string idxReg, string MemAddress, Register &R, string &PC)
 
 void CU::Halt()
 {
-    // 
+    // FIXME: Implement halt functionality
     exit(0); // Properly terminate the program
 }

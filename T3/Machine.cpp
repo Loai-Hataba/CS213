@@ -7,7 +7,7 @@ void Machine::loadMemory(vector<string> Instructions) {
         cout << memoryMachine.getCell(decToHex(i)) << " \n";
     }
 }
-
+//TODO: FIX Halt function in Machine class
 void Machine::loadProgram(){
     for (int i = 0; i < (Instructions.size() / 2); i++) {
         cpu.control(memoryMachine);
