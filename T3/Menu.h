@@ -9,7 +9,6 @@ class Menu{
         void displayMenu();
         string GetFile();
         vector<string> ExtractInst();
-
 };
 
 #endif
