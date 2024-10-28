@@ -101,28 +101,28 @@ void CPU::DisplayMemory(Memory m)
     }
 }
 
-int main()
-{
-    CPU cpu;
-    Memory memory;
-    Register reg;
-    ALU alu;
-    memory.setCell("00", "1224");
-    memory.setCell("02", "4018");
-    // memory.setCell("2", "12A3");
-    memory.setCell("04", "X2A3");
-    memory.setCell("06", "5867");
-    reg.setCell("06", "5");
-    reg.setCell("07", "B");
-    cpu.control(memory, reg);
-    cout << "------------------------------\n";
-    // memory.setCell("4", "32A3");
-    cpu.control(memory, reg);
-    cout << "------------------------------\n";
-    cpu.control(memory, reg);
-    cout << "------------------------------\n";
-    cpu.control(memory, reg);
-    cpu.print();
-    // cpu.DisplayMemory(memory);
-    return 0;
-}
+// int main()
+// {
+//     CPU cpu;
+//     Memory memory;
+//     Register reg;
+//     ALU alu;
+//     memory.setCell("00", "1224");
+//     memory.setCell("02", "4018");
+//     // memory.setCell("2", "12A3");
+//     memory.setCell("04", "X2A3");
+//     memory.setCell("06", "5867");
+//     reg.setCell("06", "5");
+//     reg.setCell("07", "B");
+//     cpu.control(memory, reg);
+//     cout << "------------------------------\n";
+//     // memory.setCell("4", "32A3");
+//     cpu.control(memory, reg);
+//     cout << "------------------------------\n";
+//     cpu.control(memory, reg);
+//     cout << "------------------------------\n";
+//     cpu.control(memory, reg);
+//     cpu.print();
+//     // cpu.DisplayMemory(memory);
+//     return 0;
+// }

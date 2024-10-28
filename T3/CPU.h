@@ -18,9 +18,6 @@ class CPU
         string programCounter = "00";
         bool skip = false;
         string instructionRegister="";
-        Register reg;
-        ALU alu;
-        CU cu;
         void fetch(Memory &memory);
         vector<string> decode();
         void execute(vector<string> instruction, Memory &memory, Register& reg);
