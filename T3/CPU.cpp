@@ -4,16 +4,10 @@
 void CPU::fetch(Memory & memory){
     // skip = false;
     //read the instruction from memory
-    cout << "PC: " << programCounter << endl;
     int tempPCIR  = hexToDec(programCounter);
     tempPCIR += 1;
     string finalPCIR = decToHex(tempPCIR);
     instructionRegister = memory.getCell(programCounter) + memory.getCell(finalPCIR);
-    cout << "InstructionRegister: " << instructionRegister << endl;
-    // regex patternREGEX(R"(^[0-6BC][0-9A-F]{3}$)");
-    // if (!regex_match(instructionRegister, patternREGEX)) {
-    //     skip = true;
-    // }
     int temp_PC = hexToDec(programCounter);
     temp_PC += 2;
     programCounter = decToHex(temp_PC);
@@ -29,7 +23,7 @@ vector<string> CPU::decode(){
     // decode the instruction
 }
 
-void CPU::execute(vector<string> instruction, Memory & memory, Register &reg){
+void CPU::execute(vector<string> instruction, Memory & memory){
     // Execute the instruction
     char OpCode = instruction[0][0];
     string idxReg = instruction[1];
@@ -84,10 +78,10 @@ void CPU::execute(vector<string> instruction, Memory & memory, Register &reg){
 }
 
 //orchestrate all of the processes
-void CPU::control(Memory & memory, Register &reg){
+void CPU::control(Memory & memory){
     fetch(memory);
     vector<string> decoded = decode();
-    execute(decoded, memory, reg);
+    execute(decoded, memory);
 }
 
 void CPU::print(){
@@ -104,29 +98,3 @@ void CPU::DisplayMemory(Memory m)
         cout << m.getCell(i_Hex) << endl;
     }
 }
-
-// int main()
-// {
-//     CPU cpu;
-//     Memory memory;
-//     Register reg;
-//     ALU alu;
-//     memory.setCell("00", "1224");
-//     memory.setCell("02", "4018");
-//     // memory.setCell("2", "12A3");
-//     memory.setCell("04", "X2A3");
-//     memory.setCell("06", "5867");
-//     reg.setCell("06", "5");
-//     reg.setCell("07", "B");
-//     cpu.control(memory, reg);
-//     cout << "------------------------------\n";
-//     // memory.setCell("4", "32A3");
-//     cpu.control(memory, reg);
-//     cout << "------------------------------\n";
-//     cpu.control(memory, reg);
-//     cout << "------------------------------\n";
-//     cpu.control(memory, reg);
-//     cpu.print();
-//     // cpu.DisplayMemory(memory);
-//     return 0;
-// }

@@ -1,16 +1,23 @@
 #include "Machine.h"
 
 void Machine::loadMemory(vector<string> Instructions) {
-    //TODO: increment by 1 cell only
-
+    cout << "Loading memory..." << endl;
+    for (int i = 0; i < Instructions.size(); i++) {
+        memoryMachine.setCell(decToHex(i), Instructions[i]);
+        cout << memoryMachine.getCell(decToHex(i)) << " \n";
+    }
 }
 
 void Machine::loadProgram(){
-    cpu.control(memory, reg);
-    cpu.control(memory, reg);
+    for (int i = 0; i < (Instructions.size() / 2); i++) {
+        cpu.control(memoryMachine);
+    }
+    // cpu.control(memory, reg);
+    cout << "Loading program..." << endl;
 }
 
-void stateOut()
+void Machine::stateOut()
 {
-    
+    //TODO: Implement state output
+    cout << "state out...\n";
 }

@@ -1,9 +1,6 @@
 #include "Regist.h"
 
-Register::Register()
-{
-	GenerateRegister (reg) ;
-}
+
 
 
 void Register::setCell(string RegAddress, string  value)

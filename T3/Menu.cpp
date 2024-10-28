@@ -1,12 +1,7 @@
 #include "Menu.h"
+#include <regex>
 
-void Menu::displayMenu() 
-{
-    
-
-}
-
-string Menu::GetFile()
+string GetFile()
 {
     string Result;
 
@@ -31,16 +26,14 @@ string Menu::GetFile()
     return Result; // Return the file content
 }
 
-
-vector<string> Menu::ExtractInst() 
-{ 
-    string Content = this ->GetFile() ;
+vector<string> ExtractInst(string Content)
+{
     vector<string> inst;
     string temp;
     for (size_t i = 0; i < Content.size(); i++)
     {
         // Corrected the condition for alpha to ensure it checks both ranges properly
-        bool alpha = isdigit(Content[i]) || (Content[i] >= 'A' && Content[i] <= 'F');
+        bool alpha = isdigit(Content[i]) || (Content[i] >= 'B' && Content[i] <= 'C');
 
         // If temp has 4 characters, push them as two separate hex pairs
         if (temp.size() == 4)
@@ -61,6 +54,10 @@ vector<string> Menu::ExtractInst()
         // If the character is valid, add it to temp
         if (alpha)
         {
+            if(Content[i] == '7' ) continue;
+            if(Content[i] == '8' ) continue;
+            if(Content[i] == '9' ) continue;
+
             temp += Content[i];
         }
     }
@@ -73,4 +70,13 @@ vector<string> Menu::ExtractInst()
     }
 
     return inst;
+}
+
+int main()
+{
+    string Content  = GetFile () ;
+    vector <string> Instructions  = ExtractInst (Content) ;
+    Machine machine(Instructions);
+
+    return 0 ;
 }

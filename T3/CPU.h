@@ -7,8 +7,6 @@ using namespace std;
 #include "CU.h"
 #include "Methods.h"
 #include "Alu.h"
-#include "Machine.h"
-#include "Menu.h"
 #include <string>
 #include <regex>
 
@@ -17,18 +15,17 @@ class CPU
     private:
         CU cu;
         ALU alu;
-        Register& reg;
-        Memory& memory;
+        Register reg;
         string programCounter = "00";
         bool skip = false;
         string instructionRegister="";
         void fetch(Memory &memory);
         vector<string> decode();
-        void execute(vector<string> instruction, Memory &memory, Register& reg);
+        void execute(vector<string> instruction, Memory &memory);
     public:
-        CPU(CU cu, ALU alu, Register& reg, Memory& memory) : cu(cu), alu(alu), reg(reg), memory(memory){}
-        void control(Memory &memory, Register &reg);
+        void control(Memory &memory);
         void print();
         void DisplayMemory(Memory m ) ;
+
 };
 #endif // CPU_H

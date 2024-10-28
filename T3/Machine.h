@@ -9,15 +9,17 @@
 #include <string>
 
 class Machine{
-    private:
-        Memory memory;
-        ALU alu;
-        CU cu;
+    protected:
+        Memory memoryMachine;
         CPU cpu;
-        Register reg;
-        string path;
+        vector<string> Instructions;
     public:
-        Machine(string path) : path(path), cpu(cu, alu, reg, memory){} 
+        Machine(vector<string> Instructions) : Instructions(Instructions){
+            loadMemory(Instructions);
+            loadProgram();
+            stateOut();
+            
+        } 
         void loadMemory(vector<string> Instructions);
         void loadProgram();
         

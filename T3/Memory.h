@@ -8,6 +8,9 @@ private :
 	// address is -- > address 
 	// value is -- > stored 
 public :
+	Memory(){
+		GenerateMemory (memory) ;
+	}
 	map<string ,string> getMemory() ;
 	void setCell(string address, string value);
 	string getCell(string address);

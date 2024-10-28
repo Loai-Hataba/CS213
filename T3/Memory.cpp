@@ -1,9 +1,6 @@
 #include "Memory.h"
 
-Memory::Memory()
-{
-   GenerateMemory (memory) ;
-}
+
 
 map<string, string> Memory::getMemory()
 {
