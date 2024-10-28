@@ -32,6 +32,7 @@ void DisplayMemory(Memory Mem)
     cout << endl << endl;    
     for (size_t i = 0; i < 16; i++)
     {
+        // Print The Top Row Of Indices 
         if (i >= 10 && i <= 15)
         {
             cout << static_cast<char>('A' + (i - 10)) << "    ";
@@ -40,9 +41,32 @@ void DisplayMemory(Memory Mem)
         {
             cout << i << "    ";
         }
-        for (size_t i = 0; i < 16; i++)
+        ///
+        /// Get The Right Address 
+        char firstDigit;
+        if (i < 10)
         {
-            cout << Mem.getCell(decToHex(i)) << "   ";
+            firstDigit = '0' + i; // '0' to '9'
+        }
+        else
+        {
+            firstDigit = 'A' + (i - 10); // 'A' to 'F'
+        }
+
+        for (size_t j = 0; j < 16; ++j) // Second hex digit (0 to F)
+        {
+            char secondDigit;
+            if (j < 10)
+            {
+                secondDigit = '0' + j; // '0' to '9'
+            }
+            else
+            {
+                secondDigit = 'A' + (j - 10); // 'A' to 'F'
+            }
+            // Printing Cells With The Right Address
+            std::string key = std::string(1, firstDigit) + secondDigit;
+            cout << Mem.getCell(key )<< "   "; 
         }
         cout << endl; 
         }
@@ -56,6 +80,7 @@ void DisplayRegister(Register Reg)
         char ch;
         if (i >= 10 && i <= 15) ch = static_cast<char>('A' + (i - 10)); // Converts 10-15 to 'A'-'F'
         else  ch = static_cast<char>('0' + i); // Converts 0-9 to '0'-'9'
+        cout << Reg.getCell("00") << endl ;
         cout << "R" << ch << "    " << Reg.getCell(decToHex(i))  << " i "<< endl;
     }
 }
@@ -64,7 +89,8 @@ void Machine::stateOut()
     cout << "state out...\n";
     DisplayMemory(memoryMachine) ;
     cout << endl <<endl;  
-    DisplayRegister(cpu.GetRegister()) ;
+    Register r = cpu.GetRegister() ;
+    DisplayRegister(r) ;
 
    
 }
