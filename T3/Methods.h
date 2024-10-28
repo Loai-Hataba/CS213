@@ -10,5 +10,6 @@ void GenerateRegister(map<string , string > &r ) ;
 string decToHex(int dec) ;
 int hexToDec(string hex) ;
 string hexToBin(const string& hex);
-string binToHex(const string& bin);
+string GetPath();
+string binToHex(const string &bin);
 #endif

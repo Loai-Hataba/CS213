@@ -132,3 +132,13 @@ string binToHex(const string& bin) {
     string hex = decToHex(dec);
     return hex;
 }
+string GetPath()
+{
+    string Res;
+    cout << "\nPlease Enter The Path Like This Formula --- >  C:\\Users\\YourUsername\\Documents\\example.txt" << endl;
+    cout << "Please Enter The Path Of The File " << ": ";
+    cin.ignore(0, '\n');
+    // Use getline to capture the entire file path, including spaces and special characters
+    getline(cin, Res);
+    return Res;
+}

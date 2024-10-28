@@ -6,6 +6,9 @@ using namespace std;
 class Menu{
     public:
         void displayMenu();
+        string GetFile();
+        vector<string> ExtractInst();
+
 };
 
 #endif
