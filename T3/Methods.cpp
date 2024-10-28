@@ -132,6 +132,7 @@ string binToHex(const string& bin) {
     string hex = decToHex(dec);
     return hex;
 }
+
 string GetPath()
 {
     string Res;
