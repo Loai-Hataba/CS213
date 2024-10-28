@@ -1,6 +1,6 @@
 #include "Machine.h"
 
-void Machine::loadProgram(string filePath) {
+void Machine::loadProgram(vector<string> Instructions) {
     
 }
 

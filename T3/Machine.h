@@ -10,12 +10,15 @@
 
 class Machine{
     private:
-        CPU cpu;
         Memory memory;
+        ALU alu;
+        CU cu;
+        CPU cpu;
+        Register reg;
         string path;
     public:
-        Machine(string path) : path(path){} 
-        void loadProgram(string fileName);
+        Machine(string path) : path(path), cpu(cu, alu, reg, memory){} 
+        void loadProgram(vector<string> Instructions);
         
         void stateOut();
 };
