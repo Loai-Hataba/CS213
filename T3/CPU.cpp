@@ -2,14 +2,18 @@
 
 
 void CPU::fetch(Memory & memory){
-    skip = false;
+    // skip = false;
     //read the instruction from memory
     cout << "PC: " << programCounter << endl;
-    instructionRegister = memory.getCell(programCounter);
-    regex patternREGEX(R"(^[0-6BC][0-9A-F]{3}$)");
-    if (!regex_match(instructionRegister, patternREGEX)) {
-        skip = true;
-    }
+    int tempPCIR  = hexToDec(programCounter);
+    tempPCIR += 1;
+    string finalPCIR = decToHex(tempPCIR);
+    instructionRegister = memory.getCell(programCounter) + memory.getCell(finalPCIR);
+    cout << "InstructionRegister: " << instructionRegister << endl;
+    // regex patternREGEX(R"(^[0-6BC][0-9A-F]{3}$)");
+    // if (!regex_match(instructionRegister, patternREGEX)) {
+    //     skip = true;
+    // }
     int temp_PC = hexToDec(programCounter);
     temp_PC += 2;
     programCounter = decToHex(temp_PC);
@@ -32,7 +36,7 @@ void CPU::execute(vector<string> instruction, Memory & memory, Register &reg){
     string idxXY = instruction[2];    
     string idxX = instruction[3];    
     string idxY = instruction[4];
-    if (skip) {cout << "skipped" << endl; return;}
+    // if (skip) {cout << "skipped" << endl; return;}
     cout << "Instruction: " << OpCode << " " << idxReg << " " << idxXY << std::endl;
     switch (OpCode)
     {

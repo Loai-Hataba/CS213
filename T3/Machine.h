@@ -18,7 +18,8 @@ class Machine{
         string path;
     public:
         Machine(string path) : path(path), cpu(cu, alu, reg, memory){} 
-        void loadProgram(vector<string> Instructions);
+        void loadMemory(vector<string> Instructions);
+        void loadProgram();
         
         void stateOut();
 };

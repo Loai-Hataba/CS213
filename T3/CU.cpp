@@ -32,5 +32,6 @@ void CU::Jump(string idxReg, string MemAddress, Register &R, string &PC)
 
 void CU::Halt()
 {
+    // 
     exit(0); // Properly terminate the program
 }
