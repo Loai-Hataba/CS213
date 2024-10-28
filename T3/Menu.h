@@ -2,6 +2,7 @@
 #define MENU_H
 using namespace std;
 #include "Headers.h"
+#include "Machine.h"
 
 class Menu{
     public:

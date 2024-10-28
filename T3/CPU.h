@@ -7,6 +7,7 @@ using namespace std;
 #include "CU.h"
 #include "Methods.h"
 #include "Alu.h"
+#include "Menu.h"
 #include <string>
 #include <regex>
 // #include "Machine.h"     TODO:
