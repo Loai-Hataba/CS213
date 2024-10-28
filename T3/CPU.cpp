@@ -6,29 +6,21 @@ void CPU::fetch(Memory & memory){
     //read the instruction from memory
     cout << "PC: " << programCounter << endl;
     instructionRegister = memory.getCell(programCounter);
-    cout << instructionRegister << endl;
     regex patternREGEX(R"(^[0-6BC][0-9A-F]{3}$)");
     if (!regex_match(instructionRegister, patternREGEX)) {
         skip = true;
     }
-    //TODO: turn memory, instructions into HEXA
-    // programCounter++; FIXME:
     int temp_PC = hexToDec(programCounter);
     temp_PC += 2;
     programCounter = decToHex(temp_PC);
-    cout << "PC: " << programCounter << endl <<" skip: " << skip << std::endl;
-
 }
 
 vector<string> CPU::decode(){
-    cout << instructionRegister << endl;
     string opCodeHex = instructionRegister.substr(0, 1);
-    cout << instructionRegister.substr(1, 1) << endl;
     string R_Hex= instructionRegister.substr(1, 1);
     string XY_Hex = instructionRegister.substr(2, 2);
     string X_Hex = instructionRegister.substr(2, 1);
     string Y_Hex = instructionRegister.substr(3, 1);
-    cout << "Instruction: " << opCodeHex << " " << R_Hex << " " << XY_Hex << std::endl;
     return {opCodeHex, R_Hex, XY_Hex , X_Hex ,Y_Hex };
     // decode the instruction
 }
@@ -41,6 +33,7 @@ void CPU::execute(vector<string> instruction, Memory & memory, Register &reg){
     string idxX = instruction[3];    
     string idxY = instruction[4];
     if (skip) {cout << "skipped" << endl; return;}
+    cout << "Instruction: " << OpCode << " " << idxReg << " " << idxXY << std::endl;
     switch (OpCode)
     {
     case '1':
@@ -60,7 +53,6 @@ void CPU::execute(vector<string> instruction, Memory & memory, Register &reg){
         if (idxReg[0] == '0')
         { // Check for valid format 0RS
             cu.Move(idxX,idxY , reg);
-            //std::cout << "MOVE: Moved value from register " << idxX << " to register " << idxY << std::endl;
         }
         else
         {
@@ -68,7 +60,11 @@ void CPU::execute(vector<string> instruction, Memory & memory, Register &reg){
         }
     }
     break;
-
+    case '5':
+        idxX = "0" + idxX;
+        idxY = "0" + idxY;
+        alu.add(idxReg, idxX, idxY, reg);       
+        break; 
     case 'B':
         cu.Jump(idxReg, idxXY, reg, programCounter);
         break;
@@ -110,10 +106,16 @@ int main()
     CPU cpu;
     Memory memory;
     Register reg;
+    ALU alu;
     memory.setCell("00", "1224");
     memory.setCell("02", "4018");
     // memory.setCell("2", "12A3");
     memory.setCell("04", "X2A3");
+    memory.setCell("06", "5867");
+    reg.setCell("06", "5");
+    reg.setCell("07", "B");
+    cpu.control(memory, reg);
+    cout << "------------------------------\n";
     // memory.setCell("4", "32A3");
     cpu.control(memory, reg);
     cout << "------------------------------\n";
@@ -121,6 +123,6 @@ int main()
     cout << "------------------------------\n";
     cpu.control(memory, reg);
     cpu.print();
-    cpu.DisplayMemory(memory);
+    // cpu.DisplayMemory(memory);
     return 0;
 }

@@ -6,9 +6,9 @@ using namespace std;
 #include "Regist.h"
 #include "CU.h"
 #include "Methods.h"
+#include "Alu.h"
 #include <string>
 #include <regex>
-// #include "Alu.h"         TODO:
 // #include "Machine.h"     TODO:
 
 class CPU
@@ -18,7 +18,7 @@ class CPU
         bool skip = false;
         string instructionRegister="";
         Register reg;
-        // ALU alu;         TODO:
+        ALU alu;
         CU cu;
         void fetch(Memory &memory);
         vector<string> decode();

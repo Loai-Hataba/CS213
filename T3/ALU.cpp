@@ -1,28 +1,14 @@
 #include "ALU.h"
-#include "Headers.h"
 
-string hexToBin(const string& hex) {
-    std::string bin;
-    for (char ch : hex) {
-        int n = (ch >= '0' && ch <= '9') ? ch - '0' : ch - 'A' + 10;
-        bin += std::bitset<4>(n).to_string();
-    }
-    cout<<"bin:"<<bin<<endl;
-    return bin;
-}
 
-// Convert binary string to hex string
-string binToHex(const string& bin) {
-    int  dec = stoi(bin, nullptr,2);
-    cout<<"decimal :"<<dec<<endl;
-    string hex = decToHex(dec);
-    cout<<"hex :"<<hex<<endl;
-    return hex;
-}
 
 void ALU::add(string idx1, string idx2, string idx3, Register& reg) {
+
+    // Convert hexadecimal to binary for binary addition
     string bin1 = hexToBin(reg.getCell(idx2));
     string bin2 = hexToBin(reg.getCell(idx3));
+
+    // Perform binary addition
     string result_bin;
     int carry = 0;
     int len = max(bin1.size(), bin2.size());

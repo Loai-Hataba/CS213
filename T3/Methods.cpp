@@ -94,7 +94,6 @@ void GenerateRegister(map<string, string> &r)
 int hexToDec(std :: string hex)
 {
     int dec = stoi(hex, nullptr, 16);
-    cout << "DEC: " << dec << endl;
     return dec;
 }
 string decToHex(int dec)
@@ -114,6 +113,22 @@ string decToHex(int dec)
         dec /= 16;
     }
     if (hexadecimal.length() < 2) hexadecimal = "0" + hexadecimal;
-    cout << "HEX: " << hexadecimal << endl;
     return hexadecimal;
+}
+
+string hexToBin(const string& hex) {
+    std::string bin;
+    for (char ch : hex) {
+        int n = (ch >= '0' && ch <= '9') ? ch - '0' : ch - 'A' + 10;
+        bin += std::bitset<4>(n).to_string();
+    }
+    return bin;
+}
+
+// Convert binary string to hex string
+string binToHex(const string& bin) {
+    int  dec = stoi(bin, nullptr,2);
+    cout<<"decimal :"<<dec<<endl;
+    string hex = decToHex(dec);
+    return hex;
 }
