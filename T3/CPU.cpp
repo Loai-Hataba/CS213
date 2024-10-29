@@ -2,7 +2,6 @@
 
 
 void CPU::fetch(Memory & memory){
-    // skip = false;
     //read the instruction from memory
     int tempPCIR  = hexToDec(programCounter);
     tempPCIR += 1;
@@ -10,6 +9,11 @@ void CPU::fetch(Memory & memory){
     instructionRegister = memory.getCell(programCounter) + memory.getCell(finalPCIR);
     int temp_PC = hexToDec(programCounter);
     temp_PC += 2;
+    if (temp_PC > 256)
+    {
+        cout << "Memory Full!" << endl;
+    }
+    //FIXME: handle overflow
     programCounter = decToHex(temp_PC);
 }
 
@@ -30,7 +34,6 @@ void CPU::execute(vector<string> instruction, Memory & memory){
     string idxXY = instruction[2];    
     string idxX = instruction[3];    
     string idxY = instruction[4];
-    // if (skip) {cout << "skipped" << endl; return;}
     cout << "Instruction: " << OpCode << " " << idxReg << " " << idxXY << std::endl;
     switch (OpCode)
     {
