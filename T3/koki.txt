@@ -1,4 +1,4 @@
 1024 2053   a02A  abcd 802A
 1024 2053   a02A  abcd 802A
-1024 2053   a02A  abcd 802A *kask
-5F1A
+1024 2053   a02A  abcd 802A *kask 5F1A
+1024

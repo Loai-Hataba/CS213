@@ -34,14 +34,13 @@ vector<string> ExtractInst(string Content)
     {
         // Corrected the condition for alpha to ensure it checks both ranges properly
         bool alpha = isdigit(Content[i]) || (Content[i] >= 'B' && Content[i] <= 'C');
-
+        cout << Content[i] << endl;
         // If temp has 4 characters, push them as two separate hex pairs
         if (temp.size() == 4)
         {
             inst.push_back(temp.substr(0, 2));
             inst.push_back(temp.substr(2, 2));
             temp.clear();
-            cout << "done " << endl;
         }
 
         // If the character is a space and temp size is less than 4 or if the character is not valid, clear temp

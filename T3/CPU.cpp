@@ -9,6 +9,10 @@ void CPU::fetch(Memory & memory){
     instructionRegister = memory.getCell(programCounter) + memory.getCell(finalPCIR);
     int temp_PC = hexToDec(programCounter);
     temp_PC += 2;
+    if (temp_PC > 256)
+    {
+        cout << "Memory Full!" << endl;
+    }
     //FIXME: handle overflow
     programCounter = decToHex(temp_PC);
 }
