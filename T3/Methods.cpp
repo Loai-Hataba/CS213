@@ -86,7 +86,7 @@ void GenerateRegister(map<string, string> &r)
         {
             firstDigit = 'A' + (i - 10); // 'A' to 'F'
         }
-        std::string key;
+        std::string key = "";
         key += firstDigit;
         r[key] = "00"; // Initialize the map with empty values
     }

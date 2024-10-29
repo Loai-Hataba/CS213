@@ -84,6 +84,16 @@ void CPU::control(Memory & memory){
     execute(decoded, memory);
 }
 
+void CPU :: DisplayRegister()
+{
+    for (size_t i = 0; i < 16; i++)
+    {
+        string ch;
+        if (i >= 10 && i <= 15)  ch = static_cast<char>('A' + (i - 10)); // Converts 10-15 to 'A'-'F'
+        else   ch = static_cast<char>('0' + i); // Converts 0-9 to '0'-'9'
+        cout << "R" << ch << "    " << reg.getCell(ch)  << endl;
+    }
+}
 void CPU::print(){
     cout << "CPU is working." << endl;
 }
