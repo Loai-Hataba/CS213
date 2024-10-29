@@ -10,19 +10,30 @@ string GetFile()
         string Path = GetPath();
         ifstream File(Path); // Open the file using ifstream
         if (File.fail())
-        { // Check if the file failed to open
-            cout << "Unable To Open The File --> ( " << Path << " ) . Please Choose Another One With (.txt) Format" << endl;
+        {
+            // Check if the file failed to open
+            cout << "Unable to open the file --> (" << Path << "). Please choose another one with (.txt) format." << endl;
         }
         else
-        {                                                                           // File opened successfully
-            cout << "The File --> ( " << Path << " ) Opened Successfully " << endl; // Debugging line
-            stringstream Content;
-            Content << File.rdbuf(); // Read the entire file content
-            Result = Content.str();  // Store the content in a string
-            File.close();            // Close the file
+        {
+            cout << "The file --> (" << Path << ") opened successfully." << endl;
+
+            // Read file content character by character
+            char ch;
+            while (File.get(ch)) // File.get() reads one character at a time
+            {
+                // Append only printable ASCII characters (from space to ~)
+                if (ch >= 32 && ch <= 126)
+                {
+                    Result += ch;
+                }
+            }
+
+            File.close(); // Close the file
             break;
         }
     }
+
     return Result; // Return the file content
 }
 
@@ -67,7 +78,7 @@ vector<string> ExtractInst(string Content)
         inst.push_back(temp.substr(0, 2));
         inst.push_back(temp.substr(2, 2));
     }
-
+   cout << endl; 
     return inst;
 }
 
@@ -76,6 +87,7 @@ int main()
     string Content  = GetFile () ;
     vector <string> Instructions  = ExtractInst (Content);
     Machine machine(Instructions);
+    
 
     return 0 ;
 }
