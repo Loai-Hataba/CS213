@@ -163,7 +163,6 @@ string addBin(string bin1, string bin2){
     if (carry == 1) {
         result_bin = "1"+result_bin;
     }
-    string res = binToHex(result_bin);
 
-    return res;
+    return res_bin;
 }
