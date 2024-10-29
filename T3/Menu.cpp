@@ -33,7 +33,6 @@ string GetFile()
             break;
         }
     }
-
     return Result; // Return the file content
 }
 

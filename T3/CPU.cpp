@@ -12,8 +12,8 @@ void CPU::fetch(Memory & memory){
     if (temp_PC > 256)
     {
         cout << "Memory Full!" << endl;
+        cu.Halt();
     }
-    //FIXME: handle overflow
     programCounter = decToHex(temp_PC);
 }
 
