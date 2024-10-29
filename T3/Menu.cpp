@@ -1,6 +1,29 @@
 #include "Menu.h"
 #include <regex>
+#define GREEN "\e[32m"
+#define RESET "\e[0m"
+#define CYANBACK "\e[46m"
+#define YELLOW "\e[33m"
 
+void displayMenu(){
+cout << "                            _______ " << endl;
+cout << "                           | ___  o| " << endl;
+cout << "                           |[_-_]_ | " << endl;
+cout << "        ______________     |[_____]| " << endl;
+cout << "       |.------------.|    |[_____]| " << endl;
+cout << "       ||  "GREEN"Hello ya"RESET"  ||    |[====o]| " << endl;
+cout << "       ||  "GREEN"User ya"RESET"   ||    |[_.--_]| " << endl;
+cout << "       ||  "GREEN"Habibi to"RESET" ||    |[_____]| " << endl;
+cout << "       ||"CYANBACK"Vole Machine"RESET"||    |      :| " << endl;
+cout << "       ||____________||    |      :| " << endl;
+cout << "   .==.|\"\"  ......    |.==.|      :| " << endl;
+cout << "   |::| \'-.________.-\' |::||"YELLOW" CS213"RESET" | " << endl;
+cout << "   |\'\'|  (__________)-.|\'\'||_______| " << endl;
+cout << "   `\"\"`_.............._\\\"\"`______ " << endl;
+cout << "      /:::::::::::\'\':::\\`;'-.-.  `\\ " << endl;
+cout << "     /::=========.:.-::\"\\ \\ \\--\\   \\ " << endl;
+cout << "     \\`\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"`/  \\ \\__)   \\ " << endl;
+cout << "      `\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"`    \'========\' " << endl;}
 string GetFile()
 {
     string Result;
@@ -83,6 +106,7 @@ vector<string> ExtractInst(string Content)
 
 int main()
 {
+    displayMenu();
     string Content  = GetFile () ;
     vector <string> Instructions  = ExtractInst (Content);
     Machine machine(Instructions);
