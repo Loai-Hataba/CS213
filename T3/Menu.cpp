@@ -1,5 +1,7 @@
 #include "Menu.h"
 #include <regex>
+#include "options.h"
+
 bool CheckInst(string Inst)
 {
     if (!isdigit(Inst[0]) && (Inst[0] != 'B' || Inst[0] != 'C'))
@@ -10,7 +12,11 @@ bool CheckInst(string Inst)
 #define GREEN "\e[32m"
 #define RESET "\e[0m"
 #define CYANBACK "\e[46m"
+#define CYAN    "\033[36m"
 #define YELLOW "\e[33m"
+#define BOLD    "\033[1m"
+
+
 
 void displayMenu(){
 cout << "                            _______ " << endl;
@@ -30,7 +36,12 @@ cout << "   `\"\"`_.............._\\\"\"`______ " << endl;
 cout << "      /:::::::::::\'\':::\\`;'-.-.  `\\ " << endl;
 cout << "     /::=========.:.-::\"\\ \\ \\--\\   \\ " << endl;
 cout << "     \\`\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"`/  \\ \\__)   \\ " << endl;
-cout << "      `\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"`    \'========\' " << endl;}
+cout << "      `\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"`    \'========\' " << endl;
+cout << endl << endl;
+cout << "   What do you want to do today?\n\n";
+
+
+}
 string GetFile()
 {
     string Result;
@@ -101,10 +112,32 @@ vector<string> ExtractInst(string Content)
 
 int main()
 {
-    displayMenu();
-    string Content  = GetFile () ;
-    vector <string> Instructions  = ExtractInst (Content);
-    Machine machine(Instructions);
+    vector<string> options = {"Use Vole Machine", "Authors", "Exit"};
+    int choice = navigateMenu(options);
+    if (choice == 0){
+        displayMenu();
+        string Content  = GetFile () ;
+        vector <string> Instructions  = ExtractInst (Content);
+        Machine machine(Instructions);
+    }
+    else if(choice == 1){
+         // Displaying the header
+    std::cout << CYAN << "---------------------------------------------------" << RESET << std::endl;
+    std::cout << CYAN << "|" << BOLD << YELLOW << "                   Program Authors               " << RESET << CYAN << "|" << RESET << std::endl;
+    std::cout << CYAN << "|-------------------------------------------------|" << RESET << std::endl;
+    
+    // Displaying each author's name and role
+    std::cout << CYAN << "|" << RESET << " " << BOLD << GREEN << "Loai Hataba" << RESET << " - 20230553                          " << CYAN << "|" << RESET << std::endl;
+    std::cout << CYAN << "|" << RESET << " " << BOLD << GREEN << "Abdullah Mohammed" << RESET << " - 20230231                    " << CYAN << "|" << RESET << std::endl;
+    std::cout << CYAN << "|" << RESET << " " << BOLD << GREEN << "Hossam Abdelaziz" << RESET << " - 20230121                     " << CYAN << "|" << RESET << std::endl;
 
+    // Displaying the footer
+    std::cout << CYAN << "---------------------------------------------------" << RESET << std::endl;
+
+    
+    }
+    else{
+        cout << "Thank you for using Vole Machine! Goodbye!" << endl;
+    }
     return 0;
 }

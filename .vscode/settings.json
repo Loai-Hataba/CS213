@@ -55,7 +55,9 @@
     "streambuf": "cpp",
     "typeinfo": "cpp",
     "variant": "cpp",
-    "regex": "cpp"
+    "regex": "cpp",
+    "cstdarg": "cpp",
+    "map": "cpp"
   },
   "python.analysis.autoImportCompletions": false
 }
