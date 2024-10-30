@@ -19,6 +19,7 @@ bool CheckInst(string Inst)
 
 
 void displayMenu(){
+cout << endl;
 cout << "                            _______ " << endl;
 cout << "                           | ___  o| " << endl;
 cout << "                           |[_-_]_ | " << endl;
