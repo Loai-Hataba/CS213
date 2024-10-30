@@ -166,3 +166,29 @@ string GetPath()
 
      return result_bin;
  }
+string subBin(const string& bin1, const string& bin2) {
+    string result;
+    int borrow = 0;
+    int len = max(bin1.size(), bin2.size());
+
+    for (int i = 0; i < len; ++i) {
+        int bit1 = i < bin1.size() ? bin1[bin1.size() - 1 - i] - '0' : 0;
+        int bit2 = i < bin2.size() ? bin2[bin2.size() - 1 - i] - '0' : 0;
+        int diff = bit1 - bit2 - borrow;
+
+        if (diff < 0) {
+            diff += 2;
+            borrow = 1;
+        } else {
+            borrow = 0;
+        }
+        result = to_string(diff) + result;
+    }
+
+    // Remove leading zeros
+    while (result.size() > 1 && result[0] == '0') {
+        result = result.substr(1);
+    }
+
+    return result;
+}
