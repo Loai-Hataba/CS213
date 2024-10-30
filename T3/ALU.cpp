@@ -51,13 +51,13 @@ void ALU::floatingAdd(string idx1, string idx2, string idx3, Register &reg) { //
     } else {
         if (stoi(man1, nullptr, 2) >= stoi(man2, nullptr, 2)) {
             resSign = sign1;
-            resMan = subBin(man1, man2)
+            resMan = subBin(man1, man2);
         } else {
             resSign = sign2;
             resMan = subBin(man2, man1);
         }
     }
-    while (resMansize() < 4) {
+    while (resMan.size() < 4) {
         resMan = "0" + resMan;
     }
 

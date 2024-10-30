@@ -13,5 +13,5 @@ string hexToBin(const string& hex);
 string GetPath();
 string binToHex(const string &bin);
 string addBin(string bin1, string bin2);
-string subBin(const string& bin1, const string& bin2)
+string subBin(const string& bin1, const string& bin2);
 #endif
