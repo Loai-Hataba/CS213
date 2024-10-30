@@ -115,10 +115,21 @@ int main()
     vector<string> options = {"Use Vole Machine", "Authors", "Exit"};
     int choice = navigateMenu(options);
     if (choice == 0){
-        displayMenu();
-        string Content  = GetFile () ;
-        vector <string> Instructions  = ExtractInst (Content);
-        Machine machine(Instructions);
+        
+        while (true)
+        {
+            displayMenu();
+            string Content = GetFile();
+            vector<string> Instructions = ExtractInst(Content);
+            Machine machine(Instructions); // Object
+            
+            if (machine.IsHalt)
+            {
+                cout << "Thanks For Using Vole Machine 0_0" << endl; 
+                continue; 
+            } 
+         
+        }
     }
     else if(choice == 1){
          // Displaying the header

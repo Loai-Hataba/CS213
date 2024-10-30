@@ -22,10 +22,9 @@ class Machine{
         } 
         void loadMemory(vector<string> Instructions);
         void loadProgram();
-        
         void stateOut();
-        friend void DisplayMemory(Memory Mem);
-        friend void DisplayRegister(Register Reg);
+        friend void DisplayMemory(Memory Mem); 
+        bool IsHalt ;
 };
 
 #endif // MACHINE_H

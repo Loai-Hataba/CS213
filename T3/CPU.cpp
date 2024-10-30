@@ -71,8 +71,8 @@ void CPU::execute(vector<string> instruction, Memory & memory){
         break;
 
     case 'C':
-        cu.Halt();
-        break;
+        this -> IsHalt = cu.Halt()  ;
+        return ;
 
     default:
         std::cout << "Invalid OP Code !!" << std::endl;
@@ -105,3 +105,5 @@ Register CPU::GetRegister()
 {
     return reg;
 }
+
+

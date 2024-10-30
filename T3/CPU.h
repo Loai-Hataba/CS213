@@ -27,5 +27,6 @@ class CPU
         void print();
         void DisplayRegister() ;
         Register GetRegister() ;
+        bool IsHalt  ;
 };
 #endif // CPU_H

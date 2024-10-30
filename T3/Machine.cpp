@@ -11,7 +11,12 @@ void Machine::loadMemory(vector<string> Instructions) {
 void Machine::loadProgram(){
     for (int i = 0; i < (Instructions.size() / 2); i++) {
         cpu.control(memoryMachine);
+        if (cpu.IsHalt) {
+            IsHalt = true ;  
+            break; 
+        } 
     }
+  
     // cpu.control(memory, reg);
     cout << "Loading program..." << endl;
 }
