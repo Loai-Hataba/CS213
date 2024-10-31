@@ -7,6 +7,7 @@
 #include <fstream>
 #include <sstream>
 #include <map>
+#include <limits>
 #include "Methods.h"
 
 #endif 

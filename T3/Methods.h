@@ -14,4 +14,8 @@ string GetPath();
 string binToHex(const string &bin);
 string addBin(string bin1, string bin2);
 string subBin(const string& bin1, const string& bin2);
+char GetChoice(const string &Message, const string &Choices, char Start, char End) ;
+string GetFileContent() ;
+bool CheckInst(string Inst) ;
+vector<string> ExtractInst() ;
 #endif

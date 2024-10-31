@@ -50,7 +50,6 @@ void CPU::execute(vector<string> instruction, Memory & memory){
         break;
 
     case '4':
-    {
         if (idxReg[0] == '0')
         { // Check for valid format 0RS
             cu.Move(idxX,idxY , reg);
@@ -59,8 +58,7 @@ void CPU::execute(vector<string> instruction, Memory & memory){
         {
             std::cerr << "Error: Invalid MOVE instruction format" << std::endl;
         }
-    }
-    break;
+        break;
     case '5':
         idxX = "0" + idxX;
         idxY = "0" + idxY;

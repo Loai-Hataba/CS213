@@ -28,5 +28,8 @@ class CPU
         void DisplayRegister() ;
         Register GetRegister() ;
         bool IsHalt  ;
+       CPU () {
+           IsHalt=false;
+       }
 };
 #endif // CPU_H

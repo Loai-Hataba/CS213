@@ -13,17 +13,16 @@ class Machine{
         Memory memoryMachine;
         CPU cpu;
         vector<string> Instructions;
+        string StartIterate ; 
     public:
         Machine(vector<string> Instructions) : Instructions(Instructions){
-            loadMemory(Instructions);
-            loadProgram();
-            stateOut();
-            
+          RunMachine(Instructions) ;
         } 
         void loadMemory(vector<string> Instructions);
         void loadProgram();
         void stateOut();
-        friend void DisplayMemory(Memory Mem); 
+        friend void DisplayMemory(Memory Mem);
+        void RunMachine(vector<string> Instructions);
         bool IsHalt ;
 };
 
