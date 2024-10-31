@@ -50,33 +50,42 @@ int main()
         {
             displayMenu();
             vector<string> Instructions = ExtractInst();
-            Machine machine(Instructions); // Object
+            Machine machine(Instructions); 
+            machine.RunMachine(Instructions) ;
             while (true)
             {
                 if (machine.IsHalt)
                 {
-                    char Ch = GetChoice("Do You Want To Reset The Machine ? " ,"Yes --> ( Y ) \nNo -->( N )" , 'Y' ,'N' );
+                    char Ch = GetChoice("Would you like to reset the machine to its initial state? ", "Please choose an option:\n" 
+                                        "  (Y) - Yes, reset the machine\n"
+                                        "  (N) - No, continue with the current state", 'Y', 'N');
                     if (Ch == 'N')
                     {
+                        std::cin.clear();                                                   // Clear any error state flags (e.g., from invalid input)
+                        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // Remove all characters up to and including the newline
                         vector<string> Instructions = ExtractInst();
                         machine.RunMachine(Instructions);
                     }
                     else if (Ch == 'Y')
                     {
-                        cout << "Machine Has been Reset Successfully " << endl;
+                        cout << "The machine has been successfully reset and is ready for a fresh start!" << endl;
                         break;
                     }
                 }
             }
-          
-            char Ch = GetChoice("Do You Want TO Exit The Program ?  ( Y / N )" ,  "Yes -- Y\nNo -- N" , 'Y', 'N');
+
+            char Ch = GetChoice("Would you like to exit the program?", "Please choose an option:\n"
+                                "  (Y) - Yes, exit the program\n"
+                                "  (N) - No, continue using the program", 'Y', 'N');
             if (toupper(Ch) == 'N')
             {
+                std::cin.clear();                                                   // Clear any error state flags (e.g., from invalid input)
+                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // Remove all characters up to and including the newline
                 continue;
             }
             else if (toupper(Ch) == 'Y')
             {
-                cout << "Thank you for using Vole Machine! Goodbye!" << endl;
+                cout << "Thank you for using Vole Machine! Have a great day, and goodbye!" << endl;
                 break;
             }
             

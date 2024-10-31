@@ -4,10 +4,8 @@
 void ALU::add(string idx1, string idx2, string idx3, Register &reg) {
     string bin1 = hexToBin(reg.getCell(idx2));
     string bin2 = hexToBin(reg.getCell(idx3));
-
     string res_bin = addBin(bin1, bin2);
     string res = binToHex(res_bin);
-
     reg.setCell(idx1, res);
 }
 

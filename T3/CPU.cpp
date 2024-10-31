@@ -7,6 +7,7 @@ void CPU::fetch(Memory & memory){
     tempPCIR += 1;
     string finalPCIR = decToHex(tempPCIR);
     instructionRegister = memory.getCell(programCounter) + memory.getCell(finalPCIR);
+    cout << "Instruction Register : " <<instructionRegister <<endl ;
     int temp_PC = hexToDec(programCounter);
     temp_PC += 2;
     if (temp_PC > 256)
@@ -60,9 +61,10 @@ void CPU::execute(vector<string> instruction, Memory & memory){
         }
         break;
     case '5':
-        idxX = "0" + idxX;
-        idxY = "0" + idxY;
         alu.add(idxReg, idxX, idxY, reg);       
+        break; 
+    case '6':
+        alu.floatingAdd(idxReg, idxX, idxY, reg);       
         break; 
     case 'B':
         cu.Jump(idxReg, idxXY, reg, programCounter);

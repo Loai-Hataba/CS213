@@ -8,6 +8,7 @@
 #include <sstream>
 #include <map>
 #include <limits>
+#include <bitset>
 #include "Methods.h"
 
 #endif 

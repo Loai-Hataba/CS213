@@ -1,8 +1,4 @@
 #include "Regist.h"
-
-
-
-
 void Register::setCell(string RegAddress, string  value)
 {
 	   reg[RegAddress] = value;
