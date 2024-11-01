@@ -1,6 +1,5 @@
 #include "CPU.h"
 
-
 void CPU::fetch(Memory & memory){
     //read the instruction from memory
     int tempPCIR  = hexToDec(programCounter);
