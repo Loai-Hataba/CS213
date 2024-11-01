@@ -10,5 +10,5 @@
 #include <limits>
 #include <bitset>
 #include "Methods.h"
-
+using namespace std;
 #endif 

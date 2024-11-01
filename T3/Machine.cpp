@@ -2,9 +2,7 @@
 void Machine::loadMemory(vector<string> Instructions)
 {
     cout << "Loading memory..." << endl;
-    InstSize = Instructions.size() / 2; // Update InstSize based on the current instructions count
-
-    // Find the starting address with an empty cell in memory (cell value "00")
+  // Find the starting address with an empty cell in memory (cell value "00")
     for (size_t i = 0; i < 16; i++)
     {
         char firstDigit = (i < 10) ? ('0' + i) : ('A' + (i - 10));
@@ -12,7 +10,6 @@ void Machine::loadMemory(vector<string> Instructions)
         { // Second hex digit (0 to F)
             char secondDigit = (j < 10) ? ('0' + j) : ('A' + (j - 10));
             std::string key = std::string(1, firstDigit) + secondDigit;
-
             if (memoryMachine.getCell(key) == "C0")
             {
                 j++;
@@ -38,6 +35,7 @@ void Machine::loadMemory(vector<string> Instructions)
         memoryMachine.setCell(hexAddress, Instructions[i]);
         cout << memoryMachine.getCell(hexAddress) << " ";
     }
+    cout <<endl;  
 }
 
 void Machine::loadProgram()
@@ -45,15 +43,13 @@ void Machine::loadProgram()
     // Convert the starting address to decimal
     int Start_Dec = hexToDec(StartIterate);
     cout << "Start Address (Decimal): " << Start_Dec << endl;
-
     // Loop through the instructions
     int end = InstSize + Start_Dec;
     cout << "Instruction Count = " << InstSize << endl;
 
-    for (int i = Start_Dec; i < end; i++)
+    for (int i = Start_Dec; i < end; i++) 
     {
         cpu.control(memoryMachine);
-
         // Check if CPU has halted
         if (cpu.IsHalt)
         {
@@ -136,16 +132,25 @@ void DisplayMemory(Memory Mem)
     {
         cout << "state out...\n";
         DisplayMemory(memoryMachine);
-        cout << endl
-             << endl;
+        cout << endl<< endl;
         cpu.DisplayRegister();
    
 }
 //////////////////////////////////////////////////////////////////
-void Machine::RunMachine(vector<string> Instructions)
+void Machine::RunMachine()
 {
+    InstSize = Instructions.size() / 2 ;
     loadMemory(Instructions);
     loadProgram();
     stateOut();
 }
 
+void Machine::setInstructions(vector<string> Inst)
+{
+    Instructions = Inst ;
+}
+
+string Machine::getStartIterate()
+{
+    return StartIterate;
+}

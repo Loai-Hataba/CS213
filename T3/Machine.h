@@ -18,7 +18,7 @@ class Machine
 
 public:
     // Constructor: Initializes the Machine with instructions
-  Machine(vector<string> Instruction) : Instructions(Instruction) { InstSize = Instruction.size() / 2 ; }
+  Machine(vector<string> Instruction) : Instructions(Instruction) { }
 
   // Loads instructions into memory, setting up the initial machine state
   void loadMemory(vector<string> Instructions);
@@ -33,9 +33,10 @@ public:
   friend void DisplayMemory(Memory Mem);
 
   // Runs the machine with the provided instructions
-  void RunMachine(vector<string> Instructions);
-
-  bool IsHalt; // A flag indicating whether the machine has halted (true if halted)
+   void RunMachine();
+   void setInstructions(vector<string>  Inst) ;
+   string getStartIterate () ;
+      bool IsHalt; // A flag indicating whether the machine has halted (true if halted)
 };
 
 #endif // MACHINE_H
