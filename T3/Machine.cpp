@@ -42,28 +42,36 @@ void Machine::loadProgram()
 {
     // Convert the starting address to decimal
     int Start_Dec = hexToDec(StartIterate);
+    cout << "Loading program..." << endl; // Moved to the beginning
     cout << "Start Address (Decimal): " << Start_Dec << endl;
-    // Loop through the instructions
+
+    // Calculate end of instructions
     int end = InstSize + Start_Dec;
     cout << "Instruction Count = " << InstSize << endl;
 
-    for (int i = Start_Dec; i < end; i++) 
+    for (int i = Start_Dec; i < end; i++)
     {
         cpu.control(memoryMachine);
+
+        // Handle jump if specified
+        if (cpu.IsJump != 0)
+        {
+            i += cpu.IsJump - 1; // Adjust for loop increment
+            cout << "Jump : " << cpu.IsJump << endl;
+            cpu.IsJump = 0;
+        }
+
         // Check if CPU has halted
         if (cpu.IsHalt)
         {
             IsHalt = true;          // Set machine's halt flag
-            cpu.IsHalt = false;     // Reset CPU's halt flag if necessary
             cout << "Halt" << endl; // Print halt message
             break;
         }
 
-        // Debug: Output current address
-        cout << "Current Address (Decimal): " << i << endl;
+        // Debug: Output current address if needed
+        // cout << "Current Address (Decimal): " << i << endl;
     }
-
-    cout << "Loading program..." << endl;
 }
 
 //////////////////////////////////////////////////////////////////

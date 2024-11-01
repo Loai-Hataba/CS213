@@ -46,7 +46,6 @@ int main()
     int choice = navigateMenu(options);
     if (choice == 0)
     {
-
         while (true)
         {
             displayMenu();

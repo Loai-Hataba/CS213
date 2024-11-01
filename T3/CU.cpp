@@ -21,13 +21,18 @@ void CU::Move(string idxReg1, string idxReg2, Register &R)
     R.setCell(idxReg2, R.getCell(idxReg1));
 }
 
-void CU::Jump(string idxReg, string MemAddress, Register &R, string &PC)
+int CU::Jump(string idxReg, string MemAddress, Register &R, string &PC)
 {
+  
 
-    if (R.getCell(0) == R.getCell(idxReg))
+    if (R.getCell("0") == R.getCell(idxReg))
     {
-        PC = MemAddress ; 
+        int  temp =  hexToDec (PC)  ;
+        PC = MemAddress;
+        int res = hexToDec(PC) - temp ;
+        return res ; 
     } 
+    return 0 ;
 }
 
 bool CU::Halt()

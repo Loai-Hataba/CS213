@@ -22,14 +22,18 @@ class CPU
         void fetch(Memory &memory);
         vector<string> decode();
         void execute(vector<string> instruction, Memory &memory);
+   
     public:
         void control(Memory &memory);
         void print();
         void DisplayRegister() ;
         Register GetRegister() ;
         bool IsHalt  ;
-       CPU () {
-           IsHalt=false;
-       }
+        int IsJump  ;
+        CPU()
+        {
+            IsHalt = false;
+            }
+       
 };
 #endif // CPU_H

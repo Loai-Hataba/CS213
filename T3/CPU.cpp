@@ -67,7 +67,7 @@ void CPU::execute(vector<string> instruction, Memory & memory){
         alu.floatingAdd(idxReg, idxX, idxY, reg);       
         break; 
     case 'B':
-        cu.Jump(idxReg, idxXY, reg, programCounter);
+        IsJump  = cu.Jump(idxReg, idxXY, reg, programCounter);
         break;
 
     case 'C':
@@ -75,7 +75,6 @@ void CPU::execute(vector<string> instruction, Memory & memory){
         return ;
 
     default:
-        std::cout << "Invalid OP Code !!" << std::endl;
         break;
     }
 }
