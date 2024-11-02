@@ -16,7 +16,7 @@ void CPU::fetch(Memory & memory){
     }
     programCounter = decToHex(temp_PC);
 }
-
+////////////////////////////////////////////////////////////////////////////
 vector<string> CPU::decode(){
     string opCodeHex = instructionRegister.substr(0, 1);
     string R_Hex= instructionRegister.substr(1, 1);
@@ -26,6 +26,7 @@ vector<string> CPU::decode(){
     return {opCodeHex, R_Hex, XY_Hex , X_Hex ,Y_Hex };
     // decode the instruction
 }
+////////////////////////////////////////////////////////////////////////////
 
 void CPU::execute(vector<string> instruction, Memory & memory){
     // Execute the instruction
@@ -68,7 +69,6 @@ void CPU::execute(vector<string> instruction, Memory & memory){
     case 'B':
         IsJump  = cu.Jump(idxReg, idxXY, reg, programCounter);
         break;
-
     case 'C':
         this -> IsHalt = cu.Halt()  ;
         return ;
@@ -77,14 +77,14 @@ void CPU::execute(vector<string> instruction, Memory & memory){
         break;
     }
 }
-
-//orchestrate all of the processes
+////////////////////////////////////////////////////////////////////////////
+// orchestrate all of the processes
 void CPU::control(Memory & memory){
     fetch(memory);
     vector<string> decoded = decode();
     execute(decoded, memory);
 }
-
+////////////////////////////////////////////////////////////////////////////
 void CPU :: DisplayRegister()
 {
     for (size_t i = 0; i < 16; i++)
@@ -95,13 +95,14 @@ void CPU :: DisplayRegister()
         cout << "R" << ch << "    " << reg.getCell(ch)  << endl;
     }
 }
+////////////////////////////////////////////////////////////////////////////
 void CPU::print(){
     cout << "CPU is working." << endl;
 }
-
+////////////////////////////////////////////////////////////////////////////
 Register CPU::GetRegister()
 {
     return reg;
 }
 
-
+////////////////////////////////////////////////////////////////////////////

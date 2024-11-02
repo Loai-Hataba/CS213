@@ -30,10 +30,7 @@ class CPU
         Register GetRegister() ;
         bool IsHalt  ;
         int IsJump  ;
-        CPU()
-        {
-            IsHalt = false;
-            }
+        CPU(){ IsHalt = false; }
        
 };
 #endif // CPU_H

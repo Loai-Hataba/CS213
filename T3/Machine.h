@@ -18,7 +18,7 @@ class Machine
 
 public:
     // Constructor: Initializes the Machine with instructions
-  Machine(vector<string> Instruction) : Instructions(Instruction) { }
+  //Machine(vector<string> Instruction) : Instructions(Instruction) { }
 
   // Loads instructions into memory, setting up the initial machine state
   void loadMemory(vector<string> Instructions);
@@ -35,8 +35,8 @@ public:
   // Runs the machine with the provided instructions
    void RunMachine();
    void setInstructions(vector<string>  Inst) ;
-   string getStartIterate () ;
-      bool IsHalt; // A flag indicating whether the machine has halted (true if halted)
+   //string getStartIterate () ;
+   bool IsHalt; // A flag indicating whether the machine has halted (true if halted)
 };
 
 #endif // MACHINE_H

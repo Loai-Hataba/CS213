@@ -6,11 +6,6 @@ string GetPath()
     string Res;
     cout << "\nPlease Enter The Path Like This Formula ---> C:\\Users\\YourUsername\\Documents\\example.txt" << endl;
     cout << "Please Enter The Path Of The File: ";
-
-    // Clear any leftover input in the buffer to avoid interference
-    // cin.ignore(numeric_limits<streamsize>::max(), '\n');
-
-    // Use getline to capture the entire file path, including spaces and special characters
     getline(cin, Res);
     return Res;
 }
@@ -57,7 +52,6 @@ vector<string> ExtractInst()
     {
         // Corrected the condition for alpha to ensure it checks both ranges properly
         bool alpha = isdigit(Content[i]) || (Content[i] >= 'A' && Content[i] <= 'F');
-        cout << Content[i] << endl;
         // If temp has 4 characters, push them as two separate hex pairs
         if (temp.size() == 4)
         {
@@ -167,6 +161,20 @@ string binToHex(const string& bin) {
     return hex;
 }
 //////////////////////////////////////////////////////////////////////////////////////
+char ConvertDigit(int i)
+{
+    char Digit;
+    if (i < 10)
+    {
+        Digit = '0' + i; // '0' to '9'
+    }
+    else
+    {
+        Digit = 'A' + (i - 10); // 'A' to 'F'
+    }
+    return Digit;
+}
+//////////////////////////////////////////////////////////////////////////////////////
 /// Operations On Binary Functions
 string addBin(string bin1, string bin2)
 {
@@ -194,7 +202,8 @@ string addBin(string bin1, string bin2)
 
     return result_bin;
  }
-            //////////////////////////////////////////////////////////////////
+
+ //////////////////////////////////////////////////////////////////
  string subBin(const string &bin1, const string &bin2)
  {
      string result;

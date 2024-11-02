@@ -15,6 +15,7 @@ string decToHex(int dec);
 int hexToDec(string hex);
 string hexToBin(const string &hex);
 string binToHex(const string &bin);
+char ConvertDigit(int i) ;
 //////////////////////////////////////////////////////////////////////////////////////
 ///Operations On Binary Functions
 string addBin(string bin1, string bin2);

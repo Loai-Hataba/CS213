@@ -50,7 +50,7 @@ int main()
         {
             displayMenu();
             vector<string> Instructions = ExtractInst();
-            Machine machine(Instructions);
+            Machine machine;
             machine .setInstructions(Instructions) ;
             machine.RunMachine();
             char Ch = GetChoice("Would you like to exit the program?", "Please choose an option:\n"
