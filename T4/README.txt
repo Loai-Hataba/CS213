@@ -10,3 +10,4 @@ Note:
     1- enter the command-> cd
     2- enter the command-> cd fullPathToDirectory
     3- enter the command-> ./run
+    
