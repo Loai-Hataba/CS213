@@ -148,7 +148,7 @@ string hexToBin(const string& hex) {
     std::string bin;
     for (char ch : hex) {
         int n = (ch >= '0' && ch <= '9') ? ch - '0' : ch - 'A' + 10;
-        bin += std::bitset<4>(n).to_string();
+        bin += bitset<4>(n).to_string();
     }
     return bin;
 }
@@ -156,7 +156,7 @@ string hexToBin(const string& hex) {
 // Convert binary string to hex string
 string binToHex(const string& bin) {
     int  dec = stoi(bin, nullptr,2);
-    cout<<"decimal :"<<dec<<endl;
+//    cout<<"decimal :"<<dec<<endl;
     string hex = decToHex(dec);
     return hex;
 }
@@ -180,16 +180,12 @@ string addBin(string bin1, string bin2)
 {
     string result_bin;
     int carry = 0;
-    int len = max(bin1.size(), bin2.size());
 
-    // Extend both binary strings to the same length with sign extension
-    string b1 = string(len - bin1.size(), bin1[0]) + bin1;
-    string b2 = string(len - bin2.size(), bin2[0]) + bin2;
     // Add binary strings from the last bit to the first
-    for (int i = len - 1; i >= 0; --i)
+    for (int i = bin1.size() - 1; i >= 0; --i)
     {
-        int bit1 = b1[i] - '0';
-        int bit2 = b2[i] - '0';
+        int bit1 = bin1[i] - '0';
+        int bit2 = bin2[i] - '0';
         int sum = bit1 + bit2 + carry;
         result_bin = char((sum % 2) + '0') + result_bin;
         carry = sum / 2;
@@ -208,9 +204,8 @@ string addBin(string bin1, string bin2)
  {
      string result;
      int borrow = 0;
-     int len = max(bin1.size(), bin2.size());
 
-     for (int i = 0; i < len; ++i)
+     for (int i = 0; i < bin1.size(); ++i)
      {
          int bit1 = i < bin1.size() ? bin1[bin1.size() - 1 - i] - '0' : 0;
          int bit2 = i < bin2.size() ? bin2[bin2.size() - 1 - i] - '0' : 0;

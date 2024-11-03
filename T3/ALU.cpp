@@ -42,7 +42,7 @@ void ALU::floatingAdd(string idx1, string idx2, string idx3, Register &reg) { //
 //        cout << "resman " << resMan << endl;
 
         if (resMan.size() > 4) {
-            resMan = resMan.substr(1); // Drop the leading bit
+            resMan = resMan.substr(0,resMan.size() -1 ); // Shift mantissa right
             int exp = stoi(resExp, nullptr, 2) + 1;
             resExp = bitset<3>(exp).to_string();
         }
