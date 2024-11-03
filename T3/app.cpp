@@ -52,13 +52,12 @@ int main()
             machine .setInstructions(Instructions) ;
             machine.RunMachine();
             char Ch = GetChoice("Would you like to exit the program?", "Please choose an option:\n"
-                                                                       "  (Y) - Yes, exit the program\n"
-                                                                       "  (N) - No, continue using the program",
-                                'Y', 'N');
+                                "  (Y) - Yes, exit the program\n"
+                                "  (N) - No, continue using the program", 'Y', 'N');
             if (toupper(Ch) == 'N')
             {
-                std::cin.clear();                                                   // Clear any error state flags (e.g., from invalid input)
-                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // Remove all characters up to and including the newline
+                  cin.clear();                                                   // Clear any error state flags (e.g., from invalid input)
+                  cin.ignore(  numeric_limits<  streamsize>::max(), '\n'); // Remove all characters up to and including the newline
                 continue;
             }
             else if (toupper(Ch) == 'Y')
@@ -71,21 +70,21 @@ int main()
     else if (choice == 1)
     {
         // Displaying the header
-        std::cout << CYAN << "---------------------------------------------------" << RESET << std::endl;
-        std::cout << CYAN << "|" << BOLD << YELLOW << "                   Program Authors               " << RESET << CYAN << "|" << RESET << std::endl;
-        std::cout << CYAN << "|-------------------------------------------------|" << RESET << std::endl;
+          cout << CYAN << "---------------------------------------------------" << RESET <<   endl;
+          cout << CYAN << "|" << BOLD << YELLOW << "                   Program Authors               " << RESET << CYAN << "|" << RESET <<   endl;
+          cout << CYAN << "|-------------------------------------------------|" << RESET <<   endl;
 
         // Displaying each author's name and role
-        std::cout << CYAN << "|" << RESET << " " << BOLD << GREEN << "Loai Hataba" << RESET << " - 20230553                          " << CYAN << "|" << RESET << std::endl;
-        std::cout << CYAN << "|" << RESET << " " << BOLD << GREEN << "Abdullah Mohammed" << RESET << " - 20230231                    " << CYAN << "|" << RESET << std::endl;
-        std::cout << CYAN << "|" << RESET << " " << BOLD << GREEN << "Hossam Abdelaziz" << RESET << " - 20230121                     " << CYAN << "|" << RESET << std::endl;
+          cout << CYAN << "|" << RESET << " " << BOLD << GREEN << "Loai Hataba" << RESET << " - 20230553                          " << CYAN << "|" << RESET <<   endl;
+          cout << CYAN << "|" << RESET << " " << BOLD << GREEN << "Abdullah Mohammed" << RESET << " - 20230231                    " << CYAN << "|" << RESET <<   endl;
+          cout << CYAN << "|" << RESET << " " << BOLD << GREEN << "Hossam Abdelaziz" << RESET << " - 20230121                     " << CYAN << "|" << RESET <<   endl;
 
         // Displaying the footer
-        std::cout << CYAN << "---------------------------------------------------" << RESET << std::endl;
+          cout << CYAN << "---------------------------------------------------" << RESET <<   endl;
     }
     else
     {
-        cout << "Thank you for using Vole Machine! Goodbye!" << endl;
+      cout << endl << "Thank you for using Vole Machine! Have a great day, and goodbye!" << endl;
     }
     return 0;
 }

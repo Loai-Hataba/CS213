@@ -145,7 +145,7 @@ string decToHex(int dec)
 }
             //////////////////////////////////////////////////////////////////
 string hexToBin(const string& hex) {
-    std::string bin;
+     string bin;
     for (char ch : hex) {
         int n = (ch >= '0' && ch <= '9') ? ch - '0' : ch - 'A' + 10;
         bin += bitset<4>(n).to_string();
@@ -233,7 +233,7 @@ string addBin(string bin1, string bin2)
 }
 //////////////////////////////////////////////////////////////////////////////////////
 /// Functions To Generate The Machine Components
-void GenerateMemory(std::map<std::string, std::string> &m)
+void GenerateMemory( map< string,  string> &m)
 {
     for (size_t i = 0; i < 16; ++i) // First hex digit (0 to F)
     {
@@ -259,7 +259,7 @@ void GenerateMemory(std::map<std::string, std::string> &m)
                 secondDigit = 'A' + (j - 10); // 'A' to 'F'
             }
 
-            std::string key = std::string(1, firstDigit) + secondDigit;
+             string key =  string(1, firstDigit) + secondDigit;
             m[key] = "00"; // Initialize the map with "00"
         }
     }
@@ -278,7 +278,7 @@ void GenerateRegister(map<string, string> &r)
         {
             firstDigit = 'A' + (i - 10); // 'A' to 'F'
         }
-        std::string key = "";
+         string key = "";
         key += firstDigit;
         r[key] = "00"; // Initialize the map with empty values
     }
@@ -335,3 +335,36 @@ bool IsPowerOf2(int num)
     return (num == 1);
 }
 //////////////////////////////////////////////////////////////////////////////////////
+bool IsStartValid(string &str)
+{
+    try
+    {
+        int tmp = hexToDec(str);
+        return tmp >= 10;
+    }
+    catch (const out_of_range &)
+    {
+        // Handle the case where the hex string is too large to convert to int
+        cout << "Error: The entered hex value is out of range." << endl;
+        return false;
+    }
+    catch (const invalid_argument &)
+    {
+        // Handle the case where hexToDec fails due to an invalid argument
+        cout << "Error: Invalid hexadecimal format." << endl;
+        return false;
+    }
+}
+////////////////////////////////////////////////////////////////////////////
+bool isHex( string &str)
+{
+    // Check if all characters in the string are valid uppercase hex digits
+    for (char c : str)
+    {
+        if (! isxdigit(c) || ( isalpha(c) && ! isupper(c)))
+        {
+            return false; // Return false if any character is not a hex digit or not uppercase
+        }
+    }
+    return true;
+}

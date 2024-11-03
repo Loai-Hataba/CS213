@@ -16,7 +16,15 @@ void CU::Load(string idxReg, string value, Register &R)
 // Store the value from a specified register cell into a memory address
 void CU::Store(string idxReg, string MemAddress, Register &R, Memory &M)
 {
-    M.setCell(MemAddress, R.getCell(idxReg)); // Set the memory cell at MemAddress with the value in register cell idxReg
+    if(MemAddress == "00") 
+    {
+        M.setCell(MemAddress, R.getCell(idxReg)); // Set the memory cell at MemAddress with the value in register cell idxReg
+        cout << "Displaying Memory cell At Address 00  : " << M.getCell("00") ; 
+    }
+    else 
+    {
+        M.setCell(MemAddress, R.getCell(idxReg)); 
+    }
 }
 
 // Move the value from one register cell to another within the register

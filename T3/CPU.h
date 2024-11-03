@@ -19,15 +19,16 @@ class CPU
         string programCounter = "00";
         bool skip = false;
         string instructionRegister="";
-        void fetch(Memory &memory);
+        void fetch(Memory &memory  );
         vector<string> decode();
         void execute(vector<string> instruction, Memory &memory);
    
     public:
-        void control(Memory &memory);
+        void control(Memory &memory  );
         void print();
         void DisplayRegister() ;
         Register GetRegister() ;
+        void setPc(string pc) ; 
         bool IsHalt  ;
         int IsJump  ;
         CPU(){ IsHalt = false; }

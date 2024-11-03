@@ -9,6 +9,8 @@
 #include <map>
 #include <limits>
 #include <bitset>
+#include <chrono>
+#include <thread>
 #include "Methods.h"
 using namespace std;
 #endif 

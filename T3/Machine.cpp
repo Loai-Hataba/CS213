@@ -1,72 +1,78 @@
 #include "Machine.h"
-void Machine::loadMemory(vector<string> Instructions)
-{
-    cout << "Loading memory..." << endl;
-    // Find the starting address in memory with an empty cell (cell value "00")
-    for (size_t i = 0; i < 16; i++) // First hex digit loop (0 to F)
-    {
-        char firstDigit = ConvertDigit(i); // Convert loop index to hex digit
-        
-        for (size_t j = 0; j < 16; ++j)    // Second hex digit loop (0 to F)
-        {
-            char secondDigit = ConvertDigit(j);                         // Convert loop index to hex digit
-            string key = std::string(1, firstDigit) + secondDigit; // Form the memory address in hex
 
-            // Skip if cell contains "C0", a special marker
-            if (memoryMachine.getCell(key) == "C0")
+
+void Machine::loadMemory(  vector<  string> Instructions)
+{
+    while (true)
+    {
+        cout << "Enter The Start: ";
+        string S;
+        cin >> S;
+
+        if (!cin.fail())
+        {
+            if (isHex(S) && IsStartValid(S))
+            { // Check if valid hex first, then if in range
+                StartIterate = S;
+                break;
+            }
+            else
             {
-                j++; // Move to the next cell
+                cout << "Invalid Start. Please ensure it's not between 00 -> 0A." << endl;
+                cin.clear();                                                   // Clear any error state flags
+                cin.ignore(  numeric_limits<  streamsize>::max(), '\n'); // Remove all characters up to and including newline
                 continue;
             }
-
-            // Check if cell is empty ("00")
-            if (memoryMachine.getCell(key) == "00")
-            {
-                StartIterate = key; // Set start address to first empty cell found
-                break;              // Stop inner loop when an empty cell is found
-            }
         }
-
-        // Exit outer loop if the starting cell is found
-        if (!StartIterate.empty())
-            break;
+        else
+        {
+            cout << "Invalid input." << endl;
+            cin.clear();                                                   // Clear any error state flags
+            cin.ignore(  numeric_limits<  streamsize>::max(), '\n'); // Remove all characters up to and including newline
+            cout << "Please enter a hexadecimal input like (01... FF)" << endl;
+        }
     }
+    cout << "\nLoading memory..." << endl;
 
     int Start_Dec = hexToDec(StartIterate); // Convert the starting address to decimal format
+    cout << "Start Dec :" <<Start_Dec <<endl;  
 
     // Load instructions sequentially into memory, starting from the available cell
     for (size_t i = 0; i < Instructions.size(); i++)
     {
         int address = Start_Dec + i;                        // Calculate the current memory address as decimal
-        std::string hexAddress = decToHex(address);         // Convert address to hex format
+        string hexAddress = decToHex(address);         // Convert address to hex format
         memoryMachine.setCell(hexAddress, Instructions[i]); // Store instruction in memory
     }
 
-    cout << endl; 
+    cout << endl;
 }
 
 ////////////////////////////////////////////////////////////////////////////
+
 void Machine::loadProgram()
 {
     // Convert the starting address from hexadecimal to decimal
     int Start_Dec = hexToDec(StartIterate);
+    cout << "Start Dec :" << Start_Dec << endl;
     cout << "Loading program..." << endl;
 
     // Calculate the ending address for the program instructions based on the start address and instruction size
     int end = InstSize + Start_Dec;
-
+     cpu.setPc( StartIterate  ) ;
     // Loop through memory from the starting address to the end of the instructions
     for (int i = Start_Dec; i < end; i++)
     {
-        cpu.control(memoryMachine); // Execute the current instruction in the control unit (CPU)
+        cpu.control(memoryMachine ); // Execute the current instruction in the control unit (CPU)
 
         // Handle any jump if specified
         if (cpu.IsJump != 0) // Check if a jump instruction was executed
         {
-            i += cpu.IsJump - 1;                     // Adjust loop counter to reflect jump (subtract 1 due to the loop's increment)
-            cout << "There is Jump has been Done  : "  << endl; // Output jump amount
-            cpu.IsJump = 0;                          // Reset jump value after handling
+            i += cpu.IsJump - 1;                              // Adjust loop counter to reflect jump (subtract 1 due to the loop's increment)
+            cout << "There is a Jump has been Done " << endl; // Output jump amount
+            cpu.IsJump = 0;                                   // Reset jump value after handling
         }
+
         // Check if the CPU has faced a halt command
         if (cpu.IsHalt)
         {
@@ -74,6 +80,11 @@ void Machine::loadProgram()
             cout << "Halt" << endl; // Print halt message to indicate end of program execution
             break;                  // Exit the loop as program has halted
         }
+
+        // Introduce a delay before the stateOut() function
+        this_thread::sleep_for(  chrono::milliseconds(1750));
+
+        stateOut(); // Output the current state of the machine
     }
 }
 
@@ -109,7 +120,7 @@ void DisplayMemory(Memory Mem)
         for (size_t j = 0; j < 16; ++j) // Second hex digit (0 to F)
         {
             char secondDigit = ConvertDigit(j);                         // Convert column index to hex digit
-            std::string key = std::string(1, firstDigit) + secondDigit; // Form the full memory address
+            string key = string(1, firstDigit) + secondDigit; // Form the full memory address
 
             // Print the memory cell content at the current address
             cout << Mem.getCell(key) << "   ";
@@ -123,10 +134,11 @@ void DisplayMemory(Memory Mem)
 
 void Machine::stateOut()
 {
-    cout << "state out...\n";
+    cout << "state out..." <<endl << endl ;
     DisplayMemory(memoryMachine);
     cout << endl<< endl;
     cpu.DisplayRegister();
+    cout <<endl; 
    
 }
 //////////////////////////////////////////////////////////////////
@@ -143,3 +155,32 @@ void Machine::setInstructions(vector<string> Inst)
     Instructions = Inst ;
 }
 ////////////////////////////////////////////////////////////////////////////
+// Find the starting address in memory with an empty cell (cell value "00")
+// for (size_t i = 0; i < 16; i++) // First hex digit loop (0 to F)
+// {
+//     char firstDigit = ConvertDigit(i); // Convert loop index to hex digit
+
+//     for (size_t j = 0; j < 16; ++j)    // Second hex digit loop (0 to F)
+//     {
+//         char secondDigit = ConvertDigit(j);                         // Convert loop index to hex digit
+//         string key = string(1, firstDigit) + secondDigit; // Form the memory address in hex
+
+//         // Skip if cell contains "C0", a special marker
+//         if (memoryMachine.getCell(key) == "C0")
+//         {
+//             j++; // Move to the next cell
+//             continue;
+//         }
+
+//         // Check if cell is empty ("00")
+//         if (memoryMachine.getCell(key) == "00")
+//         {
+//             StartIterate = key; // Set start address to first empty cell found
+//             break;              // Stop inner loop when an empty cell is found
+//         }
+//     }
+
+//     // Exit outer loop if the starting cell is found
+//     if (!StartIterate.empty())
+//         break;
+// }

@@ -1,6 +1,6 @@
 #include "CPU.h"
 
-void CPU::fetch(Memory & memory){
+void CPU::fetch(Memory & memory ){
     //read the instruction from memory
     int tempPCIR  = hexToDec(programCounter);
     tempPCIR += 1;
@@ -35,7 +35,7 @@ void CPU::execute(vector<string> instruction, Memory & memory){
     string idxXY = instruction[2];    
     string idxX = instruction[3];    
     string idxY = instruction[4];
-    cout << "Instruction: " << OpCode << " " << idxReg << " " << idxXY << std::endl;
+    cout << "Instruction: " << OpCode << " " << idxReg << " " << idxXY <<   endl;
     switch (OpCode)
     {
     case '1':
@@ -57,7 +57,7 @@ void CPU::execute(vector<string> instruction, Memory & memory){
         }
         else
         {
-            std::cerr << "Error: Invalid MOVE instruction format" << std::endl;
+              cerr << "Error: Invalid MOVE instruction format" <<   endl;
         }
         break;
     case '5':
@@ -79,7 +79,7 @@ void CPU::execute(vector<string> instruction, Memory & memory){
 }
 ////////////////////////////////////////////////////////////////////////////
 // orchestrate all of the processes
-void CPU::control(Memory & memory){
+void CPU::control(Memory & memory  ){
     fetch(memory);
     vector<string> decoded = decode();
     execute(decoded, memory);
@@ -103,6 +103,11 @@ void CPU::print(){
 Register CPU::GetRegister()
 {
     return reg;
+}
+
+void CPU::setPc(string pc)
+{
+    programCounter = pc ;
 }
 
 ////////////////////////////////////////////////////////////////////////////
