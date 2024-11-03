@@ -29,4 +29,6 @@ void GenerateRegister(map<string , string > &r ) ;
 char GetChoice(const string &Message, const string &Choices, char Start, char End) ;
 bool IsPowerOf2(int num);
 //////////////////////////////////////////////////////////////////////////////////////
+bool IsStartValid(string &str) ;
+bool isHex(string &str) ;
 #endif

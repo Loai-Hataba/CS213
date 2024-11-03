@@ -29,25 +29,25 @@ int _getch() {
 }
 #endif
 
-void printMenu(const std::vector<std::string>& options, int selected) {
+void printMenu(const   vector<  string>& options, int selected) {
     // Move the cursor to the position where the options begin
     
 
-    std::cout << "\033[3;0H"; // Move to the home position (top left corner)
+      cout << "\033[3;0H"; // Move to the home position (top left corner)
     
     // Print all options and highlight the selected one
     for (int i = 0; i < options.size(); ++i) {
         if (i == selected) {
             // Highlight the selected option
-            std::cout << "\033[1;32m> " << options[i] << "\033[0m" << std::endl;
+              cout << "\033[1;32m> " << options[i] << "\033[0m" <<   endl;
         } else {
             // Print non-selected options
-            std::cout << "  " << options[i] << std::endl;
+              cout << "  " << options[i] <<   endl;
         }
     }
 
     // Move the cursor back to the first option position
-    std::cout << "\033[" << options.size() << "A"; // Move cursor up by the number of options
+      cout << "\033[" << options.size() << "A"; // Move cursor up by the number of options
 }
 
 
@@ -55,7 +55,7 @@ void printMenu(const std::vector<std::string>& options, int selected) {
 
 
 
-int navigateMenu(const std::vector<std::string>& options) {
+int navigateMenu(const   vector<  string>& options) {
     int selected = 0;
 
     while (true) {
