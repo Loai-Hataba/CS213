@@ -3,17 +3,26 @@
 
 void Machine::loadMemory(  vector<  string> Instructions)
 {
+
     while (true)
     {
         cout << "Enter The Start: ";
         string S;
         cin >> S;
 
+
         if (!cin.fail())
         {
             if (isHex(S) && IsStartValid(S))
             { // Check if valid hex first, then if in range
+                int Start_Dec_temp = hexToDec(S); // Convert the starting address to decimal format
+                if (!(255 - Start_Dec_temp >= InstSize))
+                {
+                    cout << "Invalid location Please Choose Another one !! " << endl;
+                    continue; 
+                }
                 StartIterate = S;
+
                 break;
             }
             else
@@ -33,8 +42,12 @@ void Machine::loadMemory(  vector<  string> Instructions)
         }
     }
     cout << "\nLoading memory..." << endl;
-
+    
     int Start_Dec = hexToDec(StartIterate); // Convert the starting address to decimal format
+    if(  !(255 - Start_Dec  >= InstSize))
+    {
+        cout << "Invalid location Please Choose Another one !! "<<endl; 
+    } 
     cout << "Start Dec :" <<Start_Dec <<endl;  
 
     // Load instructions sequentially into memory, starting from the available cell
@@ -45,10 +58,8 @@ void Machine::loadMemory(  vector<  string> Instructions)
         memoryMachine.setCell(hexAddress, Instructions[i]); // Store instruction in memory
     }
 
-    cout << endl;
+   cout<<endl;
 }
-
-////////////////////////////////////////////////////////////////////////////
 
 void Machine::loadProgram()
 {
@@ -88,7 +99,6 @@ void Machine::loadProgram()
     }
 }
 
-//////////////////////////////////////////////////////////////////
 void DisplayMemory(Memory Mem)
 {
     cout << "     "; // Initial spacing for the top row of column headers
@@ -130,7 +140,6 @@ void DisplayMemory(Memory Mem)
     }
 }
 
-//////////////////////////////////////////////////////////////////
 
 void Machine::stateOut()
 {
@@ -141,7 +150,6 @@ void Machine::stateOut()
     cout <<endl; 
    
 }
-//////////////////////////////////////////////////////////////////
 void Machine::RunMachine()
 {
     InstSize = Instructions.size() / 2 ; 
@@ -149,38 +157,7 @@ void Machine::RunMachine()
     loadProgram();
     stateOut();
 }
-////////////////////////////////////////////////////////////////////////////
 void Machine::setInstructions(vector<string> Inst)
 {
     Instructions = Inst ;
 }
-////////////////////////////////////////////////////////////////////////////
-// Find the starting address in memory with an empty cell (cell value "00")
-// for (size_t i = 0; i < 16; i++) // First hex digit loop (0 to F)
-// {
-//     char firstDigit = ConvertDigit(i); // Convert loop index to hex digit
-
-//     for (size_t j = 0; j < 16; ++j)    // Second hex digit loop (0 to F)
-//     {
-//         char secondDigit = ConvertDigit(j);                         // Convert loop index to hex digit
-//         string key = string(1, firstDigit) + secondDigit; // Form the memory address in hex
-
-//         // Skip if cell contains "C0", a special marker
-//         if (memoryMachine.getCell(key) == "C0")
-//         {
-//             j++; // Move to the next cell
-//             continue;
-//         }
-
-//         // Check if cell is empty ("00")
-//         if (memoryMachine.getCell(key) == "00")
-//         {
-//             StartIterate = key; // Set start address to first empty cell found
-//             break;              // Stop inner loop when an empty cell is found
-//         }
-//     }
-
-//     // Exit outer loop if the starting cell is found
-//     if (!StartIterate.empty())
-//         break;
-// }
