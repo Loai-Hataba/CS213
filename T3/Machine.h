@@ -17,15 +17,8 @@ class Machine
     int InstSize ;
 
 public:
-    // Constructor: Initializes the Machine with instructions
-  //Machine(vector<string> Instruction) : Instructions(Instruction) { }
-
-  // Loads instructions into memory, setting up the initial machine state
   void loadMemory(vector<string> Instructions);
-
-  // Loads and executes the program stored in memory
   void loadProgram();
-
   // Outputs the current state of the machine's memory and CPU registers
   void stateOut();
 
