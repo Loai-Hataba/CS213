@@ -43,9 +43,9 @@ bool CheckInst(string Inst)
     return true;
 }
                 //////////////////////////////////////////////////////////////////
-vector<string> ExtractInst()
+vector<string> ExtractInst(string Content )
 {
-    string Content = GetFileContent();
+    //string Content = GetFileContent();
     vector<string> inst;
     string temp;
     for (size_t i = 0; i < Content.size(); i++)

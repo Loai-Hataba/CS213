@@ -22,7 +22,6 @@ void Machine::loadMemory(  vector<  string> Instructions)
                     continue; 
                 }
                 StartIterate = S;
-
                 break;
             }
             else
@@ -47,8 +46,7 @@ void Machine::loadMemory(  vector<  string> Instructions)
     if(  !(255 - Start_Dec  >= InstSize))
     {
         cout << "Invalid location Please Choose Another one !! "<<endl; 
-    } 
-    cout << "Start Dec :" <<Start_Dec <<endl;  
+    }  
 
     // Load instructions sequentially into memory, starting from the available cell
     for (size_t i = 0; i < Instructions.size(); i++)

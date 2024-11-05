@@ -7,7 +7,7 @@ using namespace std ;
 string GetPath();
 string GetFileContent();
 bool CheckInst(string Inst);
-vector<string> ExtractInst();
+vector<string> ExtractInst(string Content );
 //////////////////////////////////////////////////////////////////////////////////////
 /// Converters Functions
 int stringToInt(const string &str);

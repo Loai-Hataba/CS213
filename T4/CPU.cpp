@@ -35,7 +35,6 @@ void CPU::execute(vector<string> instruction, Memory & memory){
     string idxXY = instruction[2];    
     string idxX = instruction[3];    
     string idxY = instruction[4];
-    cout << "Instruction: " << OpCode << " " << idxReg << " " << idxXY <<   endl;
     switch (OpCode)
     {
     case '1':

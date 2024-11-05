@@ -38,6 +38,7 @@ cout << endl << endl;
 cout << "   What do you want to do today?\n\n";
 }
 
+
 int main()
 {
     vector<string> options = {"Use Vole Machine", "Authors", "Exit"};
@@ -47,7 +48,23 @@ int main()
         while (true)
         {
             displayMenu();
-            vector<string> Instructions = ExtractInst();
+            string Content  = "" ;
+            // Initial choice for input method
+            char initialChoice = GetChoice( "Do you want to input the instructions manually or by file?", "  (M) - Manually\n  (F) - By file", 'M', 'F');
+            cin.clear();                                         // Clear any error state flags (e.g., from invalid input)
+            cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Remove all characters up to and including the newline
+            // Display chosen option
+            if (initialChoice == 'M')
+            {
+             
+              cout << "Enter Your Instructions : ";
+              getline(cin, Content);
+            }
+            else if (initialChoice == 'F')
+            {
+              Content = GetFileContent() ;
+            }
+            vector<string> Instructions = ExtractInst(Content );
             Machine machine;
             machine .setInstructions(Instructions) ;
             machine.RunMachine();
