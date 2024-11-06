@@ -19,7 +19,7 @@ void CU::Store(string idxReg, string MemAddress, Register &R, Memory &M)
     if(MemAddress == "00") 
     {
         M.setCell(MemAddress, R.getCell(idxReg)); // Set the memory cell at MemAddress with the value in register cell idxReg
-        cout << "Displaying Memory cell At Address 00  : " << M.getCell("00") ; 
+        cout << "Displaying Memory cell At Address 00: " << M.getCell("00") << endl ; 
     }
     else 
     {

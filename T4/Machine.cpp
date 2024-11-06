@@ -6,7 +6,7 @@ void Machine::loadMemory(  vector<  string> Instructions)
 
     while (true)
     {
-        cout << "Enter The Start: ";
+        cout << "Starting Memory Cell: ";
         string S;
         cin >> S;
 
