@@ -20,7 +20,7 @@ string GetFileContent()
         ifstream File(Path); // Open the file using ifstream
         if (File.is_open())
         {                                                                           // Check if the file failed to open
-            cout << "The File --> ( " << Path << " ) Opened Successfully " << endl; // Debugging line
+            cout << Path << "Was Opened Successfully" << endl; // Debugging line
             stringstream Content;
             Content << File.rdbuf(); // Read the entire file content
             Result = Content.str();  // Store the content in a string
@@ -28,8 +28,8 @@ string GetFileContent()
             break;
         }
         else
-        { // File opened successfully
-            cout << "Unable To Open The File --> ( " << Path << " ) . Please Choose Another One With (.txt) Format" << endl;
+        { // File wasnt opened successfully
+            cout << "Unable To Open The File " << Path <<  "Please Choose Another One With (.txt) Format" << endl;
         }
     }
     return Result; // Return the file content

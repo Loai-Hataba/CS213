@@ -36,10 +36,24 @@ cout << "     \\`\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"`/  \\ \\__)   \\ " << endl;
 cout << "      `\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"`    \'========\' " << endl;
 cout << endl << endl;
 cout << "   What do you want to do today?\n\n";
-cout << "1- Input Instructions" << endl;
-cout << "2- Run Program" << endl;
-cout << "3- Print State" << endl;
-cout << "Answer (1-3): ";
+cout << "1- Input Instructions (Load Program)" << endl;
+cout << "2- Exit" << endl;
+cout << "Answer: ";
+char ans;
+while (true){
+  cin >> ans;
+  switch (ans) {
+    case '1':
+      return;
+    case '2':
+      cout << "Thanks for using our Vole Machine...\n";
+      exit(0);
+    default:
+      cout << "Invalid choice. Please try again." << endl;
+      cout << "Answer: ";
+      break;
+  }
+}
 //TODO: complete Menu
 }
 
@@ -56,9 +70,9 @@ int main()
           cout << CYAN << "|-------------------------------------------------|" << RESET <<   endl;
 
         // Displaying each author's name and role
-          cout << CYAN << "|" << RESET << " " << BOLD << GREEN << "Loai Hataba" << RESET << " - 20230553                          " << CYAN << "|" << RESET <<   endl;
+          cout << CYAN << "|" << RESET << " " << BOLD << GREEN << "Loai Hataba" << RESET << "       - 20230553                          " << CYAN << "|" << RESET <<   endl;
           cout << CYAN << "|" << RESET << " " << BOLD << GREEN << "Abdullah Mohammed" << RESET << " - 20230231                    " << CYAN << "|" << RESET <<   endl;
-          cout << CYAN << "|" << RESET << " " << BOLD << GREEN << "Hossam Abdelaziz" << RESET << " - 20230121                     " << CYAN << "|" << RESET <<   endl;
+          cout << CYAN << "|" << RESET << " " << BOLD << GREEN << "Hossam Abdelaziz" << RESET << "  - 20230121                     " << CYAN << "|" << RESET <<   endl;
 
         // Displaying the footer
           cout << CYAN << "---------------------------------------------------" << RESET <<   endl << endl;
@@ -71,26 +85,26 @@ int main()
         while (true)
         {
             displayMenu();
-            string Content  = "" ;
+            // Load Memory
+                Machine machine;
+                string Content  = "" ;
+                char initialChoice = GetChoice( "Do you want to input the instructions manually or by file?", "  (M) - Manually\n  (F) - By file", 'M', 'F');
+                cin.clear();                                         // Clear any error state flags (e.g., from invalid input)
+                cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Remove all characters up to and including the newline
+                // Display chosen option
+                if (initialChoice == 'M')
+                {
+                    cout << "Enter Your Instructions : ";
+                    getline(cin, Content);
+                }
+                else if (initialChoice == 'F')
+                {
+                    Content = GetFileContent() ;
+                }
+                vector<string> Instructions = ExtractInst(Content );
+                machine.setInstructions(Instructions);
+                machine.RunMachine();
             // Initial choice for input method
-            char initialChoice = GetChoice( "Do you want to input the instructions manually or by file?", "  (M) - Manually\n  (F) - By file", 'M', 'F');
-            cin.clear();                                         // Clear any error state flags (e.g., from invalid input)
-            cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Remove all characters up to and including the newline
-            // Display chosen option
-            if (initialChoice == 'M')
-            {
-             
-              cout << "Enter Your Instructions : ";
-              getline(cin, Content);
-            }
-            else if (initialChoice == 'F')
-            {
-              Content = GetFileContent() ;
-            }
-            vector<string> Instructions = ExtractInst(Content);
-            Machine machine;
-            machine .setInstructions(Instructions) ;
-            machine.RunMachine();
             char Ch = GetChoice("Would you like to exit the program?", "Please choose an option:\n"
                                 "  (Y) - Yes, exit the program\n"
                                 "  (N) - No, continue using the program", 'Y', 'N');
