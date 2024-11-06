@@ -36,6 +36,11 @@ cout << "     \\`\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"`/  \\ \\__)   \\ " << endl;
 cout << "      `\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"`    \'========\' " << endl;
 cout << endl << endl;
 cout << "   What do you want to do today?\n\n";
+cout << "1- Input Instructions" << endl;
+cout << "2- Run Program" << endl;
+cout << "3- Print State" << endl;
+cout << "Answer (1-3): ";
+//TODO: complete Menu
 }
 
 
@@ -43,6 +48,24 @@ int main()
 {
     vector<string> options = {"Use Vole Machine", "Authors", "Exit"};
     int choice = navigateMenu(options);
+    if (choice == 1)
+    {
+        // Displaying the header
+          cout << CYAN << "---------------------------------------------------" << RESET <<   endl;
+          cout << CYAN << "|" << BOLD << YELLOW << "                   Program Authors               " << RESET << CYAN << "|" << RESET <<   endl;
+          cout << CYAN << "|-------------------------------------------------|" << RESET <<   endl;
+
+        // Displaying each author's name and role
+          cout << CYAN << "|" << RESET << " " << BOLD << GREEN << "Loai Hataba" << RESET << " - 20230553                          " << CYAN << "|" << RESET <<   endl;
+          cout << CYAN << "|" << RESET << " " << BOLD << GREEN << "Abdullah Mohammed" << RESET << " - 20230231                    " << CYAN << "|" << RESET <<   endl;
+          cout << CYAN << "|" << RESET << " " << BOLD << GREEN << "Hossam Abdelaziz" << RESET << " - 20230121                     " << CYAN << "|" << RESET <<   endl;
+
+        // Displaying the footer
+          cout << CYAN << "---------------------------------------------------" << RESET <<   endl << endl;
+          cout << "Loading Program..." << endl;
+          this_thread::sleep_for(  chrono::milliseconds(3000));
+          choice = 0;
+    }
     if (choice == 0)
     {
         while (true)
@@ -83,21 +106,6 @@ int main()
                 break;
             }
         }
-    }
-    else if (choice == 1)
-    {
-        // Displaying the header
-          cout << CYAN << "---------------------------------------------------" << RESET <<   endl;
-          cout << CYAN << "|" << BOLD << YELLOW << "                   Program Authors               " << RESET << CYAN << "|" << RESET <<   endl;
-          cout << CYAN << "|-------------------------------------------------|" << RESET <<   endl;
-
-        // Displaying each author's name and role
-          cout << CYAN << "|" << RESET << " " << BOLD << GREEN << "Loai Hataba" << RESET << " - 20230553                          " << CYAN << "|" << RESET <<   endl;
-          cout << CYAN << "|" << RESET << " " << BOLD << GREEN << "Abdullah Mohammed" << RESET << " - 20230231                    " << CYAN << "|" << RESET <<   endl;
-          cout << CYAN << "|" << RESET << " " << BOLD << GREEN << "Hossam Abdelaziz" << RESET << " - 20230121                     " << CYAN << "|" << RESET <<   endl;
-
-        // Displaying the footer
-          cout << CYAN << "---------------------------------------------------" << RESET <<   endl;
     }
     else
     {

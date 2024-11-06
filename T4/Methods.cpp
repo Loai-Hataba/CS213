@@ -4,7 +4,7 @@
 string GetPath()
 {
     string Res;
-    cout << "\nPlease Enter The Path Like This Formula ---> C:\\Users\\YourUsername\\Documents\\example.txt" << endl;
+    cout << "\nPlease Enter The Path Like This Formula ---> C:\\Users\\YourUsername\\Documents\\example.txt" << endl << endl;
     cout << "Please Enter The Path Of The File: ";
     getline(cin, Res);
     return Res;
