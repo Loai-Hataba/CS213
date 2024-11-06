@@ -31,7 +31,7 @@ class CPU
         void setPc(string pc) ; 
         bool IsHalt  ;
         int IsJump  ;
-        CPU(){ IsHalt = false; }
+        CPU(){ IsHalt = false , IsJump = 0 ; }
        
 };
 #endif // CPU_H

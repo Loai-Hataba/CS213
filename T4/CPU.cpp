@@ -11,7 +11,6 @@ void CPU::fetch(Memory & memory ){
     temp_PC += 2;
     if (temp_PC > 256)
     {
-        cout << "Memory Full!" << endl;
         cu.Halt();
     }
     programCounter = decToHex(temp_PC);

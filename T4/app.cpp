@@ -87,7 +87,7 @@ int main()
             {
               Content = GetFileContent() ;
             }
-            vector<string> Instructions = ExtractInst(Content );
+            vector<string> Instructions = ExtractInst(Content);
             Machine machine;
             machine .setInstructions(Instructions) ;
             machine.RunMachine();

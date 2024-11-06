@@ -14,12 +14,12 @@ void Machine::loadMemory(  vector<  string> Instructions)
         if (!cin.fail())
         {
             if (isHex(S) && IsStartValid(S))
-            { // Check if valid hex first, then if in range
+            {
                 int Start_Dec_temp = hexToDec(S); // Convert the starting address to decimal format
-                if (!(255 - Start_Dec_temp >= InstSize))
+                if (Start_Dec_temp < 0 || Start_Dec_temp > 256 )
                 {
-                    cout << "Invalid location Please Choose Another one !! " << endl;
-                    continue; 
+                    cout << "Invalid location. Please choose another one!" << endl;
+                    continue;
                 }
                 StartIterate = S;
                 break;
@@ -43,11 +43,6 @@ void Machine::loadMemory(  vector<  string> Instructions)
     cout << "\nLoading memory..." << endl;
     
     int Start_Dec = hexToDec(StartIterate); // Convert the starting address to decimal format
-    if(  !(255 - Start_Dec  >= InstSize))
-    {
-        cout << "Invalid location Please Choose Another one !! "<<endl; 
-    }  
-
     // Load instructions sequentially into memory, starting from the available cell
     for (size_t i = 0; i < Instructions.size(); i++)
     {
@@ -73,7 +68,6 @@ void Machine::loadProgram()
     for (int i = Start_Dec; i < end; i++)
     {
         cpu.control(memoryMachine ); // Execute the current instruction in the control unit (CPU)
-
         // Handle any jump if specified
         if (cpu.IsJump != 0) // Check if a jump instruction was executed
         {
@@ -92,8 +86,12 @@ void Machine::loadProgram()
 
         // Introduce a delay before the stateOut() function
         this_thread::sleep_for(  chrono::milliseconds(1750));
-
         stateOut(); // Output the current state of the machine
+        if(memoryMachine.getCell("FF") != "00")
+        {
+            cout << "Memory Full !! "<<endl; 
+            break;  
+        }
     }
 }
 
