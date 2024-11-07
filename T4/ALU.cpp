@@ -103,8 +103,9 @@ void ALU::rotate(string idx1, string idx3, Register &reg) {
         shift = shift % bin1.size();
     }
     string shifted = bin1.substr(bin1.size() - shift);
-    string res = bin1.substr(0,bin1.size()-shift);
-    res = shifted + res;
+    string res_bin = bin1.substr(0,bin1.size()-shift);
+    res_bin = shifted + res_bin;
 
+    string res = binToHex(res_bin);
     reg.setCell(idx1,res);
 }
