@@ -130,7 +130,7 @@ void DisplayMemory(Memory Mem)
             int tempo = hexToDec(key);
             tempo -= 1; 
             // Print the memory cell content at the current address
-            if (Mem.getCell(key) != "00" || ((Mem.getCell(decToHex(tempo))[0] == '3') && tempo >= 0) || ((Mem.getCell(decToHex(tempo))[0] == 'C') && tempo >= 0)){
+            if (Mem.getCell(key) != "00" || ((Mem.getCell(decToHex(tempo))[0] != '0') && tempo >= 0)){
                 cout << GREEN << Mem.getCell(key) << RESET << "   ";
             }
             else
