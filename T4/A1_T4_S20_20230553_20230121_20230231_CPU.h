@@ -1,12 +1,12 @@
 #ifndef CPU_H
 #define CPU_H
 using namespace std;
-#include "Headers.h"
-#include "Memory.h"
-#include "Regist.h"
-#include "CU.h"
-#include "Methods.h"
-#include "Alu.h"
+#include "A1_T4_S20_20230553_20230121_20230231_Headers.h"
+#include "A1_T4_S20_20230553_20230121_20230231_Memory.h"
+#include "A1_T4_S20_20230553_20230121_20230231_Regist.h"
+#include "A1_T4_S20_20230553_20230121_20230231_CU.h"
+#include "A1_T4_S20_20230553_20230121_20230231_Methods.h"
+#include "A1_T4_S20_20230553_20230121_20230231_Alu.h"
 #include <string>
 #include <regex>
 

@@ -1,5 +1,6 @@
-#include "Machine.h"
-
+#include "A1_T4_S20_20230553_20230121_20230231_Machine.h"
+#define GREEN "\e[32m"
+#define RESET "\e[0m"
 
 void Machine::loadMemory(  vector<  string> Instructions)
 {
@@ -58,8 +59,7 @@ void Machine::loadProgram()
 {
     // Convert the starting address from hexadecimal to decimal
     int Start_Dec = hexToDec(StartIterate);
-    cout << "Start Dec :" << Start_Dec << endl;
-    cout << "Loading program..." << endl;
+    cout << "Loading program..." << endl << endl;
 
     // Calculate the ending address for the program instructions based on the start address and instruction size
     int end = InstSize + Start_Dec;
@@ -67,6 +67,7 @@ void Machine::loadProgram()
     // Loop through memory from the starting address to the end of the instructions
     for (int i = Start_Dec; i < end; i++)
     {
+        
         cpu.control(memoryMachine ); // Execute the current instruction in the control unit (CPU)
         // Handle any jump if specified
         if (cpu.IsJump != 0) // Check if a jump instruction was executed
@@ -75,7 +76,6 @@ void Machine::loadProgram()
             cout << "There is a Jump has been Done " << endl; // Output jump amount
             cpu.IsJump = 0;                                   // Reset jump value after handling
         }
-
         // Check if the CPU has faced a halt command
         if (cpu.IsHalt)
         {
@@ -87,11 +87,11 @@ void Machine::loadProgram()
         // Introduce a delay before the stateOut() function
         this_thread::sleep_for(  chrono::milliseconds(1750));
         stateOut(); // Output the current state of the machine
-        if(memoryMachine.getCell("FF") != "00")
-        {
-            cout << "Memory Full !! "<<endl; 
-            break;  
-        }
+        // if(memoryMachine.getCell("FF") != "00")
+        // {
+        //     cout << "Memory Full !! "<<endl; 
+        //     break;  
+        // }
     }
 }
 
@@ -127,9 +127,16 @@ void DisplayMemory(Memory Mem)
         {
             char secondDigit = ConvertDigit(j);                         // Convert column index to hex digit
             string key = string(1, firstDigit) + secondDigit; // Form the full memory address
-
+            int tempo = hexToDec(key);
+            tempo -= 1; 
             // Print the memory cell content at the current address
-            cout << Mem.getCell(key) << "   ";
+            if (Mem.getCell(key) != "00" || ((Mem.getCell(decToHex(tempo))[0] == '3') && tempo >= 0) || ((Mem.getCell(decToHex(tempo))[0] == 'C') && tempo >= 0)){
+                cout << GREEN << Mem.getCell(key) << RESET << "   ";
+            }
+            else
+            {
+                cout << Mem.getCell(key) << "   ";
+            }
         }
 
         cout << endl; 

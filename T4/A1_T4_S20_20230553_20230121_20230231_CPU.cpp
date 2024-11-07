@@ -1,4 +1,4 @@
-#include "CPU.h"
+#include "A1_T4_S20_20230553_20230121_20230231_CPU.h"
 
 void CPU::fetch(Memory & memory ){
     //read the instruction from memory
@@ -6,28 +6,34 @@ void CPU::fetch(Memory & memory ){
     tempPCIR += 1;
     string finalPCIR = decToHex(tempPCIR);
     instructionRegister = memory.getCell(programCounter) + memory.getCell(finalPCIR);
-    cout << "Instruction Register : " <<instructionRegister <<endl ;
+    cout << "Instruction Register : " <<instructionRegister <<endl << endl;
     int temp_PC = hexToDec(programCounter);
     temp_PC += 2;
     if (temp_PC > 256)
     {
-        cu.Halt();
+        cout << "Memory Full !!\n";
+        IsHalt = true;
     }
     programCounter = decToHex(temp_PC);
 }
 ////////////////////////////////////////////////////////////////////////////
 vector<string> CPU::decode(){
+    // decode the instruction
     string opCodeHex = instructionRegister.substr(0, 1);
     string R_Hex= instructionRegister.substr(1, 1);
     string XY_Hex = instructionRegister.substr(2, 2);
     string X_Hex = instructionRegister.substr(2, 1);
     string Y_Hex = instructionRegister.substr(3, 1);
     return {opCodeHex, R_Hex, XY_Hex , X_Hex ,Y_Hex };
-    // decode the instruction
 }
 ////////////////////////////////////////////////////////////////////////////
 
 void CPU::execute(vector<string> instruction, Memory & memory){
+    // Check if the CPU has faced a halt command
+    if (IsHalt)
+    {
+        return;
+    }
     // Execute the instruction
     char OpCode = instruction[0][0];
     string idxReg = instruction[1];
@@ -73,7 +79,6 @@ void CPU::execute(vector<string> instruction, Memory & memory){
     case '9':
         alu.Xor(idxReg, idxX, idxY, reg);
         break;
-        ///dont get how to handle rotate parameters cuh (hossam)
     case 'A':
         if (idxX[0] == '0'){
             alu.rotate(idxReg, idxY, reg);
@@ -94,14 +99,12 @@ void CPU::execute(vector<string> instruction, Memory & memory){
         break;
     }
 }
-////////////////////////////////////////////////////////////////////////////
 // orchestrate all of the processes
 void CPU::control(Memory & memory  ){
     fetch(memory);
     vector<string> decoded = decode();
     execute(decoded, memory);
 }
-////////////////////////////////////////////////////////////////////////////
 void CPU :: DisplayRegister()
 {
     for (size_t i = 0; i < 16; i++)

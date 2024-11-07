@@ -1,4 +1,4 @@
-#include "ALU.h"
+#include "A1_T4_S20_20230553_20230121_20230231_ALU.h"
 
 
 void ALU::add(string idx1, string idx2, string idx3, Register &reg) {
@@ -59,6 +59,7 @@ void ALU::floatingAdd(string idx1, string idx2, string idx3, Register &reg) { //
     }
 
     string res = resSign + resExp + resMan;
+    res = binToHex(res);
     reg.setCell(idx1, res);
 }
 

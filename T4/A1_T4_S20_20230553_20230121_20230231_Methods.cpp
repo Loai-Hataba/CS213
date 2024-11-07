@@ -1,4 +1,4 @@
-#include "Methods.h"
+#include "A1_T4_S20_20230553_20230121_20230231_Methods.h"
 
 /// Get Instruction from File  Functions
 string GetPath()
@@ -20,7 +20,7 @@ string GetFileContent()
         ifstream File(Path); // Open the file using ifstream
         if (File.is_open())
         {                                                                           // Check if the file failed to open
-            cout << Path << "Was Opened Successfully" << endl; // Debugging line
+            cout << Path << " Was Opened Successfully" << endl; // Debugging line
             stringstream Content;
             Content << File.rdbuf(); // Read the entire file content
             Result = Content.str();  // Store the content in a string
@@ -100,7 +100,7 @@ int stringToInt(const string &str)
         isNegative = true;
         i = 1; // Start conversion from the next character
     }
-
+    // 0010->0001
     // Convert each character to its numeric value
     for (; i < str.size(); ++i)
     {

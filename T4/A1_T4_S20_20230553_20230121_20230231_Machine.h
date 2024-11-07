@@ -1,10 +1,10 @@
 #ifndef MACHINE_H
 #define MACHINE_H // Include guard to prevent multiple inclusions of this header file
 
-#include "CPU.h"      // Includes the CPU class definition
-#include "Memory.h"    // Includes the Memory class definition
-#include "Headers.h"   // Includes additional necessary headers (assuming common libraries or definitions)
-#include "Methods.h"   // Includes additional methods needed for the Machine class
+#include "A1_T4_S20_20230553_20230121_20230231_CPU.h"      // Includes the CPU class definition
+#include "A1_T4_S20_20230553_20230121_20230231_Memory.h"    // Includes the Memory class definition
+#include "A1_T4_S20_20230553_20230121_20230231_Headers.h"   // Includes additional necessary headers (assuming common libraries or definitions)
+#include "A1_T4_S20_20230553_20230121_20230231_Methods.h"   // Includes additional methods needed for the Machine class
 
 // The Machine class represents the main processing unit, containing memory, a CPU, and instructions
 class Machine 

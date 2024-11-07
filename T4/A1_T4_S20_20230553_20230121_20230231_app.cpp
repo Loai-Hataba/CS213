@@ -1,8 +1,8 @@
-#include "Headers.h"
-#include "Machine.h"
+#include "A1_T4_S20_20230553_20230121_20230231_Headers.h"
+#include "A1_T4_S20_20230553_20230121_20230231_Machine.h"
 #include <chrono>
 #include <regex>
-#include "options.h"
+#include "A1_T4_S20_20230553_20230121_20230231_options.h"
 
 
 #define GREEN "\e[32m"
@@ -70,9 +70,9 @@ int main()
           cout << CYAN << "|-------------------------------------------------|" << RESET <<   endl;
 
         // Displaying each author's name and role
-          cout << CYAN << "|" << RESET << " " << BOLD << GREEN << "Loai Hataba" << RESET << "       - 20230553                          " << CYAN << "|" << RESET <<   endl;
+          cout << CYAN << "|" << RESET << " " << BOLD << GREEN << "Loai Hataba" << RESET << "       - 20230553                    " << CYAN << "|" << RESET <<   endl;
           cout << CYAN << "|" << RESET << " " << BOLD << GREEN << "Abdullah Mohammed" << RESET << " - 20230231                    " << CYAN << "|" << RESET <<   endl;
-          cout << CYAN << "|" << RESET << " " << BOLD << GREEN << "Hossam Abdelaziz" << RESET << "  - 20230121                     " << CYAN << "|" << RESET <<   endl;
+          cout << CYAN << "|" << RESET << " " << BOLD << GREEN << "Hossam Abdelaziz" << RESET << "  - 20230121                    " << CYAN << "|" << RESET <<   endl;
 
         // Displaying the footer
           cout << CYAN << "---------------------------------------------------" << RESET <<   endl << endl;
