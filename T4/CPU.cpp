@@ -63,7 +63,26 @@ void CPU::execute(vector<string> instruction, Memory & memory){
         break; 
     case '6':
         alu.floatingAdd(idxReg, idxX, idxY, reg);       
-        break; 
+        break;
+    case '7':
+        alu.Or(idxReg, idxX, idxY, reg);
+        break;
+    case '8':
+        alu.And(idxReg, idxX, idxY, reg);
+        break;
+    case '9':
+        alu.Xor(idxReg, idxX, idxY, reg);
+        break;
+        ///dont get how to handle rotate parameters cuh (hossam)
+    case 'A':
+        if (idxX[0] == '0'){
+            alu.rotate(idxReg, idxY, reg);
+        }
+        else
+        {
+            cerr << "Error: Invalid ROTATE instruction format" <<   endl;
+        }
+        break;
     case 'B':
         IsJump  = cu.Jump(idxReg, idxXY, reg, programCounter);
         break;

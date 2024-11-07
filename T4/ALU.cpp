@@ -39,7 +39,6 @@ void ALU::floatingAdd(string idx1, string idx2, string idx3, Register &reg) { //
     if (sign1 == sign2) {
         resSign = sign1;
         resMan = addBin(man1, man2);
-//        cout << "resman " << resMan << endl;
 
         if (resMan.size() > 4) {
             resMan = resMan.substr(0,resMan.size() -1 ); // Shift mantissa right
@@ -60,6 +59,52 @@ void ALU::floatingAdd(string idx1, string idx2, string idx3, Register &reg) { //
     }
 
     string res = resSign + resExp + resMan;
-//    cout << "binary float res:" << res << endl;
     reg.setCell(idx1, res);
+}
+
+void ALU::Or(string idx1, string idx2, string idx3, Register &reg) {
+    string bin1 = hexToBin(reg.getCell(idx2));
+    string bin2 = hexToBin(reg.getCell(idx3));
+    string res_bin = "";
+    for (int i = 0; i < bin1.size(); ++i) {
+        res_bin += bin1[i] | bin2[i];
+    }
+    string res = binToHex(res_bin);
+    reg.setCell(idx1,res);
+}
+
+void ALU::And(string idx1, string idx2, string idx3, Register &reg) {
+    string bin1 = hexToBin(reg.getCell(idx2));
+    string bin2 = hexToBin(reg.getCell(idx3));
+    string res_bin = "";
+    for (int i = 0; i < bin1.size(); ++i) {
+        res_bin += bin1[i] & bin2[i];
+    }
+    string res = binToHex(res_bin);
+    reg.setCell(idx1,res);
+}
+
+void ALU::Xor(string idx1, string idx2, string idx3, Register &reg) {
+    string bin1 = hexToBin(reg.getCell(idx2));
+    string bin2 = hexToBin(reg.getCell(idx3));
+    string res_bin = "";
+    for (int i = 0; i < bin1.size(); ++i) {
+        char resC = ((bin1[i]-'0') ^ (bin2[i]-'0')) + '0';
+        res_bin += resC;
+    }
+    string res = binToHex(res_bin);
+    reg.setCell(idx1,res);
+}
+
+void ALU::rotate(string idx1, string idx3, Register &reg) {
+    string bin1 = hexToBin(reg.getCell(idx1));
+    int shift = stoi(idx3);
+    if (shift >= bin1.size()){
+        shift = shift % bin1.size();
+    }
+    string shifted = bin1.substr(bin1.size() - shift);
+    string res = bin1.substr(0,bin1.size()-shift);
+    res = shifted + res;
+
+    reg.setCell(idx1,res);
 }

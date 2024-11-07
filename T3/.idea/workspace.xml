@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="CMakePresetLoader">{
+  &quot;useNewFormat&quot;: true
+}</component>
+  <component name="CMakeSettings">
+    <configurations>
+      <configuration PROFILE_NAME="Debug" ENABLED="true" CONFIG_NAME="Debug" />
+    </configurations>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="5bb0686b-d803-42e3-bf54-1879ada4cf21" name="Changes" comment="add doneee(test ya loa)" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ClangdSettings">
+    <option name="formatViaClangd" value="false" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2nv9t79Hqto8LPZJI9AUM8PDFhW" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.cidr.known.project.marker": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "cf.first.check.clang-format": "false",
+    "cidr.known.project.marker": "true",
+    "last_opened_file_path": "D:/Hoss/github/CS213/T4",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="5bb0686b-d803-42e3-bf54-1879ada4cf21" name="Changes" comment="" />
+      <created>1729842894058</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1729842894058</updated>
+      <workItem from="1729842895192" duration="2410000" />
+      <workItem from="1730093245953" duration="14000" />
+      <workItem from="1730093273200" duration="1250000" />
+      <workItem from="1730146657079" duration="1466000" />
+      <workItem from="1730159841752" duration="313000" />
+      <workItem from="1730222514273" duration="6000" />
+      <workItem from="1730231770230" duration="10000" />
+      <workItem from="1730231792089" duration="221000" />
+      <workItem from="1730232048340" duration="82000" />
+      <workItem from="1730232161246" duration="108000" />
+      <workItem from="1730283170026" duration="580000" />
+      <workItem from="1730283834792" duration="1746000" />
+      <workItem from="1730285678975" duration="19000" />
+      <workItem from="1730285762864" duration="38000" />
+      <workItem from="1730285893363" duration="28000" />
+      <workItem from="1730287035691" duration="58000" />
+      <workItem from="1730290230325" duration="174000" />
+      <workItem from="1730291177729" duration="151000" />
+      <workItem from="1730291444539" duration="527000" />
+      <workItem from="1730292438101" duration="108000" />
+      <workItem from="1730426748183" duration="68000" />
+      <workItem from="1730436017201" duration="7000" />
+      <workItem from="1730583377771" duration="168000" />
+      <workItem from="1730940029826" duration="157000" />
+      <workItem from="1730940191863" duration="520000" />
+    </task>
+    <task id="LOCAL-00001" summary="add doneee(test ya loa)">
+      <created>1730093359855</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1730093359855</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="add doneee(test ya loa)" />
+    <option name="LAST_COMMIT_MESSAGE" value="add doneee(test ya loa)" />
+  </component>
+</project>
