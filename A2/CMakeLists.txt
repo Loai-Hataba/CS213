@@ -1,0 +1,7 @@
+cmake_minimum_required(VERSION 3.29)
+project(A2)
+
+set(CMAKE_CXX_STANDARD 14)
+
+add_executable(A2
+    "Problem 2.cpp")

@@ -1,0 +1,3 @@
+g++ -Wno-literal-suffix -o mainProgram.exe *.cpp
+
+./mainProgram.exe
