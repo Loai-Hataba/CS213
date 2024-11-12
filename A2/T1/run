@@ -1,0 +1,5 @@
+
+
+g++ -o problem3.exe problem3.cpp
+
+./problem3.exe

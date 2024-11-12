@@ -57,7 +57,10 @@
     "variant": "cpp",
     "regex": "cpp",
     "cstdarg": "cpp",
-    "map": "cpp"
+    "map": "cpp",
+    "semaphore": "cpp",
+    "stop_token": "cpp",
+    "thread": "cpp"
   },
   "python.analysis.autoImportCompletions": false
 }

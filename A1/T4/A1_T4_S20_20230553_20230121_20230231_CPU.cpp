@@ -1,4 +1,6 @@
 #include "A1_T4_S20_20230553_20230121_20230231_CPU.h"
+#define GREEN "\e[32m"
+#define RESET "\e[0m"
 
 void CPU::fetch(Memory & memory ){
     //read the instruction from memory
@@ -112,7 +114,8 @@ void CPU :: DisplayRegister()
         string ch;
         if (i >= 10 && i <= 15)  ch = static_cast<char>('A' + (i - 10)); // Converts 10-15 to 'A'-'F'
         else   ch = static_cast<char>('0' + i); // Converts 0-9 to '0'-'9'
-        cout << "R" << ch << "    " << reg.getCell(ch)  << endl;
+        if (reg.getCell(ch) != "00") cout << "R" << ch << "    " << GREEN << reg.getCell(ch)  <<RESET << endl;
+        else cout << "R" << ch << "    " << reg.getCell(ch)  << endl;
     }
 }
 ////////////////////////////////////////////////////////////////////////////
