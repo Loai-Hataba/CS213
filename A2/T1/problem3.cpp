@@ -1,7 +1,7 @@
 #include <string>
 #include <sstream>
 #include <iostream>
-#include <unordered_map>
+#include <map>
 #include <algorithm>
 #include <fstream>
 #include <cctype>
@@ -17,6 +17,7 @@ int main()
         cin >> path;
         string temp;
         temp.resize(path.size());
+        // case insensitive
         transform(path.begin(), path.end(), temp.begin(), ::tolower);
         if (temp == "exit"){cout << "Thank you for using me!!\n";return 0;}
         ifstream inputFile(path);
@@ -28,11 +29,13 @@ int main()
             inputFile.close();
         }
         else{cout << "couldn't open file " << path << endl; continue;}
-        unordered_map<string, int> frequencyMap;
+        map<string, int> frequencyMap;
         stringstream stream(sentence);
         string word;
         while (stream >> word) {
+            // delete punctuation except for "-"
             word.erase(remove_if(word.begin(), word.end(), [](char c) {return ispunct(c) && c != '-';}), word.end()); //remove punctuation but not the "-"
+            // case insensitiveW
             transform(word.begin(), word.end(), word.begin(), ::tolower);
             frequencyMap[word]++;
         }

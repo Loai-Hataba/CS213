@@ -31,3 +31,10 @@ Koki    //input validation
 2324	//load register 3 with the value "0x24"
 6823	//float add register 2 and 3 and store the result in register 8 ["Expected: B2"]
 C000    // Halt
+
+0000 0011
+0000 0000
+0000 0000
+
+0100
+0010
