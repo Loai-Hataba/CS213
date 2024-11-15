@@ -111,7 +111,7 @@ int main() {
             }
             case '3': {
                 if(set1.isSetEmpty() || set2.isSetEmpty()) {
-                    cout << "please make sure that the two Sets are not Empty" << endl ;
+                    cout << "Error : Please make sure that the two Sets are not Empty" << endl ;
                     continue;
                 }
                 cout << "\nComputing Similarity between set1 and set2:\n";
