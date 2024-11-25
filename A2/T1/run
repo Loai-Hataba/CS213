@@ -1,5 +1,5 @@
 
 
-g++ -o problem3.exe problem3.cpp
+g++ -o problem3.exe Problem5.cpp
 
-./problem3.exe
+./Problem5.exe
