@@ -53,100 +53,22 @@ void displayMenu() {
 }
 
 int main() {
-    StringSet set1, set2; // Initialize two StringSet objects
-    bool exitProgram = false;
-    while (!exitProgram) {
-        displayMenu();
-        string choice;
-        cin >> choice;
-        cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Clear the input buffer
+  StringSet S1("Iam A funcking Gymrat", false ) , S2 ("Iam A fuNcKiNg Programmer" , false );
+  StringSet s3 = S1+S2 ;
+  s3.outputSet() ;
+  s3.getLength() ;
+  S1.computeSimilarity(s3) ;
+  S2.computeSimilarity(s3) ;
+  s3= S1 *S2 ;
+  s3.outputSet() ;
+ 
+  S1.computeSimilarity(s3);
+  S2.removeString("Programmer") ;
+  S2.addString("Gymrat") ;
+  S2.outputSet();
 
-        switch (choice[0]) {
-            case '1': {
-                // Load Set 1 (from file or string)
-                 cout << "Do you want to load from a file? (Y/N): ";
-                string ch;
-                cin >> ch;
-                cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Clear the input buffer
-                ch = toupper(ch[0]);
-                string str;
-                if (ch =="Y") {
-                    str = GetPath(); // Get file path
-                    set1 = StringSet(str, true);
-                } else if (ch =="N") {
-                    cout << "Enter your document: ";
-                    getline(cin, str);  // Directly get the string input
-                    set1 = StringSet(str, false);
-                }
-                else {
-                    cout << "Invalid Input! Please Try Again!" << endl ;
-                }
-                cout << "Document loaded into set1.\n";
-                set1.outputSet();
-                break;
-            }
-            case '2': {
-                // Load Set 2 (from file or string)
-                cout << "Do you want to load from a file? (Y/N): ";
-                string ch;
-                cin >> ch;
-                cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Clear the input buffer
-                ch = toupper(ch[0]);
-                string str;
+  S1.computeSimilarity(S2) ;
 
-                if (ch =="Y") {
-                    str = GetPath(); // Get file path
-                    set2 = StringSet(str, true);
-                } else if (ch =="N") {
-                    cout << "Enter your document: ";
-                    getline(cin, str);  // Directly get the string input
-                    set2 = StringSet(str, false);
-                }
-                else {
-                    cout << "Invalid Input! Please Try Again!" << endl ;
-                }
-                cout << "Document loaded into set 2.\n";
-                set2.outputSet();
-                break;
-            }
-            case '3': {
-                if(set1.isSetEmpty() || set2.isSetEmpty()) {
-                    cout << "Error : Please make sure that the two Sets are not Empty" << endl ;
-                    continue;
-                }
-                cout << "\nComputing Similarity between set1 and set2:\n";
-                set1.computeSimilarity(set2);
-                break ;
-            }
-            case '4': {
-                // Run predefined demo
-                string demoText1 = "OOP Course In Cairo University is awesome ";
-                string demoText2 = "OOP Course In Cairo University is very awesome";
-                set1 = StringSet(demoText1, false);
-                set2 = StringSet(demoText2, false);
-                cout << "\nUnique words in set1:\n";
-                set1.outputSet();
-                cout << "\nUnique words in set2:\n";
-                set2.outputSet();
-                cout << "\nIntersection Between The Sets : \n";
-                StringSet  s3 = set1 * set2 ;
-                s3.outputSet();
-                cout << "\nComputing Similarity between set1 and set2:\n";
-                set1.computeSimilarity(set2);
-                break;
-            }
-            case '5': {
-                // Exit the program
-                exitProgram = true;
-                cout << "Exiting program. Goodbye!\n";
-                break;
-            }
-            default: {
-                cout << "Invalid choice. Please try again.\n";
-            }
-        }
-    }
-    return 0;
 }
 
 
