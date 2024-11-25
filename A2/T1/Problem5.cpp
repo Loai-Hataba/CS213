@@ -16,10 +16,17 @@ public:
     string name;
     int pid;
     string sessionName;
-    int memoryUsage;
+    long memoryUsage;
+    int sessionNumber;
 
-    Process(string name, int pid, string sessionName, int memoryUsage)
-        : name(move(name)), pid(pid), sessionName(move(sessionName)), memoryUsage(memoryUsage) {}
+    Process(string n, int i, string sName, int sNum, long mu)
+    {
+        name = n;
+        pid = i;
+        sessionName = sName;
+        sessionNumber = sNum;
+        memoryUsage = mu;
+    }
 };
 
 // Class to represent the list of running processes
@@ -28,6 +35,7 @@ class ProcessList
 private:
     vector<Process> processes;
     void setList(vector<Process> p) { processes = p; }
+
     stringstream getCommandContent()
     {
         system("tasklist > processes.txt");
@@ -38,7 +46,7 @@ private:
             cout << "processes.txt opened Successfully !!\n";
             pipe << file.rdbuf();
             file.close();
-            // remove("processes.txt");
+            remove("processes.txt");
         }
         else
         {
@@ -52,12 +60,16 @@ private:
         cout << left << setw(25) << "Image Name"
              << setw(10) << "PID"
              << setw(15) << "Session Name"
+             << setw(15) << "Session #"
              << "Mem Usage (KB)" << endl;
-        cout << string(64, '=') << endl;
+        cout << string(80, '=') << endl;
 
         for (const auto &process : processList)
         {
-            cout << left << setw(25) << process.name << setw(10) << process.pid << setw(15) << process.sessionName
+            cout << left << setw(25) << process.name.substr(0, 25)
+                 << setw(10) << process.pid
+                 << setw(15) << process.sessionName
+                 << setw(17) << process.sessionNumber
                  << process.memoryUsage << endl;
         }
     }
@@ -76,7 +88,8 @@ public:
         stringstream content = getCommandContent();
         vector<Process> fetched;
         string line = "";
-        regex processRegex(R"(^\s*(.+?)\s+(\d+)\s+([\S ]+?)\s+([\d,]+) K\s*$)");
+        regex processRegex(R"(^\s*(.+\.exe)\s+(\d+)\s+([\S ]+?)\s+(\d+)\s+([\d,]+)\s*K\s*$)");
+
         // Skip the header lines
         while (getline(content, line))
         {
@@ -85,24 +98,27 @@ public:
                 break; // We found the header, stop reading
             }
         }
-
         // Now process each line (excluding the header)
         while (getline(content, line))
         {
             smatch match;
+            // Match each line with the regex pattern
             if (regex_match(line, match, processRegex))
             {
-                // cout << "yarab" << endl;
                 string name = match[1].str();
                 int pid = stoi(match[2].str());
                 string sessionName = match[3].str();
-                string memUsageStr = match[4].str();
-                // cout << "yarab mem " << memUsageStr << endl;
-                // cout << name << pid << sessionName << memUsageStr << endl;
-                int memoryUsage = stoi(memUsageStr);
+                int sessionNum = stoi(match[4].str());
+                string memUsageStr = match[5].str();
 
-                // Create and add the process to the list
-                fetched.emplace_back(name, pid, sessionName, memoryUsage);
+                // Remove commas from memory usage
+                memUsageStr.erase(remove(memUsageStr.begin(), memUsageStr.end(), ','), memUsageStr.end());
+
+                // Convert memory usage to long
+                long memoryUsage = stoll(memUsageStr);
+                // Create a Process object and add it to the list
+                Process process(name, pid, sessionName, sessionNum, memoryUsage);
+                fetched.push_back(process);
             }
         }
 
@@ -147,7 +163,7 @@ public:
         {
             for (size_t j = 0; j < sortedProcesses.size() - i - 1; ++j)
             { // Fix the loop bounds
-                if (sortedProcesses[j].name > sortedProcesses[j + 1].name)
+                if (sortedProcesses[j].name[0] > sortedProcesses[j + 1].name[0])
                 {
                     swap(sortedProcesses[j], sortedProcesses[j + 1]);
                 }
@@ -162,8 +178,6 @@ int main()
 {
     while (true)
     {
-        string yarab = "    "; // 4
-        cout << yarab.length() << endl;
         cout << "==== Welcome To Task Manager Simulator ====\n"
              << endl;
         cout << "Please choose which type of sorting you want : " << endl
