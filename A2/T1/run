@@ -1,5 +1,5 @@
 
 
-g++ -o problem3.exe Problem5.cpp
+g++ -o Problem5.exe A2_T1.1_S20_20230231_SheetPb05.cpp
 
 ./Problem5.exe
