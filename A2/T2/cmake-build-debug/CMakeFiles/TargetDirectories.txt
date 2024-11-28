@@ -1,0 +1,3 @@
+G:/FCAI/2nd Year/1st Term/OOP/Assignment/CS213/A2/T2/cmake-build-debug/CMakeFiles/T2.dir
+G:/FCAI/2nd Year/1st Term/OOP/Assignment/CS213/A2/T2/cmake-build-debug/CMakeFiles/edit_cache.dir
+G:/FCAI/2nd Year/1st Term/OOP/Assignment/CS213/A2/T2/cmake-build-debug/CMakeFiles/rebuild_cache.dir

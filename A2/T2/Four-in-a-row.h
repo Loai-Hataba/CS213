@@ -6,6 +6,7 @@ template <typename T>
 class Four_In_A_Row_Board: public Board<T>{
     public:
         Four_In_A_Row_Board();
+        ~Four_In_A_Row_Board() ;
         bool update_board(int x, int y, T symbol);
         void display_board();
         bool is_win();
@@ -13,7 +14,7 @@ class Four_In_A_Row_Board: public Board<T>{
         bool game_is_over();
 };
 template <typename T>
-class Four_In_A_Row_Player : public :Player<T>{
+class Four_In_A_Row_Player : public Player<T>{
 public :
     Four_In_A_Row_Player(string name, T symbol);
     void getmove(int &x, int &y);
@@ -35,18 +36,25 @@ template <typename T>
 Four_In_A_Row_Board<T>::Four_In_A_Row_Board()
 {
     this-> rows = 6 ;
-    this columns = 7 ;
-    this board = new char * [this rows] ;
-    for(int i = 0 ; i < 6 ; i ++ )
+    this -> columns = 7 ;
+    this->n_moves = 0;
+    this -> board = new char * [this -> rows] ;
+    for(int i = 0 ; i < 6 ; i++ )
     {
         this->board[i] = new char[this->columns];
-        for (int j = 0 ; j < 7)
+        for (int j = 0 ; j < 7 ; j++)
         {
             this->board[i][j] = 0;
         }
     }
 }
-
+template <typename T>
+Four_In_A_Row_Board<T>::~Four_In_A_Row_Board() {
+    for (int i = 0; i < this->rows; i++) {
+        delete[] this->board[i];
+    }
+    delete[] this->board;
+}
 template <typename T>
 bool Four_In_A_Row_Board<T>::update_board(int x, int y, T symbol)
 {
@@ -54,7 +62,7 @@ bool Four_In_A_Row_Board<T>::update_board(int x, int y, T symbol)
     x--;
     y--;
     // Validate the position
-    if (x < 0 || y < 0 || x >= this->rows || y >= this->column || this->board[x][y] != 0)
+    if (x < 0 || y < 0 || x >= this->rows || y >= this->columns || this->board[x][y] != 0)
     {
         return false; // Invalid move
     }
@@ -99,7 +107,9 @@ template <typename T >
     {
         for (size_t j = 0; j < 4; j++)
         {
-            if ( (this -> board[i][j] != 0)  && this->board[i][j] == this->board[i][j+1] ==this->board[i][j+2] == this->board[i][j + 3 ] ) return true ;
+            if ( (this -> board[i][j] != 0)  && this->board[i][j] == this->board[i][j+1] &&
+                this -> board[i][j+1]== this->board[i][j+2] &&
+                this -> board[i][j+2] == this->board[i][j + 3 ] ) return true ;
         }
     }
     // For vertical win 
@@ -107,7 +117,9 @@ template <typename T >
     {
         for (size_t j = 0; j < 3; j++)
         {
-            if ( this ->board [j][i] != 0 && this->board[j][i] == this->board[j+1][i] == this->board[j+2][i] == this->board[j + 3][i] ) return true ;
+            if ( this ->board [j][i] != 0 && this->board[j][i] == this->board[j+1][i]
+                && this->board[j+1][i] == this -> board[j+2][i] &&
+                this -> board[j+2][i] ==  this->board[j + 3][i] ) return true ;
         }
         
     } 
@@ -123,7 +135,39 @@ template <typename T >
  template <typename T>
  bool Four_In_A_Row_Board<T> :: game_is_over()
  {
-      return (this -> is_win() || this -> game_is_over() );
+      return this -> is_win() || this -> is_draw() ;
+ }
+/// Player Implementations 
+ template <typename T>
+  Four_In_A_Row_Player<T>::Four_In_A_Row_Player(string name, T symbol)
+ {
+
+     this->name = name;
+     this->symbol = symbol;
  }
 
+template <typename T>
+void Four_In_A_Row_Player<T>::getmove(int &x, int &y)
+{
+    cout << "Please enter which Column do You want ( 1 -> 7 ) :  " <<endl;
+    cout << "The Column is : " ;
+    cin >> x ;
+    y=0;
+}
+// Random player implementation
+template <typename T>
+ Four_In_A_Row_Random<T>::Four_In_A_Row_Random(string name, T symbol)
+{
+    this->dimension = 7;
+    this->name = "Random Computer Player";
+    srand(static_cast<unsigned int>(time(0))); // Seed the random number generator
+}
+
+template <typename T>
+void Four_In_A_Row_Random<T>::getmove(int &x, int &y)
+{
+    x = rand() % this->dimension + 1; // Random number between 1 and 7
+    y = 0;  // Always place the move in the first column (column 0)
+}
 #endif
+
