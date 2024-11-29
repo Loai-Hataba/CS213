@@ -16,7 +16,7 @@ class Four_In_A_Row_Board: public Board<T>{
 template <typename T>
 class Four_In_A_Row_Player : public Player<T>{
 public :
-    Four_In_A_Row_Player(string name, T symbol);
+    Four_In_A_Row_Player(string name, T symbol) ;
     void getmove(int &x, int &y);
 };
 
@@ -31,51 +31,57 @@ class Four_In_A_Row_Random: public RandomPlayer<T>{
 #include <iostream>
 #include <iomanip>
 #include <cctype>
+#include <limits>
 
 template <typename T>
-Four_In_A_Row_Board<T>::Four_In_A_Row_Board()
+Four_In_A_Row_Board<T>::Four_In_A_Row_Board() // Done
 {
     this-> rows = 6 ;
     this -> columns = 7 ;
     this->n_moves = 0;
-    this -> board = new char * [this -> rows] ;
-    for(int i = 0 ; i < 6 ; i++ )
+    this -> board = new T* [this -> rows] ;
+    for(int i = 0 ; i < this -> rows ; i++ )
     {
-        this->board[i] = new char[this->columns];
-        for (int j = 0 ; j < 7 ; j++)
+        this->board[i] = new T[this->columns]; // Allocate memory for each row
+        for (int j = 0 ; j < this -> columns  ; j++)
         {
-            this->board[i][j] = 0;
+            this->board[i][j] = T();
         }
     }
 }
+
 template <typename T>
-Four_In_A_Row_Board<T>::~Four_In_A_Row_Board() {
+Four_In_A_Row_Board<T>::~Four_In_A_Row_Board() { //Done
     for (int i = 0; i < this->rows; i++) {
-        delete[] this->board[i];
+        delete[] this->board[i]; //Delete each row  (and the memory it has )
     }
-    delete[] this->board;
+    delete[] this->board; // delete the pointer
 }
+
 template <typename T>
 bool Four_In_A_Row_Board<T>::update_board(int x, int y, T symbol)
 {
     // Adjust for zero-based indexing
-    x--;
-    y--;
-    // Validate the position
-    if (x < 0 || y < 0 || x >= this->rows || y >= this->columns || this->board[x][y] != 0)
-    {
-        return false; // Invalid move
+    y-- ;
+    //Checking if the column is  full
+    if(this -> board [0][y] != T() ) {
+        cout << "Invalid Move The column is full "<<endl;
+        return false;
     }
-    // Update the board
-    this->board[x][y] = symbol;
-
-    // Increment the move count
-    n_moves++;
-    return true; // Move successful
+    // Find the lowest empty row in the specified column
+    for (int i = this->rows - 1; i >= 0; i--) {
+        if (this->board[i][y] == T()) {
+            this->board[i][y] = symbol; // Update the board
+            this->n_moves++;           // Increment the move count
+            return true;               // Move successful
+        }
+    }
+    // This should never be reached due to the column-full check
+    return false;
 }
 
 template <typename T >
- void Four_In_A_Row_Board<T>::   display_board(void) 
+ void Four_In_A_Row_Board<T>::   display_board() //Done
  {
      for (int i = 0; i <= 5; i++)
      {
@@ -107,7 +113,7 @@ template <typename T >
     {
         for (size_t j = 0; j < 4; j++)
         {
-            if ( (this -> board[i][j] != 0)  && this->board[i][j] == this->board[i][j+1] &&
+            if ( (this -> board[i][j] != T())  && this->board[i][j] == this->board[i][j+1] &&
                 this -> board[i][j+1]== this->board[i][j+2] &&
                 this -> board[i][j+2] == this->board[i][j + 3 ] ) return true ;
         }
@@ -117,57 +123,88 @@ template <typename T >
     {
         for (size_t j = 0; j < 3; j++)
         {
-            if ( this ->board [j][i] != 0 && this->board[j][i] == this->board[j+1][i]
+            if ( this ->board [j][i] != T() && this->board[j][i] == this->board[j+1][i]
                 && this->board[j+1][i] == this -> board[j+2][i] &&
                 this -> board[j+2][i] ==  this->board[j + 3][i] ) return true ;
         }
         
     } 
-    // For diagonal win
+    // For  Principal diagonal win
+    for (int i = 0; i <this->rows -3  ; i++)
+    {
+        for (size_t j = 0; j < this -> columns -3 ; j++)
+        {
+            if ( (this -> board[i][j] !=T())  && this->board[i][j] == this->board[i+1][j+1] &&
+                this -> board[i+1][j+1]== this->board[i+2][j+2] &&
+                this -> board[i+2][j+2] == this->board[i+3][j + 3 ] ) return true ;
+        }
+    }
+
+    // For Anti-diagonal win
+    for (int i = 0; i < this->rows - 3; i++) {  // Rows limit adjusted to avoid out-of-bounds access
+        for (int j = this->columns - 1; j >= 3; j--) {  // Start from the last column and check leftward
+            if (this->board[i][j] != T() &&  // Ensure the current cell is not empty
+                this->board[i][j] == this->board[i+1][j-1] &&
+                this->board[i+1][j-1] == this->board[i+2][j-2] &&
+                this->board[i+2][j-2] == this->board[i+3][j-3]) {  // Check for the anti-diagonal match
+                return true;  // If an anti-diagonal is found, return true
+                }
+        }
+    }
 
     return false ;
  }
  template <typename T>
- bool Four_In_A_Row_Board<T> :: is_draw()
+ bool Four_In_A_Row_Board<T> :: is_draw() //Done
  {
       return (this -> n_moves == 42 && ! this -> is_win());
  }
  template <typename T>
- bool Four_In_A_Row_Board<T> :: game_is_over()
+ bool Four_In_A_Row_Board<T> :: game_is_over()// Done
  {
-      return this -> is_win() || this -> is_draw() ;
+      return (this -> is_win() || this -> is_draw() ) ;
  }
+//////////////////////////////////////////////////////////////////////
 /// Player Implementations 
  template <typename T>
-  Four_In_A_Row_Player<T>::Four_In_A_Row_Player(string name, T symbol)
- {
-
-     this->name = name;
-     this->symbol = symbol;
- }
+  Four_In_A_Row_Player<T>::Four_In_A_Row_Player(string name, T symbol): Player<T> (name ,symbol){} // Done
 
 template <typename T>
-void Four_In_A_Row_Player<T>::getmove(int &x, int &y)
+void Four_In_A_Row_Player<T>::getmove(int &x, int &y) // Done
 {
-    cout << "Please enter which Column do You want ( 1 -> 7 ) :  " <<endl;
-    cout << "The Column is : " ;
-    cin >> x ;
-    y=0;
+    while (true ) {
+        cout << "Please enter which Column do You want ( 1 -> 7 ) :  " <<endl;
+        cout << "The Column is : " ;
+        cin >> y ;
+        if ( cin.fail()) {
+            cin.clear();                                         // Clear invalid input
+            cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Ignore rest of the line
+            cout << "Invalid input please enter  an integer number: " <<endl;
+        }
+        else if( !( y>=1 && y<=7) ) {
+            cout << "Invalid move please enter a number between ( 1 -> 7 )" <<endl;
+        }
+        else {
+            x=0;
+            break;
+        }
+    }
+
 }
 // Random player implementation
 template <typename T>
- Four_In_A_Row_Random<T>::Four_In_A_Row_Random(string name, T symbol)
+ Four_In_A_Row_Random<T>::Four_In_A_Row_Random(string name, T symbol) : RandomPlayer<T>(symbol)
 {
     this->dimension = 7;
-    this->name = "Random Computer Player";
+    this->name = name ;
     srand(static_cast<unsigned int>(time(0))); // Seed the random number generator
 }
 
 template <typename T>
 void Four_In_A_Row_Random<T>::getmove(int &x, int &y)
 {
-    x = rand() % this->dimension + 1; // Random number between 1 and 7
-    y = 0;  // Always place the move in the first column (column 0)
+    y = rand() % this->dimension + 1; // Random number between 1 and 7
+    x = 0;
 }
 #endif
 

@@ -10,4 +10,5 @@ add_executable(T2
     BoardGame_Classes.h
     Four-in-a-row.h
     main.cpp
-    MinMaxPlayer.h)
+    MinMaxPlayer.h
+        Connect4.cpp)
