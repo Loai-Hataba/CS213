@@ -3,21 +3,33 @@
 #include "Four-in-a-row.h"
 
 using namespace std;
-
+ 
 int main() {
     int choice;
     Player<char>* players[2];
     auto* B = new Four_In_A_Row_Board<char>();
     string player1Name, player2Name;
     cout << "Welcome to FCAI Four-In-A-Row Game. :)\n";
-    // Set up Player 1
-    cout << "Enter Player 1 name: ";
-    cin >> player1Name;
-    cout << "Choose Player 1 type:\n";
-    cout << "1. Human\n";
-    cout << "2. Random Computer\n";
-    cin >> choice;
-
+    while (true) {
+        // Set up Player 1
+        cout << "Enter Player 1 name: ";
+        getline(cin, player1Name );
+        cout << "Choose Player 1 type:\n";
+        cout << "1. Human\n";
+        cout << "2. Random Computer\n";
+        cin >> choice;
+        if(cin.fail()) {
+            cin.clear();// Clear invalid input
+            cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Ignore rest of the line
+            cout << "Invalid input please enter  an integer number: " <<endl;
+        }
+        else if (!(choice >=1  && choice <=2 )) {
+            cout << "Invalid input please enter a number between 1 and 2 : " <<endl;
+        }
+        else {
+            break;
+        }
+    }
     switch (choice) {
         case 1:
             players[0] = new Four_In_A_Row_Player<char>(player1Name, 'X');
@@ -31,13 +43,26 @@ int main() {
             return 1;
     }
 
-    // Set up Player 2
-    cout << "Enter Player 2 name: ";
-    cin >> player2Name;
-    cout << "Choose Player 2 type:\n";
-    cout << "1. Human\n";
-    cout << "2. Random Computer\n";
-    cin >> choice;
+    while (true) {
+        // Set up Player 2
+        cout << "Enter Player 2 name: ";
+        getline(cin, player2Name ) ;
+        cout << "Choose Player 2 type:\n";
+        cout << "1. Human\n";
+        cout << "2. Random Computer\n";
+        cin >> choice;
+        if(cin.fail()) {
+            cin.clear();// Clear invalid input
+            cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Ignore rest of the line
+            cout << "Invalid input please enter  an integer number: " <<endl;
+        }
+        else if (!(choice >=1  && choice <=2 )) {
+            cout << "Invalid input please enter a number between 1 and 2 : " <<endl;
+        }
+        else {
+            break;
+        }
+    }
 
     switch (choice) {
         case 1:
@@ -55,33 +80,8 @@ int main() {
 
     // Main game loop
     int turn = 0; // Alternate turns between Player 1 and Player 2
-    while (!B->game_is_over()) {
-        B->display_board();
-        cout << players[turn]->getname() << "'s turn (" << players[turn]->getsymbol() << "):\n";
-        int column, row = 0;
-        players[turn]->getmove(row, column);
-
-        if (!B->update_board(row, column, players[turn]->getsymbol())) {
-            cout << "Invalid move. Try again.\n";
-            continue;
-        }
-
-        if (B->is_win()) {
-            B->display_board();
-            cout << players[turn]->getname() << " wins! Congratulations!\n";
-            break;
-        }
-
-        if (B->is_draw()) {
-            B->display_board();
-            cout << "The game is a draw!\n";
-            break;
-        }
-
-        // Switch to the other player
-        turn = 1 - turn;
-    }
-
+    GameManager<char> x_o_game(B, players);
+    x_o_game.run();
     // Clean up
     delete B;
     for (auto & player : players) {
