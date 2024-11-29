@@ -62,5 +62,6 @@
     "stop_token": "cpp",
     "thread": "cpp"
   },
-  "python.analysis.autoImportCompletions": false
+  "python.analysis.autoImportCompletions": false,
+  "cmake.ignoreCMakeListsMissing": true
 }
