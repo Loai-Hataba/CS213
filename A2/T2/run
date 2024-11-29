@@ -1,5 +1,4 @@
+g++ row.cpp -o row.exe
 
 
-g++ -o main.exe main.cpp
-
-./main.exe
+./row.exe
