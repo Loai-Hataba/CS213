@@ -26,6 +26,9 @@ class Four_In_A_Row_Random: public RandomPlayer<T>{
     Four_In_A_Row_Random(string name, T symbol);
     void getmove(int &x, int &y);
 };
+/// Game Prototype
+void Connect_Four_Game ( ) ;
+void setPlayerType(Player<char>*& player, int choice, string name, char symbol) ;
 /////////////////////////////////////////////////////////////////////
 // Implementation
 #include <iostream>
@@ -103,6 +106,7 @@ template <typename T >
      {
          cout << "  " << i << "  |";
      }
+    cout << endl << endl ;
  }
 
  template <typename T>
@@ -197,6 +201,7 @@ template <typename T>
 {
     this->dimension = 7;
     this->name = name ;
+    this->symbol = symbol; // Store the player's symbol
     srand(static_cast<unsigned int>(time(0))); // Seed the random number generator
 }
 

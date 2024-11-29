@@ -56,8 +56,22 @@ build CMakeFiles/T2.dir/main.cpp.obj: CXX_COMPILER__T2_unscanned_Debug G$:/FCAI/
   OBJECT_DIR = CMakeFiles\T2.dir
   OBJECT_FILE_DIR = CMakeFiles\T2.dir
 
-build CMakeFiles/T2.dir/Connect4.cpp.obj: CXX_COMPILER__T2_unscanned_Debug G$:/FCAI/2nd$ Year/1st$ Term/OOP/Assignment/CS213/A2/T2/Connect4.cpp || cmake_object_order_depends_target_T2
-  DEP_FILE = CMakeFiles\T2.dir\Connect4.cpp.obj.d
+build CMakeFiles/T2.dir/Four-in-a-row.cpp.obj: CXX_COMPILER__T2_unscanned_Debug G$:/FCAI/2nd$ Year/1st$ Term/OOP/Assignment/CS213/A2/T2/Four-in-a-row.cpp || cmake_object_order_depends_target_T2
+  DEP_FILE = CMakeFiles\T2.dir\Four-in-a-row.cpp.obj.d
+  FLAGS = -g -std=gnu++14 -fdiagnostics-color=always
+  INCLUDES = -I"G:/FCAI/2nd Year/1st Term/OOP/Assignment/CS213/A2/T2/."
+  OBJECT_DIR = CMakeFiles\T2.dir
+  OBJECT_FILE_DIR = CMakeFiles\T2.dir
+
+build CMakeFiles/T2.dir/TicTacToeNumbers.cpp.obj: CXX_COMPILER__T2_unscanned_Debug G$:/FCAI/2nd$ Year/1st$ Term/OOP/Assignment/CS213/A2/T2/TicTacToeNumbers.cpp || cmake_object_order_depends_target_T2
+  DEP_FILE = CMakeFiles\T2.dir\TicTacToeNumbers.cpp.obj.d
+  FLAGS = -g -std=gnu++14 -fdiagnostics-color=always
+  INCLUDES = -I"G:/FCAI/2nd Year/1st Term/OOP/Assignment/CS213/A2/T2/."
+  OBJECT_DIR = CMakeFiles\T2.dir
+  OBJECT_FILE_DIR = CMakeFiles\T2.dir
+
+build CMakeFiles/T2.dir/Methods.cpp.obj: CXX_COMPILER__T2_unscanned_Debug G$:/FCAI/2nd$ Year/1st$ Term/OOP/Assignment/CS213/A2/T2/Methods.cpp || cmake_object_order_depends_target_T2
+  DEP_FILE = CMakeFiles\T2.dir\Methods.cpp.obj.d
   FLAGS = -g -std=gnu++14 -fdiagnostics-color=always
   INCLUDES = -I"G:/FCAI/2nd Year/1st Term/OOP/Assignment/CS213/A2/T2/."
   OBJECT_DIR = CMakeFiles\T2.dir
@@ -71,7 +85,7 @@ build CMakeFiles/T2.dir/Connect4.cpp.obj: CXX_COMPILER__T2_unscanned_Debug G$:/F
 #############################################
 # Link the executable T2.exe
 
-build T2.exe: CXX_EXECUTABLE_LINKER__T2_Debug CMakeFiles/T2.dir/main.cpp.obj CMakeFiles/T2.dir/Connect4.cpp.obj
+build T2.exe: CXX_EXECUTABLE_LINKER__T2_Debug CMakeFiles/T2.dir/main.cpp.obj CMakeFiles/T2.dir/Four-in-a-row.cpp.obj CMakeFiles/T2.dir/TicTacToeNumbers.cpp.obj CMakeFiles/T2.dir/Methods.cpp.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\T2.dir

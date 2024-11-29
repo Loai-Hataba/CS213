@@ -2,9 +2,11 @@
 #include "BoardGame_Classes.h"
 #include "3x3X_O.h"
 #include "MinMaxPlayer.h"
+#include "Four-in-a-row.h"
+#include "TicTacToeNumbers.h"
 
 using namespace std;
-
+/// Demo Implementation
 /*int main() {
     int choice;
     Player<char>* players[2];
@@ -75,4 +77,7 @@ using namespace std;
     return 0;
 }*/
 
-
+int main () {
+    //Connect_Four_Game() ;
+    NumericalTicTacToe() ;
+}
