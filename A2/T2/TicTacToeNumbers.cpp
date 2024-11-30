@@ -5,7 +5,7 @@
 int getPlayerSymbol(vector<int> & available  ) {
     int playerSymbol = 0 ;
     while (true) {
-        cout << "Please Enter Your Symbol (Num)  between ( " ;
+        cout << endl << "Please Enter Your Symbol (Num)  between ( " ;
         for(const auto & i : available) {
             cout << i << " ";
         }
@@ -56,22 +56,19 @@ void setPlayerType(Player<int>*& player, int choice, string name, int symbol) {
 void NumericalTicTacToe() {
     Player<int>* players[2] = {nullptr, nullptr};
     auto* B = new TicTacToeNum_Board<int>();
-    vector<int> P1Nums ={1,3,5,7,9};
-    vector<int> P2Nums ={2,4,6,8};
     cout << "Welcome to FCAI Tic Tac Toe With numbers. :)\n";
     ///////////////////////////////////////////////////////////////
+    ///// Symbol 0 --> even / symbol --> 1 --> odd numbers
     /////Setting Player 1
     string player1Name = getPlayerName(1) ;
     int choice = getPlayerType();
-    int symbol =getPlayerSymbol(P1Nums);
-    setPlayerType(players[0], choice, player1Name, symbol);
+    setPlayerType(players[0], choice, player1Name, 1);
     /////////////////////////////////////////////////////////////
     ///Setting Player 2
     cin.ignore();
     string player2Name = getPlayerName(2) ;
     choice = getPlayerType();
-    symbol =getPlayerSymbol(P2Nums);
-    setPlayerType(players[1], choice, player2Name, symbol);
+    setPlayerType(players[1], choice, player2Name, 0);
     ////////////////////////////////////////////////////////////////
     GameManager<int> NumTicTacToe (B, players);
     NumTicTacToe.run();

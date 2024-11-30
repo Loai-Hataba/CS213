@@ -21,6 +21,8 @@ class TicTacToeNum_Board :public  Board<T> {
 /// Player Prototype
 template <typename T>
 class TicTacToeNum_Player :public Player<T> {
+    private:
+    vector<int> available ;
 public:
     TicTacToeNum_Player(string name, T symbol);
     void getmove(int &x, int &y);
@@ -28,6 +30,8 @@ public:
 /// Random player Prototype
 template <typename T>
 class TicTacToeNum_Random : public RandomPlayer<T> {
+private:
+    vector<int> available ;
     public:
     TicTacToeNum_Random(string name, T symbol);
     void getmove(int &x, int &y);
@@ -170,7 +174,14 @@ bool TicTacToeNum_Board<T>::game_is_over() //Done
 ////////////////////////////////////////////////////////////////////
 /////Player implementation
 template<typename T>
-TicTacToeNum_Player<T>::TicTacToeNum_Player(string name, T symbol): Player<T> (name ,symbol){}
+TicTacToeNum_Player<T>::TicTacToeNum_Player(string name, T symbol): Player<T> (name ,symbol) {
+    if(symbol ==  0 ) {
+        this->available = {2,4,6,8} ;
+    }
+    else {
+       this -> available =  {1,3,5,7,9} ;
+    }
+}
 
 template<typename T>
 void TicTacToeNum_Player<T>::getmove(int &x, int &y) {
@@ -204,8 +215,9 @@ void TicTacToeNum_Player<T>::getmove(int &x, int &y) {
         else {
             break;
         }
-
     }
+    // Now time To choose the num
+    this ->symbol  = getPlayerSymbol(this -> available );
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////
@@ -216,7 +228,12 @@ TicTacToeNum_Random<T>::TicTacToeNum_Random(string name, T symbol) : RandomPlaye
 {
     this->dimension = 3;
     this->name = name ;
-    this->symbol = symbol; // Store the player's symbol
+    if(symbol ==  0 ) {
+        this->available = {2,4,6,8} ;
+    }
+    else {
+        this -> available =  {1,3,5,7,9} ;
+    }
     srand(static_cast<unsigned int>(time(0))); // Seed the random number generator
 }
 
@@ -224,10 +241,22 @@ template<typename T>
 void TicTacToeNum_Random<T>::getmove(int &x, int &y) //Done
 {
     while (true) {
-        y = rand() % this->dimension ; // Random number between 0 and 2
-        x = rand() % this->dimension ; // Random number between 0 and 2  ;
+        x = rand() % this->dimension ; // Random number between 0 and 2
+        if((x >= 0 && x <=2 )) {
+            break;
+        }
     }
-
+    while (true) {
+        y = rand() % this->dimension ; // Random number between 0 and 2
+        if((y >= 0 && y <=2 )) {
+            break;
+        }
+    }
+    if (this->boardPtr ->board[x][y] == T())
+    {
+        this ->symbol  = getPlayerSymbol(this -> available );
+        return ;
+    }
 
 }
 
