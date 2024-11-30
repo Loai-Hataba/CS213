@@ -46,7 +46,6 @@ public:
     /// Optionally, you can give them a name
     Player(string n, T symbol);
     Player(T symbol); // For computer players
-
     virtual void getmove(int& x, int& y) = 0;
     T getsymbol();
     string getname();

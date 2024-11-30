@@ -7,8 +7,8 @@
 using namespace std;
 int getPlayerType ();
 string  getPlayerName(int PlayerNum) ;
-
-
+int getValidIndex( const string &  message  , int start , int end  ) ;
+bool isInteger (string str);
 
 
 #endif //METHODS_H

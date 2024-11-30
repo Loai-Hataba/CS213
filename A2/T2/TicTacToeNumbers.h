@@ -5,6 +5,7 @@
 #ifndef TICTACTOENUMBERS_H
 #define TICTACTOENUMBERS_H
 #include <BoardGame_Classes.h>
+#include <Methods.h>
 /// Board Prototype
 template<class T>
 class TicTacToeNum_Board :public  Board<T> {
@@ -21,7 +22,6 @@ class TicTacToeNum_Board :public  Board<T> {
 /// Player Prototype
 template <typename T>
 class TicTacToeNum_Player :public Player<T> {
-    private:
     vector<int> available ;
 public:
     TicTacToeNum_Player(string name, T symbol);
@@ -30,7 +30,6 @@ public:
 /// Random player Prototype
 template <typename T>
 class TicTacToeNum_Random : public RandomPlayer<T> {
-private:
     vector<int> available ;
     public:
     TicTacToeNum_Random(string name, T symbol);
@@ -40,6 +39,7 @@ private:
 int getPlayerSymbol(vector<int> & available  );
 void setPlayerType(Player<int>*& player, int choice, string name, int symbol);
 void NumericalTicTacToe() ;
+void displayNumTicTacToeInfo() ;
 /////////////////////////////////////////////////////////////////////////////////////////
 ////-----> Implementation
 /// Board Implementation
@@ -89,7 +89,7 @@ bool TicTacToeNum_Board<T>::update_board(int x, int y, T symbol) {
 template<class T>
 void TicTacToeNum_Board<T>::display_board() // Done
 {
-    cout << " -------------------------------------------------------" <<endl;
+    cout << endl <<" -------------------------------------------------------" <<endl;
     for (int i = 0; i < this -> rows; i++) {
         cout << setw(2)<<"|" ;
         for (int j = 0; j < this -> columns; j++) {
@@ -103,7 +103,7 @@ void TicTacToeNum_Board<T>::display_board() // Done
         }
         cout << endl;
     }
-    cout << " -------------------------------------------------------" <<endl;
+    cout << " -------------------------------------------------------" <<endl <<endl;
 }
 
 template<class T>
@@ -185,37 +185,9 @@ TicTacToeNum_Player<T>::TicTacToeNum_Player(string name, T symbol): Player<T> (n
 
 template<typename T>
 void TicTacToeNum_Player<T>::getmove(int &x, int &y) {
-    cout << "Please enter which cell do you want :  " <<endl;
-    while (true) {
-        cout << "the x index : ";
-        cin >> x;
-        if(cin.fail()) {
-            cin.clear();                                         // Clear invalid input
-            cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Ignore rest of the line
-            cout << "Invalid input please enter  an integer number: " <<endl;
-        }
-        else if (!(x>=0 && x< 3 )) {
-            cout << "Invalid input please enter a number between 0 and 2  " <<endl;
-        }
-        else {
-            break;
-        }
-    }
-    while (true) {
-        cout << "the y index : ";
-        cin>>y ;
-        if(cin.fail()) {
-            cin.clear();                                         // Clear invalid input
-            cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Ignore rest of the line
-            cout << "Invalid input please enter  an integer number " <<endl;
-        }
-        else if (!(y>=0 && y< 3 )) {
-            cout << "Invalid input please enter a number between 0 and 2  " <<endl;
-        }
-        else {
-            break;
-        }
-    }
+    cout << " ( "<<this -> getname() <<" ) Please enter which cell do you want :  " <<endl;
+    x =  getValidIndex( "the x index : " , 0 , 2 );
+    y =  getValidIndex( "the y index : " , 0 , 2 );
     // Now time To choose the num
     this ->symbol  = getPlayerSymbol(this -> available );
 }
@@ -252,11 +224,7 @@ void TicTacToeNum_Random<T>::getmove(int &x, int &y) //Done
             break;
         }
     }
-    if (this->boardPtr ->board[x][y] == T())
-    {
-        this ->symbol  = getPlayerSymbol(this -> available );
-        return ;
-    }
+    this ->symbol  = getPlayerSymbol(this -> available );
 
 }
 

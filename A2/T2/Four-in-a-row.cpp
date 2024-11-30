@@ -19,11 +19,38 @@ void setPlayerType(Player<char>*& player, int choice, string name, char symbol) 
             break;
     }
 }
+void displayConnect4GameInfo() {
+    cout << "           ===== Welcome to Four-in-a-Row =====\n" << endl;
+    cout << " A fun 2D twist to the classic Connect Four game.\n";
+    cout << " Players mark the grid with Xs and Os, similar to Tic-Tac-Toe.\n\n";
+
+    cout << " +----------------------------------------------------+\n";
+    cout << " |                      Rules                         |\n";
+    cout << " +----------------------------------------------------+\n";
+    cout << " | The board consists of a 7x6 grid (7 columns, 6 rows). |\n";
+    cout << " | Player 1 marks Xs; Player 2 marks Os.               |\n";
+    cout << " | Players take turns marking the lowest available     |\n";
+    cout << " | square in any column.                               |\n";
+    cout << " +----------------------------------------------------+\n";
+
+    cout << " +----------------------------------------------------+\n";
+    cout << " |                     Winning                        |\n";
+    cout << " +----------------------------------------------------+\n";
+    cout << " | A player wins by forming four-in-a-row:            |\n";
+    cout << " | - Horizontally                                      |\n";
+    cout << " | - Vertically                                        |\n";
+    cout << " | - Diagonally                                        |\n";
+    cout << " | The game ends in a draw if the grid is filled and  |\n";
+    cout << " | no player achieves four-in-a-row.                  |\n";
+    cout << " +----------------------------------------------------+\n";
+
+    cout << "\n                  Let the game begin!\n";
+}
 
 void Connect_Four_Game ( ) {
     Player<char>* players[2] ={nullptr, nullptr};
     auto* B = new Four_In_A_Row_Board<char>();
-    cout << "Welcome to FCAI Connect 4 Game. :)\n";
+    displayConnect4GameInfo();
     //// Set Player one
     string player1Name = getPlayerName(1) ;
     int choice = getPlayerType();
@@ -35,8 +62,6 @@ void Connect_Four_Game ( ) {
     choice = getPlayerType();
     setPlayerType(players[1] , choice , player2Name, 'O');
     ////////////////////////////////////////////////
-    // Main game loop
-    int turn = 0; // Alternate turns between Player 1 and Player 2
     GameManager<char> connect4Game (B, players);
     connect4Game.run();
     for (auto & player : players) {

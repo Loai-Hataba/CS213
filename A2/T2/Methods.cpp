@@ -5,31 +5,46 @@
 #include "Methods.h"
 
 int getPlayerType() {
-    int choice = 0;
-    while (true) {
-        cout << "1. Human\n";
-        cout << "2. Random Computer\n";
-        cout << "3. AI Player\n";
-        cout << "your choice ( 1 -> 3 ): ";
-        cin >> choice;
-        if(cin.fail()) {
-            cin.clear();// Clear invalid input
-            cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Ignore rest of the line
-            cout << "Invalid input please enter  an integer number: " <<endl;
-        }
-        else if (!(choice >=1  && choice <=3 )) {
-            cout << "Invalid input please enter a number between 1 and 3 : " <<endl;
-        }
-        else {
-            break;
-        }
-    }
-    return choice ;
+    cout << endl << "What Is the Type Of Player?" << endl;
+    cout << "1. Human\n";
+    cout << "2. Random Computer\n";
+    cout << "3. AI Player\n";
+    int choice = getValidIndex("Your choice (1 -> 3): ", 1, 3);
+    return choice;
 }
 
 string getPlayerName(int PlayerNum) {
     string name = "" ;
-    cout << "Enter Player "<< PlayerNum<< " name : "  ;
+    cout << endl <<"Player "<< PlayerNum<< " name : "  ;
     getline(cin,name );
     return name;
+}
+
+/// Function to get a valid integer input
+bool isInteger (string str) {
+    for (const auto &ch : str) {
+        if (!isdigit(ch)) {return false;}
+    }
+    return true ;
+}
+int getValidIndex(const string & message  , int start , int end  ) {
+   while (true) {
+       string str = "" ;
+       int index = 0;
+       cout << endl << message ;
+       cin>> str ;
+       if(isInteger(str)) {
+           index = stoi(str);
+           if (index >= start && index <= end) {
+               return index;
+           }
+           else {
+               cout << "Please enter an integer number between " << start << " and "  << end << " : ";
+           }
+       }
+       else {
+           cout << "You have entered an invalid input ,Please enter an integer number between " << start << " and "  << end << " : ";
+       }
+   }
+
 }
