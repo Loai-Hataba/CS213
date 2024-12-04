@@ -4,6 +4,8 @@
 #include "MinMaxPlayer.h"
 #include "Four-in-a-row.h"
 #include "TicTacToeNumbers.h"
+#include "UltimateTicTacToe.h"
+#include "FourByFourXO.h"
 
 using namespace std;
 /// Demo Implementation
@@ -78,6 +80,9 @@ using namespace std;
 }*/
 
 int main () {
-    //Connect_Four_Game() ;
-    NumericalTicTacToe() ;
+    // Connect_Four_Game();
+    // NumericalTicTacToe();
+    // UltimateTicTacToe();
+    TicTacToe4x4();
+
 }

@@ -77,6 +77,20 @@ build CMakeFiles/T2.dir/Methods.cpp.obj: CXX_COMPILER__T2_unscanned_Debug G$:/FC
   OBJECT_DIR = CMakeFiles\T2.dir
   OBJECT_FILE_DIR = CMakeFiles\T2.dir
 
+build CMakeFiles/T2.dir/UltimateTicTacToe.cpp.obj: CXX_COMPILER__T2_unscanned_Debug G$:/FCAI/2nd$ Year/1st$ Term/OOP/Assignment/CS213/A2/T2/UltimateTicTacToe.cpp || cmake_object_order_depends_target_T2
+  DEP_FILE = CMakeFiles\T2.dir\UltimateTicTacToe.cpp.obj.d
+  FLAGS = -g -std=gnu++14 -fdiagnostics-color=always
+  INCLUDES = -I"G:/FCAI/2nd Year/1st Term/OOP/Assignment/CS213/A2/T2/."
+  OBJECT_DIR = CMakeFiles\T2.dir
+  OBJECT_FILE_DIR = CMakeFiles\T2.dir
+
+build CMakeFiles/T2.dir/FourByFourXO.cpp.obj: CXX_COMPILER__T2_unscanned_Debug G$:/FCAI/2nd$ Year/1st$ Term/OOP/Assignment/CS213/A2/T2/FourByFourXO.cpp || cmake_object_order_depends_target_T2
+  DEP_FILE = CMakeFiles\T2.dir\FourByFourXO.cpp.obj.d
+  FLAGS = -g -std=gnu++14 -fdiagnostics-color=always
+  INCLUDES = -I"G:/FCAI/2nd Year/1st Term/OOP/Assignment/CS213/A2/T2/."
+  OBJECT_DIR = CMakeFiles\T2.dir
+  OBJECT_FILE_DIR = CMakeFiles\T2.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target T2
@@ -85,7 +99,7 @@ build CMakeFiles/T2.dir/Methods.cpp.obj: CXX_COMPILER__T2_unscanned_Debug G$:/FC
 #############################################
 # Link the executable T2.exe
 
-build T2.exe: CXX_EXECUTABLE_LINKER__T2_Debug CMakeFiles/T2.dir/main.cpp.obj CMakeFiles/T2.dir/Four-in-a-row.cpp.obj CMakeFiles/T2.dir/TicTacToeNumbers.cpp.obj CMakeFiles/T2.dir/Methods.cpp.obj
+build T2.exe: CXX_EXECUTABLE_LINKER__T2_Debug CMakeFiles/T2.dir/main.cpp.obj CMakeFiles/T2.dir/Four-in-a-row.cpp.obj CMakeFiles/T2.dir/TicTacToeNumbers.cpp.obj CMakeFiles/T2.dir/Methods.cpp.obj CMakeFiles/T2.dir/UltimateTicTacToe.cpp.obj CMakeFiles/T2.dir/FourByFourXO.cpp.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\T2.dir
