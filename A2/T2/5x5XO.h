@@ -9,7 +9,6 @@
 
 static int c = 0; // turn is checking for 'O'
 static bool draw = false;
-static bool won = false;
 
 template <typename T>
 class XO_Board : public Board<T>
@@ -89,33 +88,28 @@ template <typename T>
 void XO_Board<T>::display_board()
 {
     cout << endl;
-    int consoleWidth = 80;                         // Assuming a standard console width of 80 characters
-    int boardWidth = this->columns * 6 + 1;        // Each cell is 5 spaces + 1 for '|' separator
-    int padding = (consoleWidth - boardWidth) / 2; // Calculate leading spaces for centering
+    int width = 80;
+    int boardWidth = this->columns * 6 + 1;
+    int padding = (width - boardWidth) / 2;
 
     for (int i = 0; i < this->rows; i++)
     {
-        // Add padding spaces before each row
         cout << string(padding, ' ') << "|";
         for (int j = 0; j < this->columns; j++)
         {
             if (this->board[i][j] == 0) // Empty cell
                 cout << "     |";
             else
-                cout << "  " << this->board[i][j] << "  |"; // Center-align characters
+                cout << "  " << this->board[i][j] << "  |";
         }
         cout << "\n";
-
-        // Add padding spaces before the horizontal separator
         cout << string(padding, ' ');
-        for (int k = 0; k < this->columns; k++) // Generate horizontal line dynamically
-            cout << "------";                   // 6 dashes per column (5 spaces + separator)
-        cout << "-";                            // Extra dash for the last separator
+        for (int k = 0; k < this->columns; k++)
+            cout << "------";
+        cout << "-";
         cout << endl;
     }
 
-    // Add padding spaces for the final decorative line
-    // cout << string(padding, ' ');
     cout << "\n~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.\n";
 }
 template <typename T>
@@ -134,7 +128,6 @@ int XO_Board<T>::countWin()
                 this->board[i][j] == this->board[i][j + 2] && this->board[i][j] != '\0')
             {
                 counter[this->board[i][j]]++;
-                // cout << YELLOW << "1 " << RESET;
             }
 
             // CHECK COLUMNS (Vertical lines)
@@ -142,7 +135,6 @@ int XO_Board<T>::countWin()
                 this->board[i][j] == this->board[i + 2][j] && this->board[i][j] != '\0')
             {
                 counter[this->board[i][j]]++;
-                // cout << YELLOW << "2 " << RESET;
             }
 
             // CHECK FORWARD DIAGONAL
@@ -150,7 +142,6 @@ int XO_Board<T>::countWin()
                 this->board[i][j] == this->board[i + 2][j + 2] && this->board[i][j] != '\0')
             {
                 counter[this->board[i][j]]++;
-                // cout << YELLOW << "3 " << RESET;
             }
 
             // CHECK BACKWARD DIAGONAL
@@ -158,18 +149,15 @@ int XO_Board<T>::countWin()
                 this->board[i][j] == this->board[i + 2][j - 2] && this->board[i][j] != '\0')
             {
                 counter[this->board[i][j]]++;
-                // cout << YELLOW << "4 " << RESET;
             }
         }
     }
-    // cout << "final X: " << counter['X'] << endl
-    //      << "final O: " << counter['O'] << endl;
     int ans = counter['O'] - counter['X'];
     return ans;
 }
 
 template <typename T>
-bool XO_Board<T>::is_win()
+bool XO_Board<T>::is_win() // NOTE: For later think of when moves are 24, go add in get move if moves is > than 24 delete and add a single cell so the logic would work
 {
     if (this->n_moves == 24)
     {
@@ -183,14 +171,12 @@ bool XO_Board<T>::is_win()
         {
             if (owin > 0) // O Wins
             {
-                cout << "O wins & X turn\n";
                 c = 0;
                 return false;
             }
             else // X Wins
             {
-                cout << "X wins & X turn\n";
-                won = true;
+                cout << "X wins\n";
                 return true;
             }
         }
@@ -198,13 +184,10 @@ bool XO_Board<T>::is_win()
         {
             if (owin > 0) // O Wins
             {
-                cout << "O wins & O turn\n";
-                won = true;
                 return true;
             }
             else // X Wins
             {
-                cout << "X wins & O turn\n";
                 c = 1;
                 return false;
             }
@@ -222,8 +205,7 @@ bool XO_Board<T>::is_draw()
 template <typename T>
 bool XO_Board<T>::game_is_over()
 {
-    return (won || is_draw());
-    // return (is_draw()); FIXME:
+    return (is_win() || is_draw());
 }
 
 template <typename T>
