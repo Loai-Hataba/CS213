@@ -45,14 +45,17 @@
 			"compileCommandFragments" : 
 			[
 				{
-					"fragment" : "-g -std=gnu++14 -fdiagnostics-color=always"
+					"fragment" : "-g -fdiagnostics-color=always"
+				},
+				{
+					"fragment" : "-std=gnu++14"
 				}
 			],
 			"includes" : 
 			[
 				{
 					"backtrace" : 2,
-					"path" : "G:/FCAI/2nd Year/1st Term/OOP/Assignment/CS213/A2/T2/."
+					"path" : "D:/Hoss/github/CS213/A2/T2/."
 				}
 			],
 			"language" : "CXX",
@@ -67,7 +70,12 @@
 			"sourceIndexes" : 
 			[
 				3,
-				5
+				5,
+				6,
+				8,
+				10,
+				12,
+				14
 			]
 		}
 	],
@@ -107,7 +115,11 @@
 				0,
 				1,
 				2,
-				4
+				4,
+				7,
+				9,
+				11,
+				13
 			]
 		},
 		{
@@ -115,7 +127,12 @@
 			"sourceIndexes" : 
 			[
 				3,
-				5
+				5,
+				6,
+				8,
+				10,
+				12,
+				14
 			]
 		}
 	],
@@ -150,7 +167,57 @@
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "Connect4.cpp",
+			"path" : "Four-in-a-row.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "TicTacToeNumbers.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "TicTacToeNumbers.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "Methods.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "Methods.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "UltimateTicTacToe.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "UltimateTicTacToe.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "FourByFourXO.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "FourByFourXO.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "PyramicTicTacToe.cpp",
 			"sourceGroupIndex" : 1
 		}
 	],

@@ -2,6 +2,8 @@
 #define _FOUR_IN_A_ROW_h
 
 #include "BoardGame_Classes.h"
+#include "Methods.h"
+
 template <typename T>
 class Four_In_A_Row_Board: public Board<T>{
     public:
@@ -26,6 +28,10 @@ class Four_In_A_Row_Random: public RandomPlayer<T>{
     Four_In_A_Row_Random(string name, T symbol);
     void getmove(int &x, int &y);
 };
+/// Game Prototype
+void Connect_Four_Game ( ) ;
+void setPlayerType(Player<char>*& player, int choice, string name, char symbol) ;
+void displayConnect4GameInfo();
 /////////////////////////////////////////////////////////////////////
 // Implementation
 #include <iostream>
@@ -103,6 +109,7 @@ template <typename T >
      {
          cout << "  " << i << "  |";
      }
+    cout << endl << endl ;
  }
 
  template <typename T>
@@ -172,24 +179,8 @@ template <typename T >
 template <typename T>
 void Four_In_A_Row_Player<T>::getmove(int &x, int &y) // Done
 {
-    while (true ) {
-        cout << "Please enter which Column do You want ( 1 -> 7 ) :  " <<endl;
-        cout << "The Column is : " ;
-        cin >> y ;
-        if ( cin.fail()) {
-            cin.clear();                                         // Clear invalid input
-            cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Ignore rest of the line
-            cout << "Invalid input please enter  an integer number: " <<endl;
-        }
-        else if( !( y>=1 && y<=7) ) {
-            cout << "Invalid move please enter a number between ( 1 -> 7 )" <<endl;
-        }
-        else {
-            x=0;
-            break;
-        }
-    }
-
+    y = getValidIndex( "Please enter which Column do You want ( 1 -> 7 ) :  \n""The Column is : " , 1 , 7 ) ;
+    x = 0 ;
 }
 // Random player implementation
 template <typename T>
@@ -197,6 +188,7 @@ template <typename T>
 {
     this->dimension = 7;
     this->name = name ;
+    this->symbol = symbol; // Store the player's symbol
     srand(static_cast<unsigned int>(time(0))); // Seed the random number generator
 }
 

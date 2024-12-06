@@ -3,6 +3,10 @@
 #include "3x3X_O.h"
 #include "5x5XO.h"
 #include "MinMaxPlayer.h"
+#include "Four-in-a-row.h"
+#include "TicTacToeNumbers.h"
+#include "UltimateTicTacToe.h"
+#include "FourByFourXO.h"
 
 using namespace std;
 

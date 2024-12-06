@@ -70,6 +70,9 @@ bool X_O_Board<T>::update_board(int x, int y, T mark)
         }
         else
         {
+        }
+        else
+        {
             this->n_moves++;
             this->board[x][y] = toupper(mark);
         }

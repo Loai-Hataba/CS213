@@ -11,4 +11,12 @@ add_executable(T2
     Four-in-a-row.h
     main.cpp
     MinMaxPlayer.h
-        Connect4.cpp)
+        Four-in-a-row.cpp
+        TicTacToeNumbers.cpp
+        TicTacToeNumbers.h
+        Methods.cpp
+        Methods.h
+        UltimateTicTacToe.cpp
+        UltimateTicTacToe.h
+        FourByFourXO.cpp
+        FourByFourXO.h PyramicTicTacToe.cpp)
