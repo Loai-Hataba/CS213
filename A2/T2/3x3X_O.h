@@ -103,7 +103,7 @@ bool X_O_Board<T>::is_win()
     // Check rows and columns
     for (int i = 0; i < this->rows; i++)
     {
-        if ((this->board[i][0] = this->board[i][1] && this->board[i][1] == this->board[i][2] && this->board[i][0] != 0) ||
+        if ((this->board[i][0] == this->board[i][1] && this->board[i][1] == this->board[i][2] && this->board[i][0] != 0) ||
             (this->board[0][i] == this->board[1][i] && this->board[1][i] == this->board[2][i] && this->board[0][i] != 0))
         {
             return true;

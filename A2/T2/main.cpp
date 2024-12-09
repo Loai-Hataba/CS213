@@ -2,6 +2,7 @@
 #include "BoardGame_Classes.h"
 #include "3x3X_O.h"
 #include "5x5XO.h"
+#include "Misere3x3XO.h"
 #include "MinMaxPlayer.h"
 #include "Four-in-a-row.h"
 #include "TicTacToeNumbers.h"
@@ -88,9 +89,9 @@ int main()
 {
     int choice;
     Player<char> *players[2];
-    XO_Board<char> *B = new XO_Board<char>();
+    MisereBoard<char> *B = new MisereBoard<char>();
     string playerXName, player2Name;
-    cout << "Welcome to FCAI 5X5 X-O Game. :)\n";
+    cout << "Welcome to FCAI  X-O Game. :)\n";
 
     // Set up player 1
     cout << "Enter Player X name: ";
@@ -104,10 +105,10 @@ int main()
     switch (choice)
     {
     case 1:
-        players[0] = new XO_Player<char>(playerXName, 'X');
+        players[0] = new MiserePlayer<char>(playerXName, 'X');
         break;
     case 2:
-        players[0] = new XO_RandomPlayer<char>('X');
+        players[0] = new MisereRandomPlayer<char>('X');
         break;
     case 3:
         players[0] = new X_O_MinMax_Player<char>('X');
@@ -130,10 +131,10 @@ int main()
     switch (choice)
     {
     case 1:
-        players[1] = new XO_Player<char>(player2Name, 'O');
+        players[1] = new MiserePlayer<char>(player2Name, 'O');
         break;
     case 2:
-        players[1] = new XO_RandomPlayer<char>('O');
+        players[1] = new MisereRandomPlayer<char>('O');
         break;
     case 3:
         players[1] = new X_O_MinMax_Player<char>('O');
@@ -145,8 +146,8 @@ int main()
     }
 
     // Create the game manager and run the game
-    GameManager<char> xo_5x5_game(B, players);
-    xo_5x5_game.run();
+    GameManager<char> xo_Misere_game(B, players);
+    xo_Misere_game.run();
 
     // Clean up
     delete B;

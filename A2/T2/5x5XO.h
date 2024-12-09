@@ -4,8 +4,6 @@
 
 #include "BoardGame_classes.h"
 #include <map>
-#define YELLOW "\033[33m"
-#define RESET "\033[0m"
 
 static int c = 0; // turn is checking for 'O'
 static bool draw = false;
