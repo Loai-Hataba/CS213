@@ -131,7 +131,7 @@ bool MisereBoard<T>::is_win()
         if (turn != lost)
         {
             if (lost == 1)
-                cout << "Player X wins\n";
+                cout << "X wins\n";
             if (lost == 0)
             {
                 return true;

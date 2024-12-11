@@ -7,6 +7,7 @@
 
 static int c = 0; // turn is checking for 'O'
 static bool draw = false;
+static int temp_moves = 0;
 
 template <typename T>
 class XO_Board : public Board<T>
@@ -50,6 +51,7 @@ template <typename T>
 XO_Board<T>::XO_Board()
 {
     this->n_moves = 0;
+    temp_moves = 0;
     this->rows = this->columns = 5;
     this->board = new char *[this->rows];
     for (int i = 0; i < this->rows; i++)
@@ -65,16 +67,20 @@ XO_Board<T>::XO_Board()
 template <typename T>
 bool XO_Board<T>::update_board(int x, int y, T symbol)
 {
+    if (x == -1 && y == -1)
+        return true;
     if (!(x < 0 || x >= this->rows || y < 0 || y >= this->columns) && (this->board[x][y] == 0))
     {
         if (symbol == 0)
         {
             this->n_moves--;
+            temp_moves--;
             this->board[x][y] = 0;
         }
         else
         {
             this->n_moves++;
+            temp_moves++;
             this->board[x][y] = symbol;
         }
         return true;
@@ -157,7 +163,7 @@ int XO_Board<T>::countWin()
 template <typename T>
 bool XO_Board<T>::is_win() // NOTE: For later think of when moves are 24, go add in get move if moves is > than 24 delete and add a single cell so the logic would work
 {
-    if (this->n_moves == 24)
+    if (this->n_moves == 25)
     {
         int owin = countWin();
         if (!owin)
@@ -197,7 +203,7 @@ bool XO_Board<T>::is_win() // NOTE: For later think of when moves are 24, go add
 template <typename T>
 bool XO_Board<T>::is_draw()
 {
-    return (draw); // NOTE: removed condition && !is_win()
+    return (draw);
 }
 
 template <typename T>
@@ -212,7 +218,12 @@ XO_Player<T>::XO_Player(string name, T symbol) : Player<T>(name, symbol) {}
 template <typename T>
 void XO_Player<T>::getmove(int &x, int &y)
 {
-
+    if (temp_moves == 24)
+    {
+        x = -1;
+        y = -1;
+        return;
+    }
     cout << "\nEnter x and y (0 to 5) separated by spaces: ";
     cin >> x >> y;
 }
