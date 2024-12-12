@@ -87,7 +87,7 @@ using namespace std;
 
 int main()
 {
-    int choice;
+   /* int choice;
     Player<char> *players[2];
     XO_Board<char> *B = new XO_Board<char>();
     string playerXName, player2Name;
@@ -155,6 +155,8 @@ int main()
     {
         delete players[i];
     }
-
-    return 0;
+*/
+    //Connect_Four_Game();
+    NumericalTicTacToe() ;
+     return 0;
 }

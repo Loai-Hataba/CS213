@@ -89,27 +89,32 @@ bool Four_In_A_Row_Board<T>::update_board(int x, int y, T symbol)
 template <typename T >
  void Four_In_A_Row_Board<T>::   display_board() //Done
  {
-     for (int i = 0; i <= 5; i++)
-     {
-         cout << setw(2) << i + 1 << setw(2) << " | ";
-         for (int j = 0; j <= 6; j++)
-         {
-             cout << setw(2) <<this->board[i][j] << setw(2) << "  | ";
-         }
-         cout << endl
-              << "---|";
-         for (int j = 1; j <= 7; j++)
-         {
-             cout << "-----|";
-         }
-         cout << endl;
-     }
-     cout << "   |";
-     for (int i = 1; i <= 7; i++)
-     {
-         cout << "  " << i << "  |";
-     }
-    cout << endl << endl ;
+    cout << "\n==================== Connect Four Board ====================\n";
+
+    // Loop through each row of the board
+    for (int i = 0; i < 6; i++) {
+    cout << "   +------+------+------+------+------+------+------+" << endl;
+        cout << setw(2) << i + 1 << " |"; // Display row number
+        for (int j = 0; j < 7; j++) {
+            // Display cell value or empty space
+            if (this->board[i][j] != T()) {
+                cout << setw(4 ) << this->board[i][j] << setw(3) << "|";
+            } else {
+                cout << setw(7) << "|";
+            }
+        }
+        cout << endl;
+    }
+
+    // Bottom border
+    cout << "   +------+------+------+------+------+------+------+" << endl;
+
+    // Column headers
+    cout << "     ";
+    for (int j = 1; j <= 7; j++) {
+        cout << "  " << j << "    ";
+    }
+    cout << "\n===========================================================\n\n";
  }
 
  template <typename T>
@@ -174,8 +179,7 @@ template <typename T >
 //////////////////////////////////////////////////////////////////////
 /// Player Implementations 
  template <typename T>
-  Four_In_A_Row_Player<T>::Four_In_A_Row_Player(string name, T symbol): Player<T> (name ,symbol){} // Done
-
+Four_In_A_Row_Player<T>::Four_In_A_Row_Player(string name, T symbol): Player<T> (name ,symbol){} // Done
 template <typename T>
 void Four_In_A_Row_Player<T>::getmove(int &x, int &y) // Done
 {
