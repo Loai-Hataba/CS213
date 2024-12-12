@@ -19,4 +19,6 @@ add_executable(T2
         UltimateTicTacToe.cpp
         UltimateTicTacToe.h
         FourByFourXO.cpp
-        FourByFourXO.h PyramicTicTacToe.h)
+        FourByFourXO.h
+        PyramicTicTacToe.h
+	WordTicTacToe.h)
