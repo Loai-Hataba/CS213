@@ -7,6 +7,7 @@
 #include "Four-in-a-row.h"
 #include "TicTacToeNumbers.h"
 #include "UltimateTicTacToe.h"
+#include "ultimateXO.h"
 #include "FourByFourXO.h"
 
 using namespace std;
@@ -89,7 +90,7 @@ int main()
 {
     int choice;
     Player<char> *players[2];
-    XO_Board<char> *B = new XO_Board<char>();
+    UltimateBoard<char> *B = new UltimateBoard<char>();
     string playerXName, player2Name;
     cout << "Welcome to FCAI  X-O Game. :)\n";
 
@@ -105,10 +106,10 @@ int main()
     switch (choice)
     {
     case 1:
-        players[0] = new XO_Player<char>(playerXName, 'X');
+        players[0] = new UltimatePlayer<char>(playerXName, 'X');
         break;
     case 2:
-        players[0] = new XO_RandomPlayer<char>('X');
+        players[0] = new UltimateRandomPlayer<char>('X');
         break;
     case 3:
         players[0] = new X_O_MinMax_Player<char>('X');
@@ -131,10 +132,10 @@ int main()
     switch (choice)
     {
     case 1:
-        players[1] = new XO_Player<char>(player2Name, 'O');
+        players[1] = new UltimatePlayer<char>(player2Name, 'O');
         break;
     case 2:
-        players[1] = new XO_RandomPlayer<char>('O');
+        players[1] = new UltimateRandomPlayer<char>('O');
         break;
     case 3:
         players[1] = new X_O_MinMax_Player<char>('O');

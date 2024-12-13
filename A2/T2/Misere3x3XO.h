@@ -9,7 +9,7 @@ static bool turn = false; // starting turn X int->'0'
 static int lost = -1;     // starting at null players
 static bool won = false;
 static bool moves = true;
-static int temp_moves = 0;
+static int Misere_temp_moves;
 
 template <typename T>
 class MisereBoard : public Board<T>
@@ -61,7 +61,7 @@ MisereBoard<T>::MisereBoard()
         }
     }
     this->n_moves = 0;
-    temp_moves = 0;
+    Misere_temp_moves = 0;
 }
 
 template <typename T>
@@ -77,13 +77,13 @@ bool MisereBoard<T>::update_board(int x, int y, T mark)
         if (mark == 0)
         {
             this->n_moves--;
-            temp_moves--;
+            Misere_temp_moves--;
             this->board[x][y] = 0;
         }
         else
         {
             this->n_moves++;
-            temp_moves++;
+            Misere_temp_moves++;
             this->board[x][y] = toupper(mark);
         }
 
@@ -191,8 +191,8 @@ MiserePlayer<T>::MiserePlayer(string name, T symbol) : Player<T>(name, symbol) {
 template <typename T>
 void MiserePlayer<T>::getmove(int &x, int &y)
 {
-    // cout << temp_moves << " \n";
-    if (temp_moves == 9 || !moves)
+    // cout << Misere_temp_moves << " \n";
+    if (Misere_temp_moves == 9 || !moves)
     {
         x = -1;
         y = -1;
@@ -213,8 +213,8 @@ MisereRandomPlayer<T>::MisereRandomPlayer(T symbol) : RandomPlayer<T>(symbol)
 template <typename T>
 void MisereRandomPlayer<T>::getmove(int &x, int &y)
 {
-    // cout << temp_moves << "  random\n";
-    if (temp_moves == 9 || !moves)
+    // cout << Misere_temp_moves << "  random\n";
+    if (Misere_temp_moves == 9 || !moves)
     {
         x = -1;
         y = -1;

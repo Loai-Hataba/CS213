@@ -7,7 +7,7 @@
 
 static int c = 0; // turn is checking for 'O'
 static bool draw = false;
-static int temp_moves = 0;
+static int temp_moves;
 
 template <typename T>
 class XO_Board : public Board<T>
