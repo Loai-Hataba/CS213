@@ -87,87 +87,120 @@ using namespace std;
 
 //     return 0;
 // }
-
+////////////////////////// Loai
+// int choice;
+// Player<char> *players[2];
+// UltimateBoard<char> *B = new UltimateBoard<char>();
+// string playerXName, player2Name;
+// cout << "Welcome to FCAI  X-O Game. :)\n";
+//
+// // Set up player 1
+// cout << "Enter Player X name: ";
+// cin >> playerXName;
+// cout << "Choose Player X type:\n";
+// cout << "1. Human\n";
+// cout << "2. Random Computer\n";
+// cout << "3. Smart Computer (AI)\n";
+// cin >> choice;
+//
+// switch (choice)
+// {
+// case 1:
+//     players[0] = new UltimatePlayer<char>(playerXName, 'X');
+//     break;
+// case 2:
+//     players[0] = new UltimateRandomPlayer<char>('X');
+//     break;
+// case 3:
+//     players[0] = new X_O_MinMax_Player<char>('X');
+//     players[0]->setBoard(B);
+//     break;
+// default:
+//     cout << "Invalid choice for Player 1. Exiting the game.\n";
+//     return 1;
+// }
+//
+// // Set up player 2
+// cout << "Enter Player 2 name: ";
+// cin >> player2Name;
+// cout << "Choose Player 2 type:\n";
+// cout << "1. Human\n";
+// cout << "2. Random Computer\n";
+// cout << "3. Smart Computer (AI)\n";
+// cin >> choice;
+//
+// switch (choice)
+// {
+// case 1:
+//     players[1] = new UltimatePlayer<char>(player2Name, 'O');
+//     break;
+// case 2:
+//     players[1] = new UltimateRandomPlayer<char>('O');
+//     break;
+// case 3:
+//     players[1] = new X_O_MinMax_Player<char>('O');
+//     players[1]->setBoard(B);
+//     break;
+// default:
+//     cout << "Invalid choice for Player 2. Exiting the game.\n";
+//     return 1;
+// }
+//
+// // Create the game manager and run the game
+// GameManager<char> ultimate(B, players);
+// ultimate.run();
+//
+// // Clean up
+// delete B;
+// for (int i = 0; i < 2; ++i)
+// {
+//     delete players[i];
+// }
 int main()
 {
+    int Choice = 0 ;
     DisplayMenuInfo();
-    // int choice;
-    // Player<char> *players[2];
-    // UltimateBoard<char> *B = new UltimateBoard<char>();
-    // string playerXName, player2Name;
-    // cout << "Welcome to FCAI  X-O Game. :)\n";
-    //
-    // // Set up player 1
-    // cout << "Enter Player X name: ";
-    // cin >> playerXName;
-    // cout << "Choose Player X type:\n";
-    // cout << "1. Human\n";
-    // cout << "2. Random Computer\n";
-    // cout << "3. Smart Computer (AI)\n";
-    // cin >> choice;
-    //
-    // switch (choice)
-    // {
-    // case 1:
-    //     players[0] = new UltimatePlayer<char>(playerXName, 'X');
-    //     break;
-    // case 2:
-    //     players[0] = new UltimateRandomPlayer<char>('X');
-    //     break;
-    // case 3:
-    //     players[0] = new X_O_MinMax_Player<char>('X');
-    //     players[0]->setBoard(B);
-    //     break;
-    // default:
-    //     cout << "Invalid choice for Player 1. Exiting the game.\n";
-    //     return 1;
-    // }
-    //
-    // // Set up player 2
-    // cout << "Enter Player 2 name: ";
-    // cin >> player2Name;
-    // cout << "Choose Player 2 type:\n";
-    // cout << "1. Human\n";
-    // cout << "2. Random Computer\n";
-    // cout << "3. Smart Computer (AI)\n";
-    // cin >> choice;
-    //
-    // switch (choice)
-    // {
-    // case 1:
-    //     players[1] = new UltimatePlayer<char>(player2Name, 'O');
-    //     break;
-    // case 2:
-    //     players[1] = new UltimateRandomPlayer<char>('O');
-    //     break;
-    // case 3:
-    //     players[1] = new X_O_MinMax_Player<char>('O');
-    //     players[1]->setBoard(B);
-    //     break;
-    // default:
-    //     cout << "Invalid choice for Player 2. Exiting the game.\n";
-    //     return 1;
-    // }
-    //
-    // // Create the game manager and run the game
-    // GameManager<char> ultimate(B, players);
-    // ultimate.run();
-    //
-    // // Clean up
-    // delete B;
-    // for (int i = 0; i < 2; ++i)
-    // {
-    //     delete players[i];
-    // }
+    while (true) {
+        Choice =  getValidIndex("Enter the Number Of Game You want : " , 1 , 9 );
+        switch (Choice) {
+            case 1:
+                cout << "Pyramic Game " << endl;
+                break;
+            case 2:
+                Connect4();
+                break;
+            case 3:
+                cout << "5 x 5 XO" <<endl ;
+                break;
+            case 4:
+                cout << " Word Tic Tac Toe " <<endl;
+                break;
+            case 5:
+                NumericalTicTacToe() ;
+                break;
+            case 6:
+                cout << " Misere Tic Tac Toe" <<endl;
+                break;
+            case 7:
+                TicTacToe4x4() ;
+                break;
+            case 8:
+                cout << "Ultimate Tic Tac Toe" <<endl ;
+                break;
+            case 9:
+                cout << "Terminating The Program" << endl ;
+                return 0 ;
+            default:
+                break;
+        }
 
-    //Connect4() ;
-    //  NumericalTicTacToe() ;
-    //   return 0;
-    //TicTacToe4x4();
+    }
 }
 void DisplayMenuInfo() {
     cout << "\n================== Welcome to FCAI Board Games ==========================\n";
     cout << "   This application is brought to you as part of the CS213 course.\n";
+    cout << "   Developed by :\n\tAbdallah Mohamed Abdallah\n\tHossam Mohamed Ahmed\n\tLoai Walid Hataba\n";
+    cout << "\n Under the supervision of Dr. Mohammed El-Ramly\n";
     cout << "   Explore and enjoy 8 exciting board games designed for fun and strategy!\n";
     cout << "\n   Available Games:\n";
     cout << "   1) Pyramid Tic Tac Toe               2) Connect 4\n";
@@ -177,4 +210,5 @@ void DisplayMenuInfo() {
     cout << "\n   We hope you enjoy the games. Have fun playing!\n";
     cout << "===========================================================================\n\n";
 }
+
 

@@ -14,6 +14,7 @@ int getPlayerType() {
 }
 
 string getPlayerName(int PlayerNum) {
+
     string name = "" ;
     cout << endl <<"Player "<< PlayerNum<< " name : "  ;
     getline(cin,name );

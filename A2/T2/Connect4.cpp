@@ -20,7 +20,7 @@ void  Connect4SetPlayerType(Player<char>*& player, int choice, string name, char
     }
 }
 void displayConnect4GameInfo() {
-    cout << "===== Welcome to Four-in-a-Row =====\n";
+    cout << "======================= Welcome to Connect 4 Game  =========================\n";
     cout << "A 2D twist on the classic Connect Four game!\n\n";
 
     cout << "Rules:\n";
@@ -34,8 +34,10 @@ void displayConnect4GameInfo() {
     cout << "    * Vertically\n";
     cout << "    * Diagonally\n";
     cout << "  - A draw occurs if the board is full with no winner.\n\n";
+    cout << "===========================================================================\n\n";
+    cin.ignore();
+    cin.clear();
 
-    cout << "Let the game begin!\n";
 }
 
 void Connect4 ( ) {

@@ -84,18 +84,16 @@ void NumericalTicTacToe() {
 void displayNumTicTacToeInfo() {
     cout << "======================= Welcome to Numerical Tic Tac Toe ===========================\n\n";
     cout << "A mathematical twist on Tic-Tac-Toe! Players use numbers instead of \"X\" and \"O\".\n\n";
-
     cout << "Rules:\n";
     cout << "  - Player 1 uses odd numbers (1, 3, 5, 7, 9).\n";
     cout << "  - Player 2 uses even numbers (2, 4, 6, 8).\n";
     cout << "  - Objective: Achieve a sum of 15 in a row, column, or diagonal.\n";
     cout << "  - Numbers are placed in empty cells and can only be used once.\n";
-
     cout << "\nWinning:\n";
     cout << "  - Form a row, column, or diagonal with a sum of 15 to win.\n";
     cout << "  - If all cells are filled and no sum of 15 is achieved, it's a draw.\n";
-
     cout << "=====================================================================================\n\n";
-
+    cin.ignore();
+    cin.clear();
 }
 

@@ -22,23 +22,22 @@ void  FourByFourSetPlayerType(Player<char>*& player, int choice, string name, ch
     }
 }
 void TicTacToe4x4GameInfo() {
-    cout << "================== Welcome to 4x4 Tic-Tac-Toe ====================\n";
+    cout << "======================= Welcome to 4x4 Tic Tac Toe Game  ==================\n";
     cout << "An extended version of Tic-Tac-Toe with a 4x4 board.\n\n";
-
     cout << "Rules:\n";
     cout << "  - The board is a 4x4 grid.\n";
     cout << "  - Players start with four tokens in specific positions.\n";
     cout << "  - Tokens move to adjacent open squares (horizontally/vertically).\n";
     cout << "  - Tokens cannot jump over others or move diagonally.\n\n";
-
     cout << "Winning:\n";
     cout << "  - Align three tokens in a row:\n";
     cout << "    * Horizontally\n";
     cout << "    * Vertically\n";
     cout << "    * Diagonally\n";
     cout << "  - The game ends when a player achieves this goal.\n\n";
-
-    cout << "=================================================================\n\n";
+    cout << "===========================================================================\n\n";
+    cin.ignore();
+    cin.clear();
 
 }
 
