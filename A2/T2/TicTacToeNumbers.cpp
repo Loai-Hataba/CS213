@@ -27,7 +27,6 @@ int getPlayerSymbol(vector<int> & available  ) {
         else {
             auto it = find(available.begin() , available.end() , playerSymbol);
             if (it != available.end()) {
-                available.erase(it); // Remove the selected symbol from available
                 cout << "You have selected: " << playerSymbol << endl;
                 break; // Exit the loop after successful selection
             }
@@ -83,31 +82,20 @@ void NumericalTicTacToe() {
 }
 
 void displayNumTicTacToeInfo() {
-    cout << "           ===== Welcome to Numerical Tic Tac Toe =====\n" << endl;
-    cout << " This game offers a mathematical twist to the classic Tic-Tac-Toe.\n";
-    cout << " Instead of \"X\" and \"O\", players strategically use numbers.\n\n";
+    cout << "======================= Welcome to Numerical Tic Tac Toe ===========================\n\n";
+    cout << "A mathematical twist on Tic-Tac-Toe! Players use numbers instead of \"X\" and \"O\".\n\n";
 
-    cout << " +----------------------------------------------------+\n";
-    cout << " |                      Rules                         |\n";
-    cout << " +----------------------------------------------------+\n";
-    cout << " | Player 1 uses odd numbers (1, 3, 5, 7, 9).         |\n";
-    cout << " | Player 2 uses even numbers (2, 4, 6, 8).           |\n";
-    cout << " | The objective is to achieve a sum of 15 in         |\n";
-    cout << " | a row, column, or diagonal.                        |\n";
-    cout << " | Players alternate turns, placing numbers in        |\n";
-    cout << " | empty cells.                                       |\n";
-    cout << " | Each number can only be used once.                 |\n";
-    cout << " +----------------------------------------------------+\n";
+    cout << "Rules:\n";
+    cout << "  - Player 1 uses odd numbers (1, 3, 5, 7, 9).\n";
+    cout << "  - Player 2 uses even numbers (2, 4, 6, 8).\n";
+    cout << "  - Objective: Achieve a sum of 15 in a row, column, or diagonal.\n";
+    cout << "  - Numbers are placed in empty cells and can only be used once.\n";
 
-    cout << " +----------------------------------------------------+\n";
-    cout << " |                     Winning                        |\n";
-    cout << " +----------------------------------------------------+\n";
-    cout << " | A player wins by forming a row, column, or         |\n";
-    cout << " | diagonal with a sum of 15.                         |\n";
-    cout << " | If all cells are filled and no sum of 15 is        |\n";
-    cout << " | achieved, the game ends in a draw.                 |\n";
-    cout << " +----------------------------------------------------+\n";
+    cout << "\nWinning:\n";
+    cout << "  - Form a row, column, or diagonal with a sum of 15 to win.\n";
+    cout << "  - If all cells are filled and no sum of 15 is achieved, it's a draw.\n";
 
-    cout << "\n                  Let the game begin!\n";
+    cout << "=====================================================================================\n\n";
 
 }
+

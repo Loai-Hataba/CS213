@@ -22,35 +22,26 @@ void setType(Player<char>*& player, int choice, string name, char symbol) {
     }
 }
 void TicTacToe4x4GameInfo() {
-    cout << "           ===== Welcome to 4x4 Tic-Tac-Toe =====\n" << endl;
-    cout << " An extended version of the classic Tic-Tac-Toe game\n";
-    cout << " with more complex strategies and a 4x4 board.\n\n";
+    cout << "================== Welcome to 4x4 Tic-Tac-Toe ====================\n";
+    cout << "An extended version of Tic-Tac-Toe with a 4x4 board.\n\n";
 
-    cout << " +----------------------------------------------------+\n";
-    cout << " |                      Rules                         |\n";
-    cout << " +----------------------------------------------------+\n";
-    cout << " | The board consists of a 4x4 grid.                  |\n";
-    cout << " | Each player has four tokens, starting in specific  |\n";
-    cout << " | positions.                                         |\n";
-    cout << " | Players take turns moving one of their tokens to   |\n";
-    cout << " | an adjacent open square (horizontally or vertically).|\n";
-    cout << " | Tokens cannot jump over other tokens or move       |\n";
-    cout << " | diagonally.                                        |\n";
-    cout << " +----------------------------------------------------+\n";
+    cout << "Rules:\n";
+    cout << "  - The board is a 4x4 grid.\n";
+    cout << "  - Players start with four tokens in specific positions.\n";
+    cout << "  - Tokens move to adjacent open squares (horizontally/vertically).\n";
+    cout << "  - Tokens cannot jump over others or move diagonally.\n\n";
 
-    cout << " +----------------------------------------------------+\n";
-    cout << " |                     Winning                        |\n";
-    cout << " +----------------------------------------------------+\n";
-    cout << " | A player wins by aligning three of their tokens in |\n";
-    cout << " | a row:                                             |\n";
-    cout << " | - Horizontally                                     |\n";
-    cout << " | - Vertically                                       |\n";
-    cout << " | - Diagonally                                       |\n";
-    cout << " | The game ends when a player achieves this goal.    |\n";
-    cout << " +----------------------------------------------------+\n";
+    cout << "Winning:\n";
+    cout << "  - Align three tokens in a row:\n";
+    cout << "    * Horizontally\n";
+    cout << "    * Vertically\n";
+    cout << "    * Diagonally\n";
+    cout << "  - The game ends when a player achieves this goal.\n\n";
 
-    cout << "\n                  Let the game begin!\n";
+    cout << "=================================================================\n\n";
+
 }
+
 void TicTacToe4x4 () {
     auto * B = new FourByFourXO<char> ();
     Player<char>* players[2] ={nullptr, nullptr};
@@ -65,7 +56,6 @@ void TicTacToe4x4 () {
     string player2Name = getPlayerName(2) ;
     choice = getPlayerType();
     setType(players[1] , choice , player2Name, 'O');
-    cout << "Yarab" <<endl;
     ////////////////////////////////////////////////
     GameManager<char> connect4Game (B, players);
     connect4Game.run();

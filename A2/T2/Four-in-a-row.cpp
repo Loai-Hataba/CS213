@@ -20,31 +20,22 @@ void setPlayerType(Player<char>*& player, int choice, string name, char symbol) 
     }
 }
 void displayConnect4GameInfo() {
-    cout << "           ===== Welcome to Four-in-a-Row =====\n" << endl;
-    cout << " A fun 2D twist to the classic Connect Four game.\n";
-    cout << " Players mark the grid with Xs and Os, similar to Tic-Tac-Toe.\n\n";
+    cout << "===== Welcome to Four-in-a-Row =====\n";
+    cout << "A 2D twist on the classic Connect Four game!\n\n";
 
-    cout << " +----------------------------------------------------+\n";
-    cout << " |                      Rules                         |\n";
-    cout << " +----------------------------------------------------+\n";
-    cout << " | The board consists of a 7x6 grid (7 columns, 6 rows). |\n";
-    cout << " | Player 1 marks Xs; Player 2 marks Os.               |\n";
-    cout << " | Players take turns marking the lowest available     |\n";
-    cout << " | square in any column.                               |\n";
-    cout << " +----------------------------------------------------+\n";
+    cout << "Rules:\n";
+    cout << "  - The board is a 7x6 grid (7 columns, 6 rows).\n";
+    cout << "  - Player 1 uses 'X'; Player 2 uses 'O'.\n";
+    cout << "  - Players take turns marking the lowest available cell in a column.\n\n";
 
-    cout << " +----------------------------------------------------+\n";
-    cout << " |                     Winning                        |\n";
-    cout << " +----------------------------------------------------+\n";
-    cout << " | A player wins by forming four-in-a-row:            |\n";
-    cout << " | - Horizontally                                      |\n";
-    cout << " | - Vertically                                        |\n";
-    cout << " | - Diagonally                                        |\n";
-    cout << " | The game ends in a draw if the grid is filled and  |\n";
-    cout << " | no player achieves four-in-a-row.                  |\n";
-    cout << " +----------------------------------------------------+\n";
+    cout << "Winning:\n";
+    cout << "  - Form four-in-a-row:\n";
+    cout << "    * Horizontally\n";
+    cout << "    * Vertically\n";
+    cout << "    * Diagonally\n";
+    cout << "  - A draw occurs if the board is full with no winner.\n\n";
 
-    cout << "\n                  Let the game begin!\n";
+    cout << "Let the game begin!\n";
 }
 
 void Connect_Four_Game ( ) {
