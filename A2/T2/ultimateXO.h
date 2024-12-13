@@ -4,7 +4,6 @@
 #include "BoardGame_classes.h"
 #include "Methods.h"
 static vector<int> moveCheck(9, false);
-#include <map>
 void UltimateXOSetPlayerType(Player<char> *&player, int choice, string name, char symbol);
 void UltimateXOGameInfo();
 void UltimateXO();
@@ -42,7 +41,7 @@ public:
 };
 
 #include <iostream>
-
+#include <map>
 #include <iomanip>
 #include <vector>
 using namespace std;
