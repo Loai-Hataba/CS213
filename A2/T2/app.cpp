@@ -181,7 +181,7 @@ int main()
             NumericalTicTacToe();
             break;
         case 6:
-            cout << " Misere Tic Tac Toe" << endl;
+            Misere();
             break;
         case 7:
             TicTacToe4x4();

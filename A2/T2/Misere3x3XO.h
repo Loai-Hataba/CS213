@@ -11,6 +11,10 @@ static bool won = false;
 static bool moves = true;
 static int Misere_temp_moves;
 
+void Misere();
+void MisereGameInfo();
+void MisereSetPlayerType(Player<char> *&player, int choice, string name, char symbol);
+
 template <typename T>
 class MisereBoard : public Board<T>
 {
