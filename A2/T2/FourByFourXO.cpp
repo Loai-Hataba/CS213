@@ -3,22 +3,22 @@
 //
 
 #include "FourByFourXO.h"
-void setType(Player<char>*& player, int choice, string name, char symbol) {
+void  FourByFourSetPlayerType(Player<char>*& player, int choice, string name, char symbol) {
     switch (choice) {
         case 1:
-            player = new FourByFourXO_Player<char>(name, symbol);
-        break;
+            player = new FourByFour_Player<char>(name, symbol);
+            break;
         case 2:
-            player = new FourByFourXO_Random<char>(name, symbol);
-        break;
+            player = new FourByFour_Random<char>(name, symbol);
+            break;
         case 3:
             cout << "AI Player (not implemented)" << endl;
-        player = nullptr; // Placeholder if AI is not implemented
-        break;
+            player = nullptr; // Placeholder if AI is not implemented
+            break;
         default:
             cout << "Invalid choice!" << endl;
-        player = nullptr;
-        break;
+            player = nullptr;
+            break;
     }
 }
 void TicTacToe4x4GameInfo() {
@@ -43,22 +43,22 @@ void TicTacToe4x4GameInfo() {
 }
 
 void TicTacToe4x4 () {
-    auto * B = new FourByFourXO<char> ();
+    auto * B = new FourByFour_Board<char> ();
     Player<char>* players[2] ={nullptr, nullptr};
     TicTacToe4x4GameInfo() ;
     //// Set Player one
     string player1Name = getPlayerName(1) ;
     int choice = getPlayerType();
-    setType(players[0] , choice , player1Name, 'X');
+    FourByFourSetPlayerType(players[0] , choice , player1Name, 'X');
     ////////////////////////////////////////////////
     //// Set Player two
     cin.ignore();
     string player2Name = getPlayerName(2) ;
     choice = getPlayerType();
-    setType(players[1] , choice , player2Name, 'O');
+    FourByFourSetPlayerType(players[1] , choice , player2Name, 'O');
     ////////////////////////////////////////////////
-    GameManager<char> connect4Game (B, players);
-    connect4Game.run();
+    GameManager<char> FourByFour_GameManger (B, players);
+    FourByFour_GameManger.run();
     for (auto & player : players) {
         delete player;
     }

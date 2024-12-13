@@ -8,10 +8,10 @@ include_directories(.)
 add_executable(T2
     3x3X_O.h
     BoardGame_Classes.h
-    Four-in-a-row.h
+		Connect4.h
     main.cpp
     MinMaxPlayer.h
-        Four-in-a-row.cpp
+		Connect4.cpp
         TicTacToeNumbers.cpp
         TicTacToeNumbers.h
         Methods.cpp

@@ -4,6 +4,7 @@
 #include <iostream>
 #include <limits>
 #include <string>
+#include <iomanip>
 using namespace std;
 int getPlayerType ();
 string  getPlayerName(int PlayerNum) ;

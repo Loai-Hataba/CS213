@@ -15,7 +15,7 @@ public:
     ~TicTacToeNum_Board();//Board destructor
     bool update_board(int x, int y, T symbol); // Function to update the board if valid move palyed
     void display_board(); // function to display board status
-    bool is_win(); // function to check if there is a wining
+    bool is_win(); // function to check if there is a winning
     bool is_draw(); // function to check if there is a Tie
     bool game_is_over(); // function to indicate is the game over or not
 };

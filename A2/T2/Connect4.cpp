@@ -1,13 +1,13 @@
-#include "Four-in-a-row.h"
+#include "Connect4.h"
 #include "Methods.h"
 using namespace std;
-void setPlayerType(Player<char>*& player, int choice, string name, char symbol) {
+void  Connect4SetPlayerType(Player<char>*& player, int choice, string name, char symbol) {
     switch (choice) {
         case 1:
-            player = new Four_In_A_Row_Player<char>(name, symbol);
+            player = new Connect4_Human<char>(name, symbol);
             break;
         case 2:
-            player = new Four_In_A_Row_Random<char>(name, symbol);
+            player = new Connect4_Random<char>(name, symbol);
             break;
         case 3:
             cout << "AI Player (not implemented)" << endl;
@@ -38,20 +38,20 @@ void displayConnect4GameInfo() {
     cout << "Let the game begin!\n";
 }
 
-void Connect_Four_Game ( ) {
+void Connect4 ( ) {
     Player<char>* players[2] ={nullptr, nullptr};
-    auto* B = new Four_In_A_Row_Board<char>();
+    auto* B = new Connect4_Board<char>();
     displayConnect4GameInfo();
     //// Set Player one
     string player1Name = getPlayerName(1) ;
     int choice = getPlayerType();
-    setPlayerType(players[0] , choice , player1Name, 'X');
+    Connect4SetPlayerType(players[0] , choice , player1Name, 'X');
     ////////////////////////////////////////////////
     //// Set Player two
     cin.ignore();
     string player2Name = getPlayerName(2) ;
     choice = getPlayerType();
-    setPlayerType(players[1] , choice , player2Name, 'O');
+    Connect4SetPlayerType(players[1] , choice , player2Name, 'O');
     ////////////////////////////////////////////////
     GameManager<char> connect4Game (B, players);
     connect4Game.run();
