@@ -21,4 +21,5 @@ add_executable(T2
         FourByFourXO.cpp
         FourByFourXO.h
         PyramicTicTacToe.h
-	WordTicTacToe.h)
+	WordTicTacToe.h
+		ultimateXO.cpp)
