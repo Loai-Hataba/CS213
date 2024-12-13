@@ -7,18 +7,15 @@ static vector<int> moveCheck(9, false);
 template <typename T>
 class UltimateBoard : public Board<T>
 {
-private:
-    map<int, char> mapBoard = {{0, '\0'}, {1, '\0'}, {2, '\0'}, {3, '\0'}, {4, '\0'}, {5, '\0'}, {6, '\0'}, {7, '\0'}, {8, '\0'}, {9, '\0'}}; // completed a 3x3 section in the board and who won
 
 public:
+    map<int, char> mapBoard = {{0, '0'}, {1, '0'}, {2, '0'}, {3, '0'}, {4, '0'}, {5, '0'}, {6, '0'}, {7, '0'}, {8, '0'}}; // completed a 3x3 section in the board and who won
     UltimateBoard();
     bool update_board(int x, int y, T symbol);
     void display_board();
     void singleWin(int x, int y);
     void countSections(int x, int y, int section);
-    int totalWin();
     bool is_win();
-
     bool is_draw();
     bool game_is_over();
 };
@@ -134,7 +131,7 @@ void UltimateBoard<T>::display_board()
 template <typename T>
 void UltimateBoard<T>::countSections(int x, int y, int section)
 {
-    if (mapBoard[section] != '\0') // section is already finished no need to check it again
+    if (mapBoard[section] != '0') // section is already finished no need to check it again
         return;
     for (int i = y; i < y + 3; i++)
     {
@@ -246,21 +243,34 @@ void UltimateBoard<T>::singleWin(int x, int y)
 }
 
 template <typename T>
-int UltimateBoard<T>::totalWin()
-{
-    return 0;
-}
-
-template <typename T>
 bool UltimateBoard<T>::is_win()
 {
+    for (int i = 0; i < 9; i += 3)
+    {
+        // Horizontal check
+        if (mapBoard[i] == mapBoard[i + 1] && mapBoard[i] == mapBoard[i + 2] && mapBoard[i] != '0')
+            return true;
+    }
+    // Vertical check
+    for (int i = 0; i < 3; i++)
+    {
+        // Horizontal check
+        if (mapBoard[i] == mapBoard[i + 3] && mapBoard[i] == mapBoard[i + 6] && mapBoard[i] != '0')
+            return true;
+    }
+    // Diagonal check
+    if (mapBoard[0] == mapBoard[4] && mapBoard[0] == mapBoard[8] && mapBoard[0] != '0')
+        return true;
+    // Backward Diagonal check
+    if (mapBoard[6] == mapBoard[4] && mapBoard[6] == mapBoard[2] && mapBoard[6] != '0')
+        return true;
     return false;
 }
 
 template <typename T>
 bool UltimateBoard<T>::is_draw()
 {
-    return (0);
+    return (this->n_moves == 81 && !is_win());
 }
 
 template <typename T>
@@ -275,12 +285,6 @@ UltimatePlayer<T>::UltimatePlayer(string name, T symbol) : Player<T>(name, symbo
 template <typename T>
 void UltimatePlayer<T>::getmove(int &x, int &y)
 {
-    // if (temp_moves == 24)
-    // {
-    //     x = -1;
-    //     y = -1;
-    //     return;
-    // }
     cout << "\nEnter x and y (0 to 8) separated by spaces: ";
     cin >> x >> y;
     for (int i = 0; i < 9; i += 3)
@@ -311,8 +315,24 @@ UltimateRandomPlayer<T>::UltimateRandomPlayer(T symbol) : RandomPlayer<T>(symbol
 template <typename T>
 void UltimateRandomPlayer<T>::getmove(int &x, int &y)
 {
+    // FIXME: add block for already won sections
     x = rand() % this->dimension;
     y = rand() % this->dimension;
+    for (int i = 0; i < 9; i += 3)
+    {
+        for (int j = 0; j < 9; j += 3)
+        {
+            if ((x >= i && x < i + 3) && (y >= j && y < j + 3)) // finding which section this move is in
+            {
+                while (moveCheck[((x / 3) * 3 + (y / 3))]) // check if the section is already won
+                {
+                    cout << "Can't play here this section has already been won ya bot!!\n";
+                    x = rand() % this->dimension;
+                    y = rand() % this->dimension;
+                }
+            }
+        }
+    }
 }
 
 #endif
