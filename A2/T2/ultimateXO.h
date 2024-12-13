@@ -7,7 +7,6 @@ static vector<int> moveCheck(9, false);
 void UltimateXOSetPlayerType(Player<char> *&player, int choice, string name, char symbol);
 void UltimateXOGameInfo();
 void UltimateXO();
-
 template <typename T>
 class UltimateBoard : public Board<T>
 {
@@ -41,7 +40,6 @@ public:
 };
 
 #include <iostream>
-#include <map>
 #include <iomanip>
 #include <vector>
 using namespace std;
