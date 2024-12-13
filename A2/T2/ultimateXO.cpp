@@ -50,8 +50,8 @@ void UltimateXO()
     string player2Name = getPlayerName(2);
     choice = getPlayerType();
     UltimateXOSetPlayerType(players[1], choice, player2Name, 'O');
-    GameManager<char> FourByFour_GameManger(B, players);
-    FourByFour_GameManger.run();
+    GameManager<char> ultimate_GameManger(B, players);
+    ultimate_GameManger.run();
     for (auto &player : players)
     {
         delete player;

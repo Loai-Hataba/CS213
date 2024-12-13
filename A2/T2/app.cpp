@@ -172,7 +172,7 @@ int main()
             Connect4();
             break;
         case 3:
-            cout << "5 x 5 XO" << endl;
+            XO5x5();
             break;
         case 4:
             cout << " Word Tic Tac Toe " << endl;

@@ -1,9 +1,12 @@
 #ifndef _5X5XO_H
-
 #define _5X5XO_H
 
 #include "BoardGame_classes.h"
+#include "methods.h"
 #include <map>
+void XO5x5();
+void XO5x5GameInfo();
+void XO5x5SetPlayerType(Player<char> *&player, int choice, string name, char symbol);
 
 static int c = 0; // turn is checking for 'O'
 static bool draw = false;
@@ -163,7 +166,7 @@ int XO_Board<T>::countWin()
 template <typename T>
 bool XO_Board<T>::is_win() // NOTE: For later think of when moves are 24, go add in get move if moves is > than 24 delete and add a single cell so the logic would work
 {
-    if (this->n_moves == 25)
+    if (this->n_moves == 24)
     {
         int owin = countWin();
         if (!owin)
