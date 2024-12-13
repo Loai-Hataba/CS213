@@ -3,25 +3,28 @@
 //
 
 #include "FourByFourXO.h"
-void  FourByFourSetPlayerType(Player<char>*& player, int choice, string name, char symbol) {
-    switch (choice) {
-        case 1:
-            player = new FourByFour_Player<char>(name, symbol);
-            break;
-        case 2:
-            player = new FourByFour_Random<char>(name, symbol);
-            break;
-        case 3:
-            cout << "AI Player (not implemented)" << endl;
-            player = nullptr; // Placeholder if AI is not implemented
-            break;
-        default:
-            cout << "Invalid choice!" << endl;
-            player = nullptr;
-            break;
+void FourByFourSetPlayerType(Player<char> *&player, int choice, string name, char symbol)
+{
+    switch (choice)
+    {
+    case 1:
+        player = new FourByFour_Player<char>(name, symbol);
+        break;
+    case 2:
+        player = new FourByFour_Random<char>(name, symbol);
+        break;
+    case 3:
+        cout << "AI Player (not implemented)" << endl;
+        player = nullptr; // Placeholder if AI is not implemented
+        break;
+    default:
+        cout << "Invalid choice!" << endl;
+        player = nullptr;
+        break;
     }
 }
-void TicTacToe4x4GameInfo() {
+void TicTacToe4x4GameInfo()
+{
     cout << "======================= Welcome to 4x4 Tic Tac Toe Game  ==================\n";
     cout << "An extended version of Tic-Tac-Toe with a 4x4 board.\n\n";
     cout << "Rules:\n";
@@ -38,27 +41,26 @@ void TicTacToe4x4GameInfo() {
     cout << "===========================================================================\n\n";
     cin.ignore();
     cin.clear();
-
 }
 
-void TicTacToe4x4 () {
-    auto * B = new FourByFour_Board<char> ();
-    Player<char>* players[2] ={nullptr, nullptr};
-    TicTacToe4x4GameInfo() ;
+void TicTacToe4x4()
+{
+    auto *B = new FourByFour_Board<char>();
+    Player<char> *players[2] = {nullptr, nullptr};
+    TicTacToe4x4GameInfo();
     //// Set Player one
-    string player1Name = getPlayerName(1) ;
+    string player1Name = getPlayerName(1);
     int choice = getPlayerType();
-    FourByFourSetPlayerType(players[0] , choice , player1Name, 'X');
-    ////////////////////////////////////////////////
+    FourByFourSetPlayerType(players[0], choice, player1Name, 'X');
     //// Set Player two
     cin.ignore();
-    string player2Name = getPlayerName(2) ;
+    string player2Name = getPlayerName(2);
     choice = getPlayerType();
-    FourByFourSetPlayerType(players[1] , choice , player2Name, 'O');
-    ////////////////////////////////////////////////
-    GameManager<char> FourByFour_GameManger (B, players);
+    FourByFourSetPlayerType(players[1], choice, player2Name, 'O');
+    GameManager<char> FourByFour_GameManger(B, players);
     FourByFour_GameManger.run();
-    for (auto & player : players) {
+    for (auto &player : players)
+    {
         delete player;
     }
 }

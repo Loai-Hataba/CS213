@@ -2,7 +2,12 @@
 #define _ULTIMATEXO_H
 
 #include "BoardGame_classes.h"
+#include "Methods.h"
 static vector<int> moveCheck(9, false);
+
+void UltimateXOSetPlayerType(Player<char> *&player, int choice, string name, char symbol);
+void UltimateXOGameInfo();
+void UltimateXO();
 
 template <typename T>
 class UltimateBoard : public Board<T>

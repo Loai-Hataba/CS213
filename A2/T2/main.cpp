@@ -158,45 +158,47 @@ using namespace std;
 // }
 int main()
 {
-    int Choice = 0 ;
+    int Choice = 0;
     DisplayMenuInfo();
-    while (true) {
-        Choice =  getValidIndex("Enter the Number Of Game You want : " , 1 , 9 );
-        switch (Choice) {
-            case 1:
-                cout << "Pyramic Game " << endl;
-                break;
-            case 2:
-                Connect4();
-                break;
-            case 3:
-                cout << "5 x 5 XO" <<endl ;
-                break;
-            case 4:
-                cout << " Word Tic Tac Toe " <<endl;
-                break;
-            case 5:
-                NumericalTicTacToe() ;
-                break;
-            case 6:
-                cout << " Misere Tic Tac Toe" <<endl;
-                break;
-            case 7:
-                TicTacToe4x4() ;
-                break;
-            case 8:
-                cout << "Ultimate Tic Tac Toe" <<endl ;
-                break;
-            case 9:
-                cout << "Terminating The Program" << endl ;
-                return 0 ;
-            default:
-                break;
+    while (true)
+    {
+        Choice = getValidIndex("Enter the Number Of Game You want : ", 1, 9);
+        switch (Choice)
+        {
+        case 1:
+            cout << "Pyramic Game " << endl;
+            break;
+        case 2:
+            Connect4();
+            break;
+        case 3:
+            cout << "5 x 5 XO" << endl;
+            break;
+        case 4:
+            cout << " Word Tic Tac Toe " << endl;
+            break;
+        case 5:
+            NumericalTicTacToe();
+            break;
+        case 6:
+            cout << " Misere Tic Tac Toe" << endl;
+            break;
+        case 7:
+            TicTacToe4x4();
+            break;
+        case 8:
+            UltimateXO();
+            break;
+        case 9:
+            cout << "Terminating The Program" << endl;
+            return 0;
+        default:
+            break;
         }
-
     }
 }
-void DisplayMenuInfo() {
+void DisplayMenuInfo()
+{
     cout << "\n================== Welcome to FCAI Board Games ==========================\n";
     cout << "   This application is brought to you as part of the CS213 course.\n";
     cout << "   Developed by :\n\tAbdallah Mohamed Abdallah\n\tHossam Mohamed Ahmed\n\tLoai Walid Hataba\n";
@@ -210,5 +212,3 @@ void DisplayMenuInfo() {
     cout << "\n   We hope you enjoy the games. Have fun playing!\n";
     cout << "===========================================================================\n\n";
 }
-
-
