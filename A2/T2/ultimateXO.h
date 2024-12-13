@@ -143,7 +143,6 @@ void UltimateBoard<T>::countSections(int x, int y, int section)
             {
                 mapBoard[section] = this->board[i][x];
                 moveCheck[section] = true;
-                cout << "1-Section: " << section << " is now won by (" << this->board[y][x] << ")" << endl;
                 return;
             }
             else if (this->board[y][j] == this->board[y + 1][j] && this->board[y][j] == this->board[y + 2][j] && this->board[y][j] != '\0') // Vertical check
@@ -151,7 +150,6 @@ void UltimateBoard<T>::countSections(int x, int y, int section)
                 mapBoard[section] = this->board[y][j];
                 moveCheck[section] = true;
 
-                cout << "2-Section: " << section << " is now won by " << this->board[y][x] << endl;
                 return;
             }
             else if (this->board[y][x] == this->board[y + 1][x + 1] && this->board[y][x] == this->board[y + 2][x + 2] && this->board[y][x] != '\0') // Forward diagonal check
@@ -159,14 +157,12 @@ void UltimateBoard<T>::countSections(int x, int y, int section)
                 mapBoard[section] = this->board[y][x];
                 moveCheck[section] = true;
 
-                cout << "3-Section: " << section << " is now won by " << this->board[y][x] << endl;
                 return;
             }
             else if (this->board[y + 2][x] == this->board[y + 1][x + 1] && this->board[y][x + 2] && this->board[y + 2][x] != '\0') // Backward diagonal check
             {
                 mapBoard[section] = this->board[y + 2][x];
                 moveCheck[section] = true;
-                cout << "4-Section: " << section << " is now won by " << this->board[y][x] << endl;
                 return;
             }
         }
@@ -176,7 +172,6 @@ void UltimateBoard<T>::countSections(int x, int y, int section)
 template <typename T>
 void UltimateBoard<T>::singleWin(int x, int y)
 {
-    cout << "Testing y: " << y << " x: " << y << endl;
     if ((y >= 0 || y < 3) && (x >= 0 || x < 3)) // NOTE: section 1 in board
     {
         x = 0;           // Horizontal
@@ -326,7 +321,6 @@ void UltimateRandomPlayer<T>::getmove(int &x, int &y)
             {
                 while (moveCheck[((x / 3) * 3 + (y / 3))]) // check if the section is already won
                 {
-                    cout << "Can't play here this section has already been won ya bot!!\n";
                     x = rand() % this->dimension;
                     y = rand() % this->dimension;
                 }
