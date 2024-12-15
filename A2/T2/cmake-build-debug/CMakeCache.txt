@@ -20,9 +20,8 @@ CMAKE_ADDR2LINE:FILEPATH=D:/3b3znew/CLion 2022.3.2/bin/mingw/bin/addr2line.exe
 //Path to a program.
 CMAKE_AR:FILEPATH=D:/3b3znew/CLion 2022.3.2/bin/mingw/bin/ar.exe
 
-//Choose the type of build, options are: None Debug Release RelWithDebInfo
-// MinSizeRel ...
-CMAKE_BUILD_TYPE:STRING=Debug
+//No help, variable specified on the command line.
+CMAKE_BUILD_TYPE:UNINITIALIZED=Debug
 
 //Enable colored diagnostics throughout.
 CMAKE_COLOR_DIAGNOSTICS:BOOL=ON
@@ -118,8 +117,8 @@ CMAKE_INSTALL_PREFIX:PATH=C:/Program Files (x86)/T2
 //Path to a program.
 CMAKE_LINKER:FILEPATH=D:/3b3znew/CLion 2022.3.2/bin/mingw/bin/ld.exe
 
-//make program
-CMAKE_MAKE_PROGRAM:FILEPATH=D:/3b3znew/CLion 2022.3.2/bin/ninja/win/x64/ninja.exe
+//No help, variable specified on the command line.
+CMAKE_MAKE_PROGRAM:UNINITIALIZED=D:/3b3znew/CLion 2022.3.2/bin/ninja/win/x64/ninja.exe
 
 //Flags used by the linker during the creation of modules during
 // all build types.

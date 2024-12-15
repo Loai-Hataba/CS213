@@ -162,6 +162,11 @@ build T2: phony T2.exe
 build all: phony T2.exe
 
 # =============================================================================
+# Unknown Build Time Dependencies.
+# Tell Ninja that they may appear as side effects of build rules
+# otherwise ordered by order-only dependencies.
+
+# =============================================================================
 # Built-in targets
 
 
