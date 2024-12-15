@@ -41,21 +41,12 @@ template<typename T>
 PyramicBoard<T>::PyramicBoard() {
     this->rows = 3;
     this->columns = 5;
-    this->board = new T*[this->rows];
+    this->board = new char*[this->rows];
     for (int i = 0; i < this->rows; i++) {
-        this->board[i] = new T[this->columns];
+        this->board[i] = new char[this->columns];
         for (int j = 0; j < this->columns; j++) {
             this->board[i][j] = T();
         }
-    }
-    int cell = 1;
-    int l = 2, r = 2;
-    for (int i = 0; i < this ->rows; ++i) {
-        for (int j = l; j <= r ; ++j) {
-            this->board[i][j] = (cell++) + '0';
-        }
-        l--;
-        r++;
     }
     this->n_moves = 0;
 }
@@ -70,7 +61,7 @@ PyramicBoard<T>::~PyramicBoard() {
 
 template<typename T>
 bool PyramicBoard<T>::update_board(int x, int y, T symbol) {
-    if (x < 0 || x >= this-> rows || y < 0 || y >= this-> columns || (x == 0 && (y == 0 || y == 1 || y == 3 ||y == 4 ) || (x == 1 &&( y == 0 ||y == 4)))||!isdigit(this->board[x][y])){
+    if (x < 0 || x >= this-> rows || y < 0 || y >= this-> columns || (x == 0 && (y == 0 || y == 1 || y == 3 ||y == 4 ) || (x == 1 &&( y == 0 ||y == 4))) || this -> board[x][y] != T()){
         cout<<"Invalid ya brooooooo!!!"<<endl;
         return false;
     }
@@ -84,6 +75,7 @@ bool PyramicBoard<T>::update_board(int x, int y, T symbol) {
 
 template<typename T>
 void PyramicBoard<T>::display_board() {
+    int cell = 1;
     int l = 2, r = 2;
     for (int i = 0; i < this ->rows; ++i) {
         if (i == 0){
@@ -93,7 +85,11 @@ void PyramicBoard<T>::display_board() {
             cout<<"     ";
         }
         for (int j = l; j <= r ; ++j) {
-            cout<<"  "<<this->board[i][j]<<"  ";
+            if (this->board[i][j] == T()){
+                cout<<"  "<<cell<<"  ";
+            }
+            else cout<<"  "<<this->board[i][j]<<"  ";
+            cell++;
         }
         l--;
         r++;
@@ -104,18 +100,18 @@ void PyramicBoard<T>::display_board() {
 template<typename T>
 bool PyramicBoard<T>::is_win() {
     //only 1 vertical case
-    if (this->board[0][2] == this->board[1][2] && this->board[1][2] == this->board[2][2]){
+    if (this->board[0][2] == this->board[1][2] && this->board[1][2] == this->board[2][2] && this->board[0][2] != T()){
         return true;
     }
 
-    if (this->board[0][2] == this->board[1][1] && this->board[1][1] == this->board[2][0]||
-        this->board[0][2] == this->board[1][3] && this->board[1][3] == this->board[2][4]){
+    if (this->board[0][2] == this->board[1][1] && this->board[1][1] == this->board[2][0] && this->board[0][2] != T() ||
+        this->board[0][2] == this->board[1][3] && this->board[1][3] == this->board[2][4] && this->board[0][2] != T()){
         return true;
     }
 
     for (int i = 1; i < 3; ++i) {
         for (int j = 0; j < this->columns; ++j) {
-            if (this->board[i][j] == this->board[i][j+1] && this->board[i][j+1] == this->board[i][j+2]){
+            if (this->board[i][j] == this->board[i][j+1] && this->board[i][j+1] == this->board[i][j+2] && this->board[i][j] != T()){
                 return true;
             }
         }
@@ -140,7 +136,7 @@ PyramicPlayer<T>::PyramicPlayer(string name, T symbol) : Player<T>(name, symbol)
 template <typename T>
 void PyramicPlayer<T>::getmove(int& x, int& y) {
     int n;
-    cout << "\nPlease enter number of cell: ";
+    cout<<endl<<this->name << " Please enter number of cell: ";
     cin>>n;
     x = makeIndex(n).first;
     y = makeIndex(n).second;

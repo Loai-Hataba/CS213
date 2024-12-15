@@ -2,8 +2,8 @@
 #define T2_WORDTICTACTOE_H
 
 #include "BoardGame_Classes.h"
-#include "Methods.h"
 #include <map>
+#include <fstream>
 
 
 template <typename T>
@@ -11,6 +11,7 @@ class WordBoard: public Board<T>{
 public:
     WordBoard();
     ~WordBoard();
+    vector<string>dic;
     bool update_board(int x, int y, T symbol);
     void display_board();
     bool is_win();
@@ -32,7 +33,8 @@ public:
     void getmove(int &x, int &y);
 };
 
-pair<int,int> makeIndex(int n);
+vector<string> loadDictionary(string filename);
+bool isValidWord(string word, const vector<string>& dic);
 
 
 
@@ -48,6 +50,8 @@ WordBoard<T>::WordBoard() {
         }
     }
     this->n_moves = 0;
+
+    dic = loadDictionary("dic.txt");
 }
 
 template<typename T>
@@ -84,6 +88,25 @@ void WordBoard<T>::display_board() {
 
 template<typename T>
 bool WordBoard<T>::is_win() {
+    for (int i = 0; i < this->rows; ++i) {
+        string rowWord, colWord;
+        for (int j = 0; j < this->columns; ++j) {
+            rowWord += this->board[i][j];
+            colWord += this->board[j][i];
+        }
+        if (isValidWord(rowWord, this->dic) || isValidWord(colWord, this->dic)) {
+            return true;
+        }
+    }
+
+    string diag1, diag2;
+    for (int i = 0; i < this->rows; ++i) {
+        diag1 += this->board[i][i];
+        diag2 += this->board[i][this->rows - i - 1];
+    }
+    if(isValidWord(diag1, this->dic) || isValidWord(diag2, this->dic)){
+        return true;
+    }
     return false;
 }
 
@@ -105,6 +128,10 @@ template <typename T>
 void WordPlayer<T>::getmove(int& x, int& y) {
     cout << "\nPlease enter your move x and y (0 to 2) separated by spaces: ";
     cin >> x >> y;
+    cout<<"\n Please enter the letter: ";
+    char letter;
+    cin>>letter;
+    this->symbol = toupper(letter);
 }
 
 // Constructor for X_O_Random_Player
@@ -120,6 +147,25 @@ template <typename T>
 void WordRandomPlayer<T>::getmove(int& x, int& y) {
     x = (rand() % this->dimension);  // Random number between 0 and 2
     y = (rand() % this->dimension);  // Random number between 0 and 2
+}
+
+vector<string> loadDictionary(string filename) {
+    vector<string> dictionary;
+    ifstream file(filename);
+    string word;
+    while (file >> word) {
+        dictionary.push_back(word);
+    }
+    return dictionary;
+}
+
+bool isValidWord(string word, const vector<string>& dic) {
+    auto it = find(dic.begin(), dic.end(), word);
+    if (it != dic.end()) {
+        return true;
+    } else {
+        return false;
+    }
 }
 
 #endif
