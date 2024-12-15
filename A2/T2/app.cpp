@@ -9,6 +9,8 @@
 #include "UltimateTicTacToe.h"
 #include "ultimateXO.h"
 #include "FourByFourXO.h"
+#include "PyramicTicTacToe.h"
+#include "WordTicTacToe.h"
 
 // Menu info
 void DisplayMenuInfo();
@@ -166,7 +168,7 @@ int main()
         switch (Choice)
         {
         case 1:
-            cout << "Pyramic Game " << endl;
+            PyramidTicTacToe();
             break;
         case 2:
             Connect4();
@@ -175,7 +177,7 @@ int main()
             XO5x5();
             break;
         case 4:
-            cout << " Word Tic Tac Toe " << endl;
+            WordTicTacToe();
             break;
         case 5:
             NumericalTicTacToe();

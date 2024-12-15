@@ -4,6 +4,7 @@
 #include "BoardGame_Classes.h"
 #include <map>
 #include <fstream>
+#include <algorithm>
 
 
 template <typename T>
@@ -33,6 +34,9 @@ public:
     void getmove(int &x, int &y);
 };
 
+void WordSetPlayerType(Player<char> *&player, int choice, string name, char symbol);
+void WordInfo();
+void WordTicTacToe();
 vector<string> loadDictionary(string filename);
 bool isValidWord(string word, const vector<string>& dic);
 
@@ -128,7 +132,7 @@ template <typename T>
 void WordPlayer<T>::getmove(int& x, int& y) {
     cout << "\nPlease enter your move x and y (0 to 2) separated by spaces: ";
     cin >> x >> y;
-    cout<<"\n Please enter the letter: ";
+    cout<<"\nPlease enter the letter: ";
     char letter;
     cin>>letter;
     this->symbol = toupper(letter);
@@ -139,7 +143,6 @@ template <typename T>
 WordRandomPlayer<T>::WordRandomPlayer(string name, T symbol) : RandomPlayer<T>(symbol) {
     this->dimension = 3;
     this->name = name;
-    this->symbol = symbol;
     srand(static_cast<unsigned int>(time(0)));  // Seed the random number generator
 }
 
@@ -147,6 +150,8 @@ template <typename T>
 void WordRandomPlayer<T>::getmove(int& x, int& y) {
     x = (rand() % this->dimension);  // Random number between 0 and 2
     y = (rand() % this->dimension);  // Random number between 0 and 2
+
+    this->symbol = (rand() % 26) + 'A'; // Random letter
 }
 
 vector<string> loadDictionary(string filename) {

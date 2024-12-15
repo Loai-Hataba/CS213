@@ -9,8 +9,7 @@ add_executable(T2
     3x3X_O.h
     BoardGame_Classes.h
 		Connect4.h
-    main.cpp
-    MinMaxPlayer.h
+    	MinMaxPlayer.h
 		Connect4.cpp
         TicTacToeNumbers.cpp
         TicTacToeNumbers.h
@@ -21,5 +20,8 @@ add_executable(T2
         FourByFourXO.cpp
         FourByFourXO.h
         PyramicTicTacToe.h
-	WordTicTacToe.h
-		ultimateXO.cpp)
+		PyramicTicTacToe.cpp
+		WordTicTacToe.h
+		WordTicTacToe.cpp
+		ultimateXO.cpp
+		app.cpp)

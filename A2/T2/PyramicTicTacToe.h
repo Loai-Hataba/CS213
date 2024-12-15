@@ -1,17 +1,15 @@
-
 #ifndef T2_PYRAMICTICTACTOE_H
 #define T2_PYRAMICTICTACTOE_H
 
 #include "BoardGame_Classes.h"
-#include "Methods.h"
 #include <map>
 
 
 template <typename T>
-class PyramicBoard:public Board<T>{
+class PyramidBoard: public Board<T>{
 public:
-    PyramicBoard();
-    ~PyramicBoard();
+    PyramidBoard();
+    ~PyramidBoard();
     bool update_board(int x, int y, T symbol);
     void display_board();
     bool is_win();
@@ -20,25 +18,28 @@ public:
 };
 
 template <typename T>
-class PyramicPlayer : public Player<T> {
+class PyramidPlayer : public Player<T> {
 public:
-    PyramicPlayer (string name, T symbol);
+    PyramidPlayer (string name, T symbol);
     void getmove(int& x, int& y) ;
 };
 
 template <typename T>
-class PyramicRandomPlayer : public RandomPlayer<T>{
+class PyramidRandomPlayer : public RandomPlayer<T>{
 public:
-    PyramicRandomPlayer (string name,T symbol);
+    PyramidRandomPlayer (string name, T symbol);
     void getmove(int &x, int &y);
 };
 
+void PyramidSetPlayerType(Player<char> *&player, int choice, string name, char symbol);
+void PyramidInfo();
+void PyramidTicTacToe();
 pair<int,int> makeIndex(int n);
 
 
 
 template<typename T>
-PyramicBoard<T>::PyramicBoard() {
+PyramidBoard<T>::PyramidBoard() {
     this->rows = 3;
     this->columns = 5;
     this->board = new char*[this->rows];
@@ -52,7 +53,7 @@ PyramicBoard<T>::PyramicBoard() {
 }
 
 template<typename T>
-PyramicBoard<T>::~PyramicBoard() {
+PyramidBoard<T>::~PyramidBoard() {
     for (int i = 0; i < this -> rows; i++) {
         delete[] this -> board[i];
     }
@@ -60,7 +61,7 @@ PyramicBoard<T>::~PyramicBoard() {
 }
 
 template<typename T>
-bool PyramicBoard<T>::update_board(int x, int y, T symbol) {
+bool PyramidBoard<T>::update_board(int x, int y, T symbol) {
     if (x < 0 || x >= this-> rows || y < 0 || y >= this-> columns || (x == 0 && (y == 0 || y == 1 || y == 3 ||y == 4 ) || (x == 1 &&( y == 0 ||y == 4))) || this -> board[x][y] != T()){
         cout<<"Invalid ya brooooooo!!!"<<endl;
         return false;
@@ -74,7 +75,7 @@ bool PyramicBoard<T>::update_board(int x, int y, T symbol) {
 
 
 template<typename T>
-void PyramicBoard<T>::display_board() {
+void PyramidBoard<T>::display_board() {
     int cell = 1;
     int l = 2, r = 2;
     for (int i = 0; i < this ->rows; ++i) {
@@ -98,7 +99,7 @@ void PyramicBoard<T>::display_board() {
 }
 
 template<typename T>
-bool PyramicBoard<T>::is_win() {
+bool PyramidBoard<T>::is_win() {
     //only 1 vertical case
     if (this->board[0][2] == this->board[1][2] && this->board[1][2] == this->board[2][2] && this->board[0][2] != T()){
         return true;
@@ -120,21 +121,21 @@ bool PyramicBoard<T>::is_win() {
 }
 
 template<typename T>
-bool PyramicBoard<T>::is_draw() {
+bool PyramidBoard<T>::is_draw() {
     return (this->n_moves == 9 && !is_win());
 }
 
 template<typename T>
-bool PyramicBoard<T>::game_is_over() {
+bool PyramidBoard<T>::game_is_over() {
     return is_win() || is_draw();
 }
 
 template <typename T>
-PyramicPlayer<T>::PyramicPlayer(string name, T symbol) : Player<T>(name, symbol) {}
+PyramidPlayer<T>::PyramidPlayer(string name, T symbol) : Player<T>(name, symbol) {}
 
 
 template <typename T>
-void PyramicPlayer<T>::getmove(int& x, int& y) {
+void PyramidPlayer<T>::getmove(int& x, int& y) {
     int n;
     cout<<endl<<this->name << " Please enter number of cell: ";
     cin>>n;
@@ -144,7 +145,7 @@ void PyramicPlayer<T>::getmove(int& x, int& y) {
 
 // Constructor for X_O_Random_Player
 template <typename T>
-PyramicRandomPlayer<T>::PyramicRandomPlayer(string name,T symbol) : RandomPlayer<T>(symbol) {
+PyramidRandomPlayer<T>::PyramidRandomPlayer(string name, T symbol) : RandomPlayer<T>(symbol) {
     this->dimension = 9;
     this->name = name;
     this->symbol = symbol;
@@ -152,7 +153,7 @@ PyramicRandomPlayer<T>::PyramicRandomPlayer(string name,T symbol) : RandomPlayer
 }
 
 template <typename T>
-void PyramicRandomPlayer<T>::getmove(int& x, int& y) {
+void PyramidRandomPlayer<T>::getmove(int& x, int& y) {
     int n = (rand() % this->dimension)+1;  // Random number between 1 and 9
     x = makeIndex(n).first;
     y = makeIndex(n).second;
@@ -170,6 +171,5 @@ pair<int,int> makeIndex(int n){
     }
     return index[n];
 }
-
 
 #endif
