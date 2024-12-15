@@ -159,17 +159,4 @@ void PyramidRandomPlayer<T>::getmove(int& x, int& y) {
     y = makeIndex(n).second;
 }
 
-pair<int,int> makeIndex(int n){
-    int cell = 1;
-    map<int,pair<int,int>>index;
-    index[cell++] = make_pair(0,2);
-    for (int i = 1; i < 4; ++i) {
-        index[cell++] = make_pair(1,i);
-    }
-    for (int i = 0; i < 6; ++i) {
-        index[cell++] = make_pair(2,i);
-    }
-    return index[n];
-}
-
 #endif

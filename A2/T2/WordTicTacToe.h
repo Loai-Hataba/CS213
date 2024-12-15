@@ -154,23 +154,4 @@ void WordRandomPlayer<T>::getmove(int& x, int& y) {
     this->symbol = (rand() % 26) + 'A'; // Random letter
 }
 
-vector<string> loadDictionary(string filename) {
-    vector<string> dictionary;
-    ifstream file(filename);
-    string word;
-    while (file >> word) {
-        dictionary.push_back(word);
-    }
-    return dictionary;
-}
-
-bool isValidWord(string word, const vector<string>& dic) {
-    auto it = find(dic.begin(), dic.end(), word);
-    if (it != dic.end()) {
-        return true;
-    } else {
-        return false;
-    }
-}
-
 #endif
