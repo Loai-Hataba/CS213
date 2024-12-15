@@ -39,6 +39,7 @@ void XO5x5GameInfo()
 
 void XO5x5()
 {
+
     auto *B = new XO_Board<char>();
     Player<char> *players[2] = {nullptr, nullptr};
     XO5x5GameInfo();
