@@ -13,10 +13,6 @@ void FourByFourSetPlayerType(Player<char> *&player, int choice, string name, cha
     case 2:
         player = new FourByFour_Random<char>(name, symbol);
         break;
-    case 3:
-        cout << "AI Player (not implemented)" << endl;
-        player = nullptr; // Placeholder if AI is not implemented
-        break;
     default:
         cout << "Invalid choice!" << endl;
         player = nullptr;

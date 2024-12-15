@@ -194,7 +194,7 @@ bool FourByFour_Board<T>::game_is_over() {
 
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-///Player Defenition
+///Player Definition
 template<class T>
  FourByFour_Player<T>:: FourByFour_Player(string name, T symbol): Player<T> (name ,symbol)  {
 }

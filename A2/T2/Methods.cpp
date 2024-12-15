@@ -1,15 +1,10 @@
-//
-// Created by abdal on 29/11/2024.
-//
-
 #include "Methods.h"
 
 int getPlayerType() {
     cout << endl << "What Is the Type Of Player?" << endl;
     cout << "1. Human\n";
     cout << "2. Random Computer\n";
-    cout << "3. AI Player\n";
-    int choice = getValidIndex("Your choice (1 -> 3): ", 1, 3);
+    int choice = getValidIndex("Your choice (1 / 2): ", 1, 3);
     return choice;
 }
 

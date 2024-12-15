@@ -9,10 +9,6 @@ void  Connect4SetPlayerType(Player<char>*& player, int choice, string name, char
         case 2:
             player = new Connect4_Random<char>(name, symbol);
             break;
-        case 3:
-            cout << "AI Player (not implemented)" << endl;
-            player = nullptr; // Placeholder if AI is not implemented
-            break;
         default:
             cout << "Invalid choice!" << endl;
             player = nullptr;

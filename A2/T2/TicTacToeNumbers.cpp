@@ -45,10 +45,6 @@ void setPlayerType(Player<int>*& player, int choice, string name, int symbol) {
         case 2:
             player = new TicTacToeNum_Random<int>(name, symbol);
         break;
-        case 3:
-            cout << "AI Player (not implemented)" << endl;
-        player = nullptr; // Placeholder if AI is not implemented
-        break;
         default:
             cout << "Invalid choice!" << endl;
         player = nullptr;

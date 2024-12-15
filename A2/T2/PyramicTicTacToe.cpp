@@ -11,10 +11,6 @@ void PyramidSetPlayerType(Player<char> *&player, int choice, string name, char s
         case 2:
             player = new PyramidRandomPlayer<char>(name, symbol);
             break;
-        case 3:
-            cout << "AI Player (not implemented)" << endl;
-            player = nullptr; // Placeholder if AI is not implemented
-            break;
         default:
             cout << "Invalid choice!" << endl;
             player = nullptr;

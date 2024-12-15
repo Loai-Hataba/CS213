@@ -11,10 +11,6 @@ void XO5x5SetPlayerType(Player<char> *&player, int choice, string name, char sym
     case 2:
         player = new XO_RandomPlayer<char>(symbol);
         break;
-    case 3:
-        cout << "AI Player (not implemented)" << endl;
-        player = nullptr; // Placeholder if AI is not implemented
-        break;
     default:
         cout << "Invalid choice!" << endl;
         player = nullptr;
