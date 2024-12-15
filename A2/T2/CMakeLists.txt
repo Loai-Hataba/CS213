@@ -15,8 +15,6 @@ add_executable(T2
         TicTacToeNumbers.h
         Methods.cpp
         Methods.h
-        UltimateTicTacToe.cpp
-        UltimateTicTacToe.h
         FourByFourXO.cpp
         FourByFourXO.h
         PyramicTicTacToe.h

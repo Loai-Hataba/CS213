@@ -70,13 +70,6 @@ build CMakeFiles/T2.dir/Methods.cpp.obj: CXX_COMPILER__T2_Debug D$:/Hoss/github/
   OBJECT_DIR = CMakeFiles\T2.dir
   OBJECT_FILE_DIR = CMakeFiles\T2.dir
 
-build CMakeFiles/T2.dir/UltimateTicTacToe.cpp.obj: CXX_COMPILER__T2_Debug D$:/Hoss/github/CS213/A2/T2/UltimateTicTacToe.cpp || cmake_object_order_depends_target_T2
-  DEP_FILE = CMakeFiles\T2.dir\UltimateTicTacToe.cpp.obj.d
-  FLAGS = -g -fdiagnostics-color=always -std=gnu++14
-  INCLUDES = -ID:/Hoss/github/CS213/A2/T2/.
-  OBJECT_DIR = CMakeFiles\T2.dir
-  OBJECT_FILE_DIR = CMakeFiles\T2.dir
-
 build CMakeFiles/T2.dir/FourByFourXO.cpp.obj: CXX_COMPILER__T2_Debug D$:/Hoss/github/CS213/A2/T2/FourByFourXO.cpp || cmake_object_order_depends_target_T2
   DEP_FILE = CMakeFiles\T2.dir\FourByFourXO.cpp.obj.d
   FLAGS = -g -fdiagnostics-color=always -std=gnu++14
@@ -120,7 +113,7 @@ build CMakeFiles/T2.dir/app.cpp.obj: CXX_COMPILER__T2_Debug D$:/Hoss/github/CS21
 #############################################
 # Link the executable T2.exe
 
-build T2.exe: CXX_EXECUTABLE_LINKER__T2_Debug CMakeFiles/T2.dir/Connect4.cpp.obj CMakeFiles/T2.dir/TicTacToeNumbers.cpp.obj CMakeFiles/T2.dir/Methods.cpp.obj CMakeFiles/T2.dir/UltimateTicTacToe.cpp.obj CMakeFiles/T2.dir/FourByFourXO.cpp.obj CMakeFiles/T2.dir/PyramicTicTacToe.cpp.obj CMakeFiles/T2.dir/WordTicTacToe.cpp.obj CMakeFiles/T2.dir/ultimateXO.cpp.obj CMakeFiles/T2.dir/app.cpp.obj
+build T2.exe: CXX_EXECUTABLE_LINKER__T2_Debug CMakeFiles/T2.dir/Connect4.cpp.obj CMakeFiles/T2.dir/TicTacToeNumbers.cpp.obj CMakeFiles/T2.dir/Methods.cpp.obj CMakeFiles/T2.dir/FourByFourXO.cpp.obj CMakeFiles/T2.dir/PyramicTicTacToe.cpp.obj CMakeFiles/T2.dir/WordTicTacToe.cpp.obj CMakeFiles/T2.dir/ultimateXO.cpp.obj CMakeFiles/T2.dir/app.cpp.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\T2.dir

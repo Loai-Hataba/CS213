@@ -6,7 +6,6 @@
 #include "MinMaxPlayer.h"
 #include "Connect4.h"
 #include "TicTacToeNumbers.h"
-#include "UltimateTicTacToe.h"
 #include "ultimateXO.h"
 #include "FourByFourXO.h"
 #include "PyramicTicTacToe.h"

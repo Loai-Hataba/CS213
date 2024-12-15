@@ -1,8 +1,15 @@
 # ninja log v5
-100	247	7557486182989450	CMakeFiles/T2.dir/UltimateTicTacToe.cpp.obj	5f579eca96a4f9b2
 9	426	7558117939598754	CMakeFiles/T2.dir/Methods.cpp.obj	4f3b4d14631ba466
 10	1145	7558261522952623	CMakeFiles/T2.dir/ultimateXO.cpp.obj	ce16b59a6f960dfc
 20	598	7558260413733050	CMakeFiles/T2.dir/FourByFourXO.cpp.obj	b54c46f666c62902
 1178	1393	7558261534630233	T2.exe	f7d73ebac9e8baa9
 12	597	7558260413647900	CMakeFiles/T2.dir/Connect4.cpp.obj	8a88ea0560b050b7
 16	717	7558260413687897	CMakeFiles/T2.dir/TicTacToeNumbers.cpp.obj	f5e47183957f584d
+3	679	7559650882377677	CMakeFiles/T2.dir/Methods.cpp.obj	3caf8a31b84f3f59
+1	699	7559650882577684	CMakeFiles/T2.dir/Connect4.cpp.obj	3ceb3d94c011d298
+6	704	7559650882627681	CMakeFiles/T2.dir/FourByFourXO.cpp.obj	a9c99b34968ccffa
+4	791	7559650883497664	CMakeFiles/T2.dir/TicTacToeNumbers.cpp.obj	d820f067dab2a75d
+4	816	7559650883747697	CMakeFiles/T2.dir/WordTicTacToe.cpp.obj	688ae1bdc77171b3
+7	872	7559650884308645	CMakeFiles/T2.dir/ultimateXO.cpp.obj	b48b5b4f67d70625
+681	1258	7559650888174691	CMakeFiles/T2.dir/PyramicTicTacToe.cpp.obj	9ad004729fb18c54
+2	978	7559651466893440	CMakeFiles/T2.dir/app.cpp.obj	ab1a53ae0548bb35
