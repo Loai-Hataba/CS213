@@ -10,6 +10,8 @@ static bool FourByFour_IsRandom = false ;  // variable to avoid the error messag
 //// Board Prototype
 template<class T>
 class FourByFour_Board : public Board<T> {
+private:
+    bool hasAdjacentEmpty (int x , int y  ) ; // a helper function to check if there is an adjacent cell player can move to
     public:
     FourByFour_Board();  // Board constructor 
     ~FourByFour_Board(); // Board destructor 
@@ -37,7 +39,7 @@ public:
 
 void FourByFourSetPlayerType(Player<char>*& player, int choice, string name, char symbol) ; // A helper function to set player type (Human - Random - AI)
 void TicTacToe4x4GameInfo(); //Function to display game rules 
-void TicTacToe4x4 (); // The main function for the game 
+void TicTacToe4x4 (); // The main function for the game
 //Random Player Protoype
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //////Implementation
@@ -78,6 +80,13 @@ FourByFour_Board<T>::~FourByFour_Board() {
     }
     delete [] this->board; 
 }
+template<class T>
+bool FourByFour_Board<T>::hasAdjacentEmpty(int x, int y) {
+    return ((x > 0 && this->board[x - 1][y] == T()) ||    // Check cell above
+            (x < 3 && this->board[x + 1][y] == T()) ||    // Check cell below
+            (y > 0 && this->board[x][y - 1] == T()) ||    // Check cell to the left
+            (y < 3 && this->board[x][y + 1] == T())) ;    // Check cell to the right
+}
 
 template<class T>
 bool FourByFour_Board<T>::update_board(int x, int y, T symbol) {
@@ -85,9 +94,18 @@ bool FourByFour_Board<T>::update_board(int x, int y, T symbol) {
     if (this->board[x][y] == symbol && selected == 0) {
         FX = x;
         FY = y;
-        selected = 1;  // Mark that a token has been selected
-        cout << "Token selected at (" << FX << ", " << FY << "). Choose an adjacent cell to move." << endl;
-        return false;  // Selection is not a move
+        if (hasAdjacentEmpty(x , y ))  {    // Check cell to the right
+            // There is at least one adjacent empty cell
+            selected = 1;  // Mark that a token has been selected
+            cout << "Token selected at (" << FX << ", " << FY << "). Choose an adjacent cell to move." << endl;
+
+            }
+        else {
+           if(!FourByFour_IsRandom) cout << "Token selected at (" << FX << ", " << FY << ")"
+            ".Has no adjacent empty cell please choose another one" << endl ;
+        }
+        return false;
+
     }
     // Case 2: Moving the selected token
     else if (selected == 1 && this->board[x][y] == T()) {
@@ -101,7 +119,7 @@ bool FourByFour_Board<T>::update_board(int x, int y, T symbol) {
             FourByFour_IsRandom = false ;
             return true;  // Move completed
         } else {
-            cout << "Invalid move! You can only move to an adjacent cell." << endl;
+           if(!FourByFour_IsRandom) cout << "Invalid move! You can only move to an adjacent cell." << endl;
             return false;  // Invalid move
         }
     }
@@ -141,25 +159,21 @@ void FourByFour_Board<T>::display_board() {
 
 template<class T>
 bool FourByFour_Board<T>::is_win() {
-    // Check rows
-    for (int i = 0; i < 4; i++) {
-        for (int j = 0; j < 2; j++) { // Check 3 cells at a time
-            if (this->board[i][j] != T() && this->board[i][j] == this->board[i][j + 1] &&
-                this->board[i][j] == this->board[i][j + 2]) {
-                return true;
-                }
-        }
-    }
-    // Check columns
-    for (int j = 0; j < 4; j++) {
-        for (int i = 0; i < 2; i++) { // Check 3 cells at a time
-            if (this->board[i][j] != T() && this->board[i][j] == this->board[i + 1][j] &&
-                this->board[i][j] == this->board[i + 2][j]) {
-                return true;
-                }
-        }
-    }
 
+
+
+    for(int i = 0 ; i < 4 ; i++) {
+        for(int j = 0  ; j < 2 ; j++ ) {
+            ///For Cloumns Win
+            if (this->board[j][i] != T() && this->board[j][i] == this->board[j + 1][i] &&
+                this->board[j][i] == this->board[j + 2][i]) {return true;}
+            //// For Rows Win :
+            if (this->board[i][j] != T() && this->board[i][j] == this->board[i][j + 1] &&
+              this->board[i][j] == this->board[i][j + 2]) {
+                return true;
+              }
+        }
+    }
     // Check main diagonal (\)
     for (int i = 0; i < 2; i++) {
         for (int j = 0; j < 2; j++) {
@@ -178,13 +192,24 @@ bool FourByFour_Board<T>::is_win() {
                 }
         }
     }
-
-    return false;
+    return false; /// There is no win found
 }
 
 template<class T>
 bool FourByFour_Board<T>::is_draw() {
-    return !is_win() && this->n_moves == 24    ;
+    //  Check if any token can move
+    for (int x = 0; x < 4; x++) {
+        for (int y = 0; y < 4; y++) {
+            if (this->board[x][y] == 'X' || this->board[x][y] == 'O') { // If it's a token
+                if (hasAdjacentEmpty(x, y)) { // Check if token can move
+                    return false; // Not a draw because valid moves exist
+                }
+            }
+        }
+    }
+
+    // If there is no valid moves can be played
+    return true;
 }
 
 template<class T>

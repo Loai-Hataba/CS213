@@ -63,6 +63,9 @@ vector<string> loadDictionary(string filename)
     {
         dictionary.push_back(word);
     }
+
+    file.close();
+
     return dictionary;
 }
 

@@ -5,8 +5,10 @@
 #include <limits>
 #include <string>
 #include <iomanip>
+#include <vector>
+#include <algorithm>
+#include <cctype>
 #include <map>
-
 using namespace std;
 int getPlayerType();
 string getPlayerName(int PlayerNum);

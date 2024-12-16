@@ -1,5 +1,4 @@
 #include "Connect4.h"
-#include "Methods.h"
 using namespace std;
 void  Connect4SetPlayerType(Player<char>*& player, int choice, string name, char symbol) {
     switch (choice) {
