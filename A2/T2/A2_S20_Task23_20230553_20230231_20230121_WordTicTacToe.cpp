@@ -1,5 +1,5 @@
-#include "WordTicTacToe.h"
-#include "Methods.h"
+#include "A2_S20_Task23_20230553_20230231_20230121_WordTicTacToe.h"
+#include "A2_S20_Task23_20230553_20230231_20230121_Methods.h"
 
 void WordSetPlayerType(Player<char> *&player, int choice, string name, char symbol = ' ')
 {

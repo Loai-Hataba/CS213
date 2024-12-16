@@ -2,7 +2,7 @@
 // Created by abdallah on 03/12/2024.
 //
 
-#include "FourByFourXO.h"
+#include "A2_S20_Task23_20230553_20230231_20230121_FourByFourXO.h"
 void FourByFourSetPlayerType(Player<char> *&player, int choice, string name, char symbol)
 {
     switch (choice)

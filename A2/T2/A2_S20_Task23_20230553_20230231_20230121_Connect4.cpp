@@ -1,21 +1,24 @@
-#include "Connect4.h"
+#include "A2_S20_Task23_20230553_20230231_20230121_Connect4.h"
 using namespace std;
-void  Connect4SetPlayerType(Player<char>*& player, int choice, string name, char symbol) {
-    switch (choice) {
-        case 1:
-            player = new Connect4_Human<char>(name, symbol);
-            break;
-        case 2:
-            player = new Connect4_Random<char>(name, symbol);
-            break;
-        default:
-            cout << "Invalid choice!" << endl;
-            player = nullptr;
-            break;
+void Connect4SetPlayerType(Player<char> *&player, int choice, string name, char symbol)
+{
+    switch (choice)
+    {
+    case 1:
+        player = new Connect4_Human<char>(name, symbol);
+        break;
+    case 2:
+        player = new Connect4_Random<char>(name, symbol);
+        break;
+    default:
+        cout << "Invalid choice!" << endl;
+        player = nullptr;
+        break;
     }
 }
-void displayConnect4GameInfo() {
-    cout << "======================= Welcome to Connect 4 Game  =========================\n";
+void displayConnect4GameInfo()
+{
+    cout << "\n======================= Welcome to Connect 4 Game  =========================\n";
     cout << "A 2D twist on the classic Connect Four game!\n\n";
 
     cout << "Rules:\n";
@@ -32,28 +35,28 @@ void displayConnect4GameInfo() {
     cout << "===========================================================================\n\n";
     cin.ignore();
     cin.clear();
-
 }
 
-void Connect4 ( ) {
-    Player<char>* players[2] ={nullptr, nullptr};
-    auto* B = new Connect4_Board<char>();
+void Connect4()
+{
+    Player<char> *players[2] = {nullptr, nullptr};
+    auto *B = new Connect4_Board<char>();
     displayConnect4GameInfo();
     //// Set Player one
-    string player1Name = getPlayerName(1) ;
+    string player1Name = getPlayerName(1);
     int choice = getPlayerType();
-    Connect4SetPlayerType(players[0] , choice , player1Name, 'X');
+    Connect4SetPlayerType(players[0], choice, player1Name, 'X');
     ////////////////////////////////////////////////
     //// Set Player two
     cin.ignore();
-    string player2Name = getPlayerName(2) ;
+    string player2Name = getPlayerName(2);
     choice = getPlayerType();
-    Connect4SetPlayerType(players[1] , choice , player2Name, 'O');
+    Connect4SetPlayerType(players[1], choice, player2Name, 'O');
     ////////////////////////////////////////////////
-    GameManager<char> connect4Game (B, players);
+    GameManager<char> connect4Game(B, players);
     connect4Game.run();
-    for (auto & player : players) {
+    for (auto &player : players)
+    {
         delete player;
     }
-
 }

@@ -1,15 +1,15 @@
-#include "5x5XO.h"
-#include "Misere3x3XO.h"
-#include "Connect4.h"
-#include "TicTacToeNumbers.h"
-#include "ultimateXO.h"
-#include "FourByFourXO.h"
-#include "PyramicTicTacToe.h"
-#include "WordTicTacToe.h"
+#include "A2_S20_Task23_20230553_20230231_20230121_5x5XO.h"
+#include "A2_S20_Task23_20230553_20230231_20230121_Misere3x3XO.h"
+#include "A2_S20_Task23_20230553_20230231_20230121_Connect4.h"
+#include "A2_S20_Task23_20230553_20230231_20230121_TicTacToeNumbers.h"
+#include "A2_S20_Task23_20230553_20230231_20230121_ultimateXO.h"
+#include "A2_S20_Task23_20230553_20230231_20230121_FourByFourXO.h"
+#include "A2_S20_Task23_20230553_20230231_20230121_PyramicTicTacToe.h"
+#include "A2_S20_Task23_20230553_20230231_20230121_WordTicTacToe.h"
 
 // Menu info
 void DisplayMenuInfo();
-void DisplayGamesNumber() ;
+void DisplayGamesNumber();
 using namespace std;
 int main()
 {
@@ -62,11 +62,12 @@ void DisplayMenuInfo()
     cout << "\n   We hope you enjoy the games. Have fun playing!\n";
     cout << "===========================================================================\n";
 }
-void DisplayGamesNumber () {
+void DisplayGamesNumber()
+{
     cout << "\n   Available Games:\n";
     cout << "   1) Pyramid Tic Tac Toe               2) Connect 4\n";
     cout << "   3) 5x5 Tic Tac Toe                   4) Word Tic Tac Toe\n";
     cout << "   5) Numerical Tic Tac Toe             6) Misere Tic Tac Toe\n";
     cout << "   7) 4x4 Tic Tac Toe                   8) Ultimate Tic Tac Toe\n";
-    cout << "   9) Exit :(" <<endl;
+    cout << "   9) Exit :(" << endl;
 }

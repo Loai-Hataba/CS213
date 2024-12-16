@@ -1,4 +1,0 @@
-g++ row.cpp -o row.exe
-
-
-./row.exe

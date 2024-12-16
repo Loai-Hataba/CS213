@@ -2,7 +2,7 @@
 #define _ULTIMATEXO_H
 
 #include "BoardGame_classes.h"
-#include "Methods.h"
+#include "A2_S20_Task23_20230553_20230231_20230121_Methods.h"
 static vector<int> moveCheck(9, false);
 void UltimateXOSetPlayerType(Player<char> *&player, int choice, string name, char symbol);
 void UltimateXOGameInfo();

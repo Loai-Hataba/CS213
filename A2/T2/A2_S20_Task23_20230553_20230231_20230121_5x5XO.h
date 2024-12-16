@@ -2,7 +2,7 @@
 #define _5X5XO_H
 
 #include "BoardGame_classes.h"
-#include "methods.h"
+#include "A2_S20_Task23_20230553_20230231_20230121_methods.h"
 #include <map>
 void XO5x5();
 void XO5x5GameInfo();

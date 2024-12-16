@@ -1,5 +1,5 @@
-#include "5x5XO.h"
-#include "methods.h"
+#include "A2_S20_Task23_20230553_20230231_20230121_5x5XO.h"
+#include "A2_S20_Task23_20230553_20230231_20230121_methods.h"
 
 void XO5x5SetPlayerType(Player<char> *&player, int choice, string name, char symbol)
 {
