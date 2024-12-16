@@ -3,7 +3,6 @@
 #include "3x3X_O.h"
 #include "5x5XO.h"
 #include "Misere3x3XO.h"
-#include "MinMaxPlayer.h"
 #include "Connect4.h"
 #include "TicTacToeNumbers.h"
 #include "ultimateXO.h"

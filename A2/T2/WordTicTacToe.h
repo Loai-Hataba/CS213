@@ -82,11 +82,14 @@ bool WordBoard<T>::update_board(int x, int y, T symbol) {
 
 template<typename T>
 void WordBoard<T>::display_board() {
+    cout << "\n   0   1   2" << endl;
+    cout << "  +---+---+---+" << endl;
     for (int i = 0; i < this ->rows; ++i) {
+        cout<<i<<" |";
         for (int j = 0; j < this -> columns ; ++j) {
-            cout<<"  "<<this->board[i][j]<<"  ";
+            cout<<" "<<this->board[i][j]<<" |";
         }
-        cout<<endl<<endl;
+        cout << "\n  +---+---+---+" << endl;
     }
 }
 

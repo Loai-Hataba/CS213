@@ -4,6 +4,7 @@
 #include "BoardGame_Classes.h"
 #include <map>
 
+static bool isRandom = false;
 
 template <typename T>
 class PyramidBoard: public Board<T>{
@@ -63,7 +64,10 @@ PyramidBoard<T>::~PyramidBoard() {
 template<typename T>
 bool PyramidBoard<T>::update_board(int x, int y, T symbol) {
     if (x < 0 || x >= this-> rows || y < 0 || y >= this-> columns || (x == 0 && (y == 0 || y == 1 || y == 3 ||y == 4 ) || (x == 1 &&( y == 0 ||y == 4))) || this -> board[x][y] != T()){
-        cout<<"Invalid ya brooooooo!!!"<<endl;
+        if (isRandom){
+            return false;
+        }
+        cout<<"Invalid input just enter any cell that is numbered please: "<<endl;
         return false;
     }
     else{
@@ -78,9 +82,10 @@ template<typename T>
 void PyramidBoard<T>::display_board() {
     int cell = 1;
     int l = 2, r = 2;
+    cout<<endl<<endl;
     for (int i = 0; i < this ->rows; ++i) {
         if (i == 0){
-            cout<<"          ";
+            cout<<"         ";
         }
         if (i == 1){
             cout<<"     ";
@@ -136,6 +141,7 @@ PyramidPlayer<T>::PyramidPlayer(string name, T symbol) : Player<T>(name, symbol)
 
 template <typename T>
 void PyramidPlayer<T>::getmove(int& x, int& y) {
+    isRandom = false;
     int n;
     cout<<endl<<this->name << " Please enter number of cell: ";
     cin>>n;
@@ -146,6 +152,7 @@ void PyramidPlayer<T>::getmove(int& x, int& y) {
 // Constructor for X_O_Random_Player
 template <typename T>
 PyramidRandomPlayer<T>::PyramidRandomPlayer(string name, T symbol) : RandomPlayer<T>(symbol) {
+    isRandom = true;
     this->dimension = 9;
     this->name = name;
     this->symbol = symbol;

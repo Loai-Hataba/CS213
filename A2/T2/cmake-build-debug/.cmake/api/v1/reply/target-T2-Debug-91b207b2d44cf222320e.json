@@ -45,14 +45,17 @@
 			"compileCommandFragments" : 
 			[
 				{
-					"fragment" : "-g -std=gnu++14 -fdiagnostics-color=always"
+					"fragment" : "-g -fdiagnostics-color=always"
+				},
+				{
+					"fragment" : "-std=gnu++14"
 				}
 			],
 			"includes" : 
 			[
 				{
 					"backtrace" : 2,
-					"path" : "G:/FCAI/2nd Year/1st Term/OOP/Assignment/CS213/A2/T2/."
+					"path" : "D:/Hoss/github/CS213/A2/T2/."
 				}
 			],
 			"language" : "CXX",
