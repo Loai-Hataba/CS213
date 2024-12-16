@@ -58,9 +58,13 @@ vector<string> loadDictionary(string filename) {
     vector<string> dictionary;
     ifstream file(filename);
     string word;
+
     while (file >> word) {
         dictionary.push_back(word);
     }
+
+    file.close();
+
     return dictionary;
 }
 
