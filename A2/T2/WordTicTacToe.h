@@ -6,6 +6,7 @@
 #include <fstream>
 #include <algorithm>
 
+static bool wordIsRandom = false;
 
 template <typename T>
 class WordBoard: public Board<T>{
@@ -68,8 +69,11 @@ WordBoard<T>::~WordBoard() {
 
 template<typename T>
 bool WordBoard<T>::update_board(int x, int y, T symbol) {
-    if (x < 0 || x >= this-> rows || y < 0 || y >= this-> columns || this->board[x][y] != T()){  ///buh
-        cout<<"Invalid ya brooooooo!!!"<<endl;
+    if (x < 0 || x >= this-> rows || y < 0 || y >= this-> columns || this->board[x][y] != T()){
+        if (wordIsRandom){
+            return false;
+        }
+        cout<<"Invalid input please Enter the index of an Empty cell: "<<endl;
         return false;
     }
     else{
@@ -133,6 +137,7 @@ WordPlayer<T>::WordPlayer(string name, T symbol) : Player<T>(name, symbol) {}
 
 template <typename T>
 void WordPlayer<T>::getmove(int& x, int& y) {
+    wordIsRandom = false;
     cout << "\nPlease enter your move x and y (0 to 2) separated by spaces: ";
     cin >> x >> y;
     cout<<"\nPlease enter the letter: ";
@@ -144,6 +149,7 @@ void WordPlayer<T>::getmove(int& x, int& y) {
 // Constructor for X_O_Random_Player
 template <typename T>
 WordRandomPlayer<T>::WordRandomPlayer(string name, T symbol) : RandomPlayer<T>(symbol) {
+    wordIsRandom = true;
     this->dimension = 3;
     this->name = name;
     srand(static_cast<unsigned int>(time(0)));  // Seed the random number generator
