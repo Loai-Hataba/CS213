@@ -47,11 +47,6 @@ void displayNumTicTacToeInfo(); // function to display game rules
 /////////////////////////////////////////////////////////////////////////////////////////
 ////-----> Implementation
 /// Board Implementation
-#include <iostream>
-#include <iomanip>
-#include <cctype>
-#include <limits>
-
 template <class T>
 TicTacToeNum_Board<T>::TicTacToeNum_Board()
 {

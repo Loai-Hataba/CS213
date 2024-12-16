@@ -1,7 +1,3 @@
-//
-// Created by abdal on 03/12/2024.
-//
-
 #include "FourByFourXO.h"
 void FourByFourSetPlayerType(Player<char> *&player, int choice, string name, char symbol)
 {

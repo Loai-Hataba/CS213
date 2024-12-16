@@ -1,6 +1,4 @@
 #include "TicTacToeNumbers.h"
-#include <vector>
-#include <algorithm>
 int getPlayerSymbol(vector<int> & available  ) {
     int playerSymbol = 0 ;
     while (true) {
