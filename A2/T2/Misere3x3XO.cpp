@@ -19,7 +19,7 @@ void MisereSetPlayerType(Player<char> *&player, int choice, string name, char sy
 }
 void MisereGameInfo()
 {
-    cout << "======================= Welcome to Misere Tic Tac Toe Game ==================\n";
+    cout << "\n======================= Welcome to Misere Tic Tac Toe Game ==================\n";
     cout << "A twist on the classic Tic-Tac-Toe where the goal is to avoid getting three marks in a row.\n\n";
     cout << "Rules:\n";
     cout << "  - Players take turns placing an X or an O in one of the squares.\n";

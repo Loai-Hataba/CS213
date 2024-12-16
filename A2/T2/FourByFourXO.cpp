@@ -1,5 +1,5 @@
 //
-// Created by abdal on 03/12/2024.
+// Created by abdallah on 03/12/2024.
 //
 
 #include "FourByFourXO.h"
@@ -21,7 +21,7 @@ void FourByFourSetPlayerType(Player<char> *&player, int choice, string name, cha
 }
 void TicTacToe4x4GameInfo()
 {
-    cout << "======================= Welcome to 4x4 Tic Tac Toe Game  ==================\n";
+    cout << "\n======================= Welcome to 4x4 Tic Tac Toe Game  ==================\n";
     cout << "An extended version of Tic-Tac-Toe with a 4x4 board.\n\n";
     cout << "Rules:\n";
     cout << "  - The board is a 4x4 grid.\n";

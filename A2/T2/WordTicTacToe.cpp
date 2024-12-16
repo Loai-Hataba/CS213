@@ -5,21 +5,21 @@ void WordSetPlayerType(Player<char> *&player, int choice, string name, char symb
 {
     switch (choice)
     {
-        case 1:
-            player = new WordPlayer<char>(name, symbol);
-            break;
-        case 2:
-            player = new WordRandomPlayer<char>(name, symbol);
-            break;
-        default:
-            cout << "Invalid choice!" << endl;
-            player = nullptr;
-            break;
+    case 1:
+        player = new WordPlayer<char>(name, symbol);
+        break;
+    case 2:
+        player = new WordRandomPlayer<char>(name, symbol);
+        break;
+    default:
+        cout << "Invalid choice!" << endl;
+        player = nullptr;
+        break;
     }
 }
 void WordInfo()
 {
-    cout << "======================= Welcome to The Words Tic Tac Toe Game  ==================\n";
+    cout << "\n======================= Welcome to The Words Tic Tac Toe Game  ==================\n";
     cout << "An innovative twist to the classic game, instead of 'X' and 'O', player place letter on a 3x3 grid.\n";
     cout << "This adds a linguistic challenge to the traditional game mechanics.\n\n";
     cout << "Rules:\n";
@@ -54,21 +54,27 @@ void WordTicTacToe()
     }
 }
 
-vector<string> loadDictionary(string filename) {
+vector<string> loadDictionary(string filename)
+{
     vector<string> dictionary;
     ifstream file(filename);
     string word;
-    while (file >> word) {
+    while (file >> word)
+    {
         dictionary.push_back(word);
     }
     return dictionary;
 }
 
-bool isValidWord(string word, const vector<string>& dic) {
+bool isValidWord(string word, const vector<string> &dic)
+{
     auto it = find(dic.begin(), dic.end(), word);
-    if (it != dic.end()) {
+    if (it != dic.end())
+    {
         return true;
-    } else {
+    }
+    else
+    {
         return false;
     }
 }

@@ -22,7 +22,7 @@ void UltimateXOSetPlayerType(Player<char> *&player, int choice, string name, cha
 }
 void UltimateXOGameInfo()
 {
-    cout << "======================= Welcome to Ultimate Tic Tac Toe Game  ==================\n";
+    cout << "\n======================= Welcome to Ultimate Tic Tac Toe Game  ==================\n";
     cout << "An expanded version of Tic-Tac-Toe with a 3x3 grid of smaller boards.\n\n";
     cout << "Rules:\n";
     cout << "  - The main board is a 3x3 grid, each cell containing a smaller 3x3 Tic Tac Toe board.\n";

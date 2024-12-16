@@ -19,7 +19,7 @@ void XO5x5SetPlayerType(Player<char> *&player, int choice, string name, char sym
 }
 void XO5x5GameInfo()
 {
-    cout << "======================= Welcome to 5x5 Tic Tac Toe Game  ==================\n";
+    cout << "\n======================= Welcome to 5x5 Tic Tac Toe Game  ==================\n";
     cout << "A variation of Tic-Tac-Toe played on a 5x5 grid.\n\n";
     cout << "Rules:\n";
     cout << "  - Players take turns placing an X or an O in one of the squares.\n";
