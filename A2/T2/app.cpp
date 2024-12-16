@@ -12,6 +12,7 @@
 
 // Menu info
 void DisplayMenuInfo();
+void DisplayGamesNumber () ;
 using namespace std;
 //              Original main
 // int main()
@@ -162,6 +163,7 @@ int main()
     DisplayMenuInfo();
     while (true)
     {
+        DisplayGamesNumber();
         Choice = getValidIndex("Enter the Number Of Game You want : ", 1, 9);
         switch (Choice)
         {
@@ -204,11 +206,13 @@ void DisplayMenuInfo()
     cout << "   Developed by :\n\tAbdallah Mohamed Abdallah\n\tHossam Mohamed Ahmed\n\tLoai Walid Hataba\n";
     cout << "\n Under the supervision of Dr. Mohammed El-Ramly\n";
     cout << "   Explore and enjoy 8 exciting board games designed for fun and strategy!\n";
+    cout << "\n   We hope you enjoy the games. Have fun playing!\n";
+    cout << "===========================================================================\n";
+}
+void DisplayGamesNumber () {
     cout << "\n   Available Games:\n";
     cout << "   1) Pyramid Tic Tac Toe               2) Connect 4\n";
     cout << "   3) 5x5 Tic Tac Toe                   4) Word Tic Tac Toe\n";
     cout << "   5) Numerical Tic Tac Toe             6) Misere Tic Tac Toe\n";
     cout << "   7) 4x4 Tic Tac Toe                   8) Ultimate Tic Tac Toe\n";
-    cout << "\n   We hope you enjoy the games. Have fun playing!\n";
-    cout << "===========================================================================\n\n";
 }

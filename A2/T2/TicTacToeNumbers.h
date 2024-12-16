@@ -97,7 +97,9 @@ bool TicTacToeNum_Board<T>::update_board(int x, int y, T symbol)
         CurrentSet -> erase(find (CurrentSet -> begin(), CurrentSet -> end(), symbol));
         this->board[x][y] = symbol; // Assign symbol to wanted cell
         this->n_moves++;            // Increment Number of moves
+        IsRandom = false ;
         return true;
+
     }
 }
 
@@ -185,7 +187,7 @@ bool TicTacToeNum_Board<T>::game_is_over()
 template <typename T>
 TicTacToeNum_Player<T>::TicTacToeNum_Player(string name, T symbol) : Player<T>(name, symbol)
 {
-   ptrHuman = (symbol == 0 ) ? &Odd : &Even;
+   ptrHuman = (symbol == 0 ) ? &Even : &Odd;
  }
 
 template <typename T>
@@ -206,7 +208,7 @@ TicTacToeNum_Random<T>::TicTacToeNum_Random(string name, T symbol) : RandomPlaye
 {
     this->dimension = 3;
     this->name = name;
-    ptrRandom = (symbol == 0 ) ? &Odd : &Even;
+    ptrRandom = (symbol == 0 ) ? &Even : &Odd;
     srand(static_cast<unsigned int>(time(0))); // Seed the random number generator
 }
 template<typename T>
@@ -229,6 +231,7 @@ void TicTacToeNum_Random<T>::getmove(int &x, int &y) // Done
         if ((y >= 0 && y <= 2)) break; // valid y axis
     }
     this->symbol = getRandomSymbol(*ptrRandom );
+    IsRandom = true ;
 }
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 

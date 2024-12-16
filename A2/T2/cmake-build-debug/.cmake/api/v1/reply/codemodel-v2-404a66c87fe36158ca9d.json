@@ -9,7 +9,7 @@
 					"jsonFile" : "directory-.-Debug-d0094a50bb2071803777.json",
 					"minimumCMakeVersion" : 
 					{
-						"string" : "3.24.2"
+						"string" : "3.29"
 					},
 					"projectIndex" : 0,
 					"source" : ".",
@@ -39,7 +39,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "T2::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-T2-Debug-91b207b2d44cf222320e.json",
+					"jsonFile" : "target-T2-Debug-03c22da7bdb71ee5fbff.json",
 					"name" : "T2",
 					"projectIndex" : 0
 				}
@@ -49,12 +49,12 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
-		"build" : "D:/Hoss/github/CS213/A2/T2/cmake-build-debug",
-		"source" : "D:/Hoss/github/CS213/A2/T2"
+		"build" : "G:/FCAI/2nd Year/1st Term/OOP/Assignment/CS213/A2/T2/cmake-build-debug",
+		"source" : "G:/FCAI/2nd Year/1st Term/OOP/Assignment/CS213/A2/T2"
 	},
 	"version" : 
 	{
 		"major" : 2,
-		"minor" : 4
+		"minor" : 7
 	}
 }
