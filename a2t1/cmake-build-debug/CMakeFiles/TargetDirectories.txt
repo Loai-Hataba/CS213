@@ -1,0 +1,3 @@
+D:/Hoss/projects/clion/a2t1/cmake-build-debug/CMakeFiles/a2t1.dir
+D:/Hoss/projects/clion/a2t1/cmake-build-debug/CMakeFiles/edit_cache.dir
+D:/Hoss/projects/clion/a2t1/cmake-build-debug/CMakeFiles/rebuild_cache.dir

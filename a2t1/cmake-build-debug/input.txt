@@ -1,0 +1,4 @@
+Sign vs Cosine Functions
+Sigmoid Function
+Tanh function
+Relu function
