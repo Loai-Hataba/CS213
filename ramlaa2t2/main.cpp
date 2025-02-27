@@ -5,87 +5,117 @@
 using namespace std;
 
 template <typename T>
-class Set {
+class Set
+{
 private:
-    vector<T>items;
+    vector<T> items;
 
-    bool contains(T item){
-        for (int i = 0; i < items.size(); i++) {
-            if (items[i] == item) {
+    bool contains(T item)
+    {
+        for (int i = 0; i < items.size(); i++)
+        {
+            if (items[i] == item)
+            {
                 return true;
             }
         }
         return false;
     }
 
-
 public:
     Set() = default;
 
-    void add(T item) {
-        if (!contains(item)) {
+    void add(T item)
+    {
+        if (!contains(item))
+        {
             items.push_back(item);
         }
     }
 
-    void remove(T item) {
-        for (auto it = items.begin(); it != items.end(); it++) {
-            if (*it == item) {
+    void remove(T item)
+    {
+        for (auto it = items.begin(); it != items.end(); it++)
+        {
+            if (*it == item)
+            {
                 items.erase(it);
                 return;
             }
         }
     }
 
-    int getSize(){
+    int getSize()
+    {
         return items.size();
     }
 
-    void isMember(T item){
-        if (contains(item)){
-            cout<<item<<" exists in the set."<<endl;
+    void isMember(T item)
+    {
+        if (contains(item))
+        {
+            cout << item << " exists in the set." << endl;
         }
-        else cout<<item<<" doesn't exist in the set."<<endl;
+        else
+            cout << item << " doesn't exist in the set." << endl;
     }
 
-    T* toArray(){
-        T* array = new T[items.size()];
-        for (int i = 0; i < items.size(); i++) {
+    T *toArray()
+    {
+        T *array = new T[items.size()];
+        for (int i = 0; i < items.size(); i++)
+        {
             array[i] = items[i];
         }
         return array;
     }
 
-    void display(){
-        for (int i = 0; i < items.size(); ++i) {
+    void display()
+    {
+        for (int i = 0; i < items.size(); ++i)
+        {
             cout << items[i] << " ";
         }
-        cout<<endl;
+        cout << endl;
     }
 };
 
-class MyClass {
+class MyClass
+{
 private:
     int val;
 
 public:
     MyClass(int v) : val(v) {}
 
-    bool operator==(const MyClass& other) const {
+    bool operator==(const MyClass &other) const
+    {
         return val == other.val;
     }
 
-    bool operator!=(const MyClass& other) const {
+    bool operator!=(const MyClass &other) const
+    {
         return val != other.val;
     }
 
-    friend ostream& operator<<(ostream& os, MyClass obj) {
+    friend ostream &operator<<(ostream &os, MyClass obj)
+    {
         os << obj.val;
         return os;
     }
 };
 
-int main() {
+int main()
+{
+    Set<string> s;
+    s.add("Hello");
+    s.add("hello");
+    s.add("HELLO");
+    s.add("hELLo");
+    s.add("Hello0");
+    s.add("hello0");
+    s.display();
+    /*
     // Int Set
     Set<int> intSet;
     intSet.add(10);
@@ -127,6 +157,6 @@ int main() {
 
     delete[] arr;
     delete[] stringArr;
-
+    */
     return 0;
 }

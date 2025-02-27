@@ -282,8 +282,9 @@ UltimatePlayer<T>::UltimatePlayer(string name, T symbol) : Player<T>(name, symbo
 template <typename T>
 void UltimatePlayer<T>::getmove(int &x, int &y)
 {
-    cout << "\nEnter x and y (0 to 8) separated by spaces: ";
-    cin >> x >> y;
+    x = getValidIndex("\nEnter x (0 to 8) separated by spaces: ", 0, 8);
+    y = getValidIndex("\nEnter y (0 to 8) separated by spaces: ", 0, 8);
+
     for (int i = 0; i < 9; i += 3)
     {
         for (int j = 0; j < 9; j += 3)

@@ -2,6 +2,7 @@
 #define _MISERE3X3XO_H
 
 #include "BoardGame_Classes.h"
+#include "A2_S20_Task23_20230553_20230231_20230121_Methods.h"
 
 #define YELLOW "\033[33m"
 #define RESET "\033[0m"
@@ -195,6 +196,9 @@ MiserePlayer<T>::MiserePlayer(string name, T symbol) : Player<T>(name, symbol) {
 template <typename T>
 void MiserePlayer<T>::getmove(int &x, int &y)
 {
+    x = getValidIndex("\nEnter X (0 to 2) separated by spaces: ", 0, 2);
+    y = getValidIndex("\nEnter y (0 to 2) separated by spaces: ", 0, 2);
+
     // cout << Misere_temp_moves << " \n";
     if (Misere_temp_moves == 9 || !moves)
     {
@@ -202,8 +206,6 @@ void MiserePlayer<T>::getmove(int &x, int &y)
         y = -1;
         return;
     }
-    cout << "\nPlease enter your move x and y (0 to 2) separated by spaces: ";
-    cin >> x >> y;
 }
 
 template <typename T>

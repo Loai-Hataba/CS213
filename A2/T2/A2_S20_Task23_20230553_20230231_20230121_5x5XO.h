@@ -2,7 +2,7 @@
 #define _5X5XO_H
 
 #include "BoardGame_classes.h"
-#include "A2_S20_Task23_20230553_20230231_20230121_methods.h"
+#include "A2_S20_Task23_20230553_20230231_20230121_Methods.h"
 #include <map>
 void XO5x5();
 void XO5x5GameInfo();
@@ -221,14 +221,14 @@ XO_Player<T>::XO_Player(string name, T symbol) : Player<T>(name, symbol) {}
 template <typename T>
 void XO_Player<T>::getmove(int &x, int &y)
 {
+    x = getValidIndex("\nEnter x  (0 to 5) separated by spaces: ", 0, 5);
+    y = getValidIndex("\nEnter y  (0 to 5) separated by spaces: ", 0, 5);
     if (temp_moves == 24)
     {
         x = -1;
         y = -1;
         return;
     }
-    cout << "\nEnter x and y (0 to 5) separated by spaces: ";
-    cin >> x >> y;
 }
 
 template <typename T>

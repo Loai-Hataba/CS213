@@ -2,6 +2,7 @@
 #define T2_WORDTICTACTOE_H
 
 #include "BoardGame_Classes.h"
+#include "A2_S20_Task23_20230553_20230231_20230121_Methods.h"
 #include <map>
 #include <fstream>
 #include <algorithm>
@@ -157,9 +158,10 @@ WordPlayer<T>::WordPlayer(string name, T symbol) : Player<T>(name, symbol) {}
 template <typename T>
 void WordPlayer<T>::getmove(int &x, int &y)
 {
+    x = getValidIndex("\nEnter x (0 to 5) separated by spaces: ", 0, 3);
+    y = getValidIndex("\nEnter  y (0 to 5) separated by spaces: ", 0, 3);
+
     wordIsRandom = false;
-    cout << "\nPlease enter your move x and y (0 to 2) separated by spaces: ";
-    cin >> x >> y;
     cout << "\nPlease enter the letter: ";
     char letter;
     cin >> letter;

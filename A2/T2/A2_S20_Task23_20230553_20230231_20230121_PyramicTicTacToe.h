@@ -2,6 +2,7 @@
 #define T2_PYRAMICTICTACTOE_H
 
 #include "BoardGame_Classes.h"
+#include "A2_S20_Task23_20230553_20230231_20230121_Methods.h"
 #include <map>
 
 static bool pyramidIsRandom = false;
@@ -169,9 +170,8 @@ void PyramidPlayer<T>::getmove(int &x, int &y)
 {
     pyramidIsRandom = false;
     int n;
-    cout << endl
-         << this->name << " Please enter number of cell: ";
-    cin >> n;
+    n = getValidIndex("\nEnter (1 to 9) separated by spaces: ", 1, 9);
+
     x = makeIndex(n).first;
     y = makeIndex(n).second;
 }

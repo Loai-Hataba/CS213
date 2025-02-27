@@ -12,8 +12,8 @@ int main()
     vec.push_back(8);
     vec.push_back(1);
 
-    cout << "MAX: " << vec.max() << endl;
-    cout << "MIN: " << vec.min() << endl;
+    cout << "MAX: " << vec.max() << el;
+    cout << "MIN: " << vec.min() << el;
 
     vec.sortFN();
 
@@ -22,14 +22,14 @@ int main()
     {
         cout << *it << " ";
     }
-    cout << endl;
+    cout << el;
 
     MyVector<string> s;
     s.push_back("banana");
     s.push_back("apple");
     s.push_back("cherry");
-    cout << "MAX: " << s.max() << endl;
-    cout << "MIN: " << s.min() << endl;
+    cout << "MAX: " << s.max() << el;
+    cout << "MIN: " << s.min() << el;
 
     s.sortFN();
     cout << "SORTED: ";
@@ -37,6 +37,6 @@ int main()
     {
         cout << *it << " ";
     }
-    cout << endl;
+    cout << el;
     return 0;
 }

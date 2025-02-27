@@ -16,7 +16,7 @@ double power(double x, int pow)
 }
 int main()
 {
-    cout << GCD(12, 8) << endl;
-    cout << power(2, 4) << endl;
-    cout << power(2, -4) << endl;
+    cout << GCD(12, 8) << el;
+    cout << power(2, 4) << el;
+    cout << power(2, -4) << el;
 }
